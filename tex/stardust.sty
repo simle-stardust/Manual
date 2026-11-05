@@ -61,8 +61,14 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{titlesec}
 \RequirePackage{emptypage}
-\RequirePackage{xurl}
-\RequirePackage[hidelinks,unicode,pdfusetitle,bookmarksnumbered]{hyperref}
+\RequirePackage{url}
+\RequirePackage[unicode,pdfusetitle,bookmarksnumbered]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=sdnavy,citecolor=sdnavy,
+  urlcolor=sdorange!75!black,filecolor=sdnavy}
+% \www{adres.bez/https}: klikalny, niełamany adres WWW
+% Długie adresy (literatura) łamią się tylko po ukośniku.
+\AtBeginDocument{\def\UrlBreaks{\do\/}\def\UrlBigBreaks{}\Urlmuskip=0mu plus 2mu}
+\newcommand{\www}[1]{\mbox{\href{https://#1}{\nolinkurl{#1}}}}
 \RequirePackage{bookmark}
 
 \renewcommand{\arraystretch}{1.25}

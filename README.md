@@ -76,6 +76,7 @@ python3 .scripts/photos.py
 - Pisz ogólnie: dokument ma działać dla każdej przyszłej misji. Dane konkretnych misji (daty, wyniki, nazwiska) zapisuj tylko w rozdziale „Historia i wnioski” i w wypełnionych formularzach.
 - Podawaj jednostki przez `\SI{5}{m/s}`, `\SI{-60}{\degreeCelsius}`.
 - Każde twierdzenie z zewnętrznego źródła opatrz cytowaniem `\cite{klucz}`.
+- Adresy WWW w tekście i tabelach wstawiaj makrem `\www{domena/ścieżka}` (bez `https://`): adres jest klikalny i nie łamie się. W literaturze używaj `\url{…}` na osobnej linii (`\newline`).
 - Dokument jest **publiczny**. Nie wpisuj danych osobowych (prywatnych telefonów, adresów) ani treści z wewnętrznej dokumentacji koła. Na zdjęciach zamazuj numery telefonów i dane osób postronnych. Wypełnionych formularzy nie dodawaj do repozytorium.
 - Źródłami mogą być tylko materiały publiczne: artykuły, wpisy na blogach, media, strony instytucji.
 

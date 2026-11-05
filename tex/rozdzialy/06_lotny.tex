@@ -3,13 +3,8 @@
 \begin{sekcja}{Zestaw lotny}
 Zestaw lotny (\emph{flight train}) to wszystko, co leci. Rysunek~\ref{fig:zestaw} pokazuje elementy i ich kolejność.
 
-\begin{minipage}[c]{0.7\linewidth}\centering
-\resizebox{\linewidth}{!}{\rysZestaw}
-\end{minipage}\hfill
-\begin{minipage}[c]{0.26\linewidth}\centering
-\includegraphics[width=\linewidth]{rigging_cutter}
-\end{minipage}
-\captionof{figure}{Zestaw lotny z odcinaczem mechanicznym. Z prawej: oryginalny schemat z misji z 26.05.2023, przed odcięciem i po odcięciu; czerwona linia -- linka odcinacza z zapasem, poziome kreski -- poprzeczki~\cite{pac2024}.}\label{fig:zestaw}
+\begin{center}\resizebox{0.92\linewidth}{!}{\rysZestaw}\end{center}
+\captionof{figure}{Zestaw lotny z odcinaczem mechanicznym (stan w czasie wznoszenia). Po zwolnieniu linka odcinacza przesuwa się przez krętlik i gondole ze spadochronem odłączają się od powłoki.}\label{fig:zestaw}
 \end{sekcja}
 
 \begin{sekcja}{Zestaw lotny w powietrzu}
@@ -31,7 +26,7 @@ Linki są napięte, a elementy wiszą w jednej linii. Tak powinien wyglądać ze
 
 \begin{sekcja}{Powłoka}
 \begin{itemize}
-  \item Typ: lateksowa powłoka meteorologiczna (np. Hwoyee, Kaymont, Pawan). Dostawca w Polsce: \url{https://nearspace.pl/}.
+  \item Typ: lateksowa powłoka meteorologiczna (np. Hwoyee, Kaymont, Pawan). Dostawca w Polsce: \www{nearspace.pl}.
   \item Wybierz rozmiar w kalkulatorze (rozdział~\ref{ch:planowanie}). Większa powłoka pęka wyżej, ale potrzebuje więcej gazu.
   \item Gaz nośny: hel. Wodór jest palny i wymaga dodatkowych środków bezpieczeństwa. W zestawie do tankowania jest czujnik wodoru -- na wszelki wypadek.
   \item Przechowuj powłokę w oryginalnym opakowaniu, w ciemnym i chłodnym miejscu.
@@ -81,7 +76,7 @@ gdzie: $m$ -- masa pod spadochronem (gondole, olinowanie, spadochron) [kg]; $g =
 \textbf{Zasady:}
 \begin{enumerate}
   \item Krętlik montuj na krótkiej pętli, którą zakładasz na szyjkę powłoki po tankowaniu. Krętlik zmniejsza skręcanie linek.
-  \item \textbf{Linka odcinacza} biegnie od krętlika przez środek spadochronu do zwalniacza na gondoli. Zapas tej linki (między krętlikiem a spadochronem) daje spadochronowi miejsce na rozwinięcie.
+  \item \textbf{Linka odcinacza} jest przywiązana do wierzchołka spadochronu, przechodzi w górę przez krętlik (jak przez bloczek), a potem biegnie bokiem -- równolegle do spadochronu i obok końców poprzeczek -- w dół do zwalniacza na gondoli. Zapas linki między krętlikiem a spadochronem daje spadochronowi miejsce na rozwinięcie.
   \item \textbf{Długość zapasu} to wciąż element eksperymentu. W 2023 roku zapas 10--15~m zadziałał, ale prawdopodobnie jest za długi. Spróbuj krótszego zapasu i zapisz wynik w rozdziale~\ref{ch:historia}.
   \item \textbf{Poprzeczki} na linkach spadochronu utrzymują stały odstęp między linkami. Olinowanie pracuje wtedy jak szeroka taśma i mniej się skręca. Skuteczność trzeba jeszcze sprawdzić kamerą w locie.
   \item Gondole łącz taśmą z regulatorami. Regulatory pozwalają szybko wyrównać długości na stanowisku.
@@ -95,9 +90,9 @@ gdzie: $m$ -- masa pod spadochronem (gondole, olinowanie, spadochron) [kg]; $g =
 \begin{sekcja}{Odcinacz mechaniczny -- zasada działania}
 Odcinacz kończy lot na komendę albo automatycznie. Odcinacz oddziela gondole ze spadochronem od powłoki.
 
-Zwalniacz serwomechaniczny jest na płycie montażowej na pokrywie gondoli platformy. \textbf{Zwalniacz trzyma linkę, która idzie przez krętlik do balonu} -- nie spadochron. Linki spadochronu są zamocowane na stałe do rogów płyty.
+Zwalniacz serwomechaniczny jest na płycie montażowej na pokrywie gondoli platformy. \textbf{Zwalniacz trzyma koniec linki, która idzie przez krętlik do balonu} -- nie spadochron. Linki spadochronu są zamocowane na stałe do rogów płyty.
 
-W czasie wznoszenia cały ciężar gondoli wisi na lince odcinacza. Gdy serwo zwalnia linkę, balon odlatuje z linką, a gondole ze spadochronem opadają.
+W czasie wznoszenia krętlik pod balonem działa jak bloczek: jeden koniec linki odcinacza jest na wierzchołku spadochronu, drugi w zwalniaczu. Gdy serwo zwalnia linkę, linka przesuwa się przez krętlik, a gondole ze spadochronem odłączają się od powłoki i opadają.
 
 \textbf{Zalety:} cała elektronika jest w jednej gondoli. Odcinacz nie wymaga zasilania pod balonem.
 
@@ -134,8 +129,15 @@ Gondola to pudełko styropianowe w standardowym rozmiarze typu eurobox. Pudełka
 
 \textbf{Platforma i ładunek mają tę samą szerokość pudełka.} Dzięki temu pasy obejmują oba pudełka, a gondola wisi stabilnie.
 
-\dwafoto{produkty_pudelka_styropianowe_rozmiary}{Pudełka styropianowe w różnych pojemnościach (zdjęcie z oferty sklepu na allegro.pl).}
-{produkty_pudelka_styropianowe_wymiary}{Wymiary zewnętrzne i wewnętrzne pudełka; grubość ścianki \SI{3}{cm} (zdjęcie z oferty sklepu na allegro.pl).}
+\begin{minipage}[c]{0.45\linewidth}\centering
+\includegraphics[width=\linewidth]{produkty_pudelka_styropianowe_rozmiary}
+\captionof{figure}{Pudełka styropianowe w różnych pojemnościach (zdjęcie z oferty sklepu na allegro.pl).}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.5\linewidth}
+\textbf{Rozmiar:} wybieraj małe pudełka -- typowo kilka do kilkunastu litrów. Pudełko o wymiarach około $40 \times 30$~cm to już duża gondola. Większe pudełka są za ciężkie i za duże dla limitu masy pakietu.
+
+\textbf{Gdzie kupić:} sklepy internetowe z opakowaniami. Warto też zapytać w sklepach rybnych i mięsnych -- używają takich pudełek na co dzień.
+\end{minipage}
 \end{sekcja}
 
 \begin{sekcja}{Przekrój gondoli}
@@ -180,4 +182,7 @@ Radia są w gondoli platformy, więc anteny nadajników wyprowadź \textbf{po bo
   \item \textbf{Połączenie z platformą:} pasami (pas od płyty montażowej dookoła obu pudełek).
   \item \textbf{Ładunek cięższy niż limit pakietu} (\SI{2}{kg}, rozdział~\ref{ch:prawo}): zawieś go jako osobny pakiet. Pod platformą zamocuj drugą płytę, do niej kawałek linki (np. co najmniej \SI{2}{m} -- do ustalenia) i drugą uprząż (płyta i pasy) wokół pudełka ładunku.
 \end{itemize}
+
+\begin{center}\resizebox{0.7\linewidth}{!}{\rysCiezkiLadunek}\end{center}
+\captionof{figure}{Ładunek cięższy niż limit pakietu zawieszony jako osobny pakiet pod platformą.}
 \end{sekcja}
