@@ -4,6 +4,8 @@ pkgs.mkShell {
   buildInputs = [
     pkgs.pandoc
     pkgs.texlive.combined.scheme-full  # Provides a full LaTeX distribution
+    pkgs.imagemagick
+    pkgs.dejavu_fonts
   ];
 
   shellHook = ''
