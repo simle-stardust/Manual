@@ -4,6 +4,8 @@ Dokumentacja platformy balonów stratosferycznych Stardust NEXT ([Koło Naukowe 
 
 Manual daje niezbędne minimum, aby nowy zespół wyjął sprzęt z szafki i wykonał misję stratosferyczną. Dokument jest przygotowany do druku dwustronnego i bindowania. Zawiera formularze do wypełnienia długopisem i strony na notatki terenowe.
 
+Pierwsze wydanie: Marcin Jasiukowicz, 2026 – bardzo opóźnione, bo misje z 2023 roku czekały na swój manual trzy lata. Ku chwale kolejnym pokoleniom baloniarzy!
+
 **Gotowy PDF:** zakładka *Releases* (wydania) albo artefakt ostatniego przebiegu akcji *Build PDF*.
 
 ## Spis treści
