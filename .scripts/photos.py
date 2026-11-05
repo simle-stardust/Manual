@@ -12,6 +12,8 @@ for f in sorted(SRC.rglob("*")):
     if f.suffix.lower() not in {".jpg", ".jpeg", ".png"}:
         continue
     rel = f.relative_to(SRC)
+    if rel.parts[0] == "logo":  # logotypy kopiowane bez zmian do tex/figures/logo
+        continue
     name = "_".join(rel.with_suffix("").parts)
     im = ImageOps.exif_transpose(Image.open(f))
     keep_png = name in {"rigging_cutter", "SimLE_Stardust_2023"}

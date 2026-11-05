@@ -13,7 +13,7 @@
 \hypersetup{pdftitle={Stardust NEXT – Manual},
   pdfauthor={Koło Naukowe SimLE, Politechnika Gdańska},
   pdfsubject={Dokumentacja misji balonów stratosferycznych}}
-\graphicspath{{figures/}{figures/photos/}{figures/generated/}}
+\graphicspath{{figures/}{figures/photos/}{figures/generated/}{figures/logo/}}
 
 \begin{document}
 
@@ -30,6 +30,8 @@
     \end{scope}
     \node[anchor=south east,font=\sffamily\scriptsize,text=white] at ([xshift=-5mm,yshift=-210mm]current page.north east)
       {Zdjęcie z aparatu analogowego na pokładzie, misja z 26.05.2023};
+    \node[anchor=north east,inner sep=0] at ([xshift=-15mm,yshift=-12mm]current page.north east)
+      {\href{https://www.simle.pl}{\includegraphics[width=38mm,trim=69.6 67.2 69.1 67.2,clip]{SimLE_logo_achromatyczny_bialy}}};
   \end{tikzpicture}
   \vspace*{12mm}
   {\color{white}
@@ -41,15 +43,19 @@
    \vspace{6mm}
    {\Large Od celu misji do raportu po locie\par}}
   \vfill
-  \begin{minipage}[b]{0.6\linewidth}
+  \begin{minipage}[b]{0.5\linewidth}
     \large\color{sdnavy}
     Dokumentacja platformy balonowej\\z odcinaczem mechanicznym\par
     \vspace{6mm}\normalsize\color{sdgray}
     Wersja dokumentu: \wersja\\
-    Data: \datawersji
+    Data: \datawersji\\[3mm]
+    Koło Naukowe SimLE: \href{https://www.simle.pl}{\color{sdnavy}www.simle.pl}
   \end{minipage}\hfill
-  \begin{minipage}[b]{0.3\linewidth}\raggedleft
-    \includegraphics[width=0.85\linewidth]{SimLE_Stardust_2023}
+  \begin{minipage}[b]{0.22\linewidth}\centering
+    \href{https://www.simle.pl}{\includegraphics[width=\linewidth]{SimLE_znak_podstawowy_kadr}}
+  \end{minipage}\hspace{6mm}
+  \begin{minipage}[b]{0.18\linewidth}\raggedleft
+    \includegraphics[width=\linewidth]{SimLE_Stardust_2023}
   \end{minipage}
   \restoregeometry
 \end{titlepage}
@@ -70,6 +76,7 @@ Dokument jest przygotowany do druku dwustronnego i bindowania. Wydrukuj go w ca�
 \toprule
 Wersja dokumentu & \wersja \\
 Data wydania & \datawersji \\
+Koło Naukowe SimLE & \www{www.simle.pl} \\
 Źródło & \www{github.com/simle-stardust/Manual} \\
 Kontakt & \href{mailto:stardust@simle.pl}{\nolinkurl{stardust@simle.pl}} \\
 Licencja & Dokumentacja koła naukowego SimLE, Politechnika Gdańska \\

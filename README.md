@@ -1,6 +1,6 @@
 # Stardust NEXT – Manual
 
-Dokumentacja platformy balonów stratosferycznych Stardust NEXT (Koło Naukowe SimLE, Politechnika Gdańska).
+Dokumentacja platformy balonów stratosferycznych Stardust NEXT ([Koło Naukowe SimLE](https://www.simle.pl), Politechnika Gdańska).
 
 Manual daje niezbędne minimum, aby nowy zespół wyjął sprzęt z szafki i wykonał misję stratosferyczną. Dokument jest przygotowany do druku dwustronnego i bindowania. Zawiera formularze do wypełnienia długopisem i strony na notatki terenowe.
 
@@ -33,7 +33,7 @@ Manual daje niezbędne minimum, aby nowy zespół wyjął sprzęt z szafki i wyk
 | `tex/figures/diagrams.tex` | Rysunki TikZ |
 | `tex/figures/generated/` | Wykresy i tabele z danych (`.scripts/plots.py`) |
 | `tex/figures/photos/` | Zmniejszone zdjęcia (`.scripts/photos.py`) |
-| `assets/` | Oryginalne zdjęcia z misji |
+| `assets/` | Oryginalne zdjęcia z misji; `assets/logo/` – logotypy SimLE (zasady użycia: księga znaku SimLE) |
 | `data/` | Dane z lotów (KML) |
 | `papers/` | Artykuły konferencyjne |
 
