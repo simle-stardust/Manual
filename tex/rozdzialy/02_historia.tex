@@ -30,7 +30,7 @@ Po każdej misji dopisz wiersz do tabeli~\ref{tab:misje} i nowe wnioski do tabel
 \end{sekcja}
 
 \begin{sekcja}{Trasy lotów}
-Rysunek~\ref{fig:mapa} pokazuje trasy lotów z dostępnymi danymi. Przy wietrze z zachodu balon leci na wschód -- w stronę granicy z Rosją (obwód kaliningradzki) i Białorusią. Predykcja trajektorii jest więc warunkiem każdego startu (rozdział~\ref{ch:planowanie}).
+Rysunek~\ref{fig:mapa} pokazuje trasy lotów z dostępnymi danymi. Przy wietrze z zachodu balon leci na wschód -- w stronę granicy z Rosją (obwód królewiecki) i Białorusią. Predykcja trajektorii jest więc warunkiem każdego startu (rozdział~\ref{ch:planowanie}).
 
 \begin{center}\includegraphics[width=0.92\linewidth]{mapa_lotow}\end{center}
 \captionof{figure}{Trasy lotów z lat 2020--2023. Kreskowane obszary: państwa, nad którymi lot i lądowanie są niedopuszczalne.}\label{fig:mapa}
@@ -66,7 +66,7 @@ Odcinacz był w gondoli, nie pod balonem. Powód: zespół nie miał doświadcze
 
 \textbf{Problem:} odcinacz nie zadziałał. Gondola obracała się w locie. Krętlik był tylko na górze olinowania. Na dole linki skręciły się i linka odcinacza nie mogła się zwolnić~\cite{pac2024}.
 
-\textbf{Zabezpieczenie, które zadziałało:} dodatkowe 10--15~m linki. Spadochron miał miejsce na otwarcie mimo skręconych linek. Zestaw wylądował bezpiecznie.
+\textbf{Zabezpieczenie, które zadziałało:} zapas 10--15~m linki odcinacza między krętlikiem a spadochronem. Spadochron miał miejsce na rozwinięcie mimo skręconych linek. Zestaw wylądował bezpiecznie.
 
 \foto[0.7\linewidth]{2020_odzysk_resztki_powloki}{Po lądowaniu: resztki pękniętej powłoki i gondola (20.07.2020).}
 \end{sekcja}
@@ -88,7 +88,8 @@ Stosuj te wnioski w każdej misji.
 \bottomrule\endfoot
 Odcinacz & Każdy lot musi mieć odcinacz. Bez odcinacza balon może dryfować godzinami i wylądować daleko. & 2020\\
 Odcinacz & Testuj odcinacz w warunkach lotu: zimno, obrót gondoli, skręcone linki, pełne obciążenie. Daj drugi, niezależny odcinacz innego typu. & 2023\\
-Olinowanie & Gondola obraca się w locie. Daj krętlik pod balonem i zapas linki 10--15~m pod spadochronem. & 2023\\
+Odcinacz & Drut oporowy musi dostać prąd wystarczający do przecięcia linki. Sprawdź to z docelowym tranzystorem i baterią, wiele razy i w zimnie. & 2023\\
+Olinowanie & Gondola obraca się w locie. Daj krętlik pod balonem i zapas linki odcinacza nad spadochronem. Poprzeczki na linkach mogą ograniczyć skręcanie (do sprawdzenia kamerą w locie). Długość zapasu to wciąż eksperyment: próbuj krótszej i zapisz wynik. & 2023\\
 Gaz & Butla może mieć mniej gazu, niż deklaruje dostawca. Zamów gaz z zapasem. Mierz siłę nośną obciążnikiem. & 2020\\
 Wysokość & Wzór na wysokość z ciśnienia działa tylko do około 10~km. Powyżej używaj GPS. & 2020\\
 Czujniki & Czujnik BME280 nie mierzy poniżej \SI{300}{hPa}. Odrzucaj kody błędów czujników w programie. & 2020\\

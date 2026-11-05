@@ -43,12 +43,24 @@ OBC dodatkowo implementuje te same funkcje bezpieczeństwa, ale niezależnie od 
 Kod i dokumentacja OBC: \url{https://github.com/simle-stardust}.
 \end{sekcja}
 
+\begin{sekcja}{Odbiorniki GPS}
+GPS to podstawa bezpieczeństwa misji. Odbiornik GPS daje:
+\begin{itemize}
+  \item synchronizację czasu (znaczniki czasu danych, harmonogram odcinacza),
+  \item pozycję do śledzenia i odzyskania,
+  \item wysokość i pozycję dla automatycznego odcinacza.
+\end{itemize}
+Dlatego platforma ma \textbf{dwa niezależne odbiorniki GPS} -- w HABduino i w OBC.
+
+\begin{uwaga}Przed wyborem odbiornika \textbf{bezwzględnie} sprawdź w karcie katalogowej, czy działa powyżej \SI{10}{km} i do jakiej wysokości oraz przy jakiej prędkości. Wiele odbiorników z ograniczeniami eksportowymi (COCOM) przestaje działać powyżej \SI{18}{km} albo powyżej określonej prędkości. Moduły u-blox działają do około \SI{50}{km} po włączeniu trybu \emph{airborne}.\end{uwaga}
+\end{sekcja}
+
 \begin{sekcja}{Konfiguracja trackera}
 \begin{enumerate}
   \item Ustaw znak wywoławczy krótkofalowca (\emph{callsign}).
   \item Ustaw SSID APRS (zwyczajowo \texttt{-11} dla balonów).
   \item Ustaw identyfikator ładunku RTTY (\emph{payload ID}), taki sam jak w SondeHub.
-  \item Ustaw moduł GPS w tryb \emph{airborne} (działa powyżej \SI{18}{km}; moduły u-blox do około \SI{50}{km}).
+  \item Ustaw moduł GPS w tryb \emph{airborne} (patrz sekcja „Odbiorniki GPS”).
   \item Wgraj program. Zapisz wersję (numer commita albo wydania) w karcie misji.
 \end{enumerate}
 
@@ -57,8 +69,8 @@ Kod i dokumentacja OBC: \url{https://github.com/simle-stardust}.
 
 \begin{sekcja}{Anteny i test zasięgu}
 \begin{itemize}
-  \item Antenę nadajnika montuj pod gondolą, skierowaną w dół.
-  \item Antenę GPS montuj na górze gondoli, z widokiem na niebo, z dala od baterii i metalu.
+  \item Anteny nadajników wyprowadź po bokach gondoli platformy (rozdział~\ref{ch:lotny}). Metal nie może wpływać na anteny APRS i RTTY.
+  \item Antenę GPS montuj na górze gondoli, z widokiem na niebo, niczym nie przykrytą (rozdział~\ref{ch:montaz}).
   \item Po montażu sprawdź złącza i przewody anten.
 \end{itemize}
 
@@ -95,5 +107,5 @@ W stratosferze powietrze ma do \SI{-60}{\degreeCelsius}, ale jest bardzo rzadkie
   \item nie dodawaj izolacji ani grzałek bez bilansu cieplnego dla startu (zimno) i dla stratosfery (brak chłodzenia).
 \end{itemize}
 
-\begin{wskazowka}Do testów w niskiej temperaturze zapytaj biologów na Wydziale Chemicznym o zamrażarkę laboratoryjną (\SI{-80}{\degreeCelsius}).\end{wskazowka}
+Testy w niskiej temperaturze: według sekcji~\ref{sec:test-zimno}.
 \end{sekcja}

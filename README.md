@@ -128,14 +128,14 @@ Nie używaj środowiska `figure` (obiekty pływające psują bloki niełamane).
 
 ### Tabele
 
-Używaj `tabularx` o szerokości `\linewidth`. Typy kolumn: `L` – tekst do lewej, rozciągany; `Y` – tekst wyśrodkowany, rozciągany; `P{30mm}` – stała szerokość; `C{8mm}` – stała szerokość, wyśrodkowany. Wiersze z pliku generowanego wstawiaj makrem `\wiersze{plik.tex}`. Szerokie tabele umieszczaj w środowisku `landscape`.
+Używaj `tabularx` o szerokości `\linewidth`. Tabela nie może przechodzić na kolejną stronę z nagłówkiem oddzielonym od treści: krótkie tabele umieszczaj w środowisku `sekcja`, a długie listy (np. wykaz materiałów) dziel tak, aby każda tabela z tytułem mieściła się na jednej stronie. Typy kolumn: `L` – tekst do lewej, rozciągany; `Y` – tekst wyśrodkowany, rozciągany; `P{30mm}` – stała szerokość; `C{8mm}` – stała szerokość, wyśrodkowany. Wiersze z pliku generowanego wstawiaj makrem `\wiersze{plik.tex}`. Szerokie tabele umieszczaj w środowisku `landscape`.
 
 ### Formularze
 
 Każdy formularz zaczyna się na nowej stronie i **musi zmieścić się na jednej stronie**:
 
 ```latex
-\formularz{F15}{Tytuł formularza}{kiedy, np. T$-$1 dzień}
+\formularz[kierownik startu]{F15}{Tytuł formularza}{kiedy, np. T$-$1 dzień}
 \begin{procedura}
 \etap{Nazwa etapu}
 \krok{Wejdź na aprs.fi i sprawdź pozycję znaku.}{\pole[2cm]{godz.:}}
@@ -144,6 +144,8 @@ Każdy formularz zaczyna się na nowej stronie i **musi zmieścić się na jedne
 \komentarze[3]
 \podpisy
 ```
+
+Argument w nawiasie kwadratowym to rola, która prowadzi formularz. Pola tabel w formularzach twórz makrem `\etykieta{Opis pola}` (mała etykieta, pod nią miejsce na wpis); wysokość pola podaj opcjonalnie: `\etykieta[20mm]{…}`. Szerokie formularze (np. dzienniki) umieszczaj w środowisku `landscape`.
 
 Po dodaniu formularza dopisz go do tabeli na początku dodatku A. Po kompilacji sprawdź w spisie treści, że kolejny formularz zaczyna się na następnej stronie.
 

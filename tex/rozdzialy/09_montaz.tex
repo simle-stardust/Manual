@@ -6,37 +6,48 @@ Montuj zestaw według tej kolejności. Każdy podzespół ma osobę odpowiedzial
 Wkładka to płyta montażowa na dnie pudełka. Do wkładki mocujesz całą elektronikę.
 \begin{enumerate}
   \item Wytnij płytę z lekkiego i wytrzymałego materiału: plexi, sklejka albo włókno węglowe. Wymiar: wewnętrzne dno pudełka.
-  \item Rozplanuj elementy tak, aby środek masy był na środku płyty.
-  \item Wywierć otwory na śruby i opaski zaciskowe. Przyklej rzepy pod lekkie elementy.
+  \item Rozplanuj elementy tak, aby środek masy był na środku płyty. Baterię umieść w środku.
+  \item Wywierć otwory na śruby i opaski zaciskowe. Rzep stosuj tylko pod lekkie elementy (pojedyncze czujniki).
   \item Zamocuj płytę w pudełku (klej do styropianu albo śruby z podkładkami przez dno).
+  \item Przywiąż do wkładki sznurek bezpieczeństwa. Drugi koniec połączysz z olinowaniem.
 \end{enumerate}
 
-\begin{uwaga}Uderzenie przy lądowaniu jest bardzo silne. Każdy element musi być przymocowany do wkładki. Karta pamięci musi być zabezpieczona przed wypadnięciem (taśma na gnieździe). Utrata danych to utrata całej misji.\end{uwaga}
+\begin{uwaga}Uderzenie przy lądowaniu jest bardzo silne. Każdy element musi być przymocowany do wkładki. Kartę pamięci zabezpiecz przed wypadnięciem (taśma na gnieździe). Utrata danych to utrata całej misji.\end{uwaga}
 \end{sekcja}
 
 \begin{sekcja}{Gondola platformy}
 \begin{enumerate}
   \item Zważ puste pudełko.
-  \item Zamocuj do wkładki: HABduino, OBC, baterie, SPOT, znaczniki Bluetooth.
-  \item Poprowadź anteny nadajników przez ścianę albo dno pudełka. Anteny skierowane w dół.
-  \item Zamocuj antenę GPS pod pokrywą albo na pokrywie, z dala od baterii i metalu.
-  \item Zamocuj płytę montażową na pokrywie. Zamocuj zwalniacz serwomechaniczny. Poprowadź przewód serwa do środka.
+  \item Zaplanuj otwory na anteny i przewody. Dwa razy zmierz, raz wytnij.
+  \item Zamocuj do wkładki: HABduino, OBC, baterię (w środku), SPOT, znaczniki Bluetooth.
+  \item Wyprowadź anteny nadajników przez boczne ściany pudełka.
+  \item Zamocuj płytę montażową (niemetalową) na pokrywie. Zamocuj zwalniacz serwomechaniczny na środku płyty. Poprowadź przewód serwa do środka.
+  \item Zamocuj antenę GPS na pokrywie, obok płyty montażowej (patrz niżej).
   \item Podłącz baterie. Sprawdź diody statusu.
   \item Sprawdź odbiór telemetrii z odległości co najmniej \SI{100}{m}.
-  \item Sprawdź zwolnienie odcinacza na komendę.
+  \item Sprawdź zwolnienie odcinacza tą samą drogą co w locie (komenda albo autotest).
   \item Sprawdź równowagę: zawieś gondolę na linkach. Gondola wisi poziomo.
   \item Wyłącz zasilanie. Zważ gondolę. Wpisz masę do budżetu masy.
 \end{enumerate}
 \end{sekcja}
 
+\begin{sekcja}{Antena GPS}
+\begin{itemize}
+  \item Antena GPS nie może być przykryta metalem.
+  \item Większość anten GPS na magnes jest konstruowana do pracy na metalowej powierzchni. Kawałek taśmy metalowej albo mała metalowa płytka \textbf{pod} anteną może poprawić odbiór (w dotychczasowych misjach nie było problemu bez niej).
+  \item Metal pod anteną GPS nie może wpływać na anteny nadajników APRS i RTTY -- trzymaj go z dala od nich.
+\end{itemize}
+\end{sekcja}
+
 \begin{sekcja}{Olinowanie}
 \begin{enumerate}
-  \item Przytnij taśmy na długość. Zamontuj regulatory.
-  \item Połącz gondolę ładunku z gondolą platformy taśmą (dookoła obu pudełek, na krzyż).
-  \item Przygotuj krótką pętlę do szyjki powłoki z krętlikiem.
-  \item Przywiąż spadochron pod krętlikiem.
-  \item Przygotuj zapas linki 10--15~m między spadochronem a gondolą. Zwiń zapas na kartonie albo rurce, aby się nie splątał.
-  \item Przygotuj linkę odcinacza: od krętlika do zwalniacza w gondoli.
+  \item Przytnij pas na długość. Zamontuj regulatory. Pas biegnie od płyty montażowej dookoła obu pudełek.
+  \item Przywiąż linki spadochronu do rogów płyty montażowej.
+  \item Zamocuj poprzeczki na linkach spadochronu.
+  \item Przygotuj krótką pętlę z krętlikiem do szyjki powłoki. Nie zakładaj jej jeszcze -- pętla czeka na koniec tankowania.
+  \item Przywiąż linkę odcinacza do krętlika. Przeprowadź ją przez środek spadochronu do zwalniacza. Odmierz zapas linki (długość z karty misji).
+  \item Zwiń zapas linki na kartonie albo rurce, aby się nie splątał.
+  \item Połącz sznurek bezpieczeństwa wkładki z olinowaniem.
   \item Zważ olinowanie ze spadochronem. Wpisz masę do budżetu masy.
 \end{enumerate}
 \end{sekcja}
@@ -53,24 +64,25 @@ Wkładka to płyta montażowa na dnie pudełka. Do wkładki mocujesz całą elek
 
 \begin{sekcja}{Na stanowisku startowym}
 \begin{enumerate}
+  \item Ustaw całe stanowisko w osi wiatru.
   \item Rozłóż podłoże: plandeka, koc, folia dolna. Dociśnij rogi skrzynkami.
-  \item Rozłóż zestaw lotny w linii, z wiatrem: krętlik, spadochron, zapas linki, gondole.
+  \item Rozłóż zestaw lotny w linii, z wiatrem: krętlik z pętlą przy powłoce, linka odcinacza, spadochron, gondole.
   \item Włącz elektronikę platformy i ładunku. Sprawdź pozycję GPS i odbiór telemetrii na mapach.
   \item Zatankuj powłokę (rozdział~\ref{ch:naziemny}).
-  \item Zamknij szyjkę. Przywiąż pętlę z krętlikiem.
+  \item Zamknij szyjkę z pętlą z krętlikiem (sekcja~\ref{sec:szyjka}).
   \item Zaczep linkę odcinacza o zwalniacz. Uzbrój odcinacz.
   \item Sprawdź węzły. Zabezpiecz je taśmą.
-  \item Zamknij gondole. Owiń je taśmą. Napnij pasy.
+  \item Zamknij gondole. Owiń je taśmą. Napnij pas.
   \item Wykonaj formularz F11 „Start”.
 \end{enumerate}
 \end{sekcja}
 
 \begin{sekcja}{Start}
 \begin{enumerate}
-  \item Pomocnicy trzymają powłokę folią górną. Jedna osoba trzyma gondolę.
-  \item Kierownik startu sprawdza niebo (samoloty) i odlicza.
-  \item Na komendę pomocnicy zdejmują folię i puszczają powłokę. Osoba z gondolą idzie pod wiatr, aż linki się naprężą.
-  \item Osoba z gondolą puszcza gondolę, gdy gondola jest pod balonem. Nie rzucaj gondoli.
+  \item Osoba z gondolą ustawia się pod wiatr: po zawietrznej stronie stanowiska, twarzą do wiatru i do balonu, z linką rozciągniętą między gondolą a balonem.
+  \item Pomocnicy trzymają powłokę folią górną. Kierownik startu sprawdza niebo (samoloty) i odlicza.
+  \item Na komendę pomocnicy zdejmują folię i puszczają balon. Balon wznosi się i dryfuje nad gondolę.
+  \item Gdy balon jest nad gondolą i się uspokoi, kierownik startu daje komendę. Osoba z gondolą puszcza gondolę. Nie rzucaj gondoli.
   \item Zapisz czas startu.
 \end{enumerate}
 

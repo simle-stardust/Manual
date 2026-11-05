@@ -37,39 +37,47 @@ F14 & Po misji & do T+7 dni\\
 \end{blok}
 
 % ===========================================================================
-\formularz{F0}{Karta misji}{cały projekt}
-\renewcommand{\arraystretch}{1.5}
+\formularz[kierownik misji]{F0}{Karta misji (1/2)}{cały projekt}
+\renewcommand{\arraystretch}{1.0}
 \small
-\begin{tabularx}{\linewidth}{@{}|P{58mm}|L|@{}}\hline
-\multicolumn{2}{|l|}{\cellcolor{sdlight}\textbf{Misja}}\\\hline
-Nazwa misji, cel & \\\hline
-Kierownik misji (telefon) & \\\hline
-\multicolumn{2}{|l|}{\cellcolor{sdlight}\textbf{Terminy i miejsca (zgodne ze zgłoszeniem PAŻP)}}\\\hline
-Scenariusz A: miejsce, współrzędne, data, godz. (UTC) & \\\hline
-Scenariusz B: miejsce, współrzędne, data, godz. (UTC) & \\\hline
-Numery zgłoszeń PAŻP / NOTAM & \\\hline
-Telefon do służby ruchu lotniczego & \\\hline
-Warunki zgody (np. telefon 15 min przed startem) & \\\hline
-\multicolumn{2}{|l|}{\cellcolor{sdlight}\textbf{Łączność i lokalizacja}}\\\hline
-Znak wywoławczy i SSID APRS & \\\hline
-Właściciel znaku, data zgody na użycie & \\\hline
-Payload ID (RTTY), częstotliwości & \\\hline
-Identyfikator SPOT, nazwy znaczników Bluetooth & \\\hline
-Wersja kodu HABduino (release / commit) & \\\hline
-Wersja kodu OBC (release / commit) & \\\hline
-Wersja kodu ładunku (release / commit) & \\\hline
-\multicolumn{2}{|l|}{\cellcolor{sdlight}\textbf{Zestaw lotny}}\\\hline
-Masa ładunku (bez powłoki) [g] / klasa balonu & \\\hline
-Powłoka (model, masa) / spadochron (kolor, średnica) & \\\hline
-Prędkość wznoszenia [m/s] / siła nośna szyjki [g] & \\\hline
-Objętość gazu [m³] / zamówione butle (ilość, czystość) & \\\hline
-Przewidywana wysokość pęknięcia [m] / czas lotu [min] & \\\hline
+\begin{tabularx}{\linewidth}{@{}|L|L|@{}}\hline
+\multicolumn{2}{|l|}{\cellcolor{sdlight}\rule{0pt}{4mm}\textbf{Misja}}\\\hline
+\etykieta{Nazwa misji} & \etykieta{Kierownik misji (telefon)}\\\hline
+\multicolumn{2}{|p{\dimexpr\linewidth-2\tabcolsep\relax}|}{\etykieta[40mm]{Cel misji (mission statement): co chcemy osiągnąć, po czym poznamy sukces}}\\\hline
+\multicolumn{2}{|p{\dimexpr\linewidth-2\tabcolsep\relax}|}{\etykieta[18mm]{Ładunki badawcze (nazwa, zespół, opiekun)}}\\\hline
+\multicolumn{2}{|l|}{\cellcolor{sdlight}\rule{0pt}{4mm}\textbf{Terminy i miejsca (zgodne ze zgłoszeniem PAŻP)}}\\\hline
+\etykieta[11mm]{Scenariusz A: miejsce, współrzędne} & \etykieta[11mm]{Scenariusz A: data, godz. (UTC), termin zapasowy}\\\hline
+\etykieta[11mm]{Scenariusz B: miejsce, współrzędne} & \etykieta[11mm]{Scenariusz B: data, godz. (UTC), termin zapasowy}\\\hline
+\etykieta{Numery zgłoszeń PAŻP} & \etykieta{NOTAM (numer, sprawdzony w AIS: data)}\\\hline
+\etykieta{Telefon do służby ruchu lotniczego} & \etykieta{Warunki zgody (np. telefon 15 min przed startem)}\\\hline
+\etykieta{Ubezpieczenie (nr polisy)} & \etykieta{Zgoda właściciela terenu A / B}\\\hline
+\end{tabularx}
+\normalsize
+\podpisy
+
+\formularz[kierownik misji]{F0}{Karta misji (2/2)}{cały projekt}
+\renewcommand{\arraystretch}{1.0}
+\small
+\begin{tabularx}{\linewidth}{@{}|L|L|@{}}\hline
+\multicolumn{2}{|l|}{\cellcolor{sdlight}\rule{0pt}{4mm}\textbf{Łączność i lokalizacja}}\\\hline
+\etykieta{Znak wywoławczy i SSID APRS} & \etykieta{Właściciel znaku, data zgody na użycie}\\\hline
+\etykieta{Payload ID (RTTY), częstotliwości} & \etykieta{Kanały PMR: główny / zapasowy}\\\hline
+\etykieta{Identyfikator SPOT} & \etykieta{Nazwy znaczników Bluetooth (Apple / Google)}\\\hline
+\etykieta{Wersja kodu HABduino (release / commit)} & \etykieta{Wersja kodu OBC (release / commit)}\\\hline
+\etykieta{Wersja kodu ładunku (release / commit)} & \etykieta{Znane błędy i procedury obejścia}\\\hline
+\multicolumn{2}{|l|}{\cellcolor{sdlight}\rule{0pt}{4mm}\textbf{Zestaw lotny}}\\\hline
+\etykieta{Masa ładunku bez powłoki [g] / klasa balonu} & \etykieta{Masa pod spadochronem [g]}\\\hline
+\etykieta{Powłoka (model, masa)} & \etykieta{Spadochron (kolor, średnica, $C_d$, prędkość opadania)}\\\hline
+\etykieta{Prędkość wznoszenia [m/s]} & \etykieta{Siła nośna szyjki = masa obciążnika [g]}\\\hline
+\etykieta{Objętość gazu [m³]} & \etykieta{Butle: ilość, pojemność, czystość, miejsce odbioru}\\\hline
+\etykieta{Przewidywana wysokość pęknięcia [m]} & \etykieta{Przewidywany czas lotu [min]}\\\hline
+\etykieta{Długość zapasu linki odcinacza [m]} & \etykieta{Progi odcinacza (czas, wysokość, obszar)}\\\hline
 \end{tabularx}
 \normalsize
 \podpisy
 
 % ===========================================================================
-\formularz{F1}{Role w zespole}{T$-$16 tyg.}
+\formularz[kierownik misji]{F1}{Role w zespole}{T$-$16 tyg.}
 Jedna osoba może mieć kilka ról, z wyjątkiem: kierowca nie obsługuje śledzenia; fotograf nie ma innych zadań przy starcie; kierownik startu nie tankuje.
 
 \renewcommand{\arraystretch}{1.55}
@@ -77,7 +85,7 @@ Jedna osoba może mieć kilka ról, z wyjątkiem: kierowca nie obsługuje śledz
 \begin{tabularx}{\linewidth}{@{}|P{11mm}|P{48mm}|L|P{30mm}|@{}}\hline
 \textbf{Kod} & \textbf{Rola i główne zadania} & \textbf{Imię i nazwisko} & \textbf{Telefon}\\\hline
 KM & Kierownik misji: decyzje „leci / nie leci”, odpowiedzialność za całość & & \\\hline
-KS & Kierownik startu: komendy i porządek na stanowisku & & \\\hline
+KS & Kierownik startu: komendy na stanowisku, prowadzi formularze F9--F11 & & \\\hline
 FL & Formalności i łączność z PAŻP, właściciel terenu & & \\\hline
 OT & Operator tankowania: butla, reduktor, szyjka & & \\\hline
 PM & Pomocnicy (2--4 os.): folia, powłoka, start & & \\\hline
@@ -90,7 +98,7 @@ LG & Logistyka i zakupy: gaz, materiały, transport & & \\\hline
 BZ & Bezpieczeństwo: butla, pierwsza pomoc, widzowie & & \\\hline
 \end{tabularx}
 \normalsize
-\komentarze[3]
+\komentarze[2]
 \podpisy
 
 % ---------------------------------------------------------------- RACI
@@ -137,7 +145,7 @@ Raport z misji, wnioski, aktualizacja manuala & A & C & C & C & & R & R & C & & 
 \end{landscape}
 
 % ===========================================================================
-\formularz{F2}{Planowanie misji}{T$-$16 do T$-$4 tyg.}
+\formularz[kierownik misji]{F2}{Planowanie misji}{T$-$16 do T$-$4 tyg.}
 \begin{procedura}
 \etap{Cel i ładunek}
 \krok{Zapisz cel misji i wymagania ładunku w karcie misji (F0).}{}
@@ -158,7 +166,7 @@ Raport z misji, wnioski, aktualizacja manuala & A & C & C & C & & R & R & C & & 
 \podpisy
 
 % ===========================================================================
-\formularz{F3}{Formalności}{T$-$4 do T$-$2 tyg.}
+\formularz[formalności (FL)]{F3}{Formalności}{T$-$4 do T$-$2 tyg.}
 \begin{procedura}
 \etap{Zgłoszenie do PAŻP}
 \krok{Wejdź na pansa.pl (ASM1, formularze zgłoszeniowe) i pobierz aktualny formularz sondowania atmosfery.}{}
@@ -178,35 +186,32 @@ Raport z misji, wnioski, aktualizacja manuala & A & C & C & C & & R & R & C & & 
 \podpisy
 
 % ===========================================================================
-\formularz{F4}{Dziennik predykcji}{od T$-$7 dni}
-Codziennie wejdź na \url{https://predict.sondehub.org/} i wpisz parametry z karty misji. Zapisz wynik dla każdego scenariusza. Decyzja: \textbf{T} -- start możliwy, \textbf{N} -- start niemożliwy, \textbf{?} -- obserwuj.
-
-\renewcommand{\arraystretch}{1.85}
+\clearpage
+\begin{landscape}
+\formularz[operator śledzenia]{F4}{Dziennik predykcji}{od T$-$7 dni}
+\vspace{-2mm}
+\noindent Codziennie wejdź na \url{https://predict.sondehub.org/} i wpisz parametry z karty misji. Zapisz wynik dla każdego scenariusza. Decyzja: \textbf{T} -- start możliwy, \textbf{N} -- niemożliwy, \textbf{?} -- obserwuj.\par\smallskip
+\renewcommand{\arraystretch}{1.4}
 \footnotesize
-\begin{tabularx}{\linewidth}{@{}|P{13mm}|P{8mm}|P{11mm}|P{11mm}|P{11mm}|P{20mm}|P{12mm}|P{14mm}|L|P{7mm}|@{}}\hline
-\rowcolor{sdlight}\textbf{Data} & \textbf{Scen.} & \textbf{Godz. startu} & \textbf{Wzn. [m/s]} & \textbf{Pękn. [km]} & \textbf{Lądowanie (wsp.)} & \textbf{Odl. [km]} & \textbf{Wiatr przy ziemi} & \textbf{Uwagi (teren, pogoda, chmury)} & \textbf{T/N}\\\hline
- & A & & & & & & & & \\\hline
- & B & & & & & & & & \\\hline
- & A & & & & & & & & \\\hline
- & B & & & & & & & & \\\hline
- & A & & & & & & & & \\\hline
- & B & & & & & & & & \\\hline
- & A & & & & & & & & \\\hline
- & B & & & & & & & & \\\hline
- & A & & & & & & & & \\\hline
- & B & & & & & & & & \\\hline
- & A & & & & & & & & \\\hline
- & B & & & & & & & & \\\hline
- & A & & & & & & & & \\\hline
- & B & & & & & & & & \\\hline
- & A & & & & & & & & \\\hline
- & B & & & & & & & & \\\hline
+\begin{tabularx}{\linewidth}{@{}|P{16mm}|P{8mm}|P{14mm}|P{12mm}|P{12mm}|P{30mm}|P{12mm}|P{20mm}|P{22mm}|L|P{8mm}|@{}}\hline
+\rowcolor{sdlight}\textbf{Data} & \textbf{Scen.} & \textbf{Godz. startu} & \textbf{Wzn. [m/s]} & \textbf{Pękn. [km]} & \textbf{Lądowanie (współrzędne, miejscowość)} & \textbf{Odl. [km]} & \textbf{Wiatr przy ziemi} & \textbf{Strefy / NOTAM na trasie} & \textbf{Uwagi (teren, pogoda, chmury)} & \textbf{T/N}\\\hline
+ & A & & & & & & & & & \\\hline
+ & B & & & & & & & & & \\\hline
+ & A & & & & & & & & & \\\hline
+ & B & & & & & & & & & \\\hline
+ & A & & & & & & & & & \\\hline
+ & B & & & & & & & & & \\\hline
+ & A & & & & & & & & & \\\hline
+ & B & & & & & & & & & \\\hline
+ & A & & & & & & & & & \\\hline
+ & B & & & & & & & & & \\\hline
 \end{tabularx}
 \normalsize
 \podpisy
+\end{landscape}
 
 % ===========================================================================
-\formularz{F5}{Raport z testów}{przed FRR}
+\formularz[operator platformy, opiekun ładunku]{F5}{Raport z testów}{przed FRR}
 Wykonaj każdy test dla platformy i dla każdego ładunku (rozdział~\ref{ch:planowanie}). Zapisz wynik. Test niezaliczony powtórz po naprawie w nowym wierszu.
 
 \renewcommand{\arraystretch}{2.0}
@@ -214,24 +219,22 @@ Wykonaj każdy test dla platformy i dla każdego ładunku (rozdział~\ref{ch:pla
 \begin{tabularx}{\linewidth}{@{}|P{30mm}|P{18mm}|P{14mm}|L|P{12mm}|P{16mm}|@{}}\hline
 \rowcolor{sdlight}\textbf{Test} & \textbf{Obiekt} & \textbf{Data} & \textbf{Wynik / pomiar} & \textbf{OK?} & \textbf{Podpis}\\\hline
 Funkcjonalny & & & & & \\\hline
-W zimnie (czas, temp.) & & & & & \\\hline
+W zimnie (metoda, temp., czas) & & & & & \\\hline
 Zasięg radia ($\geq$ 100 m) & & & & & \\\hline
-Odcinacz główny (obciążenie, skręt) & & & & & \\\hline
-Odcinacz zapasowy & & & & & \\\hline
+Odcinacz główny (obciążenie, skręt, autotest) & & & & & \\\hline
+Odcinacz zapasowy (tranzystor, prąd) & & & & & \\\hline
 Czas pracy na bateriach & & & & & \\\hline
 Upadek z 1 m & & & & & \\\hline
 Równowaga gondoli & & & & & \\\hline
 Próba generalna & & & & & \\\hline
  & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
 \end{tabularx}
 \normalsize
-\komentarze[3]
+\komentarze[2]
 \podpisy
 
 % ===========================================================================
-\formularz{F6}{Przegląd gotowości do startu}{T$-$7 do T$-$3 dni}
+\formularz[kierownik misji]{F6}{Przegląd gotowości do startu}{T$-$7 do T$-$3 dni}
 Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza „nie leci”.
 \begin{procedura}
 \etap{Formalności}
@@ -254,7 +257,7 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \podpisy
 
 % ===========================================================================
-\formularz{F7}{Konfiguracja trackera i serwisów}{najpóźniej T$-$2 dni}
+\formularz[operator platformy]{F7}{Konfiguracja trackera i serwisów}{najpóźniej T$-$2 dni}
 \begin{procedura}
 \etap{Tracker}
 \krok{Wgraj program lotny na HABduino. Zapisz wersję w F0.}{\pole[2cm]{wersja:}}
@@ -267,24 +270,26 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \krok{Wejdź na amateur.sondehub.org i sprawdź pakiety RTTY.}{\pole[2cm]{godz.:}}
 \krok{Wejdź na stronę SPOT i sprawdź pozycję urządzenia.}{}
 \krok{Otwórz aplikacje Apple i Google. Sprawdź pozycję obu znaczników.}{}
+\krok{Uruchom stacje naziemne (horus-gui / dl-fldigi, Direwolf). Sprawdź, czy ich pakiety trafiają do SondeHub i aprs.fi.}{}
 \krok{Wyślij zespołowi linki do śledzenia.}{}
 \end{procedura}
 \komentarze[3]
 \podpisy
 
 % ===========================================================================
-\formularz{F8}{Weryfikacja i logistyka}{T$-$1 dzień}
+\formularz[kierownik misji]{F8}{Weryfikacja i logistyka}{T$-$1 dzień}
 \begin{procedura}
 \etap{Pogoda i decyzja}
 \krok{Wejdź na predict.sondehub.org i wykonaj predykcję dla A i B. Wpisz do F4.}{}
 \krok{Sprawdź prognozę wiatru przy ziemi, opadów i burz.}{\pole[2cm]{wiatr:}}
+\krok{Wejdź na amc.pansa.pl (AUP na jutro) i ais.pansa.pl (NOTAM). Sprawdź strefy na trasie i NOTAM misji.}{\pole[2cm]{NOTAM:}}
 \krok{Kierownik misji wybiera scenariusz albo odwołuje lot.}{\pole[2cm]{scen.:}}
 \etap{Sprzęt}
 \krok{Sprawdź, czy tracker nadal jest widoczny na aprs.fi i SondeHub.}{}
-\krok{Naładuj telefony, laptopy, powerbanki, radiotelefon.}{}
+\krok{Naładuj telefony, laptopy, powerbanki, radiotelefony (APRS i PMR).}{}
 \krok{Włóż nowe baterie litowe (albo przygotuj je do włożenia na stanowisku).}{}
 \krok{Spakuj sprzęt według wykazu materiałów. Zaznacz kolumnę „OK”.}{}
-\krok{Odbierz gaz. Zabezpiecz butle w samochodzie.}{\pole[2cm]{bar:}}
+\krok{Odbierz gaz albo potwierdź odbiór na miejscu startu.}{\pole[2cm]{bar:}}
 \etap{Logistyka}
 \krok{Potwierdź z zespołem godzinę i miejsce zbiórki.}{\pole[2cm]{godz.:}}
 \krok{Wydrukuj formularze F9--F14 i weź podkładki i długopisy.}{}
@@ -293,11 +298,15 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \podpisy
 
 % ===========================================================================
-\formularz{F9}{Stanowisko startowe}{T0}
+\formularz[kierownik startu]{F9}{Stanowisko startowe}{T0}
 \begin{procedura}
+\etap{Dokumentacja}
+\krok{Fotograf: zaczyna dokumentację -- zespół, sprzęt, otwarte gondole, stanowisko. Zdjęcia przez cały dzień.}{}
 \etap{Teren}
 \krok{Sprawdź teren: brak drzew, linii energetycznych, przeszkód w kierunku wiatru.}{}
 \krok{Sprawdź aktualną predykcję dla wybranego scenariusza.}{\pole[2cm]{lądow.:}}
+\krok{Wejdź na amc.pansa.pl (AUP/UUP) i ais.pansa.pl (NOTAM). Sprawdź strefy aktywne dziś.}{}
+\krok{Ustaw stanowisko w osi wiatru. Rozdaj radiotelefony PMR.}{\pole[2cm]{kanał:}}
 \krok{Wyznacz strefę dla widzów (BZ).}{}
 \etap{Podłoże}
 \krok{Rozłóż plandekę. Dociśnij rogi skrzynkami.}{}
@@ -309,46 +318,46 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \krok{Rozłóż olinowanie w linii, z wiatrem.}{}
 \krok{Włącz elektronikę platformy. Sprawdź GPS i telemetrię na mapach.}{\pole[2cm]{godz.:}}
 \krok{Włącz ładunek (OŁ).}{}
-\krok{Fotograf: zdjęcia otwartych gondol i stanowiska.}{}
 \end{procedura}
 \komentarze[3]
 \podpisy
 
 % ===========================================================================
-\formularz{F10}{Tankowanie}{T0}
+\formularz[operator tankowania]{F10}{Tankowanie}{T0}
 \begin{procedura}
 \etap{Przygotowanie}
 \krok{Wszyscy przy powłoce zakładają rękawiczki.}{}
 \krok{Przykręć reduktor do butli. Pokrętło reduktora zamknięte.}{}
-\krok{Otwórz zawór butli. Odczytaj ciśnienie początkowe $p_1$.}{\pole[2cm]{$p_1$ [bar]:}}
-\krok{Zważ obciążnik (masa = siła nośna szyjki z F0).}{\pole[2cm]{[g]:}}
+\krok{Otwórz zawór butli. Odczytaj $p_1$ z manometru wysokiego ciśnienia (ciśnienie w butli).}{\pole[2cm]{$p_1$ [bar]:}}
+\krok{Zważ obciążnik wagą bagażową (masa = siła nośna szyjki z F0).}{\pole[2cm]{[g]:}}
 \krok{Wyjmij powłokę na folię dolną. Włóż rurę w szyjkę. Uszczelnij taśmą delikatnie.}{}
 \krok{Przywiąż obciążnik. Przykryj powłokę folią górną (PM trzymają brzegi).}{}
 \etap{Tankowanie}
-\krok{Otwórz reduktor powoli. Zapisz godzinę rozpoczęcia.}{\pole[2cm]{godz.:}}
-\krok{Zapisuj odczyty manometru co kilka minut (pole niżej).}{}
+\krok{Otwórz reduktor powoli. Ustaw stały przepływ. Zapisz godzinę i wskazanie przepływu.}{\pole[2cm]{l/min:}}
+\krok{Zapisuj odczyty manometru wysokiego ciśnienia co kilka minut (pole niżej).}{}
 \krok{Balon unosi obciążnik: zamknij zawór. Odczekaj kilka minut. Odczytaj $p_2$.}{\pole[2cm]{$p_2$ [bar]:}}
 \krok{Oblicz objętość gazu z tabeli~\ref{tab:gaz} albo wzoru.}{\pole[2cm]{V [m³]:}}
 \etap{Zamknięcie}
 \krok{Zdejmij taśmę wstępną. Wysuń rurę. Skręć szyjkę.}{}
-\krok{Zwiąż szyjkę sznurkiem na kilka supłów. Zegnij w górę. Owiń kilkoma warstwami taśmy.}{}
-\krok{Sprawdź: brak taśmy na powłoce. Przywiąż pętlę z krętlikiem.}{}
+\krok{Zwiąż szyjkę sznurkiem na kilka supłów. Przełóż przez szyjkę pętlę z krętlikiem.}{}
+\krok{Zegnij szyjkę w górę (pętla w zgięciu). Zaciśnij kilkoma opaskami. Owiń kilkoma warstwami taśmy.}{}
+\krok{Sprawdź: brak taśmy na powłoce, pętla nie zsuwa się z szyjki.}{}
 \end{procedura}
-\renewcommand{\arraystretch}{1.6}
+\renewcommand{\arraystretch}{1.4}
 \noindent\begin{tabularx}{\linewidth}{@{}|l|*{8}{X|}@{}}\hline
 \footnotesize godz. & & & & & & & & \\\hline
 \footnotesize bar & & & & & & & & \\\hline
 \end{tabularx}
 \par\medskip\noindent{\sffamily\bfseries Przebieg tankowania, uwagi do procedury (co zmienić w rozdziale~\ref{ch:naziemny}):}
-\foreach \i in {1,...,4}{\linia}\par
+\foreach \i in {1,...,2}{\linia}\par
 \podpisy
 
 % ===========================================================================
-\formularz{F11}{Start}{T0}
+\formularz[kierownik startu]{F11}{Start}{T0}
 \begin{procedura}
 \etap{Gotowość zestawu}
-\krok{Pętla z krętlikiem przywiązana do szyjki. Węzły zabezpieczone taśmą.}{}
-\krok{Spadochron i zapas linki rozłożone bez pętli.}{}
+\krok{Pętla z krętlikiem zamocowana na szyjce. Węzły zabezpieczone taśmą.}{}
+\krok{Linka odcinacza, zapas i spadochron rozłożone w linii, bez splątań.}{}
 \krok{Linka odcinacza zaczepiona o zwalniacz. Odcinacz uzbrojony.}{}
 \krok{Gondole zamknięte, owinięte taśmą, pasy napięte, opis markerem widoczny.}{}
 \etap{Ostatnia kontrola}
@@ -358,8 +367,9 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \krok{Kierownik startu: niebo wolne, widzowie w strefie, zespół na pozycjach.}{}
 \krok{Kierownik misji: decyzja „start”.}{}
 \etap{Start}
-\krok{Odliczanie. PM zdejmują folię i puszczają powłokę.}{}
-\krok{Osoba z gondolą puszcza ją, gdy gondola jest pod balonem.}{}
+\krok{Osoba z gondolą ustawia się pod wiatr (po zawietrznej, twarzą do balonu).}{}
+\krok{Odliczanie. PM zdejmują folię i puszczają balon.}{}
+\krok{Balon nad gondolą i spokojny: komenda „start”. Osoba z gondolą ją puszcza.}{}
 \krok{Zapisz czas startu.}{\pole[2cm]{UTC:}}
 \krok{Fotograf: seria zdjęć / film startu.}{}
 \end{procedura}
@@ -367,7 +377,7 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \podpisy
 
 % ===========================================================================
-\formularz{F12}{Lot i pościg}{T0}
+\formularz[operator śledzenia]{F12}{Lot i pościg}{T0}
 Zapisuj pozycję co kilka minut. Wpisz zdarzenia: pęknięcie, odcięcie, utrata sygnału, zmiana trasy.
 
 \renewcommand{\arraystretch}{1.75}
@@ -396,7 +406,7 @@ Zapisuj pozycję co kilka minut. Wpisz zdarzenia: pęknięcie, odcięcie, utrata
 \podpisy
 
 % ===========================================================================
-\formularz{F13}{Odzyskanie}{T0}
+\formularz[kierownik misji]{F13}{Odzyskanie}{T0}
 \begin{procedura}
 \etap{Dojazd}
 \krok{Zapisz ostatnią pozycję z trackera.}{\pole[2cm]{wsp.:}}
@@ -416,7 +426,7 @@ Zapisuj pozycję co kilka minut. Wpisz zdarzenia: pęknięcie, odcięcie, utrata
 \podpisy
 
 % ===========================================================================
-\formularz{F14}{Po misji}{do T+7 dni}
+\formularz[kierownik misji]{F14}{Po misji}{do T+7 dni}
 \begin{procedura}
 \krok{Skopiuj dane z kart pamięci, trackera i serwisów (aprs.fi, SondeHub) do repozytorium.}{}
 \krok{Zbierz zdjęcia od fotografa i zespołu w jednym miejscu.}{}
@@ -428,7 +438,7 @@ Zapisuj pozycję co kilka minut. Wpisz zdarzenia: pęknięcie, odcięcie, utrata
 \krok{Sprawdź, napraw i odłóż sprzęt do szafki z opisem.}{}
 \krok{Wyłącz subskrypcję SPOT. Rozlicz koszty.}{}
 \end{procedura}
-\noindent\textbf{Co działało dobrze:}\foreach \i in {1,...,3}{\linia}\par
-\noindent\textbf{Co nie działało i dlaczego:}\foreach \i in {1,...,3}{\linia}\par
-\noindent\textbf{Co zmienić w następnej misji:}\foreach \i in {1,...,3}{\linia}\par
+\noindent\textbf{Co działało dobrze:}\foreach \i in {1,...,2}{\linia}\par
+\noindent\textbf{Co nie działało i dlaczego:}\foreach \i in {1,...,2}{\linia}\par
+\noindent\textbf{Co zmienić w następnej misji:}\foreach \i in {1,...,2}{\linia}\par
 \podpisy

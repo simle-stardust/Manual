@@ -37,6 +37,8 @@ Zespół badawczy dostarcza przed misją:
 \begin{sekcja}{Harmonogram}
 Rysunek~\ref{fig:harmonogram} pokazuje typowy harmonogram. Najdłuższe etapy to budowa i testy eksperymentu. Formalności zaczynają się co najmniej 4 tygodnie przed lotem.
 
+Ostatnie przygotowania zaczynają się 2 dni przed startem. Start przy dobrej pogodzie bywa wczesnym rankiem, więc wszystko -- sprzęt, gaz, transport, ludzie -- musi być gotowe dzień wcześniej. Dzień przed startem zostaw na weryfikację, logistykę i obserwację pogody.
+
 \begin{center}\resizebox{\linewidth}{!}{\rysHarmonogram}\end{center}
 \captionof{figure}{Typowy harmonogram misji. T0 -- dzień startu.}\label{fig:harmonogram}
 \end{sekcja}
@@ -87,6 +89,8 @@ Ilość gazu decyduje o prędkości wznoszenia. Prędkość wznoszenia decyduje 
   \item Zamów gaz z zapasem co najmniej \SI{30}{\percent} (straty, powtórka, butla z mniejszą ilością gazu).
 \end{enumerate}
 
+\begin{uwaga}[Transport butli]Przewóz butli z gazem sprężonym podlega przepisom o przewozie towarów niebezpiecznych (ADR) i może wymagać uprawnień. Jeżeli procedury zakupowe na to pozwalają, kup albo wypożycz butlę u dostawcy blisko miejsca startu i odbierz ją na miejscu.\end{uwaga}
+
 \small
 \begin{tabularx}{\linewidth}{@{}YYYYY@{}}
 \toprule
@@ -96,6 +100,32 @@ Ilość gazu decyduje o prędkości wznoszenia. Prędkość wznoszenia decyduje 
 \end{tabularx}
 \normalsize
 \captionof{table}{Przykład: ładunek \SI{2}{kg}, powłoka \SI{800}{g} (średnica pęknięcia \SI{7}{m}). Tylko do orientacji -- dla swojej misji użyj kalkulatora.}
+\end{sekcja}
+
+\begin{sekcja}{Miejsce startu i strefy przestrzeni powietrznej}\label{sec:strefy}
+Strefy przestrzeni powietrznej decydują o wyborze miejsca startu. Sprawdź je, zanim wybierzesz miejsce i zanim wyślesz zgłoszenie do PAŻP.
+
+\renewcommand{\arraystretch}{1.3}
+\small
+\begin{tabularx}{\linewidth}{@{}P{30mm}LP{44mm}@{}}
+\toprule
+\textbf{Narzędzie} & \textbf{Co pokazuje} & \textbf{Adres}\\\midrule
+DroneMap (PAŻP) & Mapa stref: strefy kontrolowane lotnisk (CTR, MCTR), strefy ruchu lotniska (ATZ), strefy zakazane, ograniczone i niebezpieczne (P, R, D), strefy czasowe (TSA, TRA, EA). & \url{https://dronemap.pansa.pl/}\\
+AMC Portal (PAŻP) & Plan użytkowania przestrzeni (AUP, UUP): które strefy czasowe są aktywne dziś i jutro. & \url{https://www.amc.pansa.pl/}\\
+AIS Polska (PAŻP) & Zbiór informacji lotniczych (AIP) i komunikaty NOTAM dla rejonu informacji powietrznej Warszawa (EPWW). & \url{https://www.ais.pansa.pl/}\\
+openAIP & Przeglądowa mapa przestrzeni, także państw sąsiednich. & \url{https://www.openaip.net/}\\
+\bottomrule
+\end{tabularx}
+\normalsize
+
+\textbf{Procedura:}
+\begin{enumerate}
+  \item Wejdź na DroneMap. Sprawdź, czy miejsce startu leży poza strefami CTR, MCTR i ATZ oraz poza strefami P, R i D.
+  \item Wykonaj predykcję trajektorii. Nałóż trasę i miejsce lądowania na mapę stref. Wybierz miejsce startu jak najdalej od lotnisk.
+  \item Sprawdź, czy trasa nie przecina stref wojskowych. Zapisz je w zgłoszeniu do PAŻP.
+  \item Dzień przed startem i rano w dniu startu wejdź na AMC Portal (AUP/UUP) i sprawdź, które strefy na trasie są aktywne.
+  \item Wejdź na AIS Polska i znajdź NOTAM dla swojej misji. NOTAM o Twoim sondowaniu powinien być opublikowany przed startem. Sprawdź też inne NOTAM-y na trasie (np. czasowe ograniczenia, ćwiczenia).
+\end{enumerate}
 \end{sekcja}
 
 \begin{sekcja}{Predykcja trajektorii}
@@ -130,8 +160,8 @@ C & & & \\\hline
 \begin{itemize}
   \item w morzu, jeziorze albo na rozległym terenie podmokłym,
   \item w dużym lesie albo w mieście,
-  \item w strefie kontrolowanej lotniska,
-  \item za granicą państwa -- w szczególności w Rosji (obwód kaliningradzki), na Białorusi i na Ukrainie. Lot nad tymi państwami jest niedopuszczalny ze względu na sytuację geopolityczną. Odzyskanie ładunku jest tam niemożliwe, a lot może zostać uznany za incydent.
+  \item w strefie kontrolowanej lotniska (CTR, MCTR) albo w aktywnej strefie wojskowej -- sprawdź według sekcji~\ref{sec:strefy},
+  \item za granicą państwa -- w szczególności w Rosji (obwód królewiecki), na Białorusi i na Ukrainie. Lot nad tymi państwami jest niedopuszczalny ze względu na sytuację geopolityczną. Odzyskanie ładunku jest tam niemożliwe, a lot może zostać uznany za incydent.
 \end{itemize}
 
 \textbf{Nie startuj}, gdy:
@@ -152,9 +182,9 @@ Wykonaj te testy przed każdą misją, dla platformy i dla każdego ładunku. Za
 \toprule
 \textbf{Test} & \textbf{Jak} & \textbf{Kryterium}\\\midrule
 Funkcjonalny & Wszystkie funkcje na stole, z zasilania bateryjnego. & Wszystko działa.\\
-W zimnie & Zamrażarka (\SI{-20}{\degreeCelsius}) albo zamrażarka laboratoryjna (\SI{-80}{\degreeCelsius}) przez czas lotu, urządzenia włączone. & Działa, zapisuje dane.\\
+W zimnie & Według sekcji~\ref{sec:test-zimno}. & Działa, zapisuje dane, odczyty czujników wiarygodne.\\
 Zasięg radia & Tracker z anteną lotną; odbiór z odległości co najmniej \SI{100}{m}, najlepiej kilku km. & Pakiety odebrane, pozycja na mapie.\\
-Odcinacz & Zwolnienie pod pełnym obciążeniem, ze skręconymi linkami, po schłodzeniu. & 10 z 10 prób.\\
+Odcinacz & Zwolnienie pod pełnym obciążeniem, ze skręconymi linkami, po schłodzeniu. Wyzwalanie tą samą drogą co w locie (komenda albo autotest w programie). Odcinacz z drutem: z docelowym tranzystorem i baterią. & 10 z 10 prób.\\
 Czas pracy & Cały system na bateriach lotnych. & $\geq 2\times$ czas lotu + czas poszukiwań.\\
 Upadek & Gondola zrzucona z około \SI{1}{m} na twarde podłoże. & Nic się nie odłącza.\\
 Próba generalna & Cały montaż i formularze dnia startu, bez balonu. & Zespół zna role i kolejność.\\
@@ -162,7 +192,19 @@ Próba generalna & Cały montaż i formularze dnia startu, bez balonu. & Zespó�
 \end{tabularx}
 \normalsize
 
-\begin{wskazowka}Zapytaj biologów na Wydziale Chemicznym, czy możesz użyć ich zamrażarki laboratoryjnej. Zamrażarki do przechowywania próbek osiągają \SI{-80}{\degreeCelsius} -- warunki bliższe stratosferze niż domowa zamrażarka.\end{wskazowka}
+\end{sekcja}
+
+\begin{sekcja}{Test w niskiej temperaturze}\label{sec:test-zimno}
+Test w zimnie sprawdza czujniki i skrajne warunki termiczne. Nie odtwarza stratosfery: w stratosferze jest prawie próżnia i elektronika słabo oddaje ciepło (rozdział~\ref{ch:elektronika}). W zamrażarce powietrze odbiera ciepło dużo szybciej, więc długi test w bardzo niskiej temperaturze jest zbyt surowy -- zamraża wszystko, w szczególności mechanikę.
+
+Stosuj jedną z dwóch metod:
+\begin{enumerate}
+  \item \textbf{Zamrażarka domowa} (ok. \SI{-18}{\degreeCelsius}): włączony system w zamrażarce przez czas lotu. Zapisz temperaturę zamrażarki.
+  \item \textbf{Zamrażarka laboratoryjna} (do \SI{-80}{\degreeCelsius}): krótkie schłodzenia, test zaraz po wyjęciu. Wydłużaj schłodzenie stopniowo: 5~min $\to$ test, 10~min $\to$ test, 15~min $\to$ test.
+\end{enumerate}
+Ta sama metoda dotyczy platformy, odcinacza i ładunków. Zapisz w formularzu F5 metodę, temperaturę i czas.
+
+\begin{wskazowka}Zapytaj biologów na Wydziale Chemicznym, czy możesz użyć ich zamrażarki laboratoryjnej do krótkich testów.\end{wskazowka}
 \end{sekcja}
 
 \begin{sekcja}{Przegląd gotowości do startu}

@@ -3,13 +3,13 @@
 \begin{sekcja}{Zestaw lotny}
 Zestaw lotny (\emph{flight train}) to wszystko, co leci. Rysunek~\ref{fig:zestaw} pokazuje elementy i ich kolejność.
 
-\begin{minipage}[c]{0.62\linewidth}\centering
+\begin{minipage}[c]{0.7\linewidth}\centering
 \resizebox{\linewidth}{!}{\rysZestaw}
 \end{minipage}\hfill
-\begin{minipage}[c]{0.34\linewidth}\centering
-\includegraphics[width=0.8\linewidth]{rigging_cutter}
+\begin{minipage}[c]{0.26\linewidth}\centering
+\includegraphics[width=\linewidth]{rigging_cutter}
 \end{minipage}
-\captionof{figure}{Zestaw lotny z odcinaczem mechanicznym. Z prawej: schemat z misji z 26.05.2023 przed odcięciem i po odcięciu; czerwona linia -- linka odcinacza i zapas linki~\cite{pac2024}.}\label{fig:zestaw}
+\captionof{figure}{Zestaw lotny z odcinaczem mechanicznym. Z prawej: oryginalny schemat z misji z 26.05.2023, przed odcięciem i po odcięciu; czerwona linia -- linka odcinacza z zapasem, poziome kreski -- poprzeczki~\cite{pac2024}.}\label{fig:zestaw}
 \end{sekcja}
 
 \begin{sekcja}{Zestaw lotny w powietrzu}
@@ -20,9 +20,8 @@ Zestaw lotny (\emph{flight train}) to wszystko, co leci. Rysunek~\ref{fig:zestaw
 Zestaw lotny Stardust NEXT krótko po starcie. Od góry widać:
 \begin{enumerate}
   \item powłokę,
-  \item spadochron (czerwony) na lince pod powłoką,
-  \item poprzeczki z rurki na olinowaniu,
-  \item zapas linki,
+  \item spadochron (czerwony), zwinięty wzdłuż linki,
+  \item poprzeczki z rurki, które utrzymują odstęp linek,
   \item gondolę.
 \end{enumerate}
 Linki są napięte, a elementy wiszą w jednej linii. Tak powinien wyglądać zestaw po prawidłowym starcie.
@@ -34,7 +33,7 @@ Linki są napięte, a elementy wiszą w jednej linii. Tak powinien wyglądać ze
 \begin{itemize}
   \item Typ: lateksowa powłoka meteorologiczna (np. Hwoyee, Kaymont, Pawan). Dostawca w Polsce: \url{https://nearspace.pl/}.
   \item Wybierz rozmiar w kalkulatorze (rozdział~\ref{ch:planowanie}). Większa powłoka pęka wyżej, ale potrzebuje więcej gazu.
-  \item Gaz nośny: hel. Wodór jest palny i wymaga dodatkowych środków bezpieczeństwa.
+  \item Gaz nośny: hel. Wodór jest palny i wymaga dodatkowych środków bezpieczeństwa. W zestawie do tankowania jest czujnik wodoru -- na wszelki wypadek.
   \item Przechowuj powłokę w oryginalnym opakowaniu, w ciemnym i chłodnym miejscu.
   \item Dotykaj powłoki tylko w czystych rękawiczkach.
 \end{itemize}
@@ -42,45 +41,79 @@ Linki są napięte, a elementy wiszą w jednej linii. Tak powinien wyglądać ze
 
 \begin{sekcja}{Spadochron}
 \begin{itemize}
-  \item Dobierz spadochron do masy ładunku. Docelowa prędkość lądowania: około \SI{5}{m/s}.
-  \item Spadochron wisi pod krętlikiem, nad gondolami. Jest stale otwarty -- nie ma mechanizmu wyrzutu.
+  \item Spadochron jest zamocowany linkami do rogów płyty montażowej na gondoli platformy.
+  \item W czasie wznoszenia spadochron jest zwinięty wzdłuż linki odcinacza. Nie jest schowany w pojemniku -- nie ma mechanizmu wyrzutu jak w rakiecie. Otwiera się sam, gdy gondola zaczyna opadać (po odcięciu albo po pęknięciu powłoki).
+  \item Na rysunkach spadochron bywa narysowany jako otwarty -- tylko dla czytelności.
   \item Kolor i średnicę spadochronu wpisz do zgłoszenia PAŻP.
 \end{itemize}
 \end{sekcja}
 
+\begin{sekcja}{Dobór spadochronu}\label{sec:spadochron}
+Dobór spadochronu to kluczowe obliczenie misji. Prędkość opadania wynika z równowagi ciężaru i oporu powietrza:
+\[
+  v = \sqrt{\frac{2\,m\,g}{\rho\,C_d\,A}}, \qquad A = \frac{\pi D^2}{4}
+  \qquad\Longrightarrow\qquad
+  D = \sqrt{\frac{8\,m\,g}{\pi\,\rho\,C_d\,v^2}}
+\]
+gdzie: $m$ -- masa pod spadochronem (gondole, olinowanie, spadochron) [kg]; $g = \SI{9.81}{m/s^2}$; $\rho$ -- gęstość powietrza (przy ziemi \SI{1.225}{kg/m^3}); $C_d$ -- współczynnik oporu spadochronu (z karty producenta; typowo 0,8--1,5); $D$ -- średnica czaszy [m]; $v$ -- prędkość opadania [m/s].
+
+\textbf{Cel: 4--6 m/s przy ziemi.}
+\begin{itemize}
+  \item \textbf{Za mały spadochron} (za szybkie opadanie): twarde lądowanie, uszkodzenie sprzętu, zagrożenie dla ludzi i mienia.
+  \item \textbf{Za duży spadochron} (za wolne opadanie): długi dryf z wiatrem. Lekki ładunek pod dużym spadochronem może odlecieć bardzo daleko -- to mało prawdopodobne, ale możliwe.
+  \item Wysoko powietrze jest rzadkie, więc spadochron opada szybciej: $v(h) = v_0\sqrt{\rho_0/\rho(h)}$. Na \SI{30}{km} prędkość jest około 8 razy większa niż przy ziemi. Predyktor uwzględnia to automatycznie -- wpisz prędkość opadania przy ziemi.
+\end{itemize}
+
+\small
+\begin{tabularx}{\linewidth}{@{}P{26mm}YYYYY@{}}
+\toprule
+\textbf{Masa [kg]} \textbackslash{} \textbf{$D$ [m]} & \textbf{0,6} & \textbf{0,9} & \textbf{1,2} & \textbf{1,5} & \textbf{1,8}\\\midrule
+\wiersze{figures/generated/tabela_spadochronu.tex}
+\bottomrule
+\end{tabularx}
+\normalsize
+\captionof{table}{Prędkość opadania przy ziemi [m/s] dla $C_d = 0{,}8$. Zielone pola: zakres docelowy 4--6~m/s. Dla swojego spadochronu użyj $C_d$ z karty producenta.}\label{tab:spadochron}
+\end{sekcja}
+
 \begin{sekcja}{Olinowanie}
-\textbf{Materiały:} taśma parciana, regulatory do taśmy (plastikowe albo metalowe), linka o średnicy około \SI{1}{mm} i wytrzymałości poniżej \SI{230}{N}, krętlik.
+\textbf{Materiały:} taśma parciana, regulatory do taśmy (plastikowe albo metalowe), linka o średnicy około \SI{1}{mm} i wytrzymałości poniżej \SI{230}{N}, krętlik, poprzeczki (np. kawałki rurki).
 
 \textbf{Zasady:}
 \begin{enumerate}
-  \item Krętlik montuj bezpośrednio pod powłoką, na krótkiej pętli przywiązanej do szyjki. Krętlik zmniejsza skręcanie linek.
-  \item Dodaj 10--15~m zapasu linki między spadochronem a gondolą. Zapas daje spadochronowi miejsce na otwarcie, gdy linki się skręcą.
+  \item Krętlik montuj na krótkiej pętli, którą zakładasz na szyjkę powłoki po tankowaniu. Krętlik zmniejsza skręcanie linek.
+  \item \textbf{Linka odcinacza} biegnie od krętlika przez środek spadochronu do zwalniacza na gondoli. Zapas tej linki (między krętlikiem a spadochronem) daje spadochronowi miejsce na rozwinięcie.
+  \item \textbf{Długość zapasu} to wciąż element eksperymentu. W 2023 roku zapas 10--15~m zadziałał, ale prawdopodobnie jest za długi. Spróbuj krótszego zapasu i zapisz wynik w rozdziale~\ref{ch:historia}.
+  \item \textbf{Poprzeczki} na linkach spadochronu utrzymują stały odstęp między linkami. Olinowanie pracuje wtedy jak szeroka taśma i mniej się skręca. Skuteczność trzeba jeszcze sprawdzić kamerą w locie.
   \item Gondole łącz taśmą z regulatorami. Regulatory pozwalają szybko wyrównać długości na stanowisku.
   \item Zabezpiecz każdy węzeł taśmą klejącą.
-  \item Rozkładaj olinowanie na ziemi w linii, z wiatrem, bez pętli (rysunek~\ref{fig:pociag}).
+  \item Na stanowisku rozłóż olinowanie w linii, z wiatrem, bez splątań. Pętla do szyjki czeka obok powłoki, gotowa do założenia po tankowaniu (rysunek~\ref{fig:pociag}).
 \end{enumerate}
 
-\foto[0.85\linewidth]{2023_zestaw_przed_startem}{Zestaw rozłożony przed startem: gondola na pierwszym planie, linka rozciągnięta w stronę stanowiska tankowania. Biała rurka pomaga rozłożyć linkę bez splątania.}\label{fig:pociag}
+\foto[0.8\linewidth]{2023_zestaw_przed_startem}{Zestaw rozłożony przed startem: gondola na pierwszym planie, olinowanie rozciągnięte w stronę stanowiska tankowania. Biała rurka to poprzeczka.}\label{fig:pociag}
 \end{sekcja}
 
 \begin{sekcja}{Odcinacz mechaniczny -- zasada działania}
 Odcinacz kończy lot na komendę albo automatycznie. Odcinacz oddziela gondole ze spadochronem od powłoki.
 
-Odcinacz jest w gondoli platformy, nie pod balonem. Linka odcinacza biegnie od powłoki w dół do gondoli i jest zaczepiona o \textbf{zwalniacz serwomechaniczny} na pokrywie gondoli. Gdy serwo zwalnia linkę, gondole odłączają się od powłoki i opadają na spadochronie.
+Zwalniacz serwomechaniczny jest na płycie montażowej na pokrywie gondoli platformy. \textbf{Zwalniacz trzyma linkę, która idzie przez krętlik do balonu} -- nie spadochron. Linki spadochronu są zamocowane na stałe do rogów płyty.
+
+W czasie wznoszenia cały ciężar gondoli wisi na lince odcinacza. Gdy serwo zwalnia linkę, balon odlatuje z linką, a gondole ze spadochronem opadają.
 
 \textbf{Zalety:} cała elektronika jest w jednej gondoli. Odcinacz nie wymaga zasilania pod balonem.
 
 \textbf{Wada:} obrót gondoli skręca linki. Skręcone linki mogą zablokować linkę odcinacza (misja z 26.05.2023).
 
-\foto[0.55\linewidth]{2023_gondola_gora}{Pokrywa gondoli platformy: płyta montażowa (niebieska) ze zwalniaczem serwomechanicznym i zaczepioną linką, pasy z regulatorami, dwie anteny GPS.}
+\foto[0.5\linewidth]{2023_gondola_gora}{Pokrywa gondoli platformy: płyta montażowa (niebieska) ze zwalniaczem serwomechanicznym i zaczepioną linką, pasy z regulatorami, anteny GPS.}
 \end{sekcja}
 
-\begin{sekcja}{Odcinacz mechaniczny -- wymagania}
+\begin{sekcja}{Odcinacz -- wymagania i testy}
 \begin{itemize}
   \item Zwalniacz ładunku sterowany serwem (PWM, zasilanie 5--\SI{7.2}{V}, masa około \SI{76}{g}), np. zwalniacz zrzutu ładunku do dronów.
   \item Odcinacz działa na komendę z ziemi albo automatycznie: po czasie, po przekroczeniu wysokości, po wyjściu z dozwolonego obszaru, po długim locie poziomym (balon nie pękł).
   \item Komputer bezpieczeństwa (HABduino) steruje odcinaczem głównym. Komputer pokładowy (OBC) steruje \textbf{drugim, niezależnym odcinaczem innego typu}, np. z drutem oporowym (rozdział~\ref{ch:elektronika}).
-  \item Testy: \SI{-40}{\degreeCelsius}, pełne obciążenie, skręcone linki (rozdział~\ref{ch:planowanie}).
+  \item \textbf{Odcinacz z drutem oporowym:} sprawdź z docelowym tranzystorem i docelową baterią, czy obwód przepuszcza prąd wystarczający do rozgrzania drutu i przecięcia linki. Powtórz test wiele razy bez awarii, także w teście w zimnie.
+  \item \textbf{Test wyzwolenia:} gdy odcinacz nie ma komend radiowych, dedykowany przycisk testowy jest dopuszczalny. Przycisk musi wyzwalać odcinacz tą samą drogą co w locie (autotest w programie), a nie bezpośrednio.
+  \item Testy: pełne obciążenie, skręcone linki, test w zimnie według sekcji~\ref{sec:test-zimno}.
   \item Na stanowisku sprawdź zwolnienie linki bez obciążenia, potem zaczep linkę i uzbrój odcinacz.
 \end{itemize}
 
@@ -89,53 +122,62 @@ Odcinacz jest w gondoli platformy, nie pod balonem. Linka odcinacza biegnie od p
 \begin{tabularx}{\linewidth}{@{}P{32mm}P{38mm}L@{}}
 \toprule
 \textbf{Problem} & \textbf{Przyczyna} & \textbf{Środek zaradczy}\\\midrule
-Linka odcinacza nie zwolniła się & Skręcone linki pod gondolą (brak krętlika na dole) & Zapas linki 10--15~m. Drugi krętlik nad gondolą. Prowadzenie linki odcinacza tak, aby skręt jej nie blokował.\\
-Drut oporowy nie przeciął linki & Za krótki czas grzania & Testy w niskiej temperaturze i ciśnieniu. Dłuższy czas grzania. Bateria o większej wydajności prądowej.\\
+Linka odcinacza nie zwolniła się & Skręcone linki nad gondolą & Poprzeczki na linkach. Zapas linki odcinacza. Drugi, niezależny odcinacz.\\
+Drut oporowy nie przeciął linki & Za krótki czas grzania, za mały prąd & Test z docelowym tranzystorem i baterią. Testy w zimnie. Dłuższy czas grzania.\\
 \bottomrule
 \end{tabularx}
 \normalsize
 \end{sekcja}
 
 \begin{sekcja}{Gondola}
-Gondola to pudełko styropianowe w rozmiarze typu eurobox (np. styrobox STX3-7, \SI{5}{l}). Pudełka są tanie, lekkie, izolują ciepło i chronią sprzęt przy lądowaniu. Mają standardowe wymiary, więc łatwo je łączyć ze sobą i z ładunkami zespołów badawczych.
+Gondola to pudełko styropianowe w standardowym rozmiarze typu eurobox. Pudełka są tanie, lekkie, izolują ciepło i chronią sprzęt przy lądowaniu. Mają standardowe wymiary i wypustki, więc łatwo je łączyć ze sobą i z ładunkami zespołów badawczych.
 
-\begin{center}\resizebox{0.9\linewidth}{!}{\rysGondola}\end{center}
-\captionof{figure}{Przekrój gondoli: platforma (u góry) i ładunek badawczy (u dołu), spięte pasami.}\label{fig:gondola}
+\textbf{Platforma i ładunek mają tę samą szerokość pudełka.} Dzięki temu pasy obejmują oba pudełka, a gondola wisi stabilnie.
+
+\dwafoto{produkty_pudelka_styropianowe_rozmiary}{Pudełka styropianowe w różnych pojemnościach (zdjęcie z oferty sklepu na allegro.pl).}
+{produkty_pudelka_styropianowe_wymiary}{Wymiary zewnętrzne i wewnętrzne pudełka; grubość ścianki \SI{3}{cm} (zdjęcie z oferty sklepu na allegro.pl).}
+\end{sekcja}
+
+\begin{sekcja}{Przekrój gondoli}
+\begin{center}\resizebox{\linewidth}{!}{\rysGondola}\end{center}
+\captionof{figure}{Przekrój gondoli: platforma (u góry) i ładunek badawczy (u dołu), ta sama szerokość, spięte pasem od płyty montażowej dookoła całości.}\label{fig:gondola}
 \end{sekcja}
 
 \begin{sekcja}{Budowa gondoli platformy}
 \begin{itemize}
-  \item \textbf{Wkładka}: na dnie pudełka zamocuj płytę z lekkiego i wytrzymałego materiału (plexi, sklejka, włókno węglowe). Wszystkie elementy mocuj do wkładki: rzepem, śrubami, opaskami zaciskowymi. Uderzenie przy lądowaniu jest bardzo silne. Luźny element może zniszczyć resztę sprzętu, w tym karty pamięci -- a utrata danych to utrata całej misji.
-  \item \textbf{Równowaga}: rozmieść elementy równomiernie. Środek masy musi leżeć w osi zawieszenia, aby gondola wisiała poziomo.
-  \item \textbf{Płyta montażowa na pokrywie}: zwalniacz serwomechaniczny i mocowanie pasów.
-  \item Gondola platformy zawiera tylko elektronikę platformy: tracker, OBC, odcinacz, lokalizatory, baterie.
-  \item Anteny nadajników wyprowadź w dół. Antenę GPS umieść na górze, z widokiem na niebo, z dala od metalu.
+  \item \textbf{Wkładka}: na dnie pudełka zamocuj płytę z lekkiego i wytrzymałego materiału (plexi, sklejka, włókno węglowe). Elementy mocuj do wkładki śrubami i opaskami zaciskowymi. Rzepem mocuj tylko lekkie elementy, np. pojedyncze czujniki. Uderzenie przy lądowaniu jest bardzo silne. Luźny element może zniszczyć resztę sprzętu, w tym karty pamięci -- a utrata danych to utrata całej misji.
+  \item \textbf{Sznurek bezpieczeństwa}: połącz wkładkę z olinowaniem kawałkiem sznurka. Gdy pudełko pęknie, elektronika zostanie przy zestawie.
+  \item \textbf{Równowaga}: rozmieść elementy równomiernie. Baterię (najcięższy element) umieść w środku. Środek masy musi leżeć w osi zawieszenia, aby gondola wisiała poziomo.
+  \item \textbf{Płyta montażowa na pokrywie} (niemetalowa): zwalniacz serwomechaniczny, mocowanie linek spadochronu w rogach, mocowanie pasa.
+  \item \textbf{Pas} biegnie od płyty montażowej dookoła obu pudełek.
+  \item Otwory w pudełku są dopuszczalne (anteny, przewody, czujniki). Zasada: dwa razy mierz, raz tnij.
   \item Opisz pudełko markerem: numer telefonu, „Projekt badawczy”, logo (rozdział~\ref{ch:prawo}).
 \end{itemize}
 \end{sekcja}
 
 \begin{sekcja}{Gondola na zdjęciach}
-\foto[0.8\linewidth]{2023_gondola_otwarta}{Gondola platformy otwarta: wkładka (czarna plexi) z elementami mocowanymi na rzep, śruby i opaski. Pokrywa z płytą montażową (niebieska), zwalniaczem i pasami.}
-\dwafoto{2023_gondola_bok_anteny}{Anteny wyprowadzone w dół z boku gondoli.}
-{2023_gondola_bok_termometr}{Platforma (u góry) i ładunek (u dołu) spięte pasami; czujnik temperatury na zewnątrz.}
+\foto[0.75\linewidth]{2023_gondola_otwarta}{Gondola platformy otwarta: wkładka (czarna plexi) z elementami mocowanymi śrubami, opaskami i -- dla lekkich elementów -- rzepem. Pokrywa z płytą montażową (niebieska), zwalniaczem i pasami.}
+\dwafoto{2023_gondola_bok_anteny}{Anteny wyprowadzone z boku gondoli.}
+{2023_gondola_bok_termometr}{Platforma (u góry) i ładunek (u dołu) tej samej szerokości, spięte pasem; czujnik temperatury na zewnątrz.}
 \end{sekcja}
 
 \begin{sekcja}{Anteny gondoli}
-Antena typu dipol wymaga przeciwwagi. W powietrzu nie ma uziemienia -- przeciwwagą są przewody i elektronika w gondoli, co zmienia charakterystykę anteny.
+Radia są w gondoli platformy, więc anteny nadajników wyprowadź \textbf{po bokach} platformy. Nie wyprowadzaj ich w dół -- pod platformą wisi ładunek.
 
-Do rozważenia w kolejnych wersjach platformy:
 \begin{itemize}
-  \item metalowa płyta pod gondolą jako przeciwwaga i reflektor,
-  \item antena ćwierćfalowa skierowana w dół, z luźnymi przewodami przeciwwagi (\emph{ground plane}),
-  \item pomiar dopasowania anteny (SWR) w konfiguracji lotnej, w gondoli.
+  \item Antena na górze też jest dopuszczalna, ale płyta montażowa nie może być metalowa.
+  \item Antena typu dipol ma charakterystykę zależną od otoczenia: przewody, baterie i metal w pobliżu ją zmieniają. Sprawdź dopasowanie anteny (SWR) w konfiguracji lotnej, w zamkniętej gondoli.
+  \item Rozwiązania alternatywne: antena z luźnego przewodu wypuszczona z gondoli albo antena zawieszona pod spadochronem. Oba wymagają pomiaru dopasowania.
+  \item Metal nie może wpływać na anteny nadajników APRS i RTTY. Antena GPS -- patrz rozdział~\ref{ch:montaz}.
 \end{itemize}
 \end{sekcja}
 
 \begin{sekcja}{Gondola ładunku badawczego}
 \begin{itemize}
-  \item Ładunek ma własne pudełko tego samego typu. Pudełka łączą się pasami.
+  \item Ładunek ma własne pudełko tego samego typu i tej samej szerokości co platforma.
   \item Ładunek ma własne zasilanie i własne oznakowanie.
   \item Ładunek przechodzi te same testy co platforma (rozdział~\ref{ch:planowanie}).
-  \item Zespół badawczy podaje masę i częstotliwości radiowe (rozdział~\ref{ch:planowanie}).
+  \item \textbf{Połączenie z platformą:} pasami (pas od płyty montażowej dookoła obu pudełek).
+  \item \textbf{Ładunek cięższy niż limit pakietu} (\SI{2}{kg}, rozdział~\ref{ch:prawo}): zawieś go jako osobny pakiet. Pod platformą zamocuj drugą płytę, do niej kawałek linki (np. co najmniej \SI{2}{m} -- do ustalenia) i drugą uprząż (płyta i pasy) wokół pudełka ładunku.
 \end{itemize}
 \end{sekcja}

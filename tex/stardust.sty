@@ -6,11 +6,14 @@
 \ProvidesPackage{stardust}[2026/11/05 Stardust NEXT manual style]
 
 % --- Język i fonty ----------------------------------------------------------
+% Mapowanie Unicode: tekst w PDF da się zaznaczać i wyszukiwać (także ą, ę, ł).
+\input{glyphtounicode}\pdfgentounicode=1
+\RequirePackage{cmap}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[polish]{babel}
 \RequirePackage{lmodern}
-\RequirePackage[scaled=0.92]{helvet}
+\RequirePackage[scale=0.92]{tgheros}
 \RequirePackage{microtype}
 \RequirePackage{textcomp}
 \RequirePackage{amsmath,amssymb}
@@ -162,8 +165,9 @@
 \newcommand{\etap}[1]{\multicolumn{4}{@{}l}{\cellcolor{sdlight}\sffamily\bfseries\small #1}\\}
 
 % Nagłówek formularza: każdy formularz na osobnej stronie.
-% \formularz{kod}{tytuł}{kiedy}
-\newcommand{\formularz}[3]{%
+% \formularz[prowadzi]{kod}{tytuł}{kiedy}
+\newcommand{\formularz}[4][]{\sd@formularz{#2}{#3}{#4}{#1}}
+\newcommand{\sd@formularz}[4]{%
   \clearpage
   \phantomsection
   \addcontentsline{toc}{section}{#1~~#2}%
@@ -171,14 +175,17 @@
   \noindent
   \begin{tcolorbox}[enhanced,colback=sdnavy,colframe=sdnavy,arc=0pt,
     left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=white]
-    \sffamily\Large\bfseries #1\quad #2\hfill\normalsize\mdseries #3
+    \sffamily\Large\bfseries #1\quad #2\hfill\normalsize\mdseries #3%
+    \if\relax\detokenize{#4}\relax\else\\[-1pt]{\small\mdseries Prowadzi: #4}\fi
   \end{tcolorbox}\vspace{-2mm}
   \noindent
-  \renewcommand{\arraystretch}{1.45}%
-  \begin{tabularx}{\linewidth}{@{}|L|L|L|@{}}\hline
-  \footnotesize Misja: & \footnotesize Data: & \footnotesize Miejsce:\\\hline
-  \footnotesize Wypełnia (imię i nazwisko): & \footnotesize Rola: & \footnotesize Godzina rozpoczęcia:\\\hline
+  \renewcommand{\arraystretch}{1.0}%
+  \begin{tabularx}{\linewidth}{@{}|L|P{30mm}|P{38mm}|@{}}\hline
+  \etykieta{Misja} & \etykieta{Data} & \etykieta{Miejsce}\\\hline
+  \etykieta{Wypełnia (imię i nazwisko)} & \etykieta{Rola} & \etykieta{Godzina rozpoczęcia}\\\hline
   \end{tabularx}\par\medskip}
+% Pole formularza: mała etykieta u góry, miejsce na wpis poniżej.
+\newcommand{\etykieta}[2][6mm]{\rule{0pt}{3mm}{\scriptsize\color{sdgray}#2}\par\vspace*{#1}}
 
 % Stopka formularza: komentarze i podpisy.
 \newcommand{\komentarze}[1][3]{%
@@ -187,9 +194,9 @@
 \newcommand{\podpisy}{%
   \par\vfill
   \par\medskip\noindent
-  \renewcommand{\arraystretch}{2.0}%
-  \begin{tabularx}{\linewidth}{@{}|L|L|L|@{}}\hline
-  \footnotesize Wypełnił/a (podpis): & \footnotesize Sprawdził/a – kierownik misji (podpis): & \footnotesize Decyzja: \kratka~kontynuuj \quad \kratka~wstrzymaj\\\hline
+  \renewcommand{\arraystretch}{1.0}%
+  \begin{tabularx}{\linewidth}{@{}|L|L|P{42mm}|@{}}\hline
+  \etykieta[7mm]{Wypełnił/a (podpis)} & \etykieta[7mm]{Sprawdził/a -- kierownik misji (podpis)} & \etykieta[1mm]{Decyzja}\kratka~kontynuuj\par\smallskip\kratka~wstrzymaj\par\smallskip\\\hline
   \end{tabularx}}
 
 % Wstawienie wierszy tabeli z pliku (prymityw \input działa w środku tabeli).

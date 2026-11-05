@@ -18,40 +18,40 @@
 \newcommand{\rysZestaw}{%
 \begin{tikzpicture}[x=1cm,y=1cm,font=\sffamily\scriptsize]
   % powłoka
-  \shade[ball color=white,draw=sdgray] (0,11.2) ellipse (1.25 and 1.45);
-  \draw[sdgray] (-0.18,9.85) -- (-0.12,9.55) -- (0.12,9.55) -- (0.18,9.85);
-  \node[lbl,anchor=west] at (1.6,11.2) {\textbf{Powłoka} lateksowa z helem\\średnica przy starcie ok. 1,5–2 m};
-  \node[lbl,anchor=west] at (1.6,9.7) {\textbf{Szyjka} zamknięta: skręcona, związana,\\zagięta w górę i owinięta taśmą};
-  % krętlik
-  \draw[thick] (0,9.55) -- (0,9.2);
-  \draw[thick,fill=sdlight] (0,9.05) circle (0.15);
-  \node[lbl,anchor=west] at (1.6,9.0) {\textbf{Krętlik} i krótka pętla mocująca};
-  % linka do spadochronu
-  \draw[thick] (0,8.9) -- (0,8.1);
-  % spadochron
-  \fill[sdorange] (-0.6,7.3) -- (0,8.1) -- (0.6,7.3) -- cycle;
-  \draw[sdgray] (-0.6,7.3) -- (0,6.4) -- (0.6,7.3);
-  \node[lbl,anchor=west] at (1.6,7.5) {\textbf{Spadochron} (stale otwarty)};
-  % linka główna i zapas
-  \draw[thick] (0,6.4) -- (0,2.4);
-  \draw[sdorange,thick,densely dashed] (0,9.2) .. controls (-1.6,8.4) and (-1.3,4.2) .. (-0.35,2.4);
-  \node[lbl,anchor=east,text=sdorange] at (-1.5,6.3) {Linka\\odcinacza};
-  \draw[dim] (0.35,6.35) -- node[right,lbl]{\textbf{zapas linki} 10–15\,m\\(miejsce na otwarcie spadochronu\\mimo skręconych linek)} (0.35,2.45);
+  \shade[ball color=white,draw=sdgray] (0,12.3) ellipse (1.2 and 1.35);
+  \draw[sdgray,fill=white] (-0.12,10.98) -- (-0.08,10.75) -- (0.08,10.75) -- (0.12,10.98);
+  \node[lbl,anchor=west] at (1.9,12.3) {\textbf{Powłoka} lateksowa z helem};
+  % pętla i krętlik
+  \draw[thick] (0,10.75) -- (0,10.55);
+  \draw[thick,fill=sdlight] (0,10.42) circle (0.13);
+  \node[lbl,anchor=west] at (1.9,10.6) {\textbf{Szyjka} zamknięta z \textbf{pętlą}, \textbf{krętlik}};
+  % linka odcinacza
+  \draw[sdorange,line width=1.2pt] (0,10.29) -- (0,2.62);
+  \draw[dim] (-0.35,10.25) -- node[left,lbl,align=right]{\textbf{zapas linki}\\\textbf{odcinacza}\\(długość dobierana\\doświadczalnie;\\2023: 10--15\,m)} (-0.35,7.75);
+  \node[lbl,anchor=west,text=sdorange] at (1.9,9.0) {\textbf{Linka odcinacza}: od krętlika (balon) przez środek\\spadochronu do zwalniacza na gondoli. Przenosi\\cały ciężar gondoli w czasie wznoszenia.};
+  % spadochron zwinięty + obrys otwartego
+  \draw[sdorange!70,densely dashed] (-0.9,6.75) .. controls (-0.85,7.6) and (0.85,7.6) .. (0.9,6.75);
+  \draw[sdorange!70,densely dashed] (-0.9,6.75) -- (-0.15,6.05); \draw[sdorange!70,densely dashed] (0.9,6.75) -- (0.15,6.05);
+  \fill[red!75!black] (0,7.7) .. controls (0.2,7.3) and (0.2,6.6) .. (0,6.05) .. controls (-0.2,6.6) and (-0.2,7.3) .. (0,7.7);
+  \node[lbl,anchor=west] at (1.9,6.9) {\textbf{Spadochron}: w locie zwinięty wzdłuż linki (nie jest\\schowany -- nie ma mechanizmu wyrzutu). Linia\\przerywana: kształt po otwarciu.};
+  % linki spadochronu do rogów płyty, poprzeczki
+  \foreach \sx in {-1,1}{
+    \draw[sdnavy] (0,6.05) -- (\sx*0.7,5.0) -- (\sx*0.7,2.62);}
+  \foreach \yy in {5.0,3.8}{\draw[fill=white,draw=sdgray] (-0.82,\yy-0.05) rectangle (0.82,\yy+0.05);}
+  \node[lbl,anchor=west] at (1.9,4.4) {\textbf{Linki spadochronu} do rogów płyty montażowej.\\\textbf{Poprzeczki} utrzymują odstęp linek -- olinowanie\\pracuje jak szeroka taśma i mniej się skręca\\(do sprawdzenia kamerą w locie).};
   % gondola platformy
-  \draw[fill=white,draw=sdnavy,thick] (-0.75,1.6) rectangle (0.75,2.4);
-  \draw[fill=sdorange] (-0.45,2.4) rectangle (-0.15,2.55);
-  \node[lblc] at (0,2.0) {platforma};
-  \node[lbl,anchor=west] at (1.6,2.15) {\textbf{Gondola platformy}: tracker, OBC,\\zwalniacz odcinacza (na pokrywie), baterie};
-  % gondola ladunku
-  \draw[fill=white,draw=sdnavy,thick] (-0.85,0.4) rectangle (0.85,1.6);
-  \node[lblc] at (0,1.0) {ładunek};
-  \node[lbl,anchor=west] at (1.6,0.9) {\textbf{Gondola ładunku} (eurobox), spięta\\z platformą pasami};
-  % anteny
-  \draw[thick] (-0.5,0.4) -- (-0.5,-0.25);
-  \draw[thick] (0.5,0.4) -- (0.5,-0.15);
-  \node[lbl,anchor=west] at (1.6,-0.1) {Anteny skierowane w dół};
-  % pasy
-  \draw[sdorange,line width=1.2pt] (-0.1,0.4) -- (-0.1,2.4);
+  \draw[fill=white,draw=sdnavy,thick] (-0.8,1.75) rectangle (0.8,2.55);
+  \draw[fill=blue!45] (-0.75,2.55) rectangle (0.75,2.63);
+  \draw[fill=sdgray] (-0.1,2.63) rectangle (0.1,2.78);
+  \node[lblc] at (0,2.12) {platforma};
+  \draw[thick] (-0.8,2.15) -- (-1.25,2.15); \draw[thick] (0.8,2.15) -- (1.25,2.15);
+  \node[lbl,anchor=west] at (1.9,2.3) {\textbf{Gondola platformy}: zwalniacz i płyta montażowa\\na pokrywie, anteny po bokach};
+  % gondola ładunku
+  \draw[fill=white,draw=sdnavy,thick] (-0.8,0.55) rectangle (0.8,1.75);
+  \node[lblc] at (0,1.15) {ładunek};
+  \node[lbl,anchor=west] at (1.9,1.05) {\textbf{Gondola ładunku}: ta sama szerokość,\\spięta z platformą pasem};
+  % pas
+  \draw[sdorange,line width=1.4pt] (-0.62,2.6) -- (-0.62,0.52) -- (0.62,0.52) -- (0.62,2.6);
 \end{tikzpicture}}
 
 % ---------------------------------------------------------------- tor radiowy
@@ -128,83 +128,86 @@
 % ---------------------------------------------------------------- tankowanie
 \newcommand{\rysTankowanie}{%
 \begin{tikzpicture}[font=\sffamily\scriptsize,x=1cm,y=1cm]
-  % butla
-  \draw[fill=sdgray!40,rounded corners=4pt] (0,0) rectangle (0.9,3.6);
-  \draw[fill=sdgray!60] (0.3,3.6) rectangle (0.6,3.95);
-  \node[lblc,rotate=90] at (0.45,1.8) {butla z helem};
-  % regulator
-  \draw[fill=yellow!50!brown] (0.3,3.95) rectangle (0.95,4.2);
-  \draw[fill=white,thick] (0.9,4.75) circle (0.32); \node at (0.9,4.75) {\tiny bar};
-  \draw[fill=white,thick] (1.55,4.4) circle (0.28); \node at (1.55,4.4) {\tiny l/min};
-  \draw (0.9,4.43) -- (0.75,4.2); \draw (1.3,4.3) -- (0.95,4.1);
-  \node[lbl,anchor=south] at (0.6,5.15) {\textbf{reduktor}: manometr ciśnienia butli\\i wskaźnik przepływu};
-  % wąż
-  \draw[red!70!black,line width=1.5pt] (1.8,4.25) .. controls (3,4.1) and (3,1.2) .. (4.2,1.2);
-  \node[lbl] at (3.3,3.0) {wąż};
-  % rura
-  \draw[fill=blue!60,draw=blue!80] (4.2,1.08) rectangle (5.6,1.32);
-  \node[lbl,anchor=north] at (4.9,1.0) {rura do tankowania};
-  % szyjka i powłoka
-  \draw[fill=white,draw=sdgray] (5.6,1.05) -- (6.1,0.95) -- (6.1,1.45) -- (5.6,1.35) -- cycle;
-  \shade[ball color=white,draw=sdgray] (7.9,2.0) ellipse (1.9 and 1.6);
-  \draw[sdorange,thick] (5.85,1.0) -- (5.85,1.4);
-  \draw[sdorange] (5.85,1.42) -- (4.6,2.5) node[lbl,anchor=south,text=sdorange]{taśma: wstępne\\uszczelnienie};
-  % obciążnik
-  \draw[thick] (5.95,0.95) -- (5.95,0.25);
-  \draw[fill=cyan!20,draw=cyan!60!black] (5.65,-0.55) rectangle (6.25,0.25);
-  \node[lbl,anchor=west] at (6.4,-0.15) {\textbf{obciążnik} (butelka z wodą)\\masa = siła nośna szyjki};
-  % folia
-  \draw[sdgray,line width=1pt] (5.3,3.9) .. controls (7,4.1) and (9,3.9) .. (10.2,2.4);
-  \node[lbl,anchor=south] at (8.6,4.0) {folia górna trzymana przez pomocników};
   % ziemia
-  \draw[thick,sdgray] (-0.3,-0.65) -- (10.5,-0.65);
+  \draw[thick,sdgray] (-0.3,-0.9) -- (11.2,-0.9);
+  % butla
+  \draw[fill=sdgray!40,rounded corners=4pt] (0,-0.9) rectangle (0.9,2.9);
+  \draw[fill=sdgray!60] (0.3,2.9) rectangle (0.6,3.25);
+  \node[lblc,rotate=90] at (0.45,1.0) {butla z helem};
+  % reduktor
+  \draw[fill=yellow!50!brown] (0.3,3.25) rectangle (0.95,3.5);
+  \draw[fill=white,thick] (0.9,4.05) circle (0.32); \node at (0.9,4.05) {\tiny bar};
+  \draw[fill=white,thick] (1.6,3.7) circle (0.28); \node at (1.6,3.7) {\tiny l/min};
+  \draw (0.9,3.73) -- (0.75,3.5); \draw (1.33,3.62) -- (0.95,3.42);
+  \node[lbl,anchor=south west] at (-0.2,4.45) {\textbf{reduktor}: manometr wysokiego ciśnienia (bar)\\i wskaźnik przepływu (l/min)};
+  % wąż
+  \draw[red!70!black,line width=1.5pt] (1.85,3.5) .. controls (3.2,3.4) and (3.0,1.5) .. (4.2,1.5);
+  \node[lbl] at (2.45,2.3) {wąż};
+  % rura
+  \draw[fill=blue!60,draw=blue!80] (4.2,1.38) rectangle (5.7,1.62);
+  \node[lbl,anchor=north] at (4.95,1.3) {rura do tankowania};
+  % powłoka i szyjka w osi rury
+  \shade[ball color=white,draw=sdgray] (7.95,1.5) circle (1.65);
+  \draw[fill=white,draw=sdgray] (5.6,1.32) -- (6.3,1.38) -- (6.3,1.62) -- (5.6,1.68) -- cycle;
+  \draw[sdorange,thick] (5.85,1.3) -- (5.85,1.7);
+  \draw[sdorange] (5.85,1.72) -- (5.2,2.45) node[lbl,anchor=south east,text=sdorange]{taśma: wstępne\\uszczelnienie};
+  \node[lblc] at (7.95,1.5) {powłoka};
+  % obciążnik
+  \draw[thick] (6.05,1.32) -- (6.05,0.1);
+  \draw[fill=brown!40,draw=brown!70!black,rounded corners=3pt] (5.6,-0.7) rectangle (6.5,0.1);
+  \node[lbl,anchor=west] at (6.65,-0.6) {\textbf{obciążnik} (worek z piaskiem, plecak, odważniki), masa = siła nośna szyjki};
+  % folia
+  \draw[sdgray,line width=1pt] (5.4,3.0) .. controls (7,4.0) and (9.6,3.9) .. (10.9,1.0);
+  \node[lbl,anchor=south] at (8.6,3.75) {folia górna trzymana przez pomocników};
 \end{tikzpicture}}
 
 % ---------------------------------------------------------------- gondola (przekrój)
 \newcommand{\rysGondola}{%
 \begin{tikzpicture}[font=\sffamily\scriptsize,x=1cm,y=1cm]
-  % pudełko ładunku
-  \draw[thick,fill=white] (0,0) rectangle (5,2.6);
-  \draw[thick] (0.25,0.25) rectangle (4.75,2.35);
-  \node[lblc,fill=white] at (2.5,1.3) {GONDOLA ŁADUNKU\\(eurobox, zespół badawczy)};
+  % pudełko ładunku (ta sama szerokość)
+  \draw[thick,fill=white] (0,0) rectangle (5,2.4);
+  \draw[thick] (0.25,0.25) rectangle (4.75,2.15);
+  \node[lblc,fill=white] at (2.5,1.2) {GONDOLA ŁADUNKU\\(zespół badawczy)};
   % pudełko platformy
-  \draw[thick,fill=white] (0,2.6) rectangle (5,4.4);
-  \draw[thick] (0.25,2.75) rectangle (4.75,4.15);
-  % pokrywa
-  \draw[thick,fill=white] (-0.1,4.4) rectangle (5.1,4.7);
-  % płyta montażowa wewnątrz
-  \draw[fill=black!80] (0.3,2.78) rectangle (4.7,2.92);
-  \node[lbl,anchor=west] at (5.4,2.85) {\textbf{wkładka}: płyta z plexi / sklejki / włókna\\węglowego na dnie pudełka};
-  % elementy
-  \draw[fill=sdorange!70] (0.5,2.92) rectangle (1.7,3.6); \node[lblc] at (1.1,3.26) {bateria};
-  \draw[fill=green!40!black!40] (1.9,2.92) rectangle (3.1,3.25); \node[lblc] at (2.5,3.08) {\tiny HABduino};
-  \draw[fill=green!40!black!40] (3.3,2.92) rectangle (4.5,3.25); \node[lblc] at (3.9,3.08) {\tiny OBC};
-  \draw[fill=sdgray!40] (1.9,3.35) rectangle (3.1,3.6); \node[lblc] at (2.5,3.47) {\tiny SPOT};
+  \draw[thick,fill=white] (0,2.4) rectangle (5,4.3);
+  \draw[thick] (0.25,2.55) rectangle (4.75,4.05);
+  \draw[thick,fill=white] (-0.1,4.3) rectangle (5.1,4.6);
+  % wkładka
+  \draw[fill=black!80] (0.3,2.58) rectangle (4.7,2.72);
+  % elementy: bateria w środku
+  \draw[fill=green!40!black!40] (0.45,2.72) rectangle (1.6,3.1); \node[lblc] at (1.03,2.91) {\tiny HABduino};
+  \draw[fill=sdorange!70] (1.85,2.72) rectangle (3.15,3.5); \node[lblc] at (2.5,3.11) {bateria};
+  \draw[fill=green!40!black!40] (3.4,2.72) rectangle (4.55,3.1); \node[lblc] at (3.98,2.91) {\tiny OBC};
+  \draw[fill=sdgray!40] (0.45,3.2) rectangle (1.4,3.45); \node[lblc] at (0.93,3.33) {\tiny SPOT};
+  \draw[fill=sdgray!60] (3.9,3.2) rectangle (4.3,3.4); \node[lbl,anchor=south] at (4.1,3.42) {\tiny czujnik (rzep)};
   % środek masy
-  \draw[sdnavy] (2.5,3.25) circle (0.12); \fill[sdnavy] (2.5,3.25) -- ++(0.12,0) arc (0:90:0.12) -- cycle;
-  \fill[sdnavy] (2.5,3.25) -- ++(-0.12,0) arc (180:270:0.12) -- cycle;
-  \draw[dashed,sdnavy] (2.5,-0.9) -- (2.5,6.4);
-  \node[lbl,anchor=west,text=sdnavy] at (5.4,3.55) {środek masy w osi zawieszenia};
-  % płyta na pokrywie i zwalniacz
-  \draw[fill=blue!50] (0.9,4.7) rectangle (4.1,4.82);
-  \draw[fill=sdgray] (2.7,4.82) rectangle (3.4,5.2);
-  \node[lbl,anchor=west] at (5.4,4.75) {\textbf{płyta montażowa} na pokrywie: zwalniacz\\serwomechaniczny, mocowanie pasów};
-  \draw[thick] (2.85,5.2) -- (2.5,6.4);
-  \node[lbl,anchor=west] at (2.7,6.2) {linka do spadochronu / odcinacza};
+  \draw[dashed,sdnavy] (2.5,-0.4) -- (2.5,7.0);
+  % sznurek bezpieczeństwa wkładki
+  \draw[ForestGreen,thick,densely dotted] (4.6,2.72) .. controls (4.9,3.6) and (4.6,4.4) .. (4.35,4.72);
+  % płyta montażowa i zwalniacz
+  \draw[fill=blue!45] (0.7,4.6) rectangle (4.3,4.72);
+  \draw[fill=sdgray] (2.3,4.72) rectangle (2.7,5.05);
+  \draw[sdorange,line width=1.2pt] (2.5,5.05) -- (2.5,7.0);
+  % linki spadochronu z rogów płyty
+  \draw[sdnavy] (0.8,4.72) -- (2.2,7.0); \draw[sdnavy] (4.2,4.72) -- (2.8,7.0);
   % antena GPS
-  \draw[fill=black] (0.3,4.82) rectangle (0.75,4.95);
-  \node[lbl,anchor=south] at (0.55,5.0) {GPS};
-  % pasy
-  \draw[sdorange,line width=2pt] (0.15,-0.05) -- (0.15,4.72);
-  \draw[sdorange,line width=2pt] (4.85,-0.05) -- (4.85,4.72);
-  \node[lbl,anchor=east,text=sdorange] at (-0.15,1.5) {pasy\\z regulatorami};
-  % anteny w dół
-  \draw[thick] (1.2,0) -- (1.2,-0.9);
-  \draw[thick] (3.8,0) -- (3.8,-0.8);
-  \node[lbl,anchor=west] at (5.4,-0.5) {anteny nadajników wyprowadzone w dół};
-  % termometr
-  \draw[thick] (5,1.7) -- (5.6,1.7);
-  \node[lbl,anchor=west] at (5.7,1.7) {czujnik temperatury na zewnątrz};
+  \draw[fill=black] (0.95,4.72) rectangle (1.4,4.85);
+  % anteny po bokach
+  \draw[thick] (0,3.6) -- (-0.9,3.6); \draw[thick] (5,3.6) -- (5.9,3.6);
+  % pas wokół całości
+  \draw[sdorange,line width=2pt] (0.85,4.75) -- (0.12,4.75) -- (0.12,-0.08) -- (4.88,-0.08) -- (4.88,4.75) -- (4.15,4.75);
+  % etykiety
+  \def\opis##1##2##3##4{\draw[sdgray] (##1,##2) -- (6.6,##3) node[lbl,anchor=west]{##4};}
+  \opis{2.7}{6.4}{6.6}{\textbf{linka odcinacza} do krętlika i balonu}
+  \opis{3.4}{6.0}{6.0}{\textbf{linki spadochronu} do rogów płyty}
+  \opis{2.7}{4.95}{5.35}{\textbf{zwalniacz} serwomechaniczny}
+  \opis{1.2}{4.85}{4.8}{antena GPS na pokrywie}
+  \opis{4.3}{4.66}{4.25}{\textbf{płyta montażowa} (niemetalowa)}
+  \opis{5.9}{3.6}{3.65}{anteny nadajników po bokach}
+  \opis{4.75}{3.9}{3.1}{\textcolor{ForestGreen}{sznurek: wkładka -- olinowanie}}
+  \opis{2.5}{3.11}{2.55}{bateria w środku, środek masy w osi}
+  \opis{4.6}{2.65}{2.0}{\textbf{wkładka} (plexi, sklejka, włókno węglowe)}
+  \opis{4.88}{0.6}{0.6}{\textbf{pas} od płyty dookoła obu pudełek}
 \end{tikzpicture}}
 
 % ---------------------------------------------------------------- harmonogram misji

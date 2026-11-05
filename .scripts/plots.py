@@ -33,6 +33,7 @@ plt.rcParams.update({
     "axes.grid": True,
     "grid.alpha": 0.3,
     "savefig.bbox": "tight",
+    "pdf.fonttype": 42,   # TrueType: text in figures is selectable/searchable
 })
 
 
@@ -171,7 +172,7 @@ def flight_map(tr20, tr22):
     for n, (x, y) in cities.items():
         ax.plot(x, y, "o", color="black", ms=2.5)
         ax.text(x + 0.06, y + 0.04, n, fontsize=7)
-    ax.text(21.0, 54.55, "Obwód kaliningradzki\n(Rosja)", fontsize=7.5, color="#B91C1C", ha="center")
+    ax.text(21.0, 54.55, "Obwód królewiecki\n(Rosja)", fontsize=7.5, color="#B91C1C", ha="center")
     ax.text(23.9, 53.0, "Białoruś", fontsize=7.5, color="#B91C1C", ha="center")
     ax.text(18.6, 54.85, "Morze Bałtyckie", fontsize=7.5, color=BLUE, style="italic")
     ax.set_xlim(16.8, 24.4)
@@ -258,7 +259,30 @@ def gas_table():
     return gas_released(50, 200, 0)
 
 
+# ---------------------------------------------------------------- 6. parachute
+def descent_speed(m, d, cd=0.8, rho=1.225):
+    """Terminal velocity under a parachute of diameter d [m] (canopy area pi d^2/4)."""
+    area = math.pi * d ** 2 / 4
+    return math.sqrt(2 * m * G / (rho * cd * area))
+
+
+def parachute_table():
+    diams = [0.6, 0.9, 1.2, 1.5, 1.8]
+    rows = []
+    for m in [1.0, 2.0, 3.0, 4.0]:
+        cells = []
+        for d in diams:
+            v = descent_speed(m, d)
+            txt = f"{v:.1f}".replace(".", ",")
+            if 4.0 <= v <= 6.0:
+                txt = "\\cellcolor{sdtip}\\textbf{" + txt + "}"
+            cells.append(txt)
+        rows.append(f"{m:.0f} & " + " & ".join(cells) + " \\\\")
+    (OUT / "tabela_spadochronu.tex").write_text("\n".join(rows) + "\n")
+
+
 if __name__ == "__main__":
+    parachute_table()
     tb, tl = typical_flight()
     tr20, tr22 = altitude_vs_distance()
     flight_map(tr20, tr22)
