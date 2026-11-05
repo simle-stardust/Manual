@@ -21,30 +21,33 @@
   \shade[ball color=white,draw=sdgray] (0,12.3) ellipse (1.2 and 1.35);
   \draw[sdgray,fill=white] (-0.12,10.98) -- (-0.08,10.75) -- (0.08,10.75) -- (0.12,10.98);
   \node[lbl,anchor=west] at (2.0,12.3) {\textbf{Powłoka} lateksowa z helem};
-  % pętla i krętlik
-  \draw[thick] (0,10.75) -- (0,10.6);
-  \draw[thick,fill=white] (0,10.42) circle (0.18);
-  \node[lbl,anchor=west] at (2.0,10.55) {\textbf{Szyjka} zamknięta z \textbf{pętlą} i \textbf{krętlikiem}\\(krętlik działa jak bloczek dla linki odcinacza)};
-  % spadochron (zwinięty) + obrys otwartego
-  \fill[red!75!black] (0.35,8.55) .. controls (0.55,8.15) and (0.55,7.6) .. (0.35,7.15) .. controls (0.15,7.6) and (0.15,8.15) .. (0.35,8.55);
-  \draw[red!60,densely dashed] (-0.35,7.35) .. controls (-0.3,8.25) and (1.0,8.25) .. (1.05,7.35) -- cycle;
-  \node[lbl,anchor=west] at (2.0,7.9) {\textbf{Spadochron}: w locie zwinięty wzdłuż linki (nie jest\\schowany -- nie ma mechanizmu wyrzutu).\\Linia przerywana: kształt po otwarciu.};
-  % linka odcinacza: wierzchołek spadochronu -> przez krętlik -> bokiem w dół -> zwalniacz
-  \draw[sdorange,line width=1.2pt] (0.35,8.55) .. controls (0.35,9.6) and (0.25,10.25) .. (0.18,10.42)
-     arc[start angle=0,end angle=180,radius=0.18]
-     .. controls (-0.6,10.1) and (-1.02,9.3) .. (-1.02,8.4) -- (-1.02,4.0) -- (-0.3,2.8);
-  \node[lbl,anchor=west,text=sdorange] at (2.0,9.3) {\textbf{Linka odcinacza}: od wierzchołka spadochronu w górę\\przez krętlik, potem bokiem -- równolegle do spadochronu\\i obok końców poprzeczek -- w dół do zwalniacza.};
-  \draw[dim] (-1.35,10.3) -- (-1.35,8.55);
-  \node[lbl,anchor=east,align=right] at (-1.45,9.4) {\textbf{zapas linki}\\(długość dobierana\\doświadczalnie;\\2023: 10--15\,m)};
-  % linki spadochronu przez końce poprzeczek do rogów płyty
-  \foreach \sx in {-1,1}{
-    \draw[sdnavy] (0.35+\sx*0.15,7.15) -- (\sx*0.8,5.6) -- (\sx*0.8,4.0) -- (\sx*0.72,2.66);}
-  \foreach \yy in {5.6,4.0}{\draw[fill=white,draw=sdgray] (-0.85,\yy-0.05) rectangle (0.85,\yy+0.05);}
-  \node[lbl,anchor=west] at (2.0,5.0) {\textbf{Linki spadochronu} przez końce poprzeczek do rogów\\płyty montażowej. \textbf{Poprzeczki} utrzymują odstęp linek --\\olinowanie pracuje jak szeroka taśma i mniej się skręca\\(do sprawdzenia kamerą w locie).};
+  % krętlik jako „8": górne ucho przez szyjkę, zawias, dolne ucho dla linki odcinacza
+  \draw[thick] (0,10.75) -- (0,10.68);
+  \draw[thick] (0,10.55) circle (0.13);
+  \fill[sdnavy] (-0.04,10.36) rectangle (0.04,10.42);
+  \draw[thick] (0,10.23) circle (0.13);
+  \node[lbl,anchor=west] at (2.0,10.5) {\textbf{Szyjka} zamknięta z pętlą. \textbf{Krętlik}: górne ucho na pętli\\szyjki, zawias, dolne ucho dla linki odcinacza (bloczek)};
+  % spadochron na środku: zwinięty + obrys otwartego
+  \fill[red!75!black] (0,8.4) .. controls (0.2,8.0) and (0.2,7.4) .. (0,7.0) .. controls (-0.2,7.4) and (-0.2,8.0) .. (0,8.4);
+  \draw[red!60,densely dashed] (-0.72,7.2) .. controls (-0.68,8.15) and (0.68,8.15) .. (0.72,7.2) -- cycle;
+  \node[lbl,anchor=west] at (2.0,7.75) {\textbf{Spadochron} na osi zestawu: w locie zwinięty wzdłuż\\linki (nie jest schowany -- nie ma mechanizmu wyrzutu).\\Linia przerywana: kształt po otwarciu.};
+  % linki spadochronu: do punktu zbiegu, potem do końców poprzeczek i rogów płyty
+  \draw[sdnavy] (-0.72,7.2) -- (0,6.3); \draw[sdnavy] (0.72,7.2) -- (0,6.3);
+  \fill[sdnavy] (0,6.3) circle (0.045);
+  \foreach \sx in {-1,1}{\draw[sdnavy] (0,6.3) -- (\sx*0.8,5.4) -- (\sx*0.8,4.0) -- (\sx*0.72,2.66);}
+  \foreach \yy in {5.4,4.0}{\draw[fill=white,draw=sdgray] (-0.85,\yy-0.05) rectangle (0.85,\yy+0.05);}
+  \node[lbl,anchor=west] at (2.0,5.1) {\textbf{Linki spadochronu} schodzą się pod czaszą w jeden\\punkt, potem rozchodzą do końców \textbf{poprzeczek} i dalej\\do rogów płyty montażowej. Poprzeczki utrzymują\\odstęp linek -- olinowanie pracuje jak szeroka taśma\\i mniej się skręca (do sprawdzenia kamerą w locie).};
+  % linka odcinacza: wierzchołek -> w górę przez dolne ucho krętlika -> bokiem w dół obok linki bocznej -> zwalniacz
+  \draw[sdorange,line width=1.2pt] (0,8.4) -- (0,10.1)
+     arc[start angle=-90,end angle=-270,radius=0.13]
+     .. controls (-0.35,10.3) and (-0.93,9.7) .. (-0.93,8.8) -- (-0.93,4.0) -- (-0.32,2.8);
+  \node[lbl,anchor=west,text=sdorange] at (2.0,9.2) {\textbf{Linka odcinacza}: od wierzchołka spadochronu w górę\\przez dolne ucho krętlika, potem bokiem -- wzdłuż\\bocznej linki poprzeczek -- w dół do zwalniacza.};
+  \draw[dim] (-1.35,10.1) -- (-1.35,8.4);
+  \node[lbl,anchor=east,align=right] at (-1.45,9.25) {\textbf{zapas linki}\\(długość dobierana\\doświadczalnie;\\2023: 10--15\,m)};
   % gondola platformy
   \draw[fill=white,draw=sdnavy,thick] (-0.8,1.75) rectangle (0.8,2.55);
   \draw[fill=blue!45] (-0.75,2.55) rectangle (0.75,2.63);
-  \draw[fill=sdgray] (-0.42,2.63) rectangle (-0.18,2.8);
+  \draw[fill=sdgray] (-0.44,2.63) rectangle (-0.2,2.8);
   \node[lblc] at (0,2.12) {platforma};
   \draw[thick] (-0.8,2.2) -- (-1.25,2.2); \draw[thick] (0.8,2.2) -- (1.25,2.2);
   \node[lbl,anchor=west] at (2.0,2.45) {\textbf{Gondola platformy}: zwalniacz i płyta montażowa\\na pokrywie, anteny po bokach};
@@ -69,9 +72,10 @@
   \draw[fill=blue!45] (-0.75,4.34) rectangle (0.75,4.42);
   \foreach \yy in {6.3}{\draw[sdnavy] (-0.72,5.68) -- (0,\yy); \draw[sdnavy] (0.72,5.68) -- (0,\yy);}
   \node[lbl,anchor=west] at (1.6,5.7) {olinowanie i spadochron (rysunek~\ref{fig:zestaw})};
-  % linka
-  \draw[sdnavy,thick] (0,4.34) -- (0,2.08);
-  \draw[dim] (0.35,4.3) -- node[right,lbl]{linka, np. $\geq$ 2\,m (do ustalenia)} (0.35,2.1);
+  % linki z rogów dolnej płyty do rogów drugiej uprzęży
+  \draw[sdnavy,thick] (-0.72,4.34) -- (-0.72,2.08);
+  \draw[sdnavy,thick] (0.72,4.34) -- (0.72,2.08);
+  \draw[dim] (1.15,4.3) -- node[right,lbl]{linki w rogach, np. $\geq$ 2\,m (do ustalenia)} (1.15,2.1);
   % druga uprząż i ładunek
   \draw[fill=blue!45] (-0.75,2.0) rectangle (0.75,2.08);
   \draw[fill=white,draw=sdnavy,thick] (-0.8,0.6) rectangle (0.8,2.0);
