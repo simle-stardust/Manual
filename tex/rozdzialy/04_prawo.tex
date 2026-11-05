@@ -1,0 +1,95 @@
+\chapter{Wymagania prawne}\label{ch:prawo}
+
+\begin{uwaga}Przepisy i formularze się zmieniają. Przed każdą misją sprawdź aktualne wymagania na stronach PAŻP i w tekście rozporządzenia SERA.\end{uwaga}
+
+\begin{sekcja}{Klasyfikacja balonu (SERA)}
+Loty bezzałogowych balonów wolnych reguluje rozporządzenie wykonawcze Komisji (UE) nr 923/2012 (SERA), Dodatek~2~\cite{sera}. Klasa balonu określa wymagania. Określ klasę przed wypełnieniem zgłoszenia.
+
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}P{20mm}L@{}}
+\toprule
+\textbf{Klasa} & \textbf{Kryteria}\\\midrule
+Lekki & Łączna masa ładunku mniejsza niż \SI{4}{kg} (jeżeli nie spełnia kryteriów balonu ciężkiego).\\
+Średni & Dwa lub więcej pakietów o łącznej masie od \SI{4}{kg} do mniej niż \SI{6}{kg}.\\
+Ciężki & Co najmniej jeden warunek: łączna masa \SI{6}{kg} lub więcej; jeden pakiet \SI{3}{kg} lub więcej; pakiet \SI{2}{kg} lub więcej o gęstości powierzchniowej większej niż \SI{13}{g/cm^2}; linka lub urządzenie podwieszenia, które wymaga siły \SI{230}{N} lub więcej, aby oddzielić ładunek od balonu.\\
+\bottomrule
+\end{tabularx}
+
+Gęstość powierzchniowa = masa pakietu [g] / pole najmniejszej ściany pakietu [cm²].
+
+\textbf{Zalecenia projektowe:}
+\begin{itemize}
+  \item Projektuj zestaw jako balon \textbf{lekki}. Wymagania dla balonu ciężkiego (dwa niezależne systemy zakończenia lotu, transponder, oświetlenie, raportowanie pozycji) są trudne do spełnienia dla zespołu studenckiego.
+  \item Użyj linki, która zrywa się przy sile mniejszej niż \SI{230}{N} -- w praktyce linka o średnicy około \SI{1}{mm}. Sprawdź wytrzymałość w karcie katalogowej.
+  \item Podziel ładunek na pakiety o masie poniżej \SI{2}{kg}.
+\end{itemize}
+\end{sekcja}
+
+\begin{sekcja}{Zgłoszenie lotu do PAŻP}
+Polska Agencja Żeglugi Powietrznej (PAŻP) przyjmuje zgłoszenia sondowań atmosfery i publikuje ostrzeżenie dla pilotów (NOTAM)~\cite{pazp}.
+
+\textbf{Formularz:} formularz zgłoszenia sondowania atmosfery (ASM1):\\
+\url{https://www.pansa.pl/wp-content/uploads/2025/07/Formularz_sonda_v1.pdf}\\
+Lista aktualnych formularzy: \url{https://www.pansa.pl/asm1/formularze-zgloszeniowe/}
+
+\textbf{Procedura:}
+\begin{enumerate}
+  \item Sprawdź strefy przestrzeni powietrznej w miejscu startu i na przewidywanej trasie lotu.
+  \item Pobierz aktualny formularz (adres wyżej). Sprawdź, czy PAŻP nie opublikowała nowej wersji.
+  \item Wypełnij \textbf{dwa formularze}: dla miejsca zasadniczego i zapasowego. W każdym podaj termin zasadniczy i zapasowy (rozdział~\ref{ch:planowanie}).
+  \item Wyślij formularze e-mailem do działu ASM1: \texttt{asm1@pansa.pl}, co najmniej 14 dni przed lotem. Minimalny termin podaje strona PAŻP -- sprawdź go przed każdą misją. Dział ASM1 pracuje w dni robocze.
+  \item Zapisz w karcie misji (F0) numer zgłoszenia i numer telefonu do służby ruchu lotniczego z odpowiedzi PAŻP.
+  \item W dniu startu miej ten numer pod ręką. Gdy zmienisz plan (godzina, odwołanie), zadzwoń natychmiast.
+\end{enumerate}
+\end{sekcja}
+
+\begin{sekcja}{Dane w formularzu PAŻP}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}P{26mm}L@{}}
+\toprule
+\textbf{Sekcja} & \textbf{Dane}\\\midrule
+Organizator & Imię i nazwisko, telefon, e-mail.\\
+Termin & Termin zasadniczy i zapasowy: data, godziny (UTC), planowana godzina startu.\\
+Lokalizacja & Nazwa miejscowości, współrzędne WGS-84 (stopnie, minuty, sekundy).\\
+Balon & Kolor, ilość, klasa (lekki/średni/ciężki), masa powłoki, wysokość sondowania, prędkość wznoszenia i opadania, średnica przy starcie i na wysokości pęknięcia.\\
+Ładunek & Kolor i średnica spadochronu, kolor ładunku, częstotliwość nadajnika, masa ładunku ze spadochronem, gęstość powierzchniowa (gdy pakiet ma \SI{2}{kg} lub więcej).\\
+Opis & Krótki opis przedsięwzięcia.\\
+\bottomrule
+\end{tabularx}
+
+Dane o średnicy, wysokości i prędkości weź z kalkulatora (rozdział~\ref{ch:planowanie}).
+\end{sekcja}
+
+\begin{sekcja}{Licencja radiowa}
+Nadajniki trackera (APRS na \SI{144.8}{MHz}, RTTY na \SI{434}{MHz}) wymagają pozwolenia radiowego dla służby amatorskiej. Operator z licencją krótkofalowca odpowiada za nadajnik i udostępnia swój znak wywoławczy.
+
+\begin{itemize}
+  \item Jak zdobyć licencję krótkofalowca w Polsce (egzamin, pozwolenie, znak): przewodnik Hackerspace Kraków~\cite{faqradiowe}: \url{https://github.com/HackerspaceKRK/faq-radiowe}.
+  \item Sprawdź, czy warunki pozwolenia dopuszczają pracę z balonu. Niektóre kraje zabraniają APRS w powietrzu.
+  \item Moduły ISM (np. \SI{434}{MHz}, LoRa) mają limity mocy i cyklu pracy. Sprawdź je dla użytego pasma.
+\end{itemize}
+
+\begin{wskazowka}Zdobądź licencję w zespole z wyprzedzeniem -- egzamin i wydanie pozwolenia trwają tygodnie. Klub krótkofalowców (np. przy uczelni) może udostępnić znak klubowy.\end{wskazowka}
+\end{sekcja}
+
+\begin{sekcja}{Ubezpieczenie OC}
+Wykup ubezpieczenie odpowiedzialności cywilnej na lot.
+\begin{itemize}
+  \item Zespół KSat e.V. z Uniwersytetu w Stuttgarcie, który prowadzi własne misje balonowe (projekt BUBBLE)~\cite{ksat}, rekomenduje lotnicze ubezpieczenie OC firmy Allianz według ogólnych warunków AMU~300/06~\cite{amu}.
+  \item Sprawdź, czy polisa obejmuje bezzałogowe balony wolne. Ogólne polisy lotnicze często nie wymieniają balonów wprost.
+  \item W Polsce: zapytaj ubezpieczyciela uczelni albo brokera o OC organizacji z klauzulą lotniczą. Podaj klasę balonu, masę ładunku i obszar lotu.
+\end{itemize}
+\end{sekcja}
+
+\begin{sekcja}{Oznakowanie ładunku}
+Opisz każdy pakiet. Wystarczy pisać markerem permanentnym bezpośrednio na styropianie.
+\begin{itemize}
+  \item \textbf{Numer telefonu -- obowiązkowo.} Osoba, która znajdzie gondolę, musi móc zadzwonić.
+  \item Informacja dla osób postronnych (zalecana): „Projekt badawczy -- nie otwierać, prosimy o kontakt”.
+  \item Logo projektu (naklejka) -- zwiększa zaufanie znalazcy.
+  \item Ostrzeżenia, np. o bateriach litowych.
+\end{itemize}
+
+\dwafoto{2023_gondola_bok_termometr}{Oznakowanie markerem: „Projekt badawczy”. Z boku wyprowadzony czujnik temperatury.}
+{2023_gondole_po_locie}{Numer telefonu („Znalazłeś? Zadzwoń!” -- numer zamazany w tej publikacji), napis „Projekt badawczy” i naklejki z logo misji.}
+\end{sekcja}

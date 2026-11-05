@@ -18,15 +18,20 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install pandoc and LaTeX
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            pandoc texlive-xetex texlive-latex-recommended texlive-latex-extra \
-            texlive-fonts-recommended texlive-lang-polish lmodern fonts-dejavu imagemagick
+      - name: Write document version
+        run: bash .scripts/version.sh
 
-      - name: Build PDF
-        run: bash .scripts/generate_pdf.sh
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: tex
+          latexmk_use_lualatex: false
+
+      - name: Collect PDF
+        run: |
+          mkdir -p pdf
+          cp tex/main.pdf pdf/Stardust-NEXT-Manual.pdf
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

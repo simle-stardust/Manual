@@ -1,0 +1,109 @@
+% ===========================================================================
+% Stardust NEXT – Manual misji stratosferycznych
+% Kompilacja: latexmk -pdf main.tex   (w katalogu tex/)
+% ===========================================================================
+\documentclass[11pt,a4paper,twoside,openright]{report}
+\usepackage{stardust}
+\input{figures/diagrams}
+
+% Wersja dokumentu: plik tworzy skrypt .scripts/generate_pdf.sh
+\IfFileExists{version.tex}{\input{version.tex}}{%
+  \newcommand{\wersja}{wersja robocza}\newcommand{\datawersji}{\today}}
+
+\hypersetup{pdftitle={Stardust NEXT – Manual},
+  pdfauthor={Koło Naukowe SimLE, Politechnika Gdańska},
+  pdfsubject={Dokumentacja misji balonów stratosferycznych}}
+\graphicspath{{figures/}{figures/photos/}{figures/generated/}}
+
+\begin{document}
+
+% ---------------------------------------------------------------- strona tytułowa
+\begin{titlepage}
+  \newgeometry{margin=20mm,bindingoffset=10mm}
+  \sffamily
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[sdnavy] (current page.north west) rectangle ([yshift=-120mm]current page.north east);
+    \begin{scope}
+      \clip ([yshift=-120mm]current page.north west) rectangle ([yshift=-212mm]current page.north east);
+      \node[inner sep=0] at ([yshift=-160mm]current page.north)
+        {\includegraphics[width=\paperwidth]{2023_zdjecie_analogowe_stratosfera}};
+    \end{scope}
+    \node[anchor=south east,font=\sffamily\scriptsize,text=white] at ([xshift=-5mm,yshift=-210mm]current page.north east)
+      {Zdjęcie z aparatu analogowego na pokładzie, misja z 26.05.2023};
+  \end{tikzpicture}
+  \vspace*{12mm}
+  {\color{white}
+   {\large\color{sdorange}KOŁO NAUKOWE SIMLE \textbullet{} POLITECHNIKA GDAŃSKA\par}
+   \vspace{10mm}
+   {\fontsize{40}{44}\selectfont\bfseries Stardust NEXT\par}
+   \vspace{4mm}
+   {\Huge Manual misji stratosferycznych\par}
+   \vspace{6mm}
+   {\Large Od celu misji do raportu po locie\par}}
+  \vfill
+  \begin{minipage}[b]{0.6\linewidth}
+    \large\color{sdnavy}
+    Dokumentacja platformy balonowej\\z odcinaczem mechanicznym\par
+    \vspace{6mm}\normalsize\color{sdgray}
+    Wersja dokumentu: \wersja\\
+    Data: \datawersji
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.3\linewidth}\raggedleft
+    \includegraphics[width=0.85\linewidth]{SimLE_Stardust_2023}
+  \end{minipage}
+  \restoregeometry
+\end{titlepage}
+
+% ---------------------------------------------------------------- metryczka
+\cleardoublepage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{blok}
+{\sffamily\bfseries\large\color{sdnavy} O tym dokumencie\par}\medskip
+Ten dokument daje niezbędne minimum, aby nowy zespół wyjął sprzęt z szafki i wykonał misję balonu stratosferycznego na platformie Stardust NEXT.
+
+Dokument jest przygotowany do druku dwustronnego i bindowania. Wydrukuj go w całości. Formularze z dodatku~\ref{dod:formularze} wydrukuj osobno dla każdej misji i wypełniaj długopisem. Notatki z terenu zapisuj na stronach „Notatki terenowe” na końcu dokumentu.
+
+\medskip
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{@{}lL@{}}
+\toprule
+Wersja dokumentu & \wersja \\
+Data wydania & \datawersji \\
+Źródło & \url{https://github.com/simle-stardust/Manual} \\
+Kontakt & \url{stardust@simle.pl} \\
+Licencja & Dokumentacja koła naukowego SimLE, Politechnika Gdańska \\
+\bottomrule
+\end{tabularx}
+
+\medskip
+\textbf{Dokument publiczny.} Ten dokument jest publiczny. Nie wpisuj do niego danych osobowych ani treści z wewnętrznej dokumentacji koła. Wypełnione formularze przechowuj wewnątrz zespołu.
+
+\textbf{Zgłaszanie poprawek.} Gdy znajdziesz błąd albo procedura się zmieni, zapisz to w notatkach terenowych i przenieś do repozytorium dokumentacji po misji (\rozdz{ch:projekt}).
+\end{blok}
+\vspace*{\fill}
+
+\cleardoublepage
+\pagenumbering{roman}
+\tableofcontents
+\cleardoublepage
+\pagenumbering{arabic}
+
+\input{rozdzialy/01_wprowadzenie}
+\input{rozdzialy/02_historia}
+\input{rozdzialy/03_planowanie}
+\input{rozdzialy/04_prawo}
+\input{rozdzialy/05_naziemny}
+\input{rozdzialy/06_lotny}
+\input{rozdzialy/07_elektronika}
+\input{rozdzialy/08_oprogramowanie}
+\input{rozdzialy/09_montaz}
+\input{rozdzialy/10_materialy}
+\input{rozdzialy/11_projekt}
+
+\appendix
+\input{rozdzialy/A_formularze}
+\input{rozdzialy/B_notatki}
+\input{rozdzialy/literatura}
+
+\end{document}

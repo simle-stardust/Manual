@@ -1,50 +1,19 @@
 #!/usr/bin/env bash
-# Build one PDF from all chapter files (NN_*.md) in the repository root.
+# Build the manual PDF from LaTeX sources in tex/.
 #
-# Prerequisites (Debian/Ubuntu):
-#   sudo apt install pandoc texlive-xetex texlive-latex-extra texlive-lang-polish fonts-dejavu imagemagick
-# or: nix-shell .scripts/shell.nix
+# Prerequisites: TeX Live with latexmk (see .scripts/shell.nix), e.g. on Debian/Ubuntu:
+#   sudo apt install latexmk texlive-latex-extra texlive-pictures texlive-science \
+#                    texlive-lang-polish texlive-fonts-recommended lmodern
+# Optional (regenerate figures from data/ and assets/): python3 with matplotlib, Pillow, geopandas<1.0
+#   python3 .scripts/plots.py && python3 .scripts/photos.py
 #
 # Output: pdf/Stardust-NEXT-Manual.pdf
 
 set -euo pipefail
-
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
-out_dir="$root/pdf"
-out_file="$out_dir/Stardust-NEXT-Manual.pdf"
-build="$(mktemp -d)"
-trap 'rm -rf "$build"' EXIT
-
-mkdir -p "$out_dir"
-
-# Copy chapters and downscale images, so the PDF stays small.
-cp "$root"/[0-9][0-9]_*.md "$build/"
-mkdir -p "$build/assets"
-for img in "$root"/assets/*; do
-  name="$(basename "$img")"
-  if command -v convert >/dev/null 2>&1; then
-    case "${name,,}" in
-      *.jpg|*.jpeg) convert "$img" -auto-orient -resize '1600x1600>' -quality 80 "$build/assets/$name" ;;
-      *.png)        convert "$img" -resize '1600x1600>' "$build/assets/$name" ;;
-      *)            cp "$img" "$build/assets/$name" ;;
-    esac
-  else
-    cp "$img" "$build/assets/$name"
-  fi
-done
-
-version="$(git -C "$root" describe --tags --always --dirty 2>/dev/null || echo dev)"
-
-cd "$build"
-export LC_ALL=C.UTF-8
-pandoc "$root/.scripts/metadata.yaml" [0-9][0-9]_*.md \
-  --from markdown+lists_without_preceding_blankline \
-  --pdf-engine=xelatex \
-  --toc --toc-depth=2 \
-  --number-sections \
-  --top-level-division=chapter \
-  --resource-path="$build" \
-  --metadata date="Wersja $version, $(date +%Y-%m-%d)" \
-  --output "$out_file"
-
-echo "PDF: $out_file"
+"$root/.scripts/version.sh"
+mkdir -p "$root/pdf"
+cd "$root/tex"
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+cp main.pdf "$root/pdf/Stardust-NEXT-Manual.pdf"
+echo "PDF: $root/pdf/Stardust-NEXT-Manual.pdf"

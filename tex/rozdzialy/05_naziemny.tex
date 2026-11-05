@@ -1,0 +1,153 @@
+\chapter{Segment naziemny}\label{ch:naziemny}
+
+\begin{sekcja}{Stanowisko startowe}
+Wybierz otwarty teren bez drzew i linii energetycznych, np. boisko. Uzyskaj zgodę właściciela terenu. Powłoka jest delikatna: gałązki, korzenie i kamienie mogą ją przebić.
+
+Rysunek~\ref{fig:stanowisko} pokazuje warstwy stanowiska. Powłoka leży \textbf{między dwiema foliami}. Tankowanie odbywa się między foliami. Folia górna przytrzymuje powłokę, aby nie odleciała przed startem.
+
+\begin{center}\resizebox{\linewidth}{!}{\rysStanowisko}\end{center}
+\captionof{figure}{Przekrój stanowiska startowego (grubość warstw przesadzona).}\label{fig:stanowisko}
+\end{sekcja}
+
+\begin{sekcja}{Warstwy stanowiska}
+\begin{enumerate}
+  \item \textbf{Plandeka} -- na sam dół. Chroni przed wilgocią z ziemi. Jest ważna przy starcie rano, gdy trawa jest mokra.
+  \item \textbf{Koc} -- chroni powłokę przed przebiciem przez korzenie i odrosty. Gruby koc działa lepiej niż cienki.
+  \item \textbf{Folia malarska dolna} (cienka) -- pod powłoką.
+  \item \textbf{Powłoka} i rura do tankowania.
+  \item \textbf{Folia malarska górna} (grubsza) -- na powłoce. Cienka folia na wierzchu może się porwać i powłoka może odlecieć w trakcie tankowania. Grubsza folia jest pewniejsza.
+\end{enumerate}
+
+\begin{uwaga}Dociśnij rogi plandeki, koca i folii czymś ciężkim, np. skrzynkami transportowymi. Porywy wiatru mogą porwać folię razem z powłoką.\end{uwaga}
+
+\begin{wskazowka}Folię, plandekę i koce kupisz w markecie budowlanym. Kup oba rodzaje folii, aby mieć wybór. Kup wszystko na jeden rachunek razem z zamówieniem gazu -- upraszcza to rozliczenie.\end{wskazowka}
+\end{sekcja}
+
+\begin{sekcja}{Stanowisko na zdjęciach}
+\dwafoto{2023_stanowisko_rozlozone}{Rozłożona plandeka i sprzęt przed tankowaniem.}
+{2023_powloka_miedzy_foliami}{Powłoka na folii dolnej; pomocnicy przykrywają ją folią górną.}
+\dwafoto{2022_stanowisko_zabezpieczone}{Rogi folii dociśnięte skrzynkami transportowymi.}
+{2023_balon_po_tankowaniu}{Zatankowana powłoka trzymana folią górną do chwili startu.}
+\end{sekcja}
+
+\begin{sekcja}{Sprzęt do tankowania}
+\begin{itemize}
+  \item butla z helem (zwykle \SI{50}{l}, \SI{200}{bar}) i reduktor z manometrem ciśnienia butli,
+  \item wąż i rura do tankowania (najlepiej z zaworem zwrotnym),
+  \item obciążnik (np. butelka z wodą) i waga,
+  \item klucz do reduktora: klucz nastawny („francuski”) albo klucze calowe -- zależnie od butli,
+  \item taśma klejąca (mocna, np. srebrna), sznurek, opaski zaciskowe,
+  \item rękawiczki (bawełniane albo nitrylowe) dla wszystkich, którzy dotykają powłoki.
+\end{itemize}
+
+\begin{uwaga}Pracuj przy powłoce tylko w rękawiczkach. Tłuszcz ze skóry osłabia lateks. Powłoka pęka wcześniej w miejscach, które ktoś dotknął gołą ręką.\end{uwaga}
+
+\begin{uwaga}Butla z gazem pod ciśnieniem \SI{200}{bar} jest niebezpieczna. Transportuj ją zabezpieczoną przed przetoczeniem. Nie upuszczaj jej. Nie odkręcaj zaworu bez zamontowanego reduktora.\end{uwaga}
+\end{sekcja}
+
+\begin{sekcja}{Przygotowanie reduktora}
+\begin{enumerate}
+  \item Połóż butlę stabilnie na plandece. Zabezpiecz ją przed przetoczeniem.
+  \item Sprawdź gwint zaworu butli i reduktora. Usuń zanieczyszczenia.
+  \item Przykręć reduktor kluczem. Nie dokręcaj na siłę.
+  \item Zamknij pokrętło reduktora (pozycja \emph{OFF}). Otwórz powoli zawór butli.
+  \item Odczytaj i zapisz ciśnienie początkowe $p_1$ z manometru butli (formularz F10).
+  \item Sprawdź szczelność: zamknij zawór butli; ciśnienie na manometrze nie może spadać.
+  \item Podłącz wąż i rurę do tankowania.
+\end{enumerate}
+
+\dwafoto{2022_regulator_montaz}{Montaż reduktora na butli -- w rękawiczkach, na plandece.}
+{2022_regulator_manometry}{Manometry reduktora: górny -- ciśnienie w butli [bar], dolny -- przepływ [l/min], skalowany dla argonu i CO$_2$.}
+\end{sekcja}
+
+\begin{sekcja}{Ilość gazu z ciśnienia w butli}\label{sec:gaz-wzor}
+Manometr reduktora pokazuje ciśnienie w butli. Ze spadku ciśnienia obliczysz, ile gazu poszło do powłoki. Wzór wynika z równania stanu gazu z poprawką na ściśliwość helu~\cite{nist}:
+\[
+  V \;=\; \frac{V_b}{p_0}\left(\frac{p_1}{Z(p_1)} - \frac{p_2}{Z(p_2)}\right)\frac{T_0}{T},
+  \qquad Z(p) \approx 1 + 4{,}8\cdot10^{-4}\,p\ [\text{bar}]
+\]
+gdzie:
+\begin{itemize}
+  \item $V$ -- objętość helu wypuszczonego do powłoki, przy ciśnieniu atmosferycznym [m³],
+  \item $V_b$ -- pojemność wodna butli (wybita na butli, np. \SI{50}{l} = \SI{0.05}{m^3}),
+  \item $p_1$, $p_2$ -- ciśnienie \textbf{bezwzględne} przed i po tankowaniu: odczyt manometru + \SI{1}{bar},
+  \item $p_0 = \SI{1.013}{bar}$ -- ciśnienie atmosferyczne,
+  \item $Z$ -- współczynnik ściśliwości helu (dla \SI{200}{bar} $Z \approx 1{,}1$; bez poprawki wynik jest zawyżony o około \SI{10}{\percent}),
+  \item $T_0/T$ -- poprawka na temperaturę ($T_0 = \SI{288}{K}$); przy \SI{15}{\degreeCelsius} równa 1.
+\end{itemize}
+
+Siła nośna helu przy ziemi to około \SI{1.05}{kg} na każdy \si{m^3}. Siła nośna szyjki = $V \cdot 1{,}05$~kg $-$ masa powłoki.
+\end{sekcja}
+
+\begin{sekcja}{Tabela gazu}
+\small
+\begin{tabularx}{\linewidth}{@{}YYYYY@{}}
+\toprule
+\makecell{\textbf{Odczyt}\\\textbf{manometru [bar]}} & \makecell{\textbf{Spadek}\\\textbf{ciśnienia [bar]}} & \makecell{\textbf{Hel z butli}\\\textbf{10 l [m³]}} & \makecell{\textbf{Hel z butli}\\\textbf{50 l [m³]}} & \makecell{\textbf{Siła nośna}\\\textbf{(50 l) [kg]}}\\\midrule
+\wiersze{figures/generated/tabela_gazu.tex}
+\bottomrule
+\end{tabularx}
+\normalsize
+\captionof{table}{Hel wypuszczony z butli napełnionej do \SI{200}{bar}, w temperaturze \SI{15}{\degreeCelsius}. Pełna butla \SI{50}{l} zawiera około \SI{9}{m^3} helu.}\label{tab:gaz}
+
+\begin{uwaga}Przy szybkim wypływie butla się ochładza i manometr pokazuje za niskie ciśnienie. Przed odczytem $p_2$ zamknij zawór i odczekaj kilka minut, aż temperatura się wyrówna.\end{uwaga}
+
+\begin{wskazowka}Wskaźnik przepływu [l/min] na reduktorze jest skalowany dla argonu. Hel jest około 10 razy lżejszy, więc rzeczywisty przepływ helu jest około 3 razy większy niż wskazanie ($\sqrt{40/4} \approx 3{,}2$). Przepływ $\times$ czas daje tylko zgrubne oszacowanie. Dokładniejsze są: spadek ciśnienia w butli i metoda z obciążnikiem.\end{wskazowka}
+
+Hel balonowy („balloon gas”) bywa mieszaniną helu z powietrzem. Ma mniejszą siłę nośną. Zamów hel techniczny o czystości podanej przez dostawcę i zapisz ją w karcie misji.
+\end{sekcja}
+
+\begin{sekcja}{Metoda z obciążnikiem}
+Metoda z obciążnikiem to podstawowa metoda tankowania. Wzór z sekcji~\ref{sec:gaz-wzor} służy do kontroli i do oceny, ile gazu zostało w butli.
+\begin{enumerate}
+  \item Odczytaj z kalkulatora siłę nośną szyjki (\emph{neck lift}).
+  \item Przygotuj obciążnik o masie równej tej sile nośnej. Uwzględnij masę rury do tankowania i taśmy, jeśli wiszą razem z obciążnikiem. Zważ obciążnik.
+  \item Przywiąż obciążnik do szyjki albo do rury do tankowania.
+  \item Tankuj, aż balon \textbf{uniesie obciążnik} (balon w równowadze albo lekko się wznosi).
+\end{enumerate}
+
+\begin{center}\resizebox{\linewidth}{!}{\rysTankowanie}\end{center}
+\captionof{figure}{Tankowanie metodą z obciążnikiem.}
+\end{sekcja}
+
+\begin{sekcja}{Procedura tankowania}
+\begin{enumerate}
+  \item Wszyscy przy powłoce zakładają rękawiczki.
+  \item Wyjmij powłokę z opakowania na folii dolnej. Rozłóż ją bez naciągania.
+  \item Włóż rurę do tankowania w szyjkę powłoki. Owiń szyjkę dookoła rury i przytrzymaj ręką.
+  \item Wstępnie uszczelnij szyjkę na rurze taśmą -- \textbf{delikatnie}, tak aby dało się ją zdjąć.
+  \item Przykryj powłokę folią górną. Pomocnicy trzymają brzegi folii.
+  \item Otwórz zawór butli i powoli otwieraj reduktor. Tankuj spokojnie, bez gwałtownych skoków przepływu.
+  \item Obserwuj manometr butli. Zapisuj odczyty (formularz F10). Porównuj z tabelą~\ref{tab:gaz}.
+  \item Gdy balon uniesie obciążnik, zamknij zawór butli. Sprawdź siłę nośną jeszcze raz po minucie.
+  \item Zamknij powłokę (sekcja~\ref{sec:szyjka}).
+\end{enumerate}
+
+\dwafoto{2023_tankowanie_rura}{Tankowanie: szyjka owinięta dookoła rury i przytrzymana ręką. Linka olinowania z krętlikiem gotowa. Taśma w gotowości na plandece.}
+{2020_tankowanie_torun}{Tankowanie pod folią (20.07.2020).}
+\end{sekcja}
+
+\begin{sekcja}{Zamknięcie powłoki}\label{sec:szyjka}
+\begin{enumerate}
+  \item Zdejmij taśmę wstępną. Wysuń rurę z szyjki, trzymając szyjkę zaciśniętą w dłoni.
+  \item Skręć szyjkę kilka razy.
+  \item Przewiąż skręconą szyjkę sznurkiem. Zrób kilka supłów.
+  \item Zegnij szyjkę w pół \textbf{w górę} (w stronę powłoki).
+  \item Owiń całość kilkoma warstwami taśmy.
+  \item Przywiąż do szyjki pętlę olinowania z krętlikiem.
+\end{enumerate}
+
+\begin{uwaga}Nie przyklejaj taśmy do powłoki. Taśma odklejana od powłoki może ją przerwać. Taśma ma dotykać tylko szyjki.\end{uwaga}
+\end{sekcja}
+
+\begin{sekcja}{Stacje odbiorcze}
+Używaj co najmniej dwóch stacji odbiorczych: stacjonarnej i mobilnej. Nie polegaj tylko na sieci innych nasłuchowców. Schemat toru radiowego: rozdział~\ref{ch:elektronika}.
+
+\textbf{Stacja stacjonarna:} antena kierunkowa albo dookólna na wysokim maszcie, odbiornik i komputer z internetem. Stacja wysyła odebrane pakiety do SondeHub i APRS-IS. Przykład: stacja sieci SatNOGS z anteną Cross Yagi VHF/UHF.
+
+\textbf{Stacja mobilna}, wariant 1: radiotelefon z dekoderem APRS (np. Yaesu FT5DE) i antena samochodowa VHF/UHF na magnes (np. Nagoya UT-72).
+
+\textbf{Stacja mobilna}, wariant 2: odbiornik RTL-SDR, przedwzmacniacz niskoszumny (LNA), filtry pasmowe, laptop z oprogramowaniem dekodującym (APRS, RTTY lub LoRa -- zależnie od trackera).
+
+\foto[0.75\linewidth]{2022_poscig_samochod}{Stacja mobilna w samochodzie pościgowym: laptop z mapą śledzenia, radiotelefon.}
+\end{sekcja}

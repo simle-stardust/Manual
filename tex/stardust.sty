@@ -1,0 +1,198 @@
+% ---------------------------------------------------------------------------
+% stardust.sty – wspólny styl manuala Stardust NEXT
+% Układ do druku dwustronnego i bindowania (A4, margines na grzbiet).
+% ---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{stardust}[2026/11/05 Stardust NEXT manual style]
+
+% --- Język i fonty ----------------------------------------------------------
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[polish]{babel}
+\RequirePackage{lmodern}
+\RequirePackage[scaled=0.92]{helvet}
+\RequirePackage{microtype}
+\RequirePackage{textcomp}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage[detect-all,locale=PL,per-mode=symbol]{siunitx}
+\sisetup{group-minimum-digits=4}
+
+% --- Strona: A4, druk dwustronny, margines na bindowanie --------------------
+\RequirePackage[a4paper,inner=25mm,outer=20mm,top=25mm,bottom=25mm,
+  bindingoffset=10mm,headheight=14pt,footskip=12mm]{geometry}
+\raggedbottom
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% --- Kolory -----------------------------------------------------------------
+\RequirePackage[table,dvipsnames]{xcolor}
+\definecolor{sdorange}{HTML}{E8592B}
+\definecolor{sdnavy}{HTML}{1B2A4A}
+\definecolor{sdgray}{HTML}{6B7280}
+\definecolor{sdlight}{HTML}{F3F4F6}
+\definecolor{sdwarn}{HTML}{FFF4E5}
+\definecolor{sdtip}{HTML}{EAF5EA}
+
+% --- Grafika, tabele, listy -------------------------------------------------
+\RequirePackage{graphicx}
+\RequirePackage{caption}
+\captionsetup{font=small,labelfont={bf,color=sdnavy},format=hang,skip=6pt}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{multirow}
+\RequirePackage{makecell}
+\RequirePackage{pdflscape}
+\RequirePackage{enumitem}
+\setlist{itemsep=2pt,topsep=4pt,parsep=0pt}
+\RequirePackage{needspace}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,shapes.misc,calc,
+  decorations.pathmorphing,fit,backgrounds,patterns}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage{emptypage}
+\RequirePackage{xurl}
+\RequirePackage[hidelinks,unicode,pdfusetitle,bookmarksnumbered]{hyperref}
+\RequirePackage{bookmark}
+
+\renewcommand{\arraystretch}{1.25}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% --- Nagłówki rozdziałów: każdy rozdział od nowej strony (nieparzystej) ----
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\color{sdnavy}}
+  {\large\color{sdorange}\MakeUppercase{\chaptertitlename}~\thechapter}
+  {4pt}{\Huge\bfseries}
+  [\vspace{2pt}{\color{sdorange}\titlerule[1.5pt]}]
+\titlespacing*{\chapter}{0pt}{0pt}{24pt}
+\titleformat{\section}{\normalfont\sffamily\Large\bfseries\color{sdnavy}}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\normalfont\sffamily\large\bfseries\color{sdnavy}}{\thesubsection}{0.8em}{}
+\titleformat{\subsubsection}{\normalfont\sffamily\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{4pt}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+
+% --- Paginy ------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\sffamily\small\color{sdgray}\leftmark}
+\fancyhead[RO]{\sffamily\small\color{sdgray}\rightmark}
+\fancyfoot[LE,RO]{\sffamily\small\thepage}
+\fancyfoot[RE,LO]{\sffamily\scriptsize\color{sdgray}Stardust NEXT -- Manual}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.~#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection~#1}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[LE,RO]{\sffamily\small\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+% ---------------------------------------------------------------------------
+% Blok niełamany: treść jest najpierw składana w pudełku. Gdy mieści się na
+% jednej stronie, przenosimy ją w całości na nową stronę, jeśli nie zmieści
+% się na bieżącej. Bloki dłuższe niż strona łamią się normalnie.
+% ---------------------------------------------------------------------------
+\newsavebox{\sd@blok}
+\newlength{\sd@blokh}
+\newenvironment{blok}
+  {\par\setbox\sd@blok\vbox\bgroup\@parboxrestore\setlength{\parskip}{4pt}\noindent\ignorespaces}
+  {\par\egroup
+   \setlength{\sd@blokh}{\ht\sd@blok}\addtolength{\sd@blokh}{\dp\sd@blok}%
+   \ifdim\sd@blokh<\textheight\Needspace*{\sd@blokh}\fi
+   \unvbox\sd@blok\par}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+% Sekcja i podsekcja jako bloki niełamane.
+\newenvironment{sekcja}[1]{\begin{blok}\section{#1}}{\end{blok}}
+\newenvironment{podsekcja}[1]{\begin{blok}\subsection{#1}}{\end{blok}}
+
+% --- Rysunki bez pływania (bezpieczne w blokach) -----------------------------
+% \foto[szerokość]{plik}{podpis}
+\newcommand{\foto}[3][0.8\linewidth]{%
+  \par\smallskip{\centering\includegraphics[width=#1]{#2}\par}
+  \captionof{figure}{#3}\smallskip}
+% \dwafoto{plik1}{podpis1}{plik2}{podpis2}
+\newcommand{\dwafoto}[4]{%
+  \par\smallskip\noindent
+  \begin{minipage}[t]{0.485\linewidth}\centering
+    \includegraphics[width=\linewidth]{#1}\captionof{figure}{#2}\end{minipage}\hfill
+  \begin{minipage}[t]{0.485\linewidth}\centering
+    \includegraphics[width=\linewidth]{#3}\captionof{figure}{#4}\end{minipage}\par\smallskip}
+
+% --- Ramki: uwaga, wskazówka --------------------------------------------------
+\newtcolorbox{uwaga}[1][Uwaga]{enhanced,colback=sdwarn,colframe=sdorange,
+  boxrule=0pt,leftrule=3pt,arc=0pt,fonttitle=\sffamily\bfseries,
+  coltitle=sdorange,colbacktitle=sdwarn,title=#1,attach title to upper={\ \ },
+  left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{wskazowka}[1][Wskazówka]{enhanced,colback=sdtip,colframe=ForestGreen,
+  boxrule=0pt,leftrule=3pt,arc=0pt,fonttitle=\sffamily\bfseries,
+  coltitle=ForestGreen,colbacktitle=sdtip,title=#1,attach title to upper={\ \ },
+  left=6pt,right=6pt,top=4pt,bottom=4pt}
+
+% --- Odwołania do rozdziałów --------------------------------------------------
+\newcommand{\rozdz}[1]{rozdział~\ref{#1} „\nameref{#1}”}
+
+% ===========================================================================
+% Formularze do druku i wypełnienia długopisem
+% ===========================================================================
+\newcommand{\pole}[2][3cm]{#2\,\rule[-2pt]{#1}{0.4pt}}
+\newcommand{\linia}{\par\vspace{6.5mm}\noindent\rule{\linewidth}{0.3pt}}
+\newcommand{\kratka}{\raisebox{-1pt}{\tikz\draw[line width=0.6pt] (0,0) rectangle (3.4mm,3.4mm);}}
+
+% Lista kroków procedury z polem wyboru i kolumną „uwagi/wartość”.
+\newcounter{krok}
+\newenvironment{procedura}
+  {\setcounter{krok}{0}\par\noindent\small
+   \renewcommand{\arraystretch}{1.32}%
+   \begin{longtable}{@{}C{6mm}P{7mm}>{\raggedright\arraybackslash}p{0.62\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}@{}}
+   \toprule
+   \textbf{OK} & \textbf{Nr} & \textbf{Krok} & \textbf{Wartość / uwagi}\\\midrule\endhead}
+  {\bottomrule\end{longtable}\normalsize\vspace{-4mm}}
+% \krok{czynność}{pole na wartość (opcjonalnie)}
+\newcommand{\krok}[2]{\stepcounter{krok}\kratka & \thekrok. & #1 & #2\\}
+\newcommand{\etap}[1]{\multicolumn{4}{@{}l}{\cellcolor{sdlight}\sffamily\bfseries\small #1}\\}
+
+% Nagłówek formularza: każdy formularz na osobnej stronie.
+% \formularz{kod}{tytuł}{kiedy}
+\newcommand{\formularz}[3]{%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{section}{#1~~#2}%
+  \markright{#1 #2}%
+  \noindent
+  \begin{tcolorbox}[enhanced,colback=sdnavy,colframe=sdnavy,arc=0pt,
+    left=6pt,right=6pt,top=4pt,bottom=4pt,coltext=white]
+    \sffamily\Large\bfseries #1\quad #2\hfill\normalsize\mdseries #3
+  \end{tcolorbox}\vspace{-2mm}
+  \noindent
+  \renewcommand{\arraystretch}{1.45}%
+  \begin{tabularx}{\linewidth}{@{}|L|L|L|@{}}\hline
+  \footnotesize Misja: & \footnotesize Data: & \footnotesize Miejsce:\\\hline
+  \footnotesize Wypełnia (imię i nazwisko): & \footnotesize Rola: & \footnotesize Godzina rozpoczęcia:\\\hline
+  \end{tabularx}\par\medskip}
+
+% Stopka formularza: komentarze i podpisy.
+\newcommand{\komentarze}[1][3]{%
+  \par\medskip\noindent{\sffamily\bfseries Komentarze, odstępstwa od procedury:}
+  \foreach \i in {1,...,#1}{\linia}\par}
+\newcommand{\podpisy}{%
+  \par\vfill
+  \par\medskip\noindent
+  \renewcommand{\arraystretch}{2.0}%
+  \begin{tabularx}{\linewidth}{@{}|L|L|L|@{}}\hline
+  \footnotesize Wypełnił/a (podpis): & \footnotesize Sprawdził/a – kierownik misji (podpis): & \footnotesize Decyzja: \kratka~kontynuuj \quad \kratka~wstrzymaj\\\hline
+  \end{tabularx}}
+
+% Wstawienie wierszy tabeli z pliku (prymityw \input działa w środku tabeli).
+\newcommand{\wiersze}[1]{\csname @@input\endcsname #1 }
+
+\endinput

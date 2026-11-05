@@ -2,14 +2,11 @@
 
 pkgs.mkShell {
   buildInputs = [
-    pkgs.pandoc
-    pkgs.texlive.combined.scheme-full  # Provides a full LaTeX distribution
-    pkgs.imagemagick
-    pkgs.dejavu_fonts
+    pkgs.texlive.combined.scheme-full  # Full LaTeX distribution with latexmk
+    (pkgs.python3.withPackages (ps: [ ps.matplotlib ps.pillow ps.numpy ]))
   ];
 
   shellHook = ''
-    echo "Nix shell for Pandoc and TeX Live is active."
-    echo "You can now use 'pandoc' to convert your Markdown files."
+    echo "Run .scripts/generate_pdf.sh to build pdf/Stardust-NEXT-Manual.pdf"
   '';
 }

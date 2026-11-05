@@ -1,0 +1,29 @@
+\chapter{Notatki terenowe}\label{dod:notatki}
+
+\begin{blok}
+Zapisuj tu obserwacje z terenu, poprawki do procedur i pomysły. Każdą notatkę opatrz datą, nazwą misji i podpisem. Po misji przenieś notatki do repozytorium dokumentacji (formularz F14).
+\end{blok}
+
+% Strony w linie
+\newcommand{\stronanotatek}{%
+  \clearpage
+  \noindent{\sffamily\small\color{sdgray}Misja: \rule{45mm}{0.3pt}\hfill Data: \rule{30mm}{0.3pt}\hfill Autor: \rule{40mm}{0.3pt}}\par
+  \vspace{2mm}
+  \noindent\begin{tikzpicture}
+    \foreach \y in {0,8,...,224}{\draw[sdgray!45,line width=0.3pt] (0,-\y mm) -- (\linewidth,-\y mm);}
+  \end{tikzpicture}}
+% Strony w kratkę (szkice)
+\newcommand{\stronakratka}{%
+  \clearpage
+  \noindent{\sffamily\small\color{sdgray}Szkic -- misja: \rule{40mm}{0.3pt}\hfill Data: \rule{30mm}{0.3pt}\hfill Autor: \rule{40mm}{0.3pt}}\par
+  \vspace{2mm}
+  \noindent\begin{tikzpicture}
+    \draw[sdgray!30,line width=0.2pt,step=5mm] (0,0) grid (\linewidth,225mm);
+  \end{tikzpicture}}
+
+\stronanotatek
+\stronanotatek
+\stronanotatek
+\stronanotatek
+\stronakratka
+\stronakratka

@@ -1,0 +1,51 @@
+\chapter{Oprogramowanie}\label{ch:oprogramowanie}
+
+\begin{sekcja}{Narzędzia}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}P{34mm}LP{50mm}@{}}
+\toprule
+\textbf{Narzędzie} & \textbf{Zastosowanie} & \textbf{Adres}\\\midrule
+SondeHub Burst Calculator & Ilość gazu, siła nośna, wysokość pęknięcia & \url{https://sondehub.org/calc/}\\
+SondeHub Predictor & Predykcja trajektorii i miejsca lądowania & \url{https://predict.sondehub.org/}\\
+SondeHub Amateur & Mapa śledzenia (APRS, RTTY, LoRa, Horus) & \url{https://amateur.sondehub.org/}\\
+aprs.fi & Mapa śledzenia APRS & \url{https://aprs.fi/}\\
+PureTrack & Mapa śledzenia & \url{https://puretrack.io/}\\
+SPOT & Lokalizator satelitarny & \url{https://www.findmespot.com/}\\
+Find My / Find Hub & Znaczniki Bluetooth & aplikacje Apple i Google\\
+\bottomrule
+\end{tabularx}
+\end{sekcja}
+
+\begin{sekcja}{Konfiguracja przed misją}
+Wykonaj najpóźniej \textbf{2 dni przed lotem} (formularz F7):
+\begin{enumerate}
+  \item Wejdź na \url{https://amateur.sondehub.org/} i skonfiguruj dokument ładunku (\emph{payload}) dla RTTY. Bez tego SondeHub nie zdekoduje telemetrii.
+  \item Włącz tracker na zewnątrz. Wejdź na \url{https://aprs.fi/} i sprawdź, czy pozycja znaku z SSID pojawia się na mapie.
+  \item Wejdź na SondeHub Amateur i sprawdź, czy pakiety RTTY pojawiają się na mapie.
+  \item Aktywuj subskrypcję SPOT (plan Flex -- na jeden miesiąc). Wejdź na stronę SPOT i sprawdź pozycję urządzenia.
+  \item Dodaj znaczniki Bluetooth do kont Apple i Google zespołu. Sprawdź ich pozycję w aplikacjach.
+  \item Udostępnij linki do śledzenia całemu zespołowi.
+\end{enumerate}
+\end{sekcja}
+
+\begin{sekcja}{Śledzenie w trakcie lotu}
+\begin{itemize}
+  \item Operator śledzenia obserwuje mapę i podaje pozycję kierowcy. Kierowca nie obsługuje śledzenia.
+  \item Po starcie jedź w kierunku przewidywanego miejsca lądowania.
+  \item Aktualizuj predykcję w trakcie lotu na podstawie aktualnej pozycji i prędkości.
+  \item Zapisuj pozycję i wysokość co kilka minut (formularz F12).
+  \item Gdy balon pęknie, przyspiesz -- opadanie trwa krócej niż wznoszenie.
+  \item Przy ziemi sygnał zanika. Zapisz ostatnią pozycję. Użyj lokalizatorów.
+\end{itemize}
+
+\foto[0.7\linewidth]{2022_poscig_samochod}{Operator śledzenia w samochodzie pościgowym.}
+\end{sekcja}
+
+\begin{sekcja}{Wersja kodu lotnego}
+Kod lotny (HABduino, OBC, ładunek) i dokumentacja tworzą jedną całość:
+\begin{itemize}
+  \item w dokumentacji misji (karta misji F0, raport) zapisz wersję kodu lotnego: numer wydania (\emph{release}) albo commita,
+  \item do wydania kodu lotnego dołącz końcową wersję dokumentacji (np. PDF tego manuala i raport z misji),
+  \item nie zmieniaj kodu po przeglądzie gotowości. Każda zmiana po przeglądzie wymaga ponownych testów.
+\end{itemize}
+\end{sekcja}

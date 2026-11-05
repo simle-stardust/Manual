@@ -1,1 +1,11 @@
 pdf/
+tex/version.tex
+tex/*.aux
+tex/*.log
+tex/*.toc
+tex/*.out
+tex/*.fls
+tex/*.fdb_latexmk
+tex/*.synctex.gz
+tex/main.pdf
+__pycache__/

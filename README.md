@@ -1,49 +1,155 @@
 # Stardust NEXT – Manual
 
-Dokumentacja techniczna platformy balonów stratosferycznych Stardust NEXT. Platformę opracowało Koło Naukowe SimLE (Politechnika Gdańska).
+Dokumentacja platformy balonów stratosferycznych Stardust NEXT (Koło Naukowe SimLE, Politechnika Gdańska).
 
-Manual daje niezbędne minimum, aby nowy zespół wyjął sprzęt z szafki i wykonał misję stratosferyczną.
+Manual daje niezbędne minimum, aby nowy zespół wyjął sprzęt z szafki i wykonał misję stratosferyczną. Dokument jest przygotowany do druku dwustronnego i bindowania. Zawiera formularze do wypełnienia długopisem i strony na notatki terenowe.
+
+**Gotowy PDF:** zakładka *Releases* (wydania) albo artefakt ostatniego przebiegu akcji *Build PDF*.
 
 ## Spis treści
 
-0. [Wprowadzenie](00_INTRO.md)
-1. [Historia i wnioski](01_HISTORY.md)
-2. [Wymagania prawne](02_LEGAL.md)
-3. [Segment naziemny](03_GROUND.md) – stanowisko startowe, tankowanie, stacje odbiorcze
-4. [Segment lotny](04_FLIGHT.md) – powłoka, spadochron, olinowanie, odcinacz, gondola
-5. [Oprogramowanie](05_SOFTWARE.md) – planowanie, predykcja, śledzenie
-6. [Elektronika](06_ELECTRONICS.md) – tracker, komputer pokładowy, lokalizator
-7. [Wykaz materiałów i narzędzi](07_BOM.md)
-8. [Instrukcje montażu](08_ASSEMBLY.md)
-9. [Listy kontrolne](09_CHECKLISTS.md)
-10. [Prowadzenie projektu i dokumentacja](10_PROJECT.md)
+1. Wprowadzenie
+2. Historia i wnioski
+3. Planowanie misji
+4. Wymagania prawne
+5. Segment naziemny – stanowisko, tankowanie, stacje odbiorcze
+6. Segment lotny – powłoka, spadochron, olinowanie, odcinacz, gondola
+7. Elektronika i łączność
+8. Oprogramowanie
+9. Instrukcje montażu
+10. Wykaz materiałów i narzędzi
+11. Prowadzenie projektu i dokumentacja
+- A. Formularze (F0–F14)
+- B. Notatki terenowe
+- Literatura
 
-## PDF
+## Struktura repozytorium
 
-Akcja GitHub `Build PDF` składa wszystkie rozdziały (`NN_*.md`) w jeden plik `Stardust-NEXT-Manual.pdf`.
+| Ścieżka | Zawartość |
+|---|---|
+| `tex/main.tex` | Główny plik dokumentu |
+| `tex/stardust.sty` | Styl: układ do druku, bloki niełamane, makra formularzy |
+| `tex/rozdzialy/` | Rozdziały, formularze, notatki, literatura |
+| `tex/figures/diagrams.tex` | Rysunki TikZ |
+| `tex/figures/generated/` | Wykresy i tabele z danych (`.scripts/plots.py`) |
+| `tex/figures/photos/` | Zmniejszone zdjęcia (`.scripts/photos.py`) |
+| `assets/` | Oryginalne zdjęcia z misji |
+| `data/` | Dane z lotów (KML) |
+| `papers/` | Artykuły konferencyjne |
 
-- Każdy push i pull request: PDF jest artefaktem przebiegu akcji (zakładka *Actions*).
-- Tag `v*` (np. `v1.0`): PDF jest dołączony do wydania (zakładka *Releases*).
+## Budowanie PDF
 
-Wydanie nowej wersji:
+Akcja GitHub `Build PDF` kompiluje dokument przy każdym pushu i pull requeście (PDF jako artefakt). Tag `v*` dołącza PDF do wydania:
 
 ```sh
 git tag v1.0
 git push origin v1.0
 ```
 
-Budowa lokalna (wymaga `pandoc`, XeLaTeX i ImageMagick; alternatywnie `nix-shell .scripts/shell.nix`):
+Lokalnie (TeX Live z `latexmk`; alternatywnie `nix-shell .scripts/shell.nix`):
 
 ```sh
-.scripts/generate_pdf.sh
+.scripts/generate_pdf.sh        # wynik: pdf/Stardust-NEXT-Manual.pdf
 ```
 
-Wynik: `pdf/Stardust-NEXT-Manual.pdf`.
+Po zmianie danych lub zdjęć wygeneruj rysunki ponownie (Python: matplotlib, Pillow, opcjonalnie `geopandas<1.0` dla mapy):
 
-## Zasady edycji
+```sh
+python3 .scripts/plots.py
+python3 .scripts/photos.py
+```
 
-- Jeden rozdział = jeden plik `NN_NAZWA.md`. Numer określa kolejność w PDF.
-- Każdy plik zaczyna się nagłówkiem `#` (tytuł rozdziału).
-- Obrazy umieszczaj w katalogu `assets/` i wstawiaj ścieżką względną: `![Opis](assets/plik.jpg)`.
-- Pisz krótkie zdania i polecenia w trybie rozkazującym.
-- Pisz ogólnie: dokumentacja ma działać dla każdej przyszłej misji. Dane konkretnych misji zapisuj tylko w rozdziale „Historia i wnioski”.
+## Jak edytować dokument
+
+### Przebieg zmiany
+
+1. Utwórz gałąź (albo fork) repozytorium.
+2. Zmień pliki w katalogu `tex/` (opis niżej).
+3. Zbuduj PDF lokalnie (`.scripts/generate_pdf.sh`) i sprawdź zmienione strony. Gdy nie masz LaTeX-a, wyślij zmianę i pobierz PDF z artefaktu akcji *Build PDF*.
+4. Otwórz pull request. W opisie podaj, co się zmieniło i dlaczego (np. „wniosek z misji, formularz F10”).
+5. Po przeglądzie scal zmianę. Gdy zmiana jest gotowa do druku, wydaj nową wersję (tag `v*`).
+
+### Zasady pisania
+
+- Pisz po polsku, krótkimi zdaniami. Procedury zapisuj jako polecenia w trybie rozkazującym: „Sprawdź…”, „Zapisz…”.
+- Jedno polecenie = jeden krok. Nie łącz kilku czynności w jednym kroku.
+- Pisz ogólnie: dokument ma działać dla każdej przyszłej misji. Dane konkretnych misji (daty, wyniki, nazwiska) zapisuj tylko w rozdziale „Historia i wnioski” i w wypełnionych formularzach.
+- Podawaj jednostki przez `\SI{5}{m/s}`, `\SI{-60}{\degreeCelsius}`.
+- Każde twierdzenie z zewnętrznego źródła opatrz cytowaniem `\cite{klucz}`.
+- Dokument jest **publiczny**. Nie wpisuj danych osobowych (prywatnych telefonów, adresów) ani treści z wewnętrznej dokumentacji koła. Na zdjęciach zamazuj numery telefonów i dane osób postronnych. Wypełnionych formularzy nie dodawaj do repozytorium.
+- Źródłami mogą być tylko materiały publiczne: artykuły, wpisy na blogach, media, strony instytucji.
+
+### Gdzie co zmienić
+
+| Chcę… | Plik |
+|---|---|
+| zmienić treść rozdziału | `tex/rozdzialy/NN_nazwa.tex` |
+| dodać rozdział | nowy plik w `tex/rozdzialy/` + `\input{rozdzialy/…}` w `tex/main.tex` |
+| zmienić formularz | `tex/rozdzialy/A_formularze.tex` |
+| dodać pozycję literatury | `tex/rozdzialy/literatura.tex` (`\bibitem{klucz}`) |
+| dopisać misję lub wniosek | `tex/rozdzialy/02_historia.tex` (tabele misji i wniosków) |
+| zmienić rysunek schematu | `tex/figures/diagrams.tex` (TikZ) |
+| zmienić wykres z danych | `.scripts/plots.py` i pliki w `data/` |
+| zmienić wygląd (marginesy, kolory, nagłówki) | `tex/stardust.sty` |
+
+### Sekcje
+
+Każdą sekcję umieszczaj w środowisku `sekcja`. Sekcja krótsza niż strona nie łamie się – w całości przechodzi na następną stronę:
+
+```latex
+\begin{sekcja}{Tytuł sekcji}\label{sec:klucz}
+Treść sekcji.
+\end{sekcja}
+```
+
+Sekcji dłuższych niż strona (np. z tabelą `longtable`) nie umieszczaj w środowisku – użyj zwykłego `\section{…}`.
+
+Ramki:
+
+```latex
+\begin{uwaga}Zagrożenie dla ludzi, sprzętu albo misji.\end{uwaga}
+\begin{wskazowka}Praktyczna rada z poprzednich misji.\end{wskazowka}
+```
+
+Odwołania: `rozdział~\ref{ch:planowanie}`, `\rozdz{ch:naziemny}` (numer i nazwa).
+
+### Zdjęcia
+
+1. Dodaj oryginał do `assets/RRRR/opisowa_nazwa.jpg` (rok misji). Zdjęcie bez osób postronnych; kadruj, gdy trzeba.
+2. Uruchom `python3 .scripts/photos.py`. Skrypt zapisze zmniejszoną kopię jako `tex/figures/photos/RRRR_opisowa_nazwa.jpg`.
+3. Wstaw zdjęcie (bez rozszerzenia):
+
+```latex
+\foto[0.8\linewidth]{RRRR_opisowa_nazwa}{Podpis: co widać i kiedy (data misji).}
+\dwafoto{plik1}{Podpis 1.}{plik2}{Podpis 2.}
+```
+
+Nie używaj środowiska `figure` (obiekty pływające psują bloki niełamane).
+
+### Tabele
+
+Używaj `tabularx` o szerokości `\linewidth`. Typy kolumn: `L` – tekst do lewej, rozciągany; `Y` – tekst wyśrodkowany, rozciągany; `P{30mm}` – stała szerokość; `C{8mm}` – stała szerokość, wyśrodkowany. Wiersze z pliku generowanego wstawiaj makrem `\wiersze{plik.tex}`. Szerokie tabele umieszczaj w środowisku `landscape`.
+
+### Formularze
+
+Każdy formularz zaczyna się na nowej stronie i **musi zmieścić się na jednej stronie**:
+
+```latex
+\formularz{F15}{Tytuł formularza}{kiedy, np. T$-$1 dzień}
+\begin{procedura}
+\etap{Nazwa etapu}
+\krok{Wejdź na aprs.fi i sprawdź pozycję znaku.}{\pole[2cm]{godz.:}}
+\krok{Polecenie bez pola na wartość.}{}
+\end{procedura}
+\komentarze[3]
+\podpisy
+```
+
+Po dodaniu formularza dopisz go do tabeli na początku dodatku A. Po kompilacji sprawdź w spisie treści, że kolejny formularz zaczyna się na następnej stronie.
+
+### Po misji
+
+1. Przenieś notatki terenowe i komentarze z formularzy do odpowiednich rozdziałów.
+2. Dopisz misję i wnioski do rozdziału „Historia i wnioski”.
+3. Dodaj zdjęcia i dane z lotu (`assets/`, `data/`).
+4. Wydaj nową wersję dokumentu (tag `v*`) i dołącz ją do wydania kodu lotnego.

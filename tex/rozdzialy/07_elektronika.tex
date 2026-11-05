@@ -1,0 +1,99 @@
+\chapter{Elektronika i łączność}\label{ch:elektronika}
+
+\begin{sekcja}{Architektura}
+Elektronika platformy jest w gondoli platformy. Zawiera:
+\begin{itemize}
+  \item \textbf{komputer bezpieczeństwa} (HABduino): GPS, telemetria, odcinacz główny,
+  \item \textbf{komputer pokładowy} (OBC): zapis danych, zapasowe funkcje bezpieczeństwa, odcinacz zapasowy,
+  \item \textbf{lokalizatory po lądowaniu}: SPOT Trace, dwa znaczniki Bluetooth (Apple i Google),
+  \item baterie.
+\end{itemize}
+
+\begin{center}\resizebox{\linewidth}{!}{\rysTorRadiowy}\end{center}
+\captionof{figure}{Tor radiowy: od gondoli przez stacje odbiorcze do map śledzenia.}\label{fig:tor-radiowy}
+\end{sekcja}
+
+\begin{sekcja}{Komputer bezpieczeństwa: HABduino}
+HABduino to nakładka na Arduino do trackerów balonowych~\cite{habduino}. Nadaje telemetrię RTTY (moduł Radiometrix NTX2B, \SI{434}{MHz}) i APRS (\SI{144.8}{MHz}). Projekt nie jest już rozwijany. Zalecane oprogramowanie to FlexTrack~\cite{flextrack}: obsługuje HABduino~v4, RTTY i APRS, zawiera obsługę odcinacza. Opis budowy trackera: \cite{akerman}.
+
+HABduino jest \textbf{głównym komputerem bezpieczeństwa}:
+\begin{itemize}
+  \item podaje pozycję (GPS) przez dwa niezależne łącza radiowe,
+  \item steruje odcinaczem głównym (na komendę i automatycznie),
+  \item działa niezależnie od OBC i od ładunku.
+\end{itemize}
+\end{sekcja}
+
+\begin{sekcja}{Komputer pokładowy (OBC)}
+OBC dodatkowo implementuje te same funkcje bezpieczeństwa, ale niezależnie od HABduino:
+\begin{itemize}
+  \item własny odbiornik GPS i własne kryteria zakończenia lotu,
+  \item \textbf{niezależny odcinacz innego typu} (np. z drutem oporowym, gdy główny jest serwomechaniczny) -- jedna przyczyna awarii nie wyłącza obu,
+  \item zapis danych z czujników na karcie SD, ze znacznikiem czasu,
+  \item zapis stanu misji w pamięci nieulotnej: restart w locie nie zeruje misji.
+\end{itemize}
+
+\textbf{Wymagania:}
+\begin{itemize}
+  \item Wysokość bierz z GPS. Wzór na wysokość z ciśnienia jest niedokładny powyżej około \SI{10}{km}.
+  \item Odrzucaj błędne odczyty czujników (kody błędów, wartości poza zakresem).
+  \item Czujniki ciśnienia muszą mierzyć do około \SI{5}{hPa} (BME280 mierzy tylko do \SI{300}{hPa}).
+  \item Dodaj diody statusu: zasilanie, GPS, karta SD, stan odcinacza.
+\end{itemize}
+Kod i dokumentacja OBC: \url{https://github.com/simle-stardust}.
+\end{sekcja}
+
+\begin{sekcja}{Konfiguracja trackera}
+\begin{enumerate}
+  \item Ustaw znak wywoławczy krótkofalowca (\emph{callsign}).
+  \item Ustaw SSID APRS (zwyczajowo \texttt{-11} dla balonów).
+  \item Ustaw identyfikator ładunku RTTY (\emph{payload ID}), taki sam jak w SondeHub.
+  \item Ustaw moduł GPS w tryb \emph{airborne} (działa powyżej \SI{18}{km}; moduły u-blox do około \SI{50}{km}).
+  \item Wgraj program. Zapisz wersję (numer commita albo wydania) w karcie misji.
+\end{enumerate}
+
+\begin{uwaga}Skonfiguruj tracker i serwisy śledzenia \textbf{najpóźniej 2 dni przed lotem}. Niektóre ustawienia (np. konfiguracja ładunku w SondeHub) potrzebują czasu, aby zadziałały. Dzień przed lotem zostaw na weryfikację, logistykę i obserwację pogody.\end{uwaga}
+\end{sekcja}
+
+\begin{sekcja}{Anteny i test zasięgu}
+\begin{itemize}
+  \item Antenę nadajnika montuj pod gondolą, skierowaną w dół.
+  \item Antenę GPS montuj na górze gondoli, z widokiem na niebo, z dala od baterii i metalu.
+  \item Po montażu sprawdź złącza i przewody anten.
+\end{itemize}
+
+\begin{uwaga}Z bliska odbiornik odbierze sygnał nawet bez anteny -- wystarczy promieniowanie z płytki i przewodów. Test obok stołu niczego nie dowodzi. Sprawdź odbiór z odległości \textbf{co najmniej \SI{100}{m}}, z anteną w konfiguracji lotnej (w zamkniętej gondoli).\end{uwaga}
+\end{sekcja}
+
+\begin{sekcja}{Lokalizatory po lądowaniu}
+Przy ziemi sygnał z trackera zanika: zasłaniają go drzewa, budynki i ukształtowanie terenu. Lokalizatory pomagają znaleźć gondolę po lądowaniu.
+
+\begin{itemize}
+  \item \textbf{SPOT Trace} -- lokalizator satelitarny. Działa tylko do około \SI{6500}{m}, więc służy tylko po lądowaniu. Wymaga aktywnej subskrypcji. Ustaw interwał raportów (np. 5 minut). Antena do góry.
+  \item \textbf{Znaczniki Bluetooth: Apple AirTag i znacznik sieci Google (Find Hub)} -- najlepiej dwa niezależne. Smartfony w pobliżu przekazują pozycję znacznika. Gdy ktoś znajdzie gondolę przed zespołem i podejdzie ze smartfonem, zespół zobaczy nową pozycję.
+  \item Zapasowo: smartfon z funkcją „Znajdź moje urządzenie” -- w 2020 roku pomógł znaleźć ładunek~\cite{raport2020}.
+\end{itemize}
+\end{sekcja}
+
+\begin{sekcja}{Zasilanie}
+\begin{itemize}
+  \item Używaj baterii litowych, np. Energizer Ultimate Lithium (Energizer Extreme). Działają w niskiej temperaturze i są lekkie.
+  \item Włóż nowe baterie przed każdym lotem.
+  \item Licz budżet energii: pobór każdego urządzenia $\times$ czas pracy $\times$ zapas. Uwzględnij prąd rozruchowy serw i grzałek.
+  \item Czas pracy: co najmniej dwa razy dłuższy niż planowany lot plus czas poszukiwań.
+\end{itemize}
+\end{sekcja}
+
+\begin{sekcja}{Termika: mróz i próżnia}
+W stratosferze powietrze ma do \SI{-60}{\degreeCelsius}, ale jest bardzo rzadkie. Prawie nie ma konwekcji, więc elektronika \textbf{nie oddaje ciepła} do powietrza. Słońce dodatkowo nagrzewa gondolę. W misji z lipca 2020 roku elektronika w izolowanej gondoli przekroczyła \SI{50}{\degreeCelsius}~\cite{praca2022}.
+
+\textbf{Zasady projektowe:}
+\begin{itemize}
+  \item projektuj elektronikę o wysokiej sprawności -- mniej strat to mniej ciepła,
+  \item dodaj duży zapas pojemności cieplnej (masa, która akumuluje ciepło, np. baterie, metalowa płyta),
+  \item odprowadzaj ciepło przez przewodzenie do obudowy, nie przez powietrze,
+  \item nie dodawaj izolacji ani grzałek bez bilansu cieplnego dla startu (zimno) i dla stratosfery (brak chłodzenia).
+\end{itemize}
+
+\begin{wskazowka}Do testów w niskiej temperaturze zapytaj biologów na Wydziale Chemicznym o zamrażarkę laboratoryjną (\SI{-80}{\degreeCelsius}).\end{wskazowka}
+\end{sekcja}
