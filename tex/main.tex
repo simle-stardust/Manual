@@ -30,8 +30,15 @@
     \end{scope}
     \node[anchor=south east,font=\sffamily\scriptsize,text=white] at ([xshift=-5mm,yshift=-210mm]current page.north east)
       {Zdjęcie z aparatu analogowego na pokładzie, misja z 26.05.2023};
-    \node[anchor=north east,inner sep=0] at ([xshift=-15mm,yshift=-12mm]current page.north east)
+    % Trzy znaki na jednej pionowej osi (\osloga od prawej krawędzi strony).
+    % Odstępy >= pole ochronne wg księgi znaku SimLE.
+    \def\osloga{36mm}
+    \node[anchor=north,inner sep=0] at ([xshift=-\osloga,yshift=-12mm]current page.north east)
       {\href{https://www.simle.pl}{\includegraphics[width=38mm,trim=69.6 67.2 69.1 67.2,clip]{SimLE_logo_achromatyczny_bialy}}};
+    \node[anchor=north,inner sep=0] at ([xshift=-\osloga,yshift=-220mm]current page.north east)
+      {\includegraphics[width=46mm]{SimLE_Stardust_logo}};
+    \node[anchor=north,inner sep=0] at ([xshift=-\osloga,yshift=-238mm]current page.north east)
+      {\includegraphics[width=46mm]{SimLE_Stardust_2023}};
   \end{tikzpicture}
   \vspace*{12mm}
   {\color{white}
@@ -43,20 +50,13 @@
    \vspace{6mm}
    {\Large Od celu misji do raportu po locie\par}}
   \vfill
-  \begin{minipage}[b]{0.42\linewidth}
+  \begin{minipage}[b]{0.5\linewidth}
     \large\color{sdnavy}
     Dokumentacja platformy balonowej\\z odcinaczem mechanicznym\par
     \vspace{6mm}\normalsize\color{sdgray}
     Wersja dokumentu: \wersja\\
     Data: \datawersji\\[3mm]
     Koło Naukowe SimLE: \href{https://www.simle.pl}{\color{sdnavy}www.simle.pl}
-  \end{minipage}\hfill
-  % Logo SimLE Stardust w jednej linii z patchem misji (wyśrodkowane w pionie).
-  % Odstęp >= pole ochronne logotypu wg księgi znaku SimLE (bok największego + mniejszego trójkąta).
-  \begin{minipage}[b]{0.56\linewidth}\raggedleft
-    $\vcenter{\hbox{\includegraphics[width=46mm]{SimLE_Stardust_logo}}}$%
-    \hspace{10mm}%
-    $\vcenter{\hbox{\includegraphics[width=26mm]{SimLE_Stardust_2023}}}$
   \end{minipage}
   \restoregeometry
 \end{titlepage}
