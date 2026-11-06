@@ -17,7 +17,7 @@ Po każdej misji dopisz wiersz do tabeli~\ref{tab:misje} i nowe wnioski do tabel
 2015 & Polska & Pierwsza próba startu & -- & Start przerwany, balon nie poleciał. & relacja zespołu\\
 04.2016 & Polska & Gondola ze styroduru, dwa moduły Arduino, odcinacz z drutem oporowym & -- & Pierwszy lot. Lądowanie na drzewie -- gondolę zdjęła straż pożarna podnośnikiem (17.04.2016). & \cite{iac2023,stardustweb,dok2016}\\
 27.09.2017 & Toruń & Układ próbkujący (test sterylności), odcinacz z drutem oporowym (zegar) & ok. 30 km & Balon pękł przed czasem odcięcia. Lądowanie przy małym cieku (Kotomierz). & \cite{magrian2018,iac2023,stardustweb}\\
-12.05.2018 & Toruń & Układ próbkujący (2 filtry), komórki skóry z grzaniem, licznik Geigera, rzeźba & 24,8 km & Sukces. Lądowanie w Bydgoszczy, gondola odzyskana 5 minut po lądowaniu. & \cite{iac2023,gbsc2018}\\
+12.05.2018 & Toruń & Układ próbkujący (2 filtry), komórki skóry z grzaniem, licznik Geigera, rzeźba & 24,8 km & Sukces. Lądowanie w Bydgoszczy, gondola odzyskana 5 minut po lądowaniu. & \cite{iac2023,gbsc2018,film2018}\\
 20.07.2020 & Toruń & Test układu dla BEXUS, ok. 4 kg, 2 gondole & 33,3 km & Brak odcinacza. Dryf 1,5 h. Lądowanie ok. 90 km od startu. & \cite{raport2020,praca2022}\\
 27.02.2022 & Iława & Radiosonda z kamerą (lot szkoleniowy) & 33,4 km & Sukces. Lądowanie 51 km od startu, okolice Brodnicy. & \cite{blog2022,pac2024}\\
 26.05.2023 & Iława & Platforma NEXT: OBC, łączność, odcinacz serwomechaniczny & 34 km & Odcinacz nie zadziałał. Lądowanie 23 km od startu. & \cite{blog2023,go2023,infoilawa2023,pac2024}\\
@@ -72,9 +72,7 @@ Co się wydarzyło i czego to uczy:
   \item \textbf{Odzyskanie:} ostatnia pozycja APRS pochodziła z wysokości \SI{167}{m}. Gondolę znalazł zespół dzięki telefonowi w gondoli i brzęczykowi (wysoka trawa). Gondola wylądowała około \SI{3}{m} od małego kanału -- gondola musi pływać.
   \item \textbf{Spadochron:} średnia prędkość opadania poniżej \SI{2.8}{km} wyniosła \SI{5.45}{m/s} dla \SI{2.6}{kg} i spadochronu \SI{1}{m}.
 \end{itemize}
-\end{sekcja}
 
-\begin{sekcja}{Misja z 27.09.2017 na zdjęciach}
 \dwafoto{2017_tankowanie_torun}{Tankowanie w Toruniu (27.09.2017). Powłoka przykryta folią, butle z helem na plandece, spadochron obok.}{2017_zespol_po_ladowaniu}{Karol Pelzner, Szymon Magrian i Mateusz Grzybowski z gondolą po lądowaniu (27.09.2017).}
 \end{sekcja}
 
@@ -92,7 +90,13 @@ Start z Torunia o 10:50, lądowanie w Bydgoszczy o 13:03 (czas lokalny). Zespó�
 \dwafoto{2018_start_tankowanie_torun}{Tankowanie przed startem w Toruniu (12.05.2018).}{2018_stanowisko_torun}{Stanowisko startowe w Toruniu (12.05.2018).}
 \end{sekcja}
 
-\begin{sekcja}{Dane z lotu (12.05.2018)}
+\begin{podsekcja}{Rzeźba w stratosferze}
+Rzeźba „Object 01”, czyli słynna „płetwa”, leciała na wysięgniku przed kamerą. Kamera pokazała ją na tle krzywizny Ziemi (rysunek~\ref{fig:pletwa}). Zmontowany film z misji~\cite{film2018}: \url{https://www.youtube.com/watch?v=Gm_PSd67600}.
+
+\foto[0.78\linewidth]{2018_rzezba_object01_stratosfera}{„Płetwa” -- rzeźba „Object 01” w stratosferze. Kadr z filmu z misji (12.05.2018)~\cite{film2018}.}\label{fig:pletwa}
+\end{podsekcja}
+
+\begin{podsekcja}{Dane z lotu}
 \begin{center}\includegraphics[width=\linewidth]{misja_2018}\end{center}
 \captionof{figure}{Misja z 12.05.2018: profil lotu, moc dawki z licznika Geigera i temperatury w gondoli. Dane z rejestratora pokładowego~\cite{gbsc2018}: \texttt{data/2018\_mikrobiologia\_*.csv}.}\label{fig:misja2018}
 
@@ -102,20 +106,20 @@ Start z Torunia o 10:50, lądowanie w Bydgoszczy o 13:03 (czas lokalny). Zespó�
   \item Czujnik opisany jako „zewnętrzny” pokazał minimum \SI{-13}{\degreeCelsius}, a powietrze na wysokości 10--\SI{12}{km} ma około \SI{-50}{\degreeCelsius}. Czujnik mierzył ściankę gondoli, nie powietrze. Wniosek: czujnik temperatury powietrza musi wystawać z gondoli i mieć osłonę przed słońcem.
   \item Czujnik ciśnienia nie podawał wartości powyżej około \SI{18}{km} (\SI{52}{hPa}). Sprawdź zakres czujnika w karcie katalogowej.
 \end{itemize}
-\end{sekcja}
+\end{podsekcja}
 
-\begin{sekcja}{Trasy lotów}
-Rysunek~\ref{fig:mapa} pokazuje trasy lotów z dostępnymi danymi. Przy wietrze z zachodu balon leci na wschód -- w stronę granicy z Rosją (obwód królewiecki) i Białorusią. Predykcja trajektorii jest więc warunkiem każdego startu (rozdział~\ref{ch:planowanie}).
+\begin{sekcja}{Test przed BEXUS (20.07.2020)}
+Lot testowy układów eksperymentu Stardust przed lotem na balonie BEXUS~30. Ładunek: około \SI{4}{kg} w dwóch gondolach. Start z Torunia. Raport techniczny z tej misji~\cite{raport2020} jest wzorem raportu po misji (rozdział~\ref{ch:projekt}).
 
-\begin{center}\includegraphics[width=0.92\linewidth]{mapa_lotow}\end{center}
-\captionof{figure}{Trasy lotów z lat 2020--2023. Kreskowane obszary: państwa, nad którymi lot i lądowanie są niedopuszczalne.}\label{fig:mapa}
-\end{sekcja}
+Co się wydarzyło i czego to uczy:
+\begin{itemize}
+  \item \textbf{Brak odcinacza.} Balon nie pękł. Dryfował około 1,5~godziny na wysokości około \SI{33}{km} i wylądował około \SI{90}{km} od miejsca startu. Wniosek: każdy lot musi mieć odcinacz.
+  \item \textbf{Gaz:} butla miała mniej gazu, niż deklarował dostawca.
+  \item \textbf{Śledzenie:} źle zmontowana antena wyłączyła APRS. Ładunek pomógł znaleźć smartfon z funkcją „Znajdź moje urządzenie”.
+  \item \textbf{Elektronika:} łączność WiFi między gondolami trzeba zastąpić kablem, czujnik BME280 nie mierzył poniżej \SI{300}{hPa}, kamera bez zewnętrznej baterii wyłączyła się po 30 minutach, elektronika w izolowanej gondoli przekroczyła \SI{50}{\degreeCelsius}~\cite{praca2022}, dystanse PCB pękły przy lądowaniu.
+\end{itemize}
 
-\begin{sekcja}{Profil lotu w przestrzeni}
-\begin{center}\includegraphics[width=\linewidth]{profil_dystans}\end{center}
-\captionof{figure}{Wysokość w funkcji drogi przebytej nad ziemią. Dane z trackera (2022) i z rejestratora pokładowego (2020).}\label{fig:profil-dystans}
-
-\foto[\linewidth]{2022_profil_lotu_2022_google_earth}{Profil misji z 27.02.2022 w Google Earth. Po prawej Zatoka Gdańska.}
+\foto[0.7\linewidth]{2020_odzysk_resztki_powloki}{Po lądowaniu: resztki pękniętej powłoki i gondola (20.07.2020).}
 \end{sekcja}
 
 \begin{sekcja}{Lot szkoleniowy (27.02.2022)}
@@ -134,6 +138,10 @@ Zespół ćwiczył trzy fazy:
 {2022_poscig_samochod}{Pościg: laptop z mapą śledzenia i radiotelefon w samochodzie (27.02.2022).}
 \end{sekcja}
 
+\begin{podsekcja}{Profil lotu}
+\foto[\linewidth]{2022_profil_lotu_2022_google_earth}{Profil misji z 27.02.2022 w Google Earth. Po prawej Zatoka Gdańska.}
+\end{podsekcja}
+
 \begin{sekcja}{Test platformy (26.05.2023)}
 Pierwsza misja, którą nowy zespół zaprojektował i zbudował samodzielnie. Testowane systemy: komputer pokładowy (OBC), łączność i namierzanie, olinowanie z odcinaczem mechanicznym, gondola z pudełek styropianowych. Lot: \SI{34}{km} po około 90 minutach, lądowanie w okolicy Góry Dylewskiej~\cite{blog2023}.
 
@@ -142,8 +150,6 @@ Odcinacz był w gondoli, nie pod balonem. Powód: zespół nie miał doświadcze
 \textbf{Problem:} odcinacz nie zadziałał. Gondola obracała się w locie. Krętlik był tylko na górze olinowania. Na dole linki skręciły się i linka odcinacza nie mogła się zwolnić~\cite{pac2024}.
 
 \textbf{Zabezpieczenie, które zadziałało:} zapas 10--15~m linki odcinacza między krętlikiem a spadochronem. Spadochron miał miejsce na rozwinięcie mimo skręconych linek. Zestaw wylądował bezpiecznie.
-
-\foto[0.7\linewidth]{2020_odzysk_resztki_powloki}{Po lądowaniu: resztki pękniętej powłoki i gondola (20.07.2020).}
 \end{sekcja}
 
 \begin{sekcja}{Ładunek STORM (09.08.2023)}
@@ -152,8 +158,23 @@ Pierwsza misja nowego zespołu bez pomocy starszych członków. Zespół zmniejs
 \textbf{Problem:} drut oporowy grzał się za krótko i nie przeciął linki~\cite{pac2024}.
 \end{sekcja}
 
+\section{Podsumowanie}
+Od 2015 do 2023 roku zespół podjął osiem prób: jeden start przerwany i siedem lotów. Wszystkie gondole zespół odzyskał. Najczęstszy problem to odcinacz: w 2017 roku nie przeciął linki, w 2020 roku go nie było, a w obu misjach z 2023 roku nie zadziałał. Drugi stały temat to odzyskanie gondoli: drzewo (2016), woda w pobliżu (2017), dryf daleko od startu (2020). Oznakowanie gondoli i niezależne systemy śledzenia skracają poszukiwania (2017, 2018).
+
+\begin{blok}
+Rysunek~\ref{fig:mapa} pokazuje trasy lotów z dostępnymi danymi. Przy wietrze z zachodu balon leci na wschód -- w stronę granicy z Rosją (obwód królewiecki) i Białorusią. Predykcja trajektorii jest więc warunkiem każdego startu (rozdział~\ref{ch:planowanie}).
+
+\begin{center}\includegraphics[width=0.92\linewidth]{mapa_lotow}\end{center}
+\captionof{figure}{Trasy lotów z lat 2020--2023. Kreskowane obszary: państwa, nad którymi lot i lądowanie są niedopuszczalne.}\label{fig:mapa}
+\end{blok}
+
+\begin{blok}
+\begin{center}\includegraphics[width=\linewidth]{profil_dystans}\end{center}
+\captionof{figure}{Wysokość w funkcji drogi przebytej nad ziemią. Dane z trackera (2022) i z rejestratora pokładowego (2020).}\label{fig:profil-dystans}
+\end{blok}
+
 \clearpage
-\section{Wnioski}
+\subsection{Wnioski}
 Stosuj te wnioski w każdej misji.
 
 \renewcommand{\arraystretch}{1.3}
@@ -161,10 +182,17 @@ Stosuj te wnioski w każdej misji.
 \toprule
 \textbf{Obszar} & \textbf{Wniosek} & \textbf{Misja}\\\midrule\endhead
 \bottomrule\endfoot
+Bezpieczeństwo & Przerwij start, gdy coś jest nie tak -- niezależnie od presji mediów, gości i sponsorów. Porażka jest częścią nauki. & 2015\\
+Planowanie & Wiatr decyduje o trasie lotu. Planuj start z predykcją trajektorii. & 2016\\
+Odzyskanie & Gondola może zawisnąć na drzewie. Przygotuj kontakt do arborysty albo firmy z podnośnikiem. & 2016\\
+Odcinacz & Drut oporowy przecina linkę tylko pod obciążeniem: po pęknięciu balonu nie przetnie. Odcinaj według wysokości, nie tylko zegara. & 2017\\
+Mechanika & Karta SD wypadła z gniazda od wstrząsów, przewody urwały się przy starcie. Używaj PCB i pewnych mocowań, testuj wstrząsy. & 2017\\
+Kamery & Kamera przesunęła się w czasie przygotowań. Sprawdź kadr tuż przed zamknięciem gondoli. & 2017\\
+Odzyskanie & Ostatnia pozycja APRS bywa z wysokości kilkuset metrów. Telefon albo lokalizator w gondoli i brzęczyk pozwalają znaleźć gondolę. & 2017\\
+Gondola & Gondola musi pływać i być szczelna. Sprawdź ją w wannie z wodą, z obciążeniem do docelowej masy. & 2017\\
+Czujniki & Czujnik temperatury powietrza musi wystawać z gondoli i mieć osłonę przed słońcem. Sprawdź zakres czujnika ciśnienia. & 2018\\
+Oznakowanie & Numer telefonu na gondoli działa: przechodzień podał adres miejsca lądowania. & 2018\\
 Odcinacz & Każdy lot musi mieć odcinacz. Bez odcinacza balon może dryfować godzinami i wylądować daleko. & 2020\\
-Odcinacz & Testuj odcinacz w warunkach lotu: zimno, obrót gondoli, skręcone linki, pełne obciążenie. Daj drugi, niezależny odcinacz innego typu. & 2023\\
-Odcinacz & Drut oporowy musi dostać prąd wystarczający do przecięcia linki. Sprawdź to z docelowym tranzystorem i baterią, wiele razy i w zimnie. & 2023\\
-Olinowanie & Gondola obraca się w locie. Daj krętlik pod balonem i zapas linki odcinacza nad spadochronem. Poprzeczki na linkach mogą ograniczyć skręcanie (do sprawdzenia kamerą w locie). Długość zapasu to wciąż eksperyment: próbuj krótszej i zapisz wynik. & 2023\\
 Gaz & Butla może mieć mniej gazu, niż deklaruje dostawca. Zamów gaz z zapasem. Mierz siłę nośną obciążnikiem. & 2020\\
 Wysokość & Wzór na wysokość z ciśnienia działa tylko do około 10~km. Powyżej używaj GPS. & 2020\\
 Czujniki & Czujnik BME280 nie mierzy poniżej \SI{300}{hPa}. Odrzucaj kody błędów czujników w programie. & 2020\\
@@ -176,17 +204,10 @@ Termika & Elektronika w izolowanej gondoli może się przegrzać latem (ponad \S
 Mechanika & Mocuj elektronikę na wkładce. Dystanse PCB pękły przy lądowaniu. & 2020\\
 Montaż & Każdy podzespół ma osobę odpowiedzialną albo opisaną procedurę montażu. & 2020\\
 Diagnostyka & Dodaj diody statusu, aby szybko sprawdzić stan systemu na stanowisku. & 2020\\
-Planowanie & Wiatr decyduje o trasie lotu. Planuj start z predykcją trajektorii. & 2016\\
-Bezpieczeństwo & Przerwij start, gdy coś jest nie tak -- niezależnie od presji mediów, gości i sponsorów. Porażka jest częścią nauki. & 2015\\
-Odcinacz & Drut oporowy przecina linkę tylko pod obciążeniem: po pęknięciu balonu nie przetnie. Odcinaj według wysokości, nie tylko zegara. & 2017\\
-Mechanika & Karta SD wypadła z gniazda od wstrząsów, przewody urwały się przy starcie. Używaj PCB i pewnych mocowań, testuj wstrząsy. & 2017\\
-Kamery & Kamera przesunęła się w czasie przygotowań. Sprawdź kadr tuż przed zamknięciem gondoli. & 2017\\
-Odzyskanie & Gondola może zawisnąć na drzewie. Przygotuj kontakt do arborysty albo firmy z podnośnikiem. & 2016\\
-Odzyskanie & Ostatnia pozycja APRS bywa z wysokości kilkuset metrów. Telefon albo lokalizator w gondoli i brzęczyk pozwalają znaleźć gondolę. & 2017\\
-Gondola & Gondola musi pływać i być szczelna. Sprawdź ją w wannie z wodą, z obciążeniem do docelowej masy. & 2017\\
-Czujniki & Czujnik temperatury powietrza musi wystawać z gondoli i mieć osłonę przed słońcem. Sprawdź zakres czujnika ciśnienia. & 2018\\
-Oznakowanie & Numer telefonu na gondoli działa: przechodzień podał adres miejsca lądowania. & 2018\\
 Zespół & Pierwsza misja nowego zespołu to lot szkoleniowy z prostym ładunkiem. & 2022\\
+Odcinacz & Testuj odcinacz w warunkach lotu: zimno, obrót gondoli, skręcone linki, pełne obciążenie. Daj drugi, niezależny odcinacz innego typu. & 2023\\
+Odcinacz & Drut oporowy musi dostać prąd wystarczający do przecięcia linki. Sprawdź to z docelowym tranzystorem i baterią, wiele razy i w zimnie. & 2023\\
+Olinowanie & Gondola obraca się w locie. Daj krętlik pod balonem i zapas linki odcinacza nad spadochronem. Poprzeczki na linkach mogą ograniczyć skręcanie (do sprawdzenia kamerą w locie). Długość zapasu to wciąż eksperyment: próbuj krótszej i zapisz wynik. & 2023\\
 % Puste wiersze dopełniają stronę na nowe wnioski.
 \rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline
