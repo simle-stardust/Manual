@@ -161,6 +161,8 @@ Odcinacz był w gondoli, nie pod balonem. Powód: zespół nie miał doświadcze
 \textbf{Problem:} odcinacz nie zadziałał. Gondola obracała się w locie. Krętlik był tylko na górze olinowania. Na dole linki skręciły się i linka odcinacza nie mogła się zwolnić~\cite{pac2024}.
 
 \textbf{Zabezpieczenie, które zadziałało:} zapas 10--15~m linki odcinacza między krętlikiem a spadochronem. Spadochron miał miejsce na rozwinięcie mimo skręconych linek. Zestaw wylądował bezpiecznie.
+
+\foto[0.6\linewidth]{2023_zespol_po_odzyskaniu}{Zespół po odzyskaniu zestawu: gondole, spadochron i olinowanie z poprzeczkami (26.05.2023).}
 \end{sekcja}
 
 \begin{sekcja}{Stormdust (09.08.2023)}
@@ -175,22 +177,20 @@ Lot przygotowawczy przed drugim lotem zespołu na balonie BEXUS (eksperyment STO
 Od 2015 do 2023 roku zespół podjął osiem prób: jeden start przerwany i siedem lotów. Wszystkie gondole zespół odzyskał. Najczęstszy problem to odcinacz: w 2017 roku nie przeciął linki, w 2020 roku go nie było, a w obu misjach z 2023 roku nie zadziałał. Drugi stały temat to odzyskanie gondoli: drzewo (2016), woda w pobliżu (2017), dryf daleko od startu (2020). Oznakowanie gondoli i niezależne systemy śledzenia skracają poszukiwania (2017, 2018).
 
 \begin{blok}
-Rysunek~\ref{fig:mapa} pokazuje trasy lotów z dostępnymi danymi. Przy wietrze z zachodu balon leci na wschód -- w stronę granicy z Rosją (obwód królewiecki) i Białorusią. Predykcja trajektorii jest więc warunkiem każdego startu (rozdział~\ref{ch:planowanie}).
-
-\begin{center}\includegraphics[width=0.92\linewidth]{mapa_lotow}\end{center}
-\captionof{figure}{Trasy lotów z lat 2020--2023. Kreskowane obszary: państwa, nad którymi lot i lądowanie są niedopuszczalne.}\label{fig:mapa}
-\end{blok}
-
-\begin{blok}
-\begin{center}\includegraphics[width=\linewidth]{profil_dystans}\end{center}
+\begin{center}\includegraphics[width=0.72\linewidth]{profil_dystans}\end{center}
 \captionof{figure}{Wysokość w funkcji drogi przebytej nad ziemią. Dane z trackera (2022) i z rejestratora pokładowego (2020).}\label{fig:profil-dystans}
 \end{blok}
 
-\clearpage
-\subsection{Wnioski}
-Stosuj te wnioski w każdej misji.
+\begin{blok}
+Rysunek~\ref{fig:mapa} pokazuje trasy lotów z dostępnymi danymi. Przy wietrze z zachodu balon leci na wschód -- w stronę granicy z Rosją (obwód królewiecki) i Białorusią. Predykcja trajektorii jest więc warunkiem każdego startu (rozdział~\ref{ch:planowanie}).
 
-\renewcommand{\arraystretch}{1.3}
+\begin{center}\includegraphics[width=0.85\linewidth]{mapa_lotow}\end{center}
+\captionof{figure}{Trasy lotów z lat 2020--2023. Kreskowane obszary: państwa, nad którymi lot i lądowanie są niedopuszczalne.}\label{fig:mapa}
+\end{blok}
+
+\subsection{Wnioski}
+
+\renewcommand{\arraystretch}{1.2}
 \begin{longtable}{@{}P{27mm}>{\raggedright\arraybackslash}p{0.62\linewidth}P{12mm}@{}}
 \toprule
 \textbf{Obszar} & \textbf{Wniosek} & \textbf{Misja}\\\midrule\endhead
@@ -218,20 +218,9 @@ Mechanika & Mocuj elektronikę na wkładce. Dystanse PCB pękły przy lądowaniu
 Montaż & Każdy podzespół ma osobę odpowiedzialną albo opisaną procedurę montażu. & 2020\\
 Diagnostyka & Dodaj diody statusu, aby szybko sprawdzić stan systemu na stanowisku. & 2020\\
 Zespół & Pierwsza misja nowego zespołu to lot szkoleniowy z prostym ładunkiem. & 2022\\
-Odcinacz & Testuj odcinacz w warunkach lotu: zimno, obrót gondoli, skręcone linki, pełne obciążenie. Daj drugi, niezależny odcinacz innego typu. & 2023\\
-Odcinacz & Drut oporowy musi dostać prąd wystarczający do przecięcia linki. Sprawdź to z docelowym tranzystorem i baterią, wiele razy i w zimnie. & 2023\\
-Olinowanie & Gondola obraca się w locie. Daj krętlik pod balonem i zapas linki odcinacza nad spadochronem. Poprzeczki na linkach mogą ograniczyć skręcanie (do sprawdzenia kamerą w locie). Długość zapasu to wciąż eksperyment: próbuj krótszej i zapisz wynik. & 2023\\
+Odcinacz & Testuj odcinacz w warunkach lotu: zimno, obrót, skręcone linki, obciążenie. Daj drugi odcinacz innego typu. & 2023\\
+Odcinacz & Sprawdź prąd drutu oporowego z docelowym tranzystorem i baterią, wiele razy i w zimnie. & 2023\\
+Olinowanie & Gondola obraca się w locie. Daj krętlik pod balonem i zapas linki odcinacza nad spadochronem. Poprzeczki i długość zapasu sprawdzaj w locie. & 2023\\
 % Puste wiersze dopełniają stronę na nowe wnioski.
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\caption{Wnioski z poprzednich misji. Puste wiersze na nowe wnioski.}\label{tab:wnioski}
+\caption{Wnioski z poprzednich misji. Stosuj je w każdej misji.}\label{tab:wnioski}
 \end{longtable}
