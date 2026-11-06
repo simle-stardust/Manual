@@ -14,14 +14,14 @@ Po każdej misji dopisz wiersz do tabeli~\ref{tab:misje} i nowe wnioski do tabel
 \begin{tabularx}{\linewidth}{@{}P{16mm}P{12mm}LP{12mm}P{36mm}P{15mm}@{}}
 \toprule
 \textbf{Data} & \textbf{Start} & \textbf{Ładunek} & \textbf{Pułap} & \textbf{Wynik} & \textbf{Źródła}\\\midrule
-2015 & Polska & Pierwsza próba startu & -- & Start przerwany, balon nie poleciał. & relacja zespołu\\
-04.2016 & Polska & Gondola ze styroduru, dwa moduły Arduino, odcinacz z drutem oporowym & -- & Pierwszy lot. Lądowanie na drzewie -- gondolę zdjęła straż pożarna podnośnikiem (17.04.2016). & \cite{iac2023,stardustweb,dok2016}\\
+2015 & Toruń & Pierwsza próba startu & -- & Start przerwany, balon nie poleciał. & relacja zespołu\\
+04.2016 & Toruń & Gondola ze styroduru, dwa moduły Arduino, odcinacz z drutem oporowym & -- & Pierwszy lot. Lądowanie na drzewie -- gondolę zdjęła straż pożarna podnośnikiem (17.04.2016). & \cite{iac2023,stardustweb,dok2016}\\
 27.09.2017 & Toruń & Układ próbkujący (test sterylności), odcinacz z drutem oporowym (zegar) & ok. 30 km & Balon pękł przed czasem odcięcia. Lądowanie przy małym cieku (Kotomierz). & \cite{magrian2018,iac2023,stardustweb}\\
-12.05.2018 & Toruń & Układ próbkujący (2 filtry), komórki skóry z grzaniem, licznik Geigera, rzeźba & 24,8 km & Sukces. Lądowanie w Bydgoszczy, gondola odzyskana 5 minut po lądowaniu. & \cite{iac2023,gbsc2018,film2018}\\
+12.05.2018 & Toruń & \textbf{Antares}: układ próbkujący (2 filtry), komórki skóry z grzaniem, licznik Geigera, rzeźba & 24,8 km & Sukces. Lądowanie w Bydgoszczy, gondola odzyskana 5 minut po lądowaniu. & \cite{iac2023,gbsc2018,film2018}\\
 20.07.2020 & Toruń & Test układu dla BEXUS, ok. 4 kg, 2 gondole & 33,3 km & Brak odcinacza. Dryf 1,5 h. Lądowanie ok. 90 km od startu. & \cite{raport2020,praca2022}\\
 27.02.2022 & Iława & Radiosonda z kamerą (lot szkoleniowy) & 33,4 km & Sukces. Lądowanie 51 km od startu, okolice Brodnicy. & \cite{blog2022,pac2024}\\
-26.05.2023 & Iława & Platforma NEXT: OBC, łączność, odcinacz serwomechaniczny & 34 km & Odcinacz nie zadziałał. Lądowanie 23 km od startu. & \cite{blog2023,go2023,infoilawa2023,pac2024}\\
-09.08.2023 & Polska & Platforma NEXT + ładunek STORM & -- & Odcinacz z drutem oporowym nie zadziałał. Ładunek zebrał dane. & \cite{pac2024,storm}\\
+26.05.2023 & Iława & \textbf{Test platformy NEXT}: OBC, łączność, odcinacz serwomechaniczny & 34 km & Odcinacz nie zadziałał. Lądowanie 23 km od startu. & \cite{blog2023,go2023,infoilawa2023,pac2024}\\
+09.08.2023 & Iława & \textbf{Stormdust}: platforma NEXT + ładunek STORM (przed BEXUS) & -- & Odcinacz z drutem oporowym nie zadziałał. Ładunek zebrał dane. & \cite{pac2024,storm}\\
 \midrule
 \multicolumn{6}{@{}l}{\footnotesize\itshape Kolejne misje dopisuj poniżej:}\\[3mm]
 \rule{0pt}{6mm} & & & & & \\\hline
@@ -76,11 +76,12 @@ Co się wydarzyło i czego to uczy:
 \dwafoto{2017_tankowanie_torun}{Tankowanie w Toruniu (27.09.2017). Powłoka przykryta folią, butle z helem na plandece, spadochron obok.}{2017_zespol_po_ladowaniu}{Karol Pelzner, Szymon Magrian i Mateusz Grzybowski z gondolą po lądowaniu (27.09.2017).}
 \end{sekcja}
 
-\begin{sekcja}{Trzecia misja (12.05.2018)}
-Trzecia misja zespołu połączyła cztery organizacje studenckie~\cite{gbsc2018}:
+\begin{sekcja}{Antares (12.05.2018)}
+Trzecia misja zespołu, o nazwie Antares, połączyła cztery organizacje studenckie~\cite{gbsc2018}:
 \begin{itemize}
   \item \textbf{eksperyment mikrobiologiczny} (z kołem naukowym biotechnologii z Gdańska): pompa przetłaczała powietrze przez dwa filtry strzykawkowe \SI{0.22}{\micro m}; dwa zawory na serwomechanizmach otwierały się na określonej wysokości,
-  \item \textbf{eksperyment medycyny kosmicznej} (z kołem naukowym medycyny kosmicznej z Zielonej Góry): komórki skóry wystawione na promieniowanie; grzałki oporowe utrzymywały je w 20--\SI{50}{\degreeCelsius}; licznik Geigera własnej konstrukcji,
+  \item \textbf{eksperyment medycyny kosmicznej} (z kołem naukowym medycyny kosmicznej z Zielonej Góry): komórki skóry wystawione na promieniowanie; grzałki oporowe utrzymywały je w 20--\SI{50}{\degreeCelsius},
+  \item \textbf{licznik Geigera} własnej konstrukcji -- temat pracy inżynierskiej Szymona Magriana,
   \item \textbf{rzeźba} „Object 01” studentki Akademii Sztuk Pięknych w Gdańsku, na wysięgniku przed kamerą.
 \end{itemize}
 Komputer pokładowy na własnej płytce PCB z STM32L476 zbierał dane z GPS, zegara, czujnika ciśnienia, 9 czujników temperatury DS18B20, czujnika DHT22 i licznika Geigera. Śledzenie: tracker APRS (znak SR0FLY) i smartfon wysyłający pozycję SMS-em. Odcinacz: Arduino Nano z zegarem, tranzystor MOSFET i drut oporowy, w obudowie drukowanej z PLA -- odcięcie po zaprogramowanym czasie.
@@ -142,8 +143,8 @@ Zespół ćwiczył trzy fazy:
 \foto[\linewidth]{2022_profil_lotu_2022_google_earth}{Profil misji z 27.02.2022 w Google Earth. Po prawej Zatoka Gdańska.}
 \end{podsekcja}
 
-\begin{sekcja}{Test platformy (26.05.2023)}
-Pierwsza misja, którą nowy zespół zaprojektował i zbudował samodzielnie. Testowane systemy: komputer pokładowy (OBC), łączność i namierzanie, olinowanie z odcinaczem mechanicznym, gondola z pudełek styropianowych. Lot: \SI{34}{km} po około 90 minutach, lądowanie w okolicy Góry Dylewskiej~\cite{blog2023}.
+\begin{sekcja}{Test platformy NEXT (26.05.2023)}
+Pierwsza misja, którą nowy zespół zaprojektował i zbudował samodzielnie. Większość zdjęć w tym podręczniku pochodzi z tej misji. Misja miała własny patch -- jest na okładce podręcznika. Testowane systemy: komputer pokładowy (OBC), łączność i namierzanie, olinowanie z odcinaczem mechanicznym, gondola z pudełek styropianowych. Lot: \SI{34}{km} po około 90 minutach, lądowanie w okolicy Góry Dylewskiej~\cite{blog2023}.
 
 Odcinacz był w gondoli, nie pod balonem. Powód: zespół nie miał doświadczenia z odcinaczem sterowanym zdalnie pod powłoką. Serwo w gondoli miało zwolnić linkę, która trzyma balon.
 
@@ -152,10 +153,12 @@ Odcinacz był w gondoli, nie pod balonem. Powód: zespół nie miał doświadcze
 \textbf{Zabezpieczenie, które zadziałało:} zapas 10--15~m linki odcinacza między krętlikiem a spadochronem. Spadochron miał miejsce na rozwinięcie mimo skręconych linek. Zestaw wylądował bezpiecznie.
 \end{sekcja}
 
-\begin{sekcja}{Ładunek STORM (09.08.2023)}
-Pierwsza misja nowego zespołu bez pomocy starszych członków. Zespół zmniejszył masę komponentów i zastąpił odcinacz serwomechaniczny odcinaczem z drutem oporowym. Olinowanie bez zmian.
+\begin{sekcja}{Stormdust (09.08.2023)}
+Lot przygotowawczy przed drugim lotem zespołu na balonie BEXUS (eksperyment STORMDUST). Start z Iławy. Ładunek STORM zbierał próbki ze stratosfery do badań migracji toksyn~\cite{storm}. To pierwsza misja nowego zespołu bez pomocy starszych członków. Zespół zmniejszył masę komponentów i zastąpił odcinacz serwomechaniczny odcinaczem z drutem oporowym. Olinowanie bez zmian.
 
 \textbf{Problem:} drut oporowy grzał się za krótko i nie przeciął linki~\cite{pac2024}.
+
+\dwafoto{2023_stormdust_ladunek_po_ladowaniu}{Ładunek STORM otwarty po lądowaniu (09.08.2023).}{2023_stormdust_odcinacz_po_ladowaniu}{Odcinacz z drutem oporowym na poprzeczce z rury PVC, po lądowaniu (09.08.2023).}
 \end{sekcja}
 
 \section{Podsumowanie}
