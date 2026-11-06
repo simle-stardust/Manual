@@ -38,6 +38,13 @@ plt.rcParams.update({
 
 
 # ---------------------------------------------------------------- helpers
+def read_csv_track(path):
+    """CSV with lat, lon[, alt_m] -> array of (lon, lat, alt_m)."""
+    import csv
+    rows = list(csv.DictReader(open(path)))
+    return np.array([(float(r["lon"]), float(r["lat"]), float(r.get("alt_m") or 0)) for r in rows])
+
+
 def read_kml_track(path, name_hint=None, min_points=10):
     text = Path(path).read_text(errors="ignore")
     tracks = []
@@ -129,15 +136,17 @@ def typical_flight():
 def altitude_vs_distance():
     tr22 = read_kml_track(DATA / "2022-02-27_ilawa.kml")
     tr20 = read_kml_track(DATA / "2020-07-20_torun.kml")
-    fig, ax = plt.subplots(figsize=(6.3, 2.8))
-    for tr, lab, col in [(tr22, "27.02.2022 Iława (RTTY)", ORANGE),
-                         (tr20, "20.07.2020 Toruń (rejestrator)", NAVY)]:
+    tr23 = read_csv_track(DATA / "2023-05-26_ilawa_aprs.csv")
+    fig, ax = plt.subplots(figsize=(6.3, 2.9))
+    for tr, lab, col, ty in [(tr22, "27.02.2022 Iława (RTTY)", ORANGE, 3),
+                             (tr23, "26.05.2023 Iława (APRS)", GREEN, 24),
+                             (tr20, "20.07.2020 Toruń (rejestrator)", NAVY, 12)]:
         d = along_track_km(tr)
         ax.plot(d, tr[:, 2] / 1000, color=col, lw=1.5, label=lab)
         ground = haversine_km(tr[0, 0], tr[0, 1], tr[-1, 0], tr[-1, 1])
         txt = (f"lądowanie {ground:.0f} km od startu\n(w linii prostej)" if tr[-1, 2] < 2000
                else "zapis rejestratora kończy się\nna wys. ok. 6 km")
-        ax.annotate(txt, (d[-1], tr[-1, 2] / 1000), xytext=(d[-1] - 75, 3 + 9 * (col == NAVY)),
+        ax.annotate(txt, (d[-1], tr[-1, 2] / 1000), xytext=(d[-1] + (25 if col == GREEN else -75), ty),
                     fontsize=7.5, color=col, arrowprops=dict(arrowstyle="->", color=col))
     ax.set_xlabel("droga przebyta nad ziemią [km]")
     ax.set_ylabel("wysokość [km]")
@@ -161,11 +170,10 @@ def flight_map(tr20, tr22):
         print("map outline unavailable:", exc)
     ax.plot(tr20[:, 0], tr20[:, 1], color=NAVY, lw=1.8, label="20.07.2020 Toruń")
     ax.plot(tr22[:, 0], tr22[:, 1], color=ORANGE, lw=1.8, label="27.02.2022 Iława")
-    # 26.05.2023: only start and landing are known
-    s23, l23 = (19.565, 53.596), (19.952, 53.556)
-    ax.annotate("", xy=l23, xytext=s23,
-                arrowprops=dict(arrowstyle="->", color=GREEN, lw=1.8, ls="--"))
-    ax.plot([], [], color=GREEN, ls="--", label="26.05.2023 Iława (start–lądowanie)")
+    tr23 = read_csv_track(DATA / "2023-05-26_ilawa_aprs.csv")
+    ax.plot(tr23[:, 0], tr23[:, 1], color=GREEN, lw=1.8, label="26.05.2023 Iława")
+    tr23b = read_csv_track(DATA / "2023-08-09_ilawa_aprs.csv")
+    ax.plot(tr23b[:, 0], tr23b[:, 1], color=BLUE, lw=1.4, ls="--", label="09.08.2023 Iława")
     cities = {"Gdańsk": (18.65, 54.35), "Toruń": (18.60, 53.01), "Iława": (19.57, 53.60),
               "Olsztyn": (20.48, 53.78), "Brodnica": (19.40, 53.26),
               "Góra Dylewska": (19.95, 53.56), "Warszawa": (21.01, 52.23)}
@@ -325,6 +333,55 @@ def mission_2018():
     plt.close(fig)
 
 
+def mission_2023():
+    """Platform test (26.05.2023): APRS altitude and on-board temperatures."""
+    import csv
+    from datetime import datetime
+    aprs = list(csv.DictReader(open(DATA / "2023-05-26_ilawa_aprs.csv")))
+    ts = [datetime.strptime(r["time_utc"], "%Y-%m-%dT%H:%M:%SZ") for r in aprs]
+    alt = np.array([float(r["alt_m"]) for r in aprs]) / 1000
+    t = np.array([(x - ts[0]).total_seconds() / 60 for x in ts])
+    imax = int(np.argmax(alt))
+    log = list(csv.DictReader(open(DATA / "2023-05-26_ilawa_rejestrator.csv")))
+    log = [r for r in log if r["sesja"] == "3"]
+
+    def sec(h):
+        a, b, c = map(int, h.split(":"))
+        return a * 3600 + b * 60 + c
+    t0 = sec(log[0]["czas_rejestratora"])
+    # keep a monotonic record (the log also holds a few out-of-order lines)
+    keep, last = [], -1
+    for r in log:
+        x = sec(r["czas_rejestratora"]) - t0
+        if x >= last and x < 6 * 3600:
+            keep.append(r)
+            last = x
+    log = keep
+    tl = np.array([(sec(r["czas_rejestratora"]) - t0) / 60 for r in log])
+    tin = np.array([float(r["temp_wewn_c"]) for r in log])
+    tex = np.array([float(r["temp_zewn_c"]) if r["temp_zewn_c"] else np.nan for r in log])
+
+    fig, ax = plt.subplots(1, 2, figsize=(7.0, 2.6))
+    ax[0].plot(t, alt, color=GREEN)
+    ax[0].annotate(f"{alt[imax]:.1f} km", (t[imax], alt[imax]), textcoords="offset points",
+                   xytext=(4, -2), fontsize=8, color=GREEN)
+    ax[0].set_xlabel("czas od pierwszego pakietu APRS [min]", fontsize=8)
+    ax[0].set_ylabel("wysokość [km]")
+    ax[0].set_title("Profil lotu (APRS)", fontsize=9)
+    ax[1].plot(tl, tin, color=ORANGE, lw=1, label="wewnątrz gondoli")
+    ax[1].plot(tl, tex, color=NAVY, lw=1, label="na zewnątrz")
+    ax[1].set_xlabel("czas od włączenia rejestratora [min]", fontsize=8)
+    ax[1].set_ylabel("temperatura [°C]")
+    ax[1].set_title("Temperatury (rejestrator OBC)", fontsize=9)
+    ax[1].legend(fontsize=7, frameon=False)
+    fig.tight_layout()
+    fig.savefig(OUT / "misja_2023.pdf")
+    plt.close(fig)
+    up = alt[:imax + 1]
+    print(f"2023: max {alt[imax]:.2f} km at {t[imax]:.0f} min; last packet {t[-1]:.0f} min, "
+          f"{alt[-1]*1000:.0f} m; Tin {np.nanmin(tin):.1f}..{np.nanmax(tin):.1f}, Tex min {np.nanmin(tex):.1f}")
+
+
 if __name__ == "__main__":
     parachute_table()
     tb, tl = typical_flight()
@@ -332,6 +389,7 @@ if __name__ == "__main__":
     flight_map(tr20, tr22)
     ascent_heuristic()
     mission_2018()
+    mission_2023()
     full = gas_table()
     print(f"typical flight: burst {tb:.0f} min, landing {tl:.0f} min")
     print(f"50 l cylinder at 200 bar holds {full:.2f} m3 of helium")

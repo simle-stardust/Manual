@@ -272,6 +272,17 @@
   \etykieta[7mm]{Wypełnił/a (podpis)} & \etykieta[7mm]{Sprawdził/a -- kierownik misji (podpis)} & \etykieta[1mm]{Decyzja}\kratka~kontynuuj\par\smallskip\kratka~wstrzymaj\par\smallskip\\\hline
   \end{tabularx}\sd@growend}
 
+% Koniec strony: miejsce na notatki (linie do końca strony), potem nowa strona.
+\newcommand{\notatkinakoniec}{%
+  \par
+  \ifdim\pagetotal>\z@
+    \ifdim\dimexpr\pagegoal-\pagetotal\relax>30mm
+      \vspace{4mm}\noindent{\sffamily\small\bfseries\color{sdgray}Notatki}\par\vspace{1mm}%
+      \leaders\vbox to 8mm{\vfil\hbox{\textcolor{sdgray!60}{\rule{\linewidth}{0.3pt}}}}\vfill
+    \fi
+  \fi
+  \clearpage}
+
 % Wstawienie wierszy tabeli z pliku (prymityw \input działa w środku tabeli).
 \newcommand{\wiersze}[1]{\csname @@input\endcsname #1 }
 
