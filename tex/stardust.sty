@@ -192,9 +192,10 @@
   \sd@readin
   \edef\sd@newline{{\sd@e}{\sd@lo}{\sd@flo}{\sd@hi}}% domyślnie bez zmian
   \typeout{SDFORM \thesd@fnum\space p\thepage/\the\sd@startpage\space e=\the\sd@extra\space free=\the\sd@free\space units=\the\sd@units}%
-  \ifnum\value{page}=\sd@startpage\ifdim\sd@free<\z@\else\def\sd@ok{}\fi\fi
+  \ifnum\value{page}=\sd@startpage\ifdim\sd@free<-0.9mm\else\def\sd@ok{}\fi\fi
   \ifx\sd@ok\@undefined % formularz wyszedł poza stronę: zmniejsz
     \ifdim\sd@lo<\z@ \sd@enew=\z@ \else \sd@enew=\dimexpr(\sd@lo+\sd@extra)/2\relax\fi
+    \ifdim\dimexpr\sd@enew-\sd@lo\relax<0.2pt \ifdim\sd@lo<\z@\else\sd@enew=\sd@lo\fi\fi
     \edef\sd@newline{{\the\sd@enew}{\sd@lo}{\sd@flo}{\the\sd@extra}}%
   \else
     \ifdim\sd@free>1.5mm \sd@more\fi
