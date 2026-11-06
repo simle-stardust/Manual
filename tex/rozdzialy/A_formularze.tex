@@ -78,7 +78,7 @@ F14 & Po misji & do T+7 dni\\
 
 % ===========================================================================
 \formularz[kierownik misji]{F1}{Role w zespole}{T$-$16 tyg.}
-Jedna osoba może mieć kilka ról, z wyjątkiem: kierowca nie obsługuje śledzenia; fotograf nie ma innych zadań przy starcie; kierownik startu nie tankuje.
+Jedna osoba może mieć kilka ról, z wyjątkiem: kierowca nie obsługuje śledzenia; fotograf nie ma innych zadań przy starcie; kierownik startu nie tankuje. Każdy na stanowisku ma rolę (choćby obserwator bezpieczeństwa).
 
 \renewcommand{\arraystretch}{1.55}
 \small
@@ -93,9 +93,9 @@ OP & Operator platformy: gondola, tracker, OBC, odcinacz & & \\\hline
 OŁ & Opiekun ładunku badawczego & & \\\hline
 OS & Operator śledzenia: predykcja, mapy, nawigacja & & \\\hline
 KR & Kierowca (każdego samochodu) & & \\\hline
-FD & Fotograf / dokumentalista & & \\\hline
+FD & Fotograf: zdjęcia, film tankowania i startu & & \\\hline
 LG & Logistyka i zakupy: gaz, materiały, transport & & \\\hline
-BZ & Bezpieczeństwo: butla, pierwsza pomoc, widzowie & & \\\hline
+BZ & Bezpieczeństwo: butla, apteczka, widzowie & & \\\hline
 \end{tabularx}
 \normalsize
 \komentarze[2]
@@ -292,6 +292,7 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \krok{Odbierz gaz albo potwierdź odbiór na miejscu startu.}{\pole[2cm]{bar:}}
 \etap{Logistyka}
 \krok{Potwierdź z zespołem godzinę i miejsce zbiórki.}{\pole[2cm]{godz.:}}
+\krok{Znajdź arborystę albo firmę z podnośnikiem w rejonie lądowania (gondola na drzewie).}{\pole[2cm]{tel.:}}
 \krok{Wydrukuj formularze F9--F14 i weź podkładki i długopisy.}{}
 \end{procedura}
 \komentarze[3]
@@ -307,14 +308,14 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \krok{Sprawdź aktualną predykcję dla wybranego scenariusza.}{\pole[2cm]{lądow.:}}
 \krok{Wejdź na \www{amc.pansa.pl} (AUP/UUP) i \www{ais.pansa.pl} (NOTAM). Sprawdź strefy aktywne dziś.}{}
 \krok{Ustaw stanowisko w osi wiatru. Rozdaj radiotelefony PMR.}{\pole[2cm]{kanał:}}
-\krok{Wyznacz strefę dla widzów (BZ).}{}
+\krok{Wyznacz strefę dla widzów i obserwatora bezpieczeństwa (BZ).}{}
 \etap{Podłoże}
 \krok{Rozłóż plandekę. Dociśnij rogi skrzynkami.}{}
 \krok{Rozłóż koc na plandece.}{}
 \krok{Rozłóż folię dolną. Dociśnij rogi.}{}
 \krok{Przygotuj folię górną obok stanowiska.}{}
 \etap{Sprzęt}
-\krok{Połóż butlę stabilnie. Zabezpiecz przed przetoczeniem.}{}
+\krok{Połóż butlę stabilnie, w cieniu. Zabezpiecz przed przetoczeniem. Naklej czarną taśmę do pomiaru temperatury.}{}
 \krok{Rozłóż olinowanie w linii, z wiatrem.}{}
 \krok{Włącz elektronikę platformy. Sprawdź GPS i telemetrię na mapach.}{\pole[2cm]{godz.:}}
 \krok{Włącz ładunek (OŁ).}{}
@@ -328,20 +329,21 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \etap{Przygotowanie}
 \krok{Wszyscy przy powłoce zakładają rękawiczki.}{}
 \krok{Przykręć reduktor do butli. Pokrętło reduktora zamknięte.}{}
-\krok{Otwórz zawór butli. Odczytaj $p_1$ z manometru ciśnienia w butli.}{\pole[2cm]{$p_1$ [bar]:}}
-\krok{Zważ obciążnik: siła nośna szyjki z F0 (nie masa gondoli).}{\pole[2cm]{[g]:}}
-\krok{Wyjmij powłokę na folię dolną. Włóż rurę w szyjkę. Uszczelnij taśmą delikatnie.}{}
-\krok{Przywiąż obciążnik. Przykryj powłokę folią górną (PM trzymają brzegi).}{}
+\krok{Otwórz zawór butli. Odczytaj $p_1$ (bez przepływu).}{\pole[2cm]{$p_1$ [bar]:}}
+\krok{Zmierz pirometrem butlę (czarna taśma, $\varepsilon = 0{,}95$) i powietrze.}{\pole[1.2cm]{$T_1$:}\,\pole[1.2cm]{pow.:}}
+\krok{Zważ obciążnik = siła nośna szyjki z F0 (nie masa gondoli).}{\pole[2cm]{[g]:}}
+\krok{Wyjmij powłokę na folię. Włóż rurę w szyjkę, uszczelnij taśmą.}{}
+\krok{Przywiąż obciążnik. Przykryj powłokę folią górną.}{}
 \etap{Tankowanie}
-\krok{Otwórz reduktor powoli. Ustaw stały przepływ. Zapisz godzinę i wskazanie przepływu.}{\pole[2cm]{l/min:}}
-\krok{Zapisuj odczyty manometru wysokiego ciśnienia co kilka minut (pole niżej).}{}
-\krok{Balon unosi obciążnik: zamknij zawór. Odczekaj kilka minut. Odczytaj $p_2$.}{\pole[2cm]{$p_2$ [bar]:}}
+\krok{Otwórz reduktor powoli, ustaw stały przepływ. Zapisz godzinę.}{\pole[2cm]{l/min:}}
+\krok{Co kilka minut zapisuj ciśnienie w butli (tabela niżej).}{}
+\krok{Balon unosi obciążnik: zamknij zawór. Po kilku minutach: $p_2$, $T_2$.}{\pole[1.2cm]{$p_2$:}\,\pole[1.2cm]{$T_2$:}}
 \krok{Oblicz objętość gazu z tabeli~\ref{tab:gaz} albo wzoru.}{\pole[2cm]{V [m³]:}}
 \etap{Zamknięcie}
 \krok{Zdejmij taśmę wstępną. Wysuń rurę. Skręć szyjkę.}{}
-\krok{Zwiąż szyjkę sznurkiem na kilka supłów. Przełóż przez szyjkę pętlę z krętlikiem.}{}
-\krok{Zegnij szyjkę w górę (pętla w zgięciu). Zaciśnij kilkoma opaskami. Owiń kilkoma warstwami taśmy.}{}
-\krok{Sprawdź: brak taśmy na powłoce, pętla trzyma, wiązanie szczelne.}{}
+\krok{Zwiąż szyjkę na kilka supłów. Przełóż pętlę z krętlikiem.}{}
+\krok{Zegnij szyjkę w górę, zaciśnij opaskami, owiń taśmą.}{}
+\krok{Sprawdź: taśma tylko na szyjce, pętla trzyma, wiązanie szczelne.}{}
 \end{procedura}
 \renewcommand{\arraystretch}{1.4}
 \noindent\begin{tabularx}{\linewidth}{@{}|l|*{8}{X|}@{}}\hline
@@ -365,42 +367,43 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \krok{SPOT i znaczniki Bluetooth włączone.}{}
 \krok{Zadzwoń do służby ruchu lotniczego (jeśli wymagane w zgodzie).}{\pole[2cm]{godz.:}}
 \krok{Kierownik startu: niebo wolne, widzowie w strefie, zespół na pozycjach.}{}
+\krok{Apel „go / no-go”: OT, OP (odcinacz), OS (śledzenie), każdy OŁ, BZ. Odpowiedź: „go” albo „no-go” + krótki powód.}{\pole[2cm]{no-go:}}
 \krok{Kierownik misji: decyzja „start”.}{}
 \etap{Start}
 \krok{Osoba z gondolą ustawia się pod wiatr (po zawietrznej, twarzą do balonu).}{}
 \krok{Odliczanie. PM zdejmują folię i puszczają balon.}{}
 \krok{Balon nad gondolą i spokojny: komenda „start”. Osoba z gondolą ją puszcza.}{}
 \krok{Zapisz czas startu.}{\pole[2cm]{UTC:}}
-\krok{Fotograf: seria zdjęć / film startu.}{}
+\krok{Fotograf: film tankowania i startu w całości (do analizy anomalii).}{}
 \end{procedura}
-\komentarze[3]
+\komentarze[2]
 \podpisy
 
 % ===========================================================================
 \formularz[operator śledzenia]{F12}{Lot i pościg}{T0}
-Zapisuj pozycję co kilka minut. Wpisz zdarzenia: pęknięcie, odcięcie, utrata sygnału, zmiana trasy.
+Zapisuj pozycję co kilka minut. Porównuj wysokość z predykcją (F4): duża różnica w prędkości wznoszenia to wczesny sygnał problemu (nieszczelna szyjka, za mało gazu). Wpisz zdarzenia: pęknięcie, odcięcie, utrata sygnału, zmiana trasy.
 
 \renewcommand{\arraystretch}{1.75}
 \footnotesize
-\begin{tabularx}{\linewidth}{@{}|P{13mm}|P{16mm}|P{28mm}|P{28mm}|P{14mm}|L|@{}}\hline
-\rowcolor{sdlight}\textbf{Godz.} & \textbf{Wys. [m]} & \textbf{Szer. geogr.} & \textbf{Dł. geogr.} & \textbf{Źródło} & \textbf{Zdarzenie, predykcja lądowania}\\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
- & & & & & \\\hline
+\begin{tabularx}{\linewidth}{@{}|P{11mm}|P{14mm}|P{14mm}|P{24mm}|P{24mm}|P{12mm}|L|@{}}\hline
+\rowcolor{sdlight}\textbf{Godz.} & \textbf{Wys. [m]} & \textbf{Wys. z pred. [m]} & \textbf{Szer. geogr.} & \textbf{Dł. geogr.} & \textbf{Źródło} & \textbf{Zdarzenie, predykcja lądowania}\\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
+ & & & & & & \\\hline
 \end{tabularx}
 \normalsize
 \podpisy
@@ -411,11 +414,13 @@ Zapisuj pozycję co kilka minut. Wpisz zdarzenia: pęknięcie, odcięcie, utrata
 \etap{Dojazd}
 \krok{Zapisz ostatnią pozycję z trackera.}{\pole[2cm]{wsp.:}}
 \krok{Sprawdź pozycję SPOT i znaczników Bluetooth.}{}
-\krok{Ustal właściciela terenu. Uzyskaj zgodę na wejście (pole, las prywatny).}{}
+\krok{Ustal właściciela terenu. Do właściciela idą dwie osoby (prowadzi KM). Uzyskaj zgodę na wejście.}{}
+\krok{Gondola na drzewie: nie wspinaj się. Zadzwoń do arborysty (F8).}{}
 \etap{Na miejscu}
-\krok{Fotograf: zdjęcia miejsca lądowania, zanim ktoś dotknie sprzętu.}{}
+\krok{Fotograf: zdjęcia miejsca lądowania i sprzętu ze wszystkich stron, zanim ktoś go dotknie.}{}
 \krok{Sprawdź stan olinowania i odcinacza. Zapisz, czy odcinacz zadziałał.}{}
 \krok{Wyłącz elektronikę platformy. Zabezpiecz karty pamięci.}{}
+\krok{Skopiuj dane z kart pamięci na dwa osobne nośniki.}{}
 \krok{Przekaż ładunek opiekunowi ładunku.}{}
 \krok{Zbierz resztki powłoki i spadochron. Nie zostawiaj śmieci.}{}
 \etap{Zakończenie}
@@ -440,5 +445,5 @@ Zapisuj pozycję co kilka minut. Wpisz zdarzenia: pęknięcie, odcięcie, utrata
 \end{procedura}
 \noindent\textbf{Co działało dobrze:}\foreach \i in {1,...,2}{\linia}\par
 \noindent\textbf{Co nie działało i dlaczego:}\foreach \i in {1,...,2}{\linia}\par
-\noindent\textbf{Co zmienić w następnej misji:}\foreach \i in {1,...,2}{\linia}\par
+\noindent\textbf{Co zmienić w następnej misji (co, kto, do kiedy):}\foreach \i in {1,...,2}{\linia}\par
 \podpisy

@@ -70,6 +70,22 @@ gdzie: $m$ -- masa pod spadochronem (gondole, olinowanie, spadochron) [kg]; $g =
 \captionof{table}{Prędkość opadania przy ziemi [m/s] dla $C_d = 0{,}8$. Zielone pola: zakres docelowy 4--6~m/s. Dla swojego spadochronu użyj $C_d$ z karty producenta.}\label{tab:spadochron}
 \end{sekcja}
 
+\begin{sekcja}{Wstrząs otwarcia i typ spadochronu}
+\textbf{Wstrząs otwarcia.} Po odcięciu gondola najpierw spada swobodnie w rzadkim powietrzu, a spadochron otwiera się dopiero przy dużej prędkości. Siła na linkach w chwili otwarcia rośnie z kwadratem prędkości: $F \approx m g\,(v_1/v_T)^2$, gdzie $v_1$ -- prędkość w chwili otwarcia, $v_T$ -- prędkość ustalona. Spadochron rozciągnięty wzdłuż zestawu (jak w Stardust NEXT) daje według NASA 6--10\,$g$, spadochron spakowany poniżej 2\,$g$~\cite[rozdz.~14]{nasahb}.
+\begin{itemize}
+  \item Linki spadochronu, ich mocowanie do rogów płyty i pas gondoli muszą wytrzymać co najmniej \textbf{10-krotny ciężar} zestawu pod spadochronem (dla \SI{2}{kg} to około \SI{200}{N}). Sprawdź to testem (sekcja~\ref{sec:testy}).
+  \item Linki spadochronu to nie linka zrywalna z rozdziału~\ref{ch:prawo}. Linka zrywalna łączy balon z ładunkiem -- nie używaj jej do linek spadochronu ani do ich mocowania.
+\end{itemize}
+
+\textbf{Prędkość lądowania.} NASA uznaje 7--8~m/s za akceptowalne dla większości ładunków~\cite[rozdz.~14]{nasahb}. Większy spadochron wydłuża opadanie i dryf, zwiększa ryzyko lądowania na drzewie albo liniach energetycznych i wleczenia gondoli po ziemi przy wietrze. Cel 4--6~m/s jest dobry dla lekkich gondoli styropianowych -- nie zwiększaj spadochronu ponad potrzebę. Pierwsze przybliżenie masy pod spadochronem: masa gondoli $\times 1{,}05$.
+
+\textbf{Typ spadochronu}~\cite[rozdz.~14]{nasahb}:
+\begin{itemize}
+  \item \textbf{płaski okrągły z otworem w czaszy} -- otwiera się pewnie i szybko, łatwo dostępny; buja się do około 45° po otwarciu,
+  \item \textbf{krzyżowy} -- buja się około 15° i mniej się kręci; w małych programach balonowych często używany, z dobrymi wynikami. Rozważ go, gdy kamera ma nagrywać stabilny obraz.
+\end{itemize}
+\end{sekcja}
+
 \begin{sekcja}{Olinowanie}
 \textbf{Materiały:} taśma parciana, regulatory do taśmy (plastikowe albo metalowe), linka o średnicy około \SI{1}{mm} i wytrzymałości poniżej \SI{230}{N}, krętlik, poprzeczki (np. kawałki rurki).
 

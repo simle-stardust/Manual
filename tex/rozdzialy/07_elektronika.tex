@@ -30,8 +30,10 @@ OBC dodatkowo implementuje te same funkcje bezpieczeństwa, ale niezależnie od 
   \item własny odbiornik GPS i własne kryteria zakończenia lotu,
   \item \textbf{niezależny odcinacz innego typu} (np. z drutem oporowym, gdy główny jest serwomechaniczny) -- jedna przyczyna awarii nie wyłącza obu,
   \item zapis danych z czujników na karcie SD, ze znacznikiem czasu,
-  \item zapis stanu misji w pamięci nieulotnej: restart w locie nie zeruje misji.
+  \item zapis stanu misji w pamięci nieulotnej: restart w locie nie zeruje misji,
+  \item watchdog: restartuje OBC, gdy program się zawiesi.
 \end{itemize}
+Niezależny komputer bezpieczeństwa, drugi komputer z własnym odcinaczem i watchdog to rozwiązania zalecane przez NASA dla komputerów lotnych~\cite[rozdz.~12]{nasahb}.
 
 \textbf{Wymagania:}
 \begin{itemize}
@@ -99,11 +101,13 @@ Przy ziemi sygnał z trackera zanika: zasłaniają go drzewa, budynki i ukształ
 \begin{sekcja}{Termika: mróz i próżnia}
 W stratosferze powietrze ma do \SI{-60}{\degreeCelsius}, ale jest bardzo rzadkie. Prawie nie ma konwekcji, więc elektronika \textbf{nie oddaje ciepła} do powietrza. Słońce dodatkowo nagrzewa gondolę. W misji z lipca 2020 roku elektronika w izolowanej gondoli przekroczyła \SI{50}{\degreeCelsius}~\cite{praca2022}.
 
+Według NASA większość awarii w lotach balonowych wynika z problemów termicznych: zbyt uproszczonego bilansu cieplnego albo za słabych testów naziemnych~\cite[rozdz.~12]{nasahb}. W czasie wznoszenia, gdy powietrze jest jeszcze gęste, nieosłonięte elementy wychładzają się nawet do \SI{-60}{\degreeCelsius}. Wyżej, bez konwekcji, częściej problemem jest przegrzanie niż zimno.
+
 \textbf{Zasady projektowe:}
 \begin{itemize}
   \item projektuj elektronikę o wysokiej sprawności -- mniej strat to mniej ciepła,
   \item dodaj duży zapas pojemności cieplnej (masa, która akumuluje ciepło, np. baterie, metalowa płyta),
-  \item odprowadzaj ciepło przez przewodzenie do obudowy, nie przez powietrze,
+  \item odprowadzaj ciepło przez przewodzenie do obudowy, nie przez powietrze; nadajnik i stabilizatory napięcia przykręć do wkładki albo metalowej płytki,
   \item nie dodawaj izolacji ani grzałek bez bilansu cieplnego dla startu (zimno) i dla stratosfery (brak chłodzenia).
 \end{itemize}
 

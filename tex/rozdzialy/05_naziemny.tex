@@ -39,12 +39,21 @@ Rysunek~\ref{fig:stanowisko} pokazuje warstwy stanowiska. Powłoka leży \textbf
   \item klucz do reduktora: klucz nastawny („francuski”) albo klucze calowe -- zależnie od butli,
   \item taśma klejąca (mocna, np. srebrna), sznurek, opaski zaciskowe,
   \item rękawiczki (bawełniane albo nitrylowe) dla wszystkich, którzy dotykają powłoki,
+  \item termometry do pomiaru temperatury butli i powietrza (sekcja~\ref{sec:temp-butli}): pirometr, czarna matowa taśma izolacyjna, termometr pogodowy, opcjonalnie termometr kontaktowy,
   \item czujnik wodoru -- na wszelki wypadek, gdy gaz w butli może zawierać wodór albo gdy zespół używa wodoru.
 \end{itemize}
 
 \begin{uwaga}Pracuj przy powłoce tylko w rękawiczkach. Tłuszcz ze skóry osłabia lateks. Powłoka pęka wcześniej w miejscach, które ktoś dotknął gołą ręką.\end{uwaga}
 
-\begin{uwaga}Butla z gazem pod ciśnieniem \SI{200}{bar} jest niebezpieczna. Transportuj ją zabezpieczoną przed przetoczeniem (patrz uwaga o transporcie w rozdziale~\ref{ch:planowanie}). Nie upuszczaj jej. Nie otwieraj zaworu bez zamontowanego reduktora.\end{uwaga}
+\begin{uwaga}Butla z gazem pod ciśnieniem \SI{200}{bar} jest niebezpieczna~\cite[rozdz.~6]{nasahb}:
+\begin{itemize}
+  \item Transportuj ją zabezpieczoną przed przetoczeniem (rozdział~\ref{ch:planowanie}). Nie upuszczaj jej i nie uderzaj.
+  \item Nie tocz i nie ciągnij butli. Na krótkie odległości przewoź ją na wózku.
+  \item Nie dopuszczaj do nagrzania powyżej \SI{50}{\degreeCelsius}: nie zostawiaj butli w samochodzie na słońcu.
+  \item Nie zdejmuj kołpaka z zaworu, dopóki butla nie leży stabilnie na stanowisku.
+  \item Nie otwieraj zaworu bez zamontowanego reduktora.
+  \item Przed misją obejrzyj wąż, reduktor i uszczelki. Nie zginaj węża na ostro -- zagięcie osłabia go niewidocznie.
+\end{itemize}\end{uwaga}
 \end{sekcja}
 
 \begin{sekcja}{Przygotowanie reduktora}
@@ -55,11 +64,11 @@ Reduktor ma dwa manometry:
 \end{itemize}
 
 \begin{enumerate}
-  \item Połóż butlę stabilnie na plandece. Zabezpiecz ją przed przetoczeniem.
+  \item Połóż butlę stabilnie na plandece, w cieniu. Zabezpiecz ją przed przetoczeniem. Naklej na butlę kawałek czarnej taśmy do pomiaru temperatury (sekcja~\ref{sec:temp-butli}).
   \item Sprawdź gwint zaworu butli i reduktora. Usuń zanieczyszczenia.
   \item Przykręć reduktor kluczem. Nie dokręcaj na siłę.
   \item Zamknij pokrętło reduktora (pozycja \emph{OFF}). Otwórz powoli zawór butli.
-  \item Odczytaj z \textbf{manometru wysokiego ciśnienia} ciśnienie początkowe $p_1$. Zapisz je w formularzu F10.
+  \item Odczytaj z \textbf{manometru wysokiego ciśnienia} ciśnienie początkowe $p_1$ (bez przepływu -- reduktor zamknięty). Zmierz temperaturę butli $T_1$. Zapisz obie wartości w formularzu F10.
   \item Sprawdź szczelność: zamknij zawór butli. Ciśnienie na manometrze wysokiego ciśnienia nie może spadać.
   \item Podłącz wąż i rurę do tankowania.
 \end{enumerate}
@@ -71,17 +80,17 @@ Reduktor ma dwa manometry:
 \begin{sekcja}{Ilość gazu z ciśnienia w butli}\label{sec:gaz-wzor}
 Manometr wysokiego ciśnienia pokazuje ciśnienie w butli. Ze spadku ciśnienia obliczysz, ile gazu poszło do powłoki. Wzór wynika z równania stanu gazu z poprawką na ściśliwość helu~\cite{nist}, \cite[rozdz.~6]{nasahb}:
 \[
-  V \;=\; \frac{V_b}{p_0}\left(\frac{p_1}{Z(p_1)} - \frac{p_2}{Z(p_2)}\right)\frac{T_0}{T},
+  V \;=\; \frac{V_b\,T_0}{p_0}\left(\frac{p_1}{Z(p_1)\,T_1} - \frac{p_2}{Z(p_2)\,T_2}\right),
   \qquad Z(p) \approx 1 + 4{,}8\cdot10^{-4}\,p\ [\text{bar}]
 \]
 gdzie:
 \begin{itemize}
   \item $V$ -- objętość helu wypuszczonego do powłoki, przy ciśnieniu atmosferycznym [m³],
   \item $V_b$ -- pojemność wodna butli (wybita na butli, np. \SI{50}{l} = \SI{0.05}{m^3}),
-  \item $p_1$, $p_2$ -- ciśnienie \textbf{bezwzględne} przed i po tankowaniu: odczyt manometru wysokiego ciśnienia + \SI{1}{bar},
+  \item $p_1$, $p_2$ -- ciśnienie \textbf{bezwzględne} przed i po tankowaniu: odczyt manometru wysokiego ciśnienia + \SI{1}{bar}; odczytuj tylko przy zamkniętym zaworze -- w czasie przepływu manometr pokazuje za mało,
   \item $p_0 = \SI{1.013}{bar}$ -- ciśnienie atmosferyczne,
   \item $Z$ -- współczynnik ściśliwości helu (dla \SI{200}{bar} $Z \approx 1{,}1$; bez poprawki wynik jest zawyżony o około \SI{10}{\percent}),
-  \item $T_0/T$ -- poprawka na temperaturę ($T_0 = \SI{288}{K}$); przy \SI{15}{\degreeCelsius} równa 1.
+  \item $T_1$, $T_2$ -- temperatura gazu w butli [K] przy odczycie $p_1$ i $p_2$ (sekcja~\ref{sec:temp-butli}); $T_0 = \SI{288}{K}$. Błąd temperatury \SI{10}{\degreeCelsius} to błąd ilości gazu około \SI{3.5}{\percent}.
 \end{itemize}
 
 Siła nośna helu przy ziemi to około \SI{1.05}{kg} na każdy \si{m^3}. Siła nośna szyjki = $V \cdot 1{,}05$~kg $-$ masa powłoki.
@@ -101,6 +110,41 @@ Siła nośna helu przy ziemi to około \SI{1.05}{kg} na każdy \si{m^3}. Siła n
 \begin{uwaga}Przy szybkim wypływie butla się ochładza i manometr pokazuje za niskie ciśnienie. Przed odczytem $p_2$ zamknij zawór i odczekaj kilka minut, aż temperatura się wyrówna.\end{uwaga}
 
 Hel balonowy („balloon gas”) bywa mieszaniną helu z powietrzem. Ma mniejszą siłę nośną. Zamów hel techniczny o czystości podanej przez dostawcę i zapisz ją w karcie misji.
+\end{sekcja}
+
+\begin{sekcja}{Pomiar temperatury butli}\label{sec:temp-butli}
+Termometr mierzy temperaturę \textbf{ścianki} butli, nie gazu. Ścianka i gaz mają tę samą temperaturę tylko w równowadze: butla stoi długo w stałej temperaturze, w cieniu, a gaz nie płynie~\cite[rozdz.~6]{nasahb}. W czasie wypływu gaz w butli się ochładza, a słońce nagrzewa ściankę -- pomiar jest wtedy fałszywy.
+
+\textbf{Przygotowanie:} od przyjazdu trzymaj butlę w cieniu (albo przykrytą jasnym materiałem). Naklej na butlę, na wysokości połowy, kawałek \textbf{czarnej matowej taśmy izolacyjnej PVC} (około 5$\times$\SI{5}{cm}). Taśma ma znaną emisyjność $\varepsilon \approx 0{,}95$. Naklej ją kilka minut przed pomiarem, aby przyjęła temperaturę butli.
+
+\textbf{Pirometr} (termometr na podczerwień) -- metoda podstawowa:
+\begin{enumerate}
+  \item Ustaw w pirometrze emisyjność $\varepsilon = 0{,}95$ (wiele tanich pirometrów ma ją ustawioną na stałe).
+  \item Celuj w taśmę, nie w gołą butlę. Goły lub błyszczący metal ma małą i nieznaną emisyjność: odbija promieniowanie otoczenia i pirometr pokazuje fałszywą wartość.
+  \item Podejdź tak blisko, aby plamka pomiaru była mniejsza niż taśma. Przy pirometrze 12:1 z odległości \SI{12}{cm} plamka ma około \SI{1}{cm}.
+  \item Zmierz trzy razy i zapisz średnią.
+\end{enumerate}
+
+\textbf{Termometr kontaktowy} (sonda powierzchniowa, np. termopara typu K z multimetrem) -- kontrola: dociśnij sondę do butli, przykryj ją kawałkiem pianki albo rękawiczką i odczekaj, aż odczyt się ustali.
+
+\textbf{Termometr pogodowy} -- temperatura powietrza w cieniu. Gdy butla stała kilka godzin na zewnątrz w cieniu, jej temperatura jest bliska temperaturze powietrza. Duża różnica oznacza błąd pomiaru albo butlę nagrzaną w samochodzie.
+
+\textbf{Kiedy mierzyć:} $T_1$ -- przed otwarciem reduktora, razem z $p_1$. $T_2$ -- po zamknięciu zaworu i odczekaniu kilku minut, razem z $p_2$. Zapisz obie wartości i temperaturę powietrza w formularzu F10.
+\end{sekcja}
+
+\begin{sekcja}{Hel czy wodór}
+Platforma Stardust NEXT używa \textbf{helu}. Hel drożeje i bywa trudno dostępny, dlatego część zespołów balonowych przechodzi na wodór~\cite[rozdz.~2]{nasahb}. Wodór daje około \SI{10}{\percent} więcej siły nośnej, ale jest palny i wymaga dodatkowego szkolenia.
+
+\begin{uwaga}Nowym zespołom nie zalecamy wodoru. Jeśli zespół mimo to wybierze wodór, stosuj zasady z rozdziału~6 podręcznika NASA~\cite{nasahb}:
+\begin{itemize}
+  \item żadnego ognia, iskier ani testów elektroniki przy butli i przy powłoce; silniki samochodów wyłączone,
+  \item uziem butlę i sprzęt, zanim wypuścisz gaz,
+  \item odzież z bawełny, nie z tworzyw sztucznych,
+  \item przed tankowaniem wyznacz strefę zagrożenia: owal wzdłuż wiatru, balon przy jego nawietrznym końcu. Uciekaj pod wiatr, gdy stoisz po nawietrznej; z innych miejsc -- w poprzek wiatru. Nigdy nie przechodź przez oś owalu,
+  \item płomień wodoru jest niewidoczny. Ktoś z zewnątrz strefy obserwuje stanowisko i ostrzega,
+  \item resztki powłoki po locie mogą zawierać kieszenie gazu -- nie zostawiaj ich bez nadzoru.
+\end{itemize}
+Wzór i tabela gazu w tym rozdziale dotyczą tylko helu.\end{uwaga}
 \end{sekcja}
 
 \begin{sekcja}{Ilość gazu z przepływu i czasu}
@@ -154,6 +198,7 @@ Metoda z obciążnikiem to podstawowa metoda tankowania. Wzory służą do kontr
   \item Otwórz zawór butli i powoli otwieraj reduktor. Ustaw stały przepływ. Zapisz godzinę.
   \item Obserwuj manometr wysokiego ciśnienia. Zapisuj odczyty (formularz F10). Porównuj z tabelą~\ref{tab:gaz} i z czasem tankowania.
   \item Gdy balon uniesie obciążnik, zamknij zawór butli. Sprawdź siłę nośną jeszcze raz po minucie.
+  \item Po kilku minutach odczytaj $p_2$ i zmierz temperaturę butli $T_2$ (formularz F10).
   \item Zamknij powłokę (sekcja~\ref{sec:szyjka}).
 \end{enumerate}
 
@@ -231,4 +276,13 @@ Radiotelefony to podstawa łączności w czasie pościgu (między samochodami) i
   \item Szukajcie też w górze: gondola może zawisnąć na drzewie.
   \item Uważajcie na teren prywatny, zwierzęta i uprawy. Wejdź na teren za zgodą właściciela.
 \end{enumerate}
+\end{sekcja}
+
+\begin{sekcja}{Odzyskanie gondoli i danych}
+\begin{itemize}
+  \item \textbf{Właściciel terenu.} Zanim wejdziesz na teren prywatny, uzyskaj zgodę. Do właściciela idą dwie osoby, rozmowę prowadzi kierownik misji. Krótko wyjaśnij sytuację i pokaż na mapie, gdzie leży gondola. Nie depczcie upraw, zostawcie teren tak, jak był~\cite[rozdz.~2]{nasahb}.
+  \item \textbf{Gondola na drzewie.} Nie wspinaj się na drzewo. Wezwij arborystę albo firmę z podnośnikiem. Kontakt do takiej firmy w rejonie lądowania przygotuj dzień przed startem (formularz F8).
+  \item \textbf{Anomalia w locie} (odcinacz nie zadziałał, gondola uszkodzona, brak danych): przed dotknięciem sprzętu zrób zdjęcia ze wszystkich stron. Zapisz, co i jak było połączone. Dopiero potem demontuj~\cite[rozdz.~11]{nasahb}.
+  \item \textbf{Dane.} Zaraz po odzyskaniu skopiuj dane z kart pamięci na \textbf{dwa osobne nośniki} (np. laptop i pendrive). Karty pamięci opisz i montuj tak, aby dało się je wyjąć bez rozbierania gondoli. Odczyt danych z gondoli przećwicz przed misją, w próbie generalnej~\cite[rozdz.~12]{nasahb}.
+\end{itemize}
 \end{sekcja}
