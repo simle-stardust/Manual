@@ -14,11 +14,11 @@ Po każdej misji dopisz wiersz do tabeli~\ref{tab:misje} i nowe wnioski do tabel
 \begin{tabularx}{\linewidth}{@{}P{16mm}P{12mm}LP{12mm}P{36mm}P{15mm}@{}}
 \toprule
 \textbf{Data} & \textbf{Start} & \textbf{Ładunek} & \textbf{Pułap} & \textbf{Wynik} & \textbf{Źródła}\\\midrule
-2015 & Toruń & Pierwsza próba startu & -- & Start przerwany, balon nie poleciał. & relacja zespołu\\
-04.2016 & Toruń & Gondola ze styroduru, dwa moduły Arduino, odcinacz z drutem oporowym & -- & Pierwszy lot. Lądowanie na drzewie -- gondolę zdjęła straż pożarna podnośnikiem (17.04.2016). & \cite{iac2023,stardustweb,dok2016}\\
-27.09.2017 & Toruń & Układ próbkujący (test sterylności), odcinacz z drutem oporowym (zegar) & ok. 30 km & Balon pękł przed czasem odcięcia. Lądowanie przy małym cieku (Kotomierz). & \cite{magrian2018,iac2023,stardustweb}\\
-12.05.2018 & Toruń & \textbf{Antares}: układ próbkujący (2 filtry), komórki skóry z grzaniem, licznik Geigera, rzeźba & 24,8 km & Sukces. Lądowanie w Bydgoszczy, gondola odzyskana 5 minut po lądowaniu. & \cite{iac2023,gbsc2018,film2018}\\
-20.07.2020 & Toruń & Test układu dla BEXUS, ok. 4 kg, 2 gondole & 33,3 km & Brak odcinacza. Dryf 1,5 h. Lądowanie ok. 90 km od startu. & \cite{raport2020,praca2022}\\
+06.12.2015 & Toruń & Pierwsza próba startu & -- & Start przerwany, balon nie poleciał. & \cite{fbsimle}\\
+16.04.2016 & Toruń & Gondola ze styroduru, dwa moduły Arduino, odcinacz z drutem oporowym & -- & Pierwszy lot. Lądowanie na drzewie -- gondolę zdjęła straż pożarna podnośnikiem (17.04.2016). & \cite{iac2023,dok2016,fbsimle}\\
+27.09.2017 & Toruń & Układ próbkujący (test sterylności), odcinacz z drutem oporowym (zegar) & ok. 30 km & Balon pękł przed czasem odcięcia. Zawory układu próbkującego się nie otworzyły. Lądowanie na drzewie przy strumieniu (Kotomierz). & \cite{magrian2018,iac2023,fbstardust}\\
+12.05.2018 & Toruń & \textbf{Antares}: układ próbkujący (2 filtry), komórki skóry z grzaniem, licznik Geigera, rzeźba & 24,8 km & Sukces. Lądowanie w Bydgoszczy, gondola odzyskana 5 minut po lądowaniu. & \cite{iac2023,gbsc2018,fbsimle}\\
+20.07.2020 & Toruń & Test układu dla BEXUS, ok. 4 kg, 2 gondole & 33,3 km & Brak odcinacza. Dryf 1,5 h. Lądowanie ok. 90 km od startu (Kawle). & \cite{raport2020,praca2022,fbstardust}\\
 27.02.2022 & Iława & Radiosonda z kamerą (lot szkoleniowy) & 33,4 km & Sukces. Lądowanie 51 km od startu, okolice Brodnicy. & \cite{blog2022,pac2024}\\
 26.05.2023 & Iława & \textbf{Test platformy NEXT}: OBC, łączność, odcinacz serwomechaniczny & 34 km & Odcinacz nie zadziałał. Lądowanie 23 km od startu. & \cite{blog2023,go2023,infoilawa2023,pac2024}\\
 09.08.2023 & Iława & \textbf{Stormdust}: platforma NEXT + ładunek STORM (przed BEXUS) & -- & Odcinacz z drutem oporowym nie zadziałał. Ładunek zebrał dane. & \cite{pac2024,storm}\\
@@ -30,8 +30,8 @@ Po każdej misji dopisz wiersz do tabeli~\ref{tab:misje} i nowe wnioski do tabel
 \captionof{table}{Misje balonowe zespołu Stardust. Źródła (artykuły, wpisy, media) -- w spisie literatury.}\label{tab:misje}
 \end{sekcja}
 
-\begin{sekcja}{Pierwsza próba (2015)}\label{sec:proba2015}
-Pierwsza misja zespołu miała się odbyć w 2015 roku. Start był szeroko zapowiadany w mediach: było odliczanie, a nawet transmisja na żywo. Balon nie wzniósł się w powietrze i start się nie odbył.
+\begin{sekcja}{Pierwsza próba (06.12.2015)}\label{sec:proba2015}
+Pierwsza misja zespołu miała się odbyć 6 grudnia 2015 roku na terenie Uniwersytetu Mikołaja Kopernika w Toruniu~\cite{fbsimle}. Start był szeroko zapowiadany: było wydarzenie w mediach społecznościowych, odliczanie, a nawet transmisja na żywo. Balon nie wzniósł się w powietrze i start się nie odbył.
 
 Z tej próby zostały dwie lekcje:
 \begin{enumerate}
@@ -41,7 +41,7 @@ Z tej próby zostały dwie lekcje:
 \begin{uwaga}Kierownik startu i kierownik misji mają prawo i obowiązek powiedzieć „no-go”. Zapowiedź w mediach nie jest powodem do startu.\end{uwaga}
 \end{sekcja}
 
-\begin{sekcja}{Pierwszy lot (kwiecień 2016)}
+\begin{sekcja}{Pierwszy lot (16.04.2016)}
 \noindent\begin{minipage}[t]{0.6\linewidth}\vspace{0pt}
 Projekt Stardust zaczął się w czerwcu 2015 roku. Dokumentacja projektu przed pierwszym lotem~\cite{dok2016} opisuje platformę:
 \begin{itemize}
@@ -51,7 +51,7 @@ Projekt Stardust zaczął się w czerwcu 2015 roku. Dokumentacja projektu przed 
   \item moduł B: próba stabilizacji obrotu gondoli kołem reakcyjnym oraz Bluetooth do sprawdzenia elektroniki tuż przed startem,
   \item odcinacz z drutem oporowym w obudowie drukowanej z ABS, krętlik nad odcinaczem.
 \end{itemize}
-Gondola wylądowała na drzewie. Zdjęła ją straż pożarna podnośnikiem (rysunek~\ref{fig:2016drzewo}).
+Start odbył się w Toruniu 16 kwietnia 2016 roku~\cite{fbsimle}. Gondola wylądowała na drzewie. Następnego dnia zdjęła ją straż pożarna podnośnikiem (rysunek~\ref{fig:2016drzewo}).
 
 Już wtedy zespół zauważył, że APRS bywa nieodbierany poniżej około \SI{200}{m}, i do poszukiwań używał trackera oraz ręcznego odbiornika APRS.
 \end{minipage}\hfill
@@ -68,8 +68,9 @@ Co się wydarzyło i czego to uczy:
 \begin{itemize}
   \item \textbf{Odcinacz z drutem oporowym działał według zegara.} Czas odcięcia (11:30~UTC) wynikał z predykcji. Balon wznosił się szybciej i pękł wcześniej (11:24~UTC). Drut się rozgrzał, ale bez naciągu linki nie przepalił jej. Wniosek: drut oporowy przecina linkę tylko pod obciążeniem, a odcinacz powinien działać według wysokości, nie tylko zegara.
   \item \textbf{Usterki elektroniki:} karta SD wypadła z gniazda od wstrząsów (zapis tylko z pierwszych 30 minut), przewód czujnika ciśnienia urwał się przy starcie, część czujników nie zapisała danych. Przyczyna: płytka prototypowa i słabe mocowania. Wniosek: płytka PCB, pewne mocowania, test wstrząsów i diody stanu do kontroli przed startem.
+  \item \textbf{Układ próbkujący:} połączenia zerwały się od wstrząsu i zawory się nie otworzyły. Zespół nie pobrał próbek~\cite{fbstardust}. Pół roku później misja Antares się udała.
   \item \textbf{Kamery} przesunęły się w czasie przygotowań -- część obrazu zasłonił styrodur. Wniosek: sprawdź kadr tuż przed zamknięciem gondoli.
-  \item \textbf{Odzyskanie:} ostatnia pozycja APRS pochodziła z wysokości \SI{167}{m}. Gondolę znalazł zespół dzięki telefonowi w gondoli i brzęczykowi (wysoka trawa). Gondola wylądowała około \SI{3}{m} od małego kanału -- gondola musi pływać.
+  \item \textbf{Odzyskanie:} ostatnia pozycja APRS pochodziła z wysokości \SI{167}{m}. Gondolę znalazł zespół dzięki telefonowi w gondoli i brzęczykowi. Gondola zawisła na drzewie przy małym strumieniu we wsi Kotomierz~\cite{fbstardust} -- woda była kilka metrów dalej, więc gondola musi pływać.
   \item \textbf{Spadochron:} średnia prędkość opadania poniżej \SI{2.8}{km} wyniosła \SI{5.45}{m/s} dla \SI{2.6}{kg} i spadochronu \SI{1}{m}.
 \end{itemize}
 
@@ -92,7 +93,7 @@ Start z Torunia o 10:50, lądowanie w Bydgoszczy o 13:03 (czas lokalny). Zespó�
 \end{sekcja}
 
 \begin{podsekcja}{Rzeźba w stratosferze}
-Rzeźba „Object 01”, czyli słynna „płetwa”, leciała na wysięgniku przed kamerą. Kamera pokazała ją na tle krzywizny Ziemi (rysunek~\ref{fig:pletwa}). Zmontowany film z misji~\cite{film2018}: \url{https://www.youtube.com/watch?v=Gm_PSd67600}.
+Rzeźba „Object 01”, czyli słynna „płetwa”, leciała na wysięgniku przed kamerą. Kamera pokazała ją na tle krzywizny Ziemi (rysunek~\ref{fig:pletwa}). Zmontowany film z misji~\cite{film2018}: \url{https://www.youtube.com/watch?v=Gm_PSd67600}. Relacja ze startu: \cite{antares2018}.
 
 \foto[0.78\linewidth]{2018_rzezba_object01_stratosfera}{„Płetwa” -- rzeźba „Object 01” w stratosferze. Kadr z filmu z misji (12.05.2018)~\cite{film2018}.}\label{fig:pletwa}
 \end{podsekcja}
@@ -114,7 +115,7 @@ Lot testowy układów eksperymentu Stardust przed lotem na balonie BEXUS~30. Ła
 
 Co się wydarzyło i czego to uczy:
 \begin{itemize}
-  \item \textbf{Brak odcinacza.} Balon nie pękł. Dryfował około 1,5~godziny na wysokości około \SI{33}{km} i wylądował około \SI{90}{km} od miejsca startu. Wniosek: każdy lot musi mieć odcinacz.
+  \item \textbf{Brak odcinacza.} Balon nie pękł. Dryfował około 1,5~godziny na wysokości około \SI{33}{km} i wylądował około \SI{90}{km} od miejsca startu, na polu we wsi Kawle~\cite{fbstardust}. Wniosek: każdy lot musi mieć odcinacz.
   \item \textbf{Gaz:} butla miała mniej gazu, niż deklarował dostawca.
   \item \textbf{Śledzenie:} źle zmontowana antena wyłączyła APRS. Ładunek pomógł znaleźć smartfon z funkcją „Znajdź moje urządzenie”.
   \item \textbf{Elektronika:} łączność WiFi między gondolami trzeba zastąpić kablem, czujnik BME280 nie mierzył poniżej \SI{300}{hPa}, kamera bez zewnętrznej baterii wyłączyła się po 30 minutach, elektronika w izolowanej gondoli przekroczyła \SI{50}{\degreeCelsius}~\cite{praca2022}, dystanse PCB pękły przy lądowaniu.
