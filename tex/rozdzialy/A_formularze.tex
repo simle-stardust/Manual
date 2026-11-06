@@ -84,21 +84,21 @@ Jedna osoba może mieć kilka ról, z wyjątkiem: kierowca nie obsługuje śledz
 \small
 \begin{tabularx}{\linewidth}{@{}|P{11mm}|P{48mm}|L|P{30mm}|@{}}\hline
 \textbf{Kod} & \textbf{Rola i główne zadania} & \textbf{Imię i nazwisko} & \textbf{Telefon}\\\hline
-KM & Kierownik misji: decyzje „leci / nie leci”, odpowiedzialność za całość & & \\\hline
-KS & Kierownik startu: komendy na stanowisku, prowadzi formularze F9--F11 & & \\\hline
-FL & Formalności i łączność z PAŻP, właściciel terenu & & \\\hline
-OT & Operator tankowania: butla, reduktor, szyjka & & \\\hline
-PM & Pomocnicy (2--4 os.): folia, powłoka, start & & \\\hline
-OP & Operator platformy: gondola, tracker, OBC, odcinacz & & \\\hline
-OŁ & Opiekun ładunku badawczego & & \\\hline
-OS & Operator śledzenia: predykcja, mapy, nawigacja & & \\\hline
-KR & Kierowca (każdego samochodu) & & \\\hline
-FD & Fotograf: zdjęcia, film tankowania i startu & & \\\hline
-LG & Logistyka i zakupy: gaz, materiały, transport & & \\\hline
-BZ & Bezpieczeństwo: butla, apteczka, widzowie & & \\\hline
+KM & Kierownik misji: decyzje „leci / nie leci”, odpowiedzialność za całość & & \rosnie\\\hline
+KS & Kierownik startu: komendy na stanowisku, prowadzi formularze F9--F11 & & \rosnie\\\hline
+FL & Formalności i łączność z PAŻP, właściciel terenu & & \rosnie\\\hline
+OT & Operator tankowania: butla, reduktor, szyjka & & \rosnie\\\hline
+PM & Pomocnicy (2--4 os.): folia, powłoka, start & & \rosnie\\\hline
+OP & Operator platformy: gondola, tracker, OBC, odcinacz & & \rosnie\\\hline
+OŁ & Opiekun ładunku badawczego & & \rosnie\\\hline
+OS & Operator śledzenia: predykcja, mapy, nawigacja & & \rosnie\\\hline
+KR & Kierowca (każdego samochodu) & & \rosnie\\\hline
+FD & Fotograf: zdjęcia, film tankowania i startu & & \rosnie\\\hline
+LG & Logistyka i zakupy: gaz, materiały, transport & & \rosnie\\\hline
+BZ & Bezpieczeństwo: butla, apteczka, widzowie & & \rosnie\\\hline
 \end{tabularx}
 \normalsize
-\komentarze[2]
+\komentarze[1]
 \podpisy
 
 % ---------------------------------------------------------------- RACI
@@ -112,34 +112,34 @@ BZ & Bezpieczeństwo: butla, apteczka, widzowie & & \\\hline
 \begin{tabularx}{\linewidth}{@{}|L|*{12}{C{9mm}|}@{}}\hline
 \rowcolor{sdlight}\textbf{Czynność} & \textbf{KM} & \textbf{KS} & \textbf{FL} & \textbf{OT} & \textbf{PM} & \textbf{OP} & \textbf{OŁ} & \textbf{OS} & \textbf{KR} & \textbf{FD} & \textbf{LG} & \textbf{BZ}\\\hline
 \multicolumn{13}{|l|}{\cellcolor{sdlight!50}\itshape Przygotowania}\\\hline
-Cel misji, wymagania ładunku & A & & & & & C & R & & & & & \\\hline
-Budżet masy, obliczenie gazu & A & & & C & & R & C & & & & & \\\hline
-Zgłoszenia PAŻP (dwa scenariusze) & A & & R & & & & & C & & & & \\\hline
+Cel misji, wymagania ładunku & A & & & & & C & R & & & & & \rosnie\\\hline
+Budżet masy, obliczenie gazu & A & & & C & & R & C & & & & & \rosnie\\\hline
+Zgłoszenia PAŻP (dwa scenariusze) & A & & R & & & & & C & & & & \rosnie\\\hline
 Ubezpieczenie, zgoda właściciela terenu & A & & R & & & & & & & & & I\\\hline
-Zamówienie gazu i materiałów & A & & & C & & & & & & & R & \\\hline
-Testy platformy / testy ładunku & A & & & & & R & R & & & C & & \\\hline
-Predykcje, dziennik predykcji & A & & I & & & & & R & I & & & \\\hline
-Konfiguracja trackera i serwisów (T$-$2) & A & & & & & R & & C & & & & \\\hline
+Zamówienie gazu i materiałów & A & & & C & & & & & & & R & \rosnie\\\hline
+Testy platformy / testy ładunku & A & & & & & R & R & & & C & & \rosnie\\\hline
+Predykcje, dziennik predykcji & A & & I & & & & & R & I & & & \rosnie\\\hline
+Konfiguracja trackera i serwisów (T$-$2) & A & & & & & R & & C & & & & \rosnie\\\hline
 Przegląd gotowości, decyzja & A/R & C & C & C & & C & C & C & I & I & C & C\\\hline
-Pakowanie i transport sprzętu & A & I & & C & & C & C & & C & & R & \\\hline
+Pakowanie i transport sprzętu & A & I & & C & & C & C & & C & & R & \rosnie\\\hline
 \multicolumn{13}{|l|}{\cellcolor{sdlight!50}\itshape Dzień startu}\\\hline
 Rozłożenie i zabezpieczenie stanowiska & I & A & & C & R & & & & & I & & C\\\hline
 Montaż reduktora, tankowanie & I & A & & R & C & & & & & I & & C\\\hline
-Zamknięcie szyjki, mocowanie olinowania & I & A & & R & C & C & & & & I & & \\\hline
-Gondola platformy, uzbrojenie odcinacza & I & A & & & & R & C & C & & I & & \\\hline
-Włączenie i zamknięcie ładunku & I & A & & & & C & R & & & I & & \\\hline
-Kontrola telemetrii przed startem & I & A & & & & C & & R & & & & \\\hline
-Telefon do służby ruchu lotniczego & A & I & R & & & & & & & & & \\\hline
+Zamknięcie szyjki, mocowanie olinowania & I & A & & R & C & C & & & & I & & \rosnie\\\hline
+Gondola platformy, uzbrojenie odcinacza & I & A & & & & R & C & C & & I & & \rosnie\\\hline
+Włączenie i zamknięcie ładunku & I & A & & & & C & R & & & I & & \rosnie\\\hline
+Kontrola telemetrii przed startem & I & A & & & & C & & R & & & & \rosnie\\\hline
+Telefon do służby ruchu lotniczego & A & I & R & & & & & & & & & \rosnie\\\hline
 Decyzja o starcie & A/R & C & C & & & C & C & C & & & & C\\\hline
 Start (puszczenie zestawu) & I & A/R & & & R & C & & I & & C & & C\\\hline
 Bezpieczeństwo osób postronnych & I & A & & & & & & & & & & R\\\hline
-Dokumentacja zdjęciowa & A & & & & & & & & & R & & \\\hline
-Śledzenie i nawigacja & A & & & & & & & R & C & & & \\\hline
-Jazda samochodem pościgowym & A & & & & & & & C & R & & & \\\hline
-Odzyskanie, zabezpieczenie danych & A & & & & & R & R & C & C & C & & \\\hline
-Zgłoszenie końca lotu & A & & R & & & & & I & & & & \\\hline
+Dokumentacja zdjęciowa & A & & & & & & & & & R & & \rosnie\\\hline
+Śledzenie i nawigacja & A & & & & & & & R & C & & & \rosnie\\\hline
+Jazda samochodem pościgowym & A & & & & & & & C & R & & & \rosnie\\\hline
+Odzyskanie, zabezpieczenie danych & A & & & & & R & R & C & C & C & & \rosnie\\\hline
+Zgłoszenie końca lotu & A & & R & & & & & I & & & & \rosnie\\\hline
 \multicolumn{13}{|l|}{\cellcolor{sdlight!50}\itshape Po misji}\\\hline
-Raport z misji, wnioski, aktualizacja podręcznika & A & C & C & C & & R & R & C & & C & C & \\\hline
+Raport z misji, wnioski, aktualizacja podręcznika & A & C & C & C & & R & R & C & & C & C & \rosnie\\\hline
 \end{tabularx}
 \normalsize
 \end{landscape}
@@ -195,16 +195,16 @@ Raport z misji, wnioski, aktualizacja podręcznika & A & C & C & C & & R & R & C
 \footnotesize
 \begin{tabularx}{\linewidth}{@{}|P{16mm}|P{8mm}|P{14mm}|P{12mm}|P{12mm}|P{30mm}|P{12mm}|P{20mm}|P{22mm}|L|P{8mm}|@{}}\hline
 \rowcolor{sdlight}\textbf{Data} & \textbf{Scen.} & \textbf{Godz. startu} & \textbf{Wzn. [m/s]} & \textbf{Pękn. [km]} & \textbf{Lądowanie (współrzędne, miejscowość)} & \textbf{Odl. [km]} & \textbf{Wiatr przy ziemi} & \textbf{Strefy / NOTAM na trasie} & \textbf{Uwagi (teren, pogoda, chmury)} & \textbf{T/N}\\\hline
- & A & & & & & & & & & \\\hline
- & B & & & & & & & & & \\\hline
- & A & & & & & & & & & \\\hline
- & B & & & & & & & & & \\\hline
- & A & & & & & & & & & \\\hline
- & B & & & & & & & & & \\\hline
- & A & & & & & & & & & \\\hline
- & B & & & & & & & & & \\\hline
- & A & & & & & & & & & \\\hline
- & B & & & & & & & & & \\\hline
+ & A & & & & & & & & & \rosnie\\\hline
+ & B & & & & & & & & & \rosnie\\\hline
+ & A & & & & & & & & & \rosnie\\\hline
+ & B & & & & & & & & & \rosnie\\\hline
+ & A & & & & & & & & & \rosnie\\\hline
+ & B & & & & & & & & & \rosnie\\\hline
+ & A & & & & & & & & & \rosnie\\\hline
+ & B & & & & & & & & & \rosnie\\\hline
+ & A & & & & & & & & & \rosnie\\\hline
+ & B & & & & & & & & & \rosnie\\\hline
 \end{tabularx}
 \normalsize
 \podpisy
@@ -218,16 +218,16 @@ Wykonaj każdy test dla platformy i dla każdego ładunku (rozdział~\ref{ch:pla
 \small
 \begin{tabularx}{\linewidth}{@{}|P{30mm}|P{18mm}|P{14mm}|L|P{12mm}|P{16mm}|@{}}\hline
 \rowcolor{sdlight}\textbf{Test} & \textbf{Obiekt} & \textbf{Data} & \textbf{Wynik / pomiar} & \textbf{OK?} & \textbf{Podpis}\\\hline
-Funkcjonalny & & & & & \\\hline
-W zimnie (metoda, temp., czas) & & & & & \\\hline
-Zasięg radia ($\geq$ 100 m) & & & & & \\\hline
-Odcinacz główny (obciążenie, skręt, autotest) & & & & & \\\hline
-Odcinacz zapasowy (tranzystor, prąd) & & & & & \\\hline
-Czas pracy na bateriach & & & & & \\\hline
-Upadek z 1 m & & & & & \\\hline
-Równowaga gondoli & & & & & \\\hline
-Próba generalna & & & & & \\\hline
- & & & & & \\\hline
+Funkcjonalny & & & & & \rosnie\\\hline
+W zimnie (metoda, temp., czas) & & & & & \rosnie\\\hline
+Zasięg radia ($\geq$ 100 m) & & & & & \rosnie\\\hline
+Odcinacz główny (obciążenie, skręt, autotest) & & & & & \rosnie\\\hline
+Odcinacz zapasowy (tranzystor, prąd) & & & & & \rosnie\\\hline
+Czas pracy na bateriach & & & & & \rosnie\\\hline
+Upadek z 1 m & & & & & \rosnie\\\hline
+Równowaga gondoli & & & & & \rosnie\\\hline
+Próba generalna & & & & & \rosnie\\\hline
+ & & & & & \rosnie\\\hline
 \end{tabularx}
 \normalsize
 \komentarze[2]
@@ -347,8 +347,8 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \end{procedura}
 \renewcommand{\arraystretch}{1.4}
 \noindent\begin{tabularx}{\linewidth}{@{}|l|*{8}{X|}@{}}\hline
-\footnotesize godz. & & & & & & & & \\\hline
-\footnotesize bar & & & & & & & & \\\hline
+\footnotesize godz. & & & & & & & & \rosnie\\\hline
+\footnotesize bar & & & & & & & & \rosnie\\\hline
 \end{tabularx}
 \par\medskip\noindent{\sffamily\bfseries Przebieg tankowania, uwagi do procedury (co zmienić w rozdziale~\ref{ch:naziemny}):}
 \foreach \i in {1,...,2}{\linia}\par
@@ -376,7 +376,7 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \krok{Zapisz czas startu.}{\pole[2cm]{UTC:}}
 \krok{Fotograf: film tankowania i startu w całości (do analizy anomalii).}{}
 \end{procedura}
-\komentarze[2]
+\komentarze[1]
 \podpisy
 
 % ===========================================================================
@@ -387,23 +387,23 @@ Zapisuj pozycję co kilka minut. Porównuj wysokość z predykcją (F4): duża r
 \footnotesize
 \begin{tabularx}{\linewidth}{@{}|P{11mm}|P{14mm}|P{14mm}|P{24mm}|P{24mm}|P{12mm}|L|@{}}\hline
 \rowcolor{sdlight}\textbf{Godz.} & \textbf{Wys. [m]} & \textbf{Wys. z pred. [m]} & \textbf{Szer. geogr.} & \textbf{Dł. geogr.} & \textbf{Źródło} & \textbf{Zdarzenie, predykcja lądowania}\\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
- & & & & & & \\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
+ & & & & & & \rosnie\\\hline
 \end{tabularx}
 \normalsize
 \podpisy

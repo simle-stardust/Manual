@@ -56,6 +56,8 @@ Lokalnie (TeX Live z `latexmk`; alternatywnie `nix-shell .scripts/shell.nix`):
 .scripts/generate_pdf.sh        # wynik: pdf/Stardust-NEXT-Podrecznik.pdf
 ```
 
+Formularze same wypełniają stronę: pola (`\etykieta`, `\krok`, `\linia`, wiersze z `\rosnie`) rosną o wartość zmierzoną w poprzednim przebiegu LaTeX-a i zapisaną w `main.aux`. Dlatego `latexmk` wykonuje kilka przebiegów (limit w `tex/latexmkrc`). Nowe puste wiersze tabel w formularzu kończ makrem `\rosnie`, np. `& & \rosnie\\\hline`.
+
 Po zmianie danych lub zdjęć wygeneruj rysunki ponownie (Python: matplotlib, Pillow, opcjonalnie `geopandas<1.0` dla mapy):
 
 ```sh

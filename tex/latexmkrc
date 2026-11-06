@@ -1,0 +1,2 @@
+# Formularze wypełniają stronę iteracyjnie (stardust.sty): potrzeba kilku przebiegów.
+$max_repeat = 12;
