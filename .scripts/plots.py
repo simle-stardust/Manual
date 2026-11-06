@@ -20,7 +20,7 @@ OUT = ROOT / "tex" / "figures" / "generated"
 OUT.mkdir(parents=True, exist_ok=True)
 
 ORANGE = "#E8592B"
-NAVY = "#1B2A4A"
+NAVY = "#003767"   # granat PG
 GRAY = "#6B7280"
 BLUE = "#2F6DB5"
 GREEN = "#2E8B57"
@@ -281,12 +281,57 @@ def parachute_table():
     (OUT / "tabela_spadochronu.tex").write_text("\n".join(rows) + "\n")
 
 
+def mission_2018():
+    """Microbiology mission (2018): altitude, radiation dose, temperatures."""
+    import csv
+    rows = list(csv.DictReader(open(DATA / "2018_mikrobiologia_datalog.csv")))
+    t = np.array([float(r["t_s"]) for r in rows]) / 60.0
+    alt = np.array([float(r["alt_m"]) for r in rows]) / 1000.0
+    imax = int(np.argmax(alt))
+
+    def col(name):
+        return np.array([float(r[name]) if r[name] != "" else np.nan for r in rows])
+
+    fig, ax = plt.subplots(1, 3, figsize=(7.0, 2.9))
+    ax[0].plot(t, alt, color=NAVY)
+    ax[0].annotate(f"{alt[imax]:.1f} km", (t[imax], alt[imax]), textcoords="offset points",
+                   xytext=(4, -2), fontsize=8, color=NAVY)
+    ax[0].set_xlabel("czas od włączenia rejestratora [min]", fontsize=8)
+    ax[0].set_ylabel("wysokość [km]")
+    ax[0].set_title("Profil lotu", fontsize=9)
+
+    g = [i for i, r in enumerate(rows) if r["geiger_counts"] != ""]
+    gi = np.array(g)
+    dose = col("dose_usv_h")[gi]
+    up, dn = gi <= imax, gi > imax
+    ax[1].plot(dose[up], alt[gi][up], "o", ms=3, color=ORANGE, label="wznoszenie")
+    ax[1].plot(dose[dn], alt[gi][dn], "s", ms=3, color=NAVY, mfc="none", label="opadanie")
+    ax[1].set_xlabel("moc dawki [µSv/h]")
+    ax[1].set_ylabel("wysokość [km]")
+    ax[1].set_title("Licznik Geigera", fontsize=9)
+    ax[1].legend(fontsize=7, frameon=False)
+
+    for name, lab, c in (("t_cells_c", "sekcja z komórkami", ORANGE),
+                         ("t_pump_c", "pompa", BLUE),
+                         ("t_pcb_c", "płytka elektroniki", GREEN),
+                         ("t_ext_c", "czujnik „zewnętrzny”", GRAY)):
+        ax[2].plot(t, col(name), color=c, lw=1, label=lab)
+    ax[2].set_xlabel("czas od włączenia rejestratora [min]", fontsize=8)
+    ax[2].set_ylabel("temperatura [°C]")
+    ax[2].set_title("Temperatury w gondoli", fontsize=9)
+    ax[2].legend(fontsize=6.5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.3), ncol=2)
+    fig.tight_layout()
+    fig.savefig(OUT / "misja_2018.pdf")
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     parachute_table()
     tb, tl = typical_flight()
     tr20, tr22 = altitude_vs_distance()
     flight_map(tr20, tr22)
     ascent_heuristic()
+    mission_2018()
     full = gas_table()
     print(f"typical flight: burst {tb:.0f} min, landing {tl:.0f} min")
     print(f"50 l cylinder at 200 bar holds {full:.2f} m3 of helium")
