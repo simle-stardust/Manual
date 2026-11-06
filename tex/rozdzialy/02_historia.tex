@@ -15,9 +15,9 @@ Po każdej misji dopisz wiersz do tabeli~\ref{tab:misje} i nowe wnioski do tabel
 \toprule
 \textbf{Data} & \textbf{Start} & \textbf{Ładunek} & \textbf{Pułap} & \textbf{Wynik} & \textbf{Źródła}\\\midrule
 2015 & Polska & Pierwsza próba startu & -- & Start przerwany, balon nie poleciał. & relacja zespołu\\
-26.04.2016 & Polska & Gondola ze styroduru, dwa moduły Arduino, odcinacz z drutem oporowym & -- & Pierwszy lot. Lądowanie na drzewie -- gondolę zdjęła straż pożarna podnośnikiem. & \cite{iac2023,stardustweb,dok2018}\\
+04.2016 & Polska & Gondola ze styroduru, dwa moduły Arduino, odcinacz z drutem oporowym & -- & Pierwszy lot. Lądowanie na drzewie -- gondolę zdjęła straż pożarna podnośnikiem (17.04.2016). & \cite{iac2023,stardustweb,dok2016}\\
 27.09.2017 & Toruń & Układ próbkujący (test sterylności), odcinacz z drutem oporowym (zegar) & ok. 30 km & Balon pękł przed czasem odcięcia. Lądowanie przy małym cieku (Kotomierz). & \cite{magrian2018,iac2023,stardustweb}\\
-05.2018 & Toruń & Układ próbkujący (2 filtry), grzałki, licznik Geigera, ładunek gościnny & 24,8 km & Sukces. & \cite{iac2023}\\
+12.05.2018 & Toruń & Układ próbkujący (2 filtry), komórki skóry z grzaniem, licznik Geigera, rzeźba & 24,8 km & Sukces. Lądowanie w Bydgoszczy, gondola odzyskana 5 minut po lądowaniu. & \cite{iac2023,gbsc2018}\\
 20.07.2020 & Toruń & Test układu dla BEXUS, ok. 4 kg, 2 gondole & 33,3 km & Brak odcinacza. Dryf 1,5 h. Lądowanie ok. 90 km od startu. & \cite{raport2020,praca2022}\\
 27.02.2022 & Iława & Radiosonda z kamerą (lot szkoleniowy) & 33,4 km & Sukces. Lądowanie 51 km od startu, okolice Brodnicy. & \cite{blog2022,pac2024}\\
 26.05.2023 & Iława & Platforma NEXT: OBC, łączność, odcinacz serwomechaniczny & 34 km & Odcinacz nie zadziałał. Lądowanie 23 km od startu. & \cite{blog2023,go2023,infoilawa2023,pac2024}\\
@@ -41,9 +41,9 @@ Z tej próby zostały dwie lekcje:
 \begin{uwaga}Kierownik startu i kierownik misji mają prawo i obowiązek powiedzieć „no-go”. Zapowiedź w mediach nie jest powodem do startu.\end{uwaga}
 \end{sekcja}
 
-\begin{sekcja}{Pierwszy lot (26.04.2016)}
+\begin{sekcja}{Pierwszy lot (kwiecień 2016)}
 \noindent\begin{minipage}[t]{0.6\linewidth}\vspace{0pt}
-Dokumentacja projektu~\cite{dok2018} opisuje platformę z pierwszych lotów (rysunki oznaczone rokiem 2016):
+Projekt Stardust zaczął się w czerwcu 2015 roku. Dokumentacja projektu przed pierwszym lotem~\cite{dok2016} opisuje platformę:
 \begin{itemize}
   \item gondola ze styroduru (około $29\times29\times\SI{28}{cm}$), laminowana tkaniną szklaną \SI{48}{g/m^2} i żywicą epoksydową,
   \item balon lateksowy \SI{1200}{g}, około \SI{6}{m^3} helu; tankowanie trwało około 1,5 godziny,
@@ -57,7 +57,7 @@ Już wtedy zespół zauważył, że APRS bywa nieodbierany poniżej około \SI{2
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
 \includegraphics[width=\linewidth]{2016_gondola_drzewo_podnosnik}
-\captionof{figure}{Gondola na drzewie po pierwszym locie (2016). Straż pożarna zdjęła ją podnośnikiem.}\label{fig:2016drzewo}
+\captionof{figure}{Gondola na drzewie po pierwszym locie (17.04.2016). Straż pożarna zdjęła ją podnośnikiem.}\label{fig:2016drzewo}
 \end{minipage}
 \end{sekcja}
 
@@ -74,11 +74,23 @@ Co się wydarzyło i czego to uczy:
 \end{itemize}
 \end{sekcja}
 
-\begin{sekcja}{Misja mikrobiologiczna (2018)}
-Ładunek z grzaną sekcją na komórki, pompą i licznikiem Geigera. Dane z rejestratora pokładowego i z APRS pokazuje rysunek~\ref{fig:misja2018}.
+\begin{sekcja}{Trzecia misja (12.05.2018)}
+Trzecia misja zespołu połączyła cztery organizacje studenckie~\cite{gbsc2018}:
+\begin{itemize}
+  \item \textbf{eksperyment mikrobiologiczny} (z kołem naukowym biotechnologii z Gdańska): pompa przetłaczała powietrze przez dwa filtry strzykawkowe \SI{0.22}{\micro m}; dwa zawory na serwomechanizmach otwierały się na określonej wysokości,
+  \item \textbf{eksperyment medycyny kosmicznej} (z kołem naukowym medycyny kosmicznej z Zielonej Góry): komórki skóry wystawione na promieniowanie; grzałki oporowe utrzymywały je w 20--\SI{50}{\degreeCelsius}; licznik Geigera własnej konstrukcji,
+  \item \textbf{rzeźba} „Object 01” studentki Akademii Sztuk Pięknych w Gdańsku, na wysięgniku przed kamerą.
+\end{itemize}
+Komputer pokładowy na własnej płytce PCB z STM32L476 zbierał dane z GPS, zegara, czujnika ciśnienia, 9 czujników temperatury DS18B20, czujnika DHT22 i licznika Geigera. Śledzenie: tracker APRS (znak SR0FLY) i smartfon wysyłający pozycję SMS-em. Odcinacz: Arduino Nano z zegarem, tranzystor MOSFET i drut oporowy, w obudowie drukowanej z PLA -- odcięcie po zaprogramowanym czasie.
 
+Start z Torunia o 10:50, lądowanie w Bydgoszczy o 13:03 (czas lokalny). Zespół odzyskał gondolę około 5 minut po lądowaniu. Przechodzień zadzwonił pod numer telefonu z gondoli i podał dokładny adres -- \textbf{oznakowanie gondoli zadziałało} (rozdział~\ref{ch:prawo}). Zawory otworzyły się na \SI{10.3}{km} w czasie wznoszenia i zamknęły na \SI{18.8}{km} w czasie opadania. Temperatura przy komórkach nie spadła poniżej \SI{20}{\degreeCelsius}.
+
+\dwafoto{2018_start_tankowanie_torun}{Tankowanie przed startem w Toruniu (12.05.2018).}{2018_stanowisko_torun}{Stanowisko startowe w Toruniu (12.05.2018).}
+\end{sekcja}
+
+\begin{sekcja}{Dane z lotu (12.05.2018)}
 \begin{center}\includegraphics[width=\linewidth]{misja_2018}\end{center}
-\captionof{figure}{Misja mikrobiologiczna z 2018 roku (okolice Torunia): profil lotu, moc dawki z licznika Geigera i temperatury w gondoli. Dane: \texttt{data/2018\_mikrobiologia\_*.csv}.}\label{fig:misja2018}
+\captionof{figure}{Misja z 12.05.2018: profil lotu, moc dawki z licznika Geigera i temperatury w gondoli. Dane z rejestratora pokładowego~\cite{gbsc2018}: \texttt{data/2018\_mikrobiologia\_*.csv}.}\label{fig:misja2018}
 
 \begin{itemize}
   \item Pułap \SI{24.8}{km}. Moc dawki rosła z wysokością: od około \SI{0.13}{\micro Sv/h} przy ziemi do około \SI{7}{\micro Sv/h} na \SI{23}{}--\SI{25}{km}.
@@ -169,34 +181,9 @@ Odzyskanie & Gondola może zawisnąć na drzewie. Przygotuj kontakt do arborysty
 Odzyskanie & Ostatnia pozycja APRS bywa z wysokości kilkuset metrów. Telefon albo lokalizator w gondoli i brzęczyk pozwalają znaleźć gondolę. & 2017\\
 Gondola & Gondola musi pływać i być szczelna. Sprawdź ją w wannie z wodą, z obciążeniem do docelowej masy. & 2017\\
 Czujniki & Czujnik temperatury powietrza musi wystawać z gondoli i mieć osłonę przed słońcem. Sprawdź zakres czujnika ciśnienia. & 2018\\
+Oznakowanie & Numer telefonu na gondoli działa: przechodzień podał adres miejsca lądowania. & 2018\\
 Zespół & Pierwsza misja nowego zespołu to lot szkoleniowy z prostym ładunkiem. & 2022\\
 % Puste wiersze dopełniają stronę na nowe wnioski.
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
-\rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline

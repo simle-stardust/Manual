@@ -39,7 +39,7 @@ Wydane w 10-lecie pierwszych misji Stardust (2016–2026) – na kolejne 10 lat 
 | `tex/figures/photos/` | Zmniejszone zdjęcia (`.scripts/photos.py`) |
 | `assets/` | Oryginalne zdjęcia z misji; `assets/logo/` – logotypy SimLE (zasady użycia: księga znaku SimLE) |
 | `data/` | Dane z lotów (KML) |
-| `papers/` | Artykuły konferencyjne |
+| `papers/` | Artykuły konferencyjne, prace dyplomowe i archiwalna dokumentacja projektu (bez danych osobowych) |
 
 ## Budowanie PDF
 
@@ -82,7 +82,7 @@ python3 .scripts/photos.py
 - Każde twierdzenie z zewnętrznego źródła opatrz cytowaniem `\cite{klucz}`.
 - Adresy WWW w tekście i tabelach wstawiaj makrem `\www{domena/ścieżka}` (bez `https://`): adres jest klikalny i nie łamie się. W literaturze używaj `\url{…}` na osobnej linii (`\newline`).
 - Dokument jest **publiczny**. Nie wpisuj danych osobowych (prywatnych telefonów, adresów) ani treści z wewnętrznej dokumentacji koła. Na zdjęciach zamazuj numery telefonów i dane osób postronnych. Wypełnionych formularzy nie dodawaj do repozytorium.
-- Źródłami mogą być tylko materiały publiczne: artykuły, wpisy na blogach, media, strony instytucji.
+- Źródłami mogą być materiały publiczne (artykuły, wpisy na blogach, media, strony instytucji) oraz archiwalne dokumenty projektu opublikowane za zgodą autorów w katalogu `papers/`. Przed dodaniem dokumentu usuń z niego dane osobowe (np. strony z oświadczeniami, numery albumów, daty urodzenia, numery telefonów).
 
 ### Gdzie co zmienić
 
