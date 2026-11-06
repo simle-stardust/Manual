@@ -45,6 +45,16 @@ Niezależny komputer bezpieczeństwa, drugi komputer z własnym odcinaczem i wat
 Kod i dokumentacja najnowszej wersji OBC są w wewnętrznym repozytorium koła SimLE (GitLab). Publiczna wersja z misji BEXUS~30 jest na \www{github.com/simle-stardust} i jest opisana w pracy inżynierskiej~\cite{praca2022}.
 \end{sekcja}
 
+\begin{sekcja}{Brzęczyk lokalizacyjny}
+Brzęczyk ułatwia znalezienie gondoli w trudnych warunkach: w wysokiej trawie, w krzakach, na drzewie, w nocy. To zawsze dobry dodatek. HABduino nie ma brzęczyka, ale łatwo dodać go do OBC albo do eksperymentu.
+\begin{itemize}
+  \item Użyj głośnego brzęczyka piezo z wbudowanym generatorem.
+  \item Brzęczyk włącza się \textbf{dopiero po lądowaniu}. Lądowanie wykrywa maszyna stanów: \emph{przed startem} $\to$ \emph{wznoszenie} (wysokość rośnie) $\to$ \emph{opadanie} (po osiągnięciu pułapu wysokość maleje) $\to$ \emph{lądowanie} (niska wysokość i prędkość pionowa bliska zeru przez co najmniej minutę). Dzięki temu brzęczyk nie hałasuje na stanowisku startowym.
+  \item Po lądowaniu brzęczyk brzęczy aż do rozładowania baterii. Praca impulsami (np. 1 sekunda dźwięku, 2 sekundy przerwy) wydłuża ten czas.
+  \item Przetestuj maszynę stanów na danych z poprzedniego lotu (rozdział~\ref{ch:planowanie}, testy).
+\end{itemize}
+\end{sekcja}
+
 \begin{sekcja}{Odbiorniki GPS}
 GPS to podstawa bezpieczeństwa misji. Odbiornik GPS daje:
 \begin{itemize}

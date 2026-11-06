@@ -15,7 +15,7 @@ Po każdej misji dopisz wiersz do tabeli~\ref{tab:misje} i nowe wnioski do tabel
 \toprule
 \textbf{Data} & \textbf{Start} & \textbf{Ładunek} & \textbf{Pułap} & \textbf{Wynik} & \textbf{Źródła}\\\midrule
 2015 & Polska & Pierwsza próba startu & -- & Start przerwany, balon nie poleciał. & relacja zespołu\\
-26.04.2016 & Polska & Gondola z mikrokontrolerem, prosty odcinacz & -- & Pierwszy lot. Zespół nauczył się startu. & \cite{iac2023,stardustweb}\\
+26.04.2016 & Polska & Gondola ze styroduru, dwa moduły Arduino, odcinacz z drutem oporowym & -- & Pierwszy lot. Lądowanie na drzewie -- gondolę zdjęła straż pożarna podnośnikiem. & \cite{iac2023,stardustweb,dok2018}\\
 27.09.2017 & Toruń & Układ próbkujący (test sterylności), odcinacz z drutem oporowym (zegar) & ok. 30 km & Balon pękł przed czasem odcięcia. Lądowanie przy małym cieku (Kotomierz). & \cite{magrian2018,iac2023,stardustweb}\\
 05.2018 & Toruń & Układ próbkujący (2 filtry), grzałki, licznik Geigera, ładunek gościnny & 24,8 km & Sukces. & \cite{iac2023}\\
 20.07.2020 & Toruń & Test układu dla BEXUS, ok. 4 kg, 2 gondole & 33,3 km & Brak odcinacza. Dryf 1,5 h. Lądowanie ok. 90 km od startu. & \cite{raport2020,praca2022}\\
@@ -39,6 +39,26 @@ Z tej próby zostały dwie lekcje:
   \item \textbf{Bezpieczeństwo przede wszystkim.} Przerwij start, gdy coś jest nie tak -- niezależnie od presji z zewnątrz: mediów, gości, sponsorów, transmisji na żywo.
 \end{enumerate}
 \begin{uwaga}Kierownik startu i kierownik misji mają prawo i obowiązek powiedzieć „no-go”. Zapowiedź w mediach nie jest powodem do startu.\end{uwaga}
+\end{sekcja}
+
+\begin{sekcja}{Pierwszy lot (26.04.2016)}
+\noindent\begin{minipage}[t]{0.6\linewidth}\vspace{0pt}
+Dokumentacja projektu~\cite{dok2018} opisuje platformę z pierwszych lotów (rysunki oznaczone rokiem 2016):
+\begin{itemize}
+  \item gondola ze styroduru (około $29\times29\times\SI{28}{cm}$), laminowana tkaniną szklaną \SI{48}{g/m^2} i żywicą epoksydową,
+  \item balon lateksowy \SI{1200}{g}, około \SI{6}{m^3} helu; tankowanie trwało około 1,5 godziny,
+  \item moduł A (Arduino Nano): czujniki ciśnienia, temperatury i wilgotności, GPS, zegar, karta SD,
+  \item moduł B: próba stabilizacji obrotu gondoli kołem reakcyjnym oraz Bluetooth do sprawdzenia elektroniki tuż przed startem,
+  \item odcinacz z drutem oporowym w obudowie drukowanej z ABS, krętlik nad odcinaczem.
+\end{itemize}
+Gondola wylądowała na drzewie. Zdjęła ją straż pożarna podnośnikiem (rysunek~\ref{fig:2016drzewo}).
+
+Już wtedy zespół zauważył, że APRS bywa nieodbierany poniżej około \SI{200}{m}, i do poszukiwań używał trackera oraz ręcznego odbiornika APRS.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}\centering
+\includegraphics[width=\linewidth]{2016_gondola_drzewo_podnosnik}
+\captionof{figure}{Gondola na drzewie po pierwszym locie (2016). Straż pożarna zdjęła ją podnośnikiem.}\label{fig:2016drzewo}
+\end{minipage}
 \end{sekcja}
 
 \begin{sekcja}{Pierwsza misja mikrobiologiczna (27.09.2017)}
@@ -145,10 +165,34 @@ Bezpieczeństwo & Przerwij start, gdy coś jest nie tak -- niezależnie od presj
 Odcinacz & Drut oporowy przecina linkę tylko pod obciążeniem: po pęknięciu balonu nie przetnie. Odcinaj według wysokości, nie tylko zegara. & 2017\\
 Mechanika & Karta SD wypadła z gniazda od wstrząsów, przewody urwały się przy starcie. Używaj PCB i pewnych mocowań, testuj wstrząsy. & 2017\\
 Kamery & Kamera przesunęła się w czasie przygotowań. Sprawdź kadr tuż przed zamknięciem gondoli. & 2017\\
-Odzyskanie & Ostatnia pozycja APRS bywa z wysokości kilkuset metrów. Telefon albo lokalizator w gondoli i brzęczyk pozwalają znaleźć gondolę. Gondola musi pływać. & 2017\\
+Odzyskanie & Gondola może zawisnąć na drzewie. Przygotuj kontakt do arborysty albo firmy z podnośnikiem. & 2016\\
+Odzyskanie & Ostatnia pozycja APRS bywa z wysokości kilkuset metrów. Telefon albo lokalizator w gondoli i brzęczyk pozwalają znaleźć gondolę. & 2017\\
+Gondola & Gondola musi pływać i być szczelna. Sprawdź ją w wannie z wodą, z obciążeniem do docelowej masy. & 2017\\
 Czujniki & Czujnik temperatury powietrza musi wystawać z gondoli i mieć osłonę przed słońcem. Sprawdź zakres czujnika ciśnienia. & 2018\\
 Zespół & Pierwsza misja nowego zespołu to lot szkoleniowy z prostym ładunkiem. & 2022\\
 % Puste wiersze dopełniają stronę na nowe wnioski.
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline
