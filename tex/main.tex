@@ -56,7 +56,9 @@
   \end{tabular}}%
   \settowidth{\okladkaszer}{\large Dokumentacja platformy balonowej}% szerokość logo = szerokość opisu
   \sbox{\okladkadol}{\begin{tabular}[b]{@{}l@{}}
-    \includegraphics[width=\okladkaszer]{SimLE_Stardust_logo}\\[5mm]
+    % Odstęp logo–opis = bok jednego trójkąta sygnetu (383/4731 szerokości logo) wg księgi znaku SimLE;
+    % 3,13 mm to odstęp linii wiersza od wersaliki opisu.
+    \includegraphics[width=\okladkaszer]{SimLE_Stardust_logo}\\[\dimexpr\okladkaszer*383/4731-3.13mm\relax]
     \usebox{\okladkaopis}
   \end{tabular}}%
   \usebox{\okladkadol}\hfill
