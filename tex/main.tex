@@ -22,7 +22,7 @@
   \newgeometry{margin=20mm,bindingoffset=10mm}
   \sffamily
   \begin{tikzpicture}[remember picture,overlay]
-    \fill[sdnavy] (current page.north west) rectangle ([yshift=-120mm]current page.north east);
+    \fill[sdokladka] (current page.north west) rectangle ([yshift=-120mm]current page.north east);
     \begin{scope}
       \clip ([yshift=-120mm]current page.north west) rectangle ([yshift=-212mm]current page.north east);
       \node[inner sep=0] at ([yshift=-160mm]current page.north)
@@ -43,7 +43,7 @@
    \vspace{6mm}
    {\Large Od celu misji do raportu po locie\par}}
   \vfill
-  \begin{minipage}[b]{0.5\linewidth}
+  \begin{minipage}[b]{0.46\linewidth}
     \large\color{sdnavy}
     Dokumentacja platformy balonowej\\z odcinaczem mechanicznym\par
     \vspace{6mm}\normalsize\color{sdgray}
@@ -51,10 +51,10 @@
     Data: \datawersji\\[3mm]
     Koło Naukowe SimLE: \href{https://www.simle.pl}{\color{sdnavy}www.simle.pl}
   \end{minipage}\hfill
-  \begin{minipage}[b]{0.22\linewidth}\centering
-    \href{https://www.simle.pl}{\includegraphics[width=\linewidth]{SimLE_znak_podstawowy_kadr}}
+  \begin{minipage}[b]{0.32\linewidth}\raggedleft
+    \includegraphics[width=\linewidth]{SimLE_Stardust_logo}
   \end{minipage}\hspace{6mm}
-  \begin{minipage}[b]{0.18\linewidth}\raggedleft
+  \begin{minipage}[b]{0.17\linewidth}\raggedleft
     \includegraphics[width=\linewidth]{SimLE_Stardust_2023}
   \end{minipage}
   \restoregeometry
