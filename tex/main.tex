@@ -15,7 +15,7 @@
   pdfsubject={Dokumentacja misji balonów stratosferycznych}}
 \graphicspath{{figures/}{figures/photos/}{figures/generated/}{figures/logo/}}
 
-\newsavebox{\okladkadol}
+\newsavebox{\okladkadol}\newsavebox{\okladkaopis}\newlength{\okladkaszer}
 \begin{document}
 
 % ---------------------------------------------------------------- strona tytułowa
@@ -45,18 +45,20 @@
    \vspace{6mm}
    {\Large Od celu misji do raportu po locie\par}}
   \vfill
-  % Dół okładki: z lewej logo SimLE Stardust nad opisem, z prawej patch misji
-  % o wysokości całego lewego bloku. Odstępy >= pole ochronne wg księgi znaku SimLE.
-  \sbox{\okladkadol}{\begin{minipage}[b]{0.55\linewidth}
-    \includegraphics[width=46mm]{SimLE_Stardust_logo}\par
-    \vspace{9mm}
-    \large\color{sdnavy}
-    Dokumentacja platformy balonowej\\z odcinaczem mechanicznym\par
-    \vspace{6mm}\normalsize\color{sdgray}
-    Wersja dokumentu: \wersja\\
-    Data: \datawersji\\[3mm]
-    Koło Naukowe SimLE: \href{https://www.simle.pl}{\color{sdnavy}www.simle.pl}
-  \end{minipage}}%
+  % Dół okładki: jeden optyczny prostokąt. Z lewej logo SimLE Stardust na szerokość opisu,
+  % pod nim opis; z prawej patch misji na wysokość całego lewego bloku.
+  \sbox{\okladkaopis}{\begin{tabular}[b]{@{}l@{}}
+    {\large\color{sdnavy}Dokumentacja platformy balonowej}\\
+    {\large\color{sdnavy}z odcinaczem mechanicznym}\\[6mm]
+    \color{sdgray}Wersja dokumentu: \wersja\\
+    \color{sdgray}Data: \datawersji\\[3mm]
+    \color{sdgray}Koło Naukowe SimLE: \href{https://www.simle.pl}{\color{sdnavy}www.simle.pl}
+  \end{tabular}}%
+  \settowidth{\okladkaszer}{\large Dokumentacja platformy balonowej}% szerokość logo = szerokość opisu
+  \sbox{\okladkadol}{\begin{tabular}[b]{@{}l@{}}
+    \includegraphics[width=\okladkaszer]{SimLE_Stardust_logo}\\[5mm]
+    \usebox{\okladkaopis}
+  \end{tabular}}%
   \usebox{\okladkadol}\hfill
   \raisebox{-\dp\okladkadol}{\includegraphics[height=\dimexpr\ht\okladkadol+\dp\okladkadol\relax]{SimLE_Stardust_2023}}
   \restoregeometry
