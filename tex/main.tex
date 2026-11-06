@@ -43,7 +43,7 @@
    \vspace{6mm}
    {\Large Od celu misji do raportu po locie\par}}
   \vfill
-  \begin{minipage}[b]{0.46\linewidth}
+  \begin{minipage}[b]{0.42\linewidth}
     \large\color{sdnavy}
     Dokumentacja platformy balonowej\\z odcinaczem mechanicznym\par
     \vspace{6mm}\normalsize\color{sdgray}
@@ -51,11 +51,12 @@
     Data: \datawersji\\[3mm]
     Koło Naukowe SimLE: \href{https://www.simle.pl}{\color{sdnavy}www.simle.pl}
   \end{minipage}\hfill
-  \begin{minipage}[b]{0.32\linewidth}\raggedleft
-    \includegraphics[width=\linewidth]{SimLE_Stardust_logo}
-  \end{minipage}\hspace{6mm}
-  \begin{minipage}[b]{0.17\linewidth}\raggedleft
-    \includegraphics[width=\linewidth]{SimLE_Stardust_2023}
+  % Logo SimLE Stardust w jednej linii z patchem misji (wyśrodkowane w pionie).
+  % Odstęp >= pole ochronne logotypu wg księgi znaku SimLE (bok największego + mniejszego trójkąta).
+  \begin{minipage}[b]{0.56\linewidth}\raggedleft
+    $\vcenter{\hbox{\includegraphics[width=46mm]{SimLE_Stardust_logo}}}$%
+    \hspace{10mm}%
+    $\vcenter{\hbox{\includegraphics[width=26mm]{SimLE_Stardust_2023}}}$
   \end{minipage}
   \restoregeometry
 \end{titlepage}
