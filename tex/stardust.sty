@@ -178,8 +178,10 @@
   \else
     \expandafter\expandafter\expandafter\sd@read\csname sd@in@\thesd@fnum\endcsname
   \fi}
-\newcommand{\sd@growstart}{%
-  \stepcounter{sd@fnum}%
+\newcommand{\sd@growstart}[1]{% #1: kod formularza; klucz = kod-kolejny numer
+  \@ifundefined{sd@cnt@#1}{\global\@namedef{sd@cnt@#1}{1}}%
+    {\expandafter\xdef\csname sd@cnt@#1\endcsname{\the\numexpr\csname sd@cnt@#1\endcsname+1\relax}}%
+  \xdef\thesd@fnum{#1-\csname sd@cnt@#1\endcsname}%
   \global\sd@units\z@
   \global\sd@startpage\value{page}%
   \sd@readin\global\sd@extra=\sd@e\relax
@@ -249,7 +251,7 @@
   \begin{tabularx}{\linewidth}{@{}|L|P{30mm}|P{38mm}|@{}}\hline
   \etykieta[5mm]{Misja} & \etykieta[5mm]{Data} & \etykieta[5mm]{Miejsce}\\\hline
   \etykieta[5mm]{Wypełnia (imię i nazwisko)} & \etykieta[5mm]{Rola} & \etykieta[5mm]{Godzina rozpoczęcia}\\\hline
-  \end{tabularx}\par\medskip\sd@growstart}
+  \end{tabularx}\par\medskip\sd@growstart{#1}}
 % Pole formularza: mała etykieta u góry, miejsce na wpis poniżej.
 % Wysokość miejsca na wpis daje rozpórka (\rule o zerowej szerokości) w ostatnim
 % wierszu etykiety: odstęp pionowy na końcu komórki tabeli zostałby usunięty.

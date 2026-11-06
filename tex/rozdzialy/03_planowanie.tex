@@ -20,32 +20,28 @@ Na początku zapisz w karcie misji (formularz F0):
 Platforma używa standardowych pudełek styropianowych w rozmiarze typu eurobox. To upraszcza współpracę z zespołem badawczym:
 \begin{itemize}
   \item ładunek musi zmieścić się w pudełku i w limicie masy -- platforma tylko go podwiesza,
-  \item pudełka łatwo się łączą (wypustki, pasy), więc montaż jest szybki,
+  \item pudełka łatwo się łączą (wypustki, uprząż), więc montaż jest szybki,
   \item zespół badawczy pracuje niezależnie od zespołu platformy.
 \end{itemize}
 
-Zespół badawczy dostarcza przed misją:
-\begin{itemize}
-  \item masę i wymiary (z pudełkiem),
-  \item opis zasilania -- ładunek ma własne baterie, platforma nie zasila ładunków,
-  \item częstotliwości radiowe, które ładunek emituje (ryzyko zakłóceń z trackerem),
-  \item wymagania: wysokość, temperatura, orientacja, czas,
-  \item procedurę włączenia przed startem i wyłączenia po odzyskaniu.
-\end{itemize}
+Zespół badawczy dostarcza przed misją dane do ICD (sekcja~\ref{sec:icd}): masę i wymiary z pudełkiem, zasilanie (ładunek ma własne baterie -- platforma nie zasila ładunków), częstotliwości radiowe (ryzyko zakłóceń z trackerem), wymagania lotu oraz procedury włączenia przed startem i wyłączenia po odzyskaniu.
 
 \begin{uwaga}Ładunek badawczy przechodzi te same testy bezpieczeństwa i zgodności co platforma (sekcja~\ref{sec:testy}). Ładunek bez testów nie leci.\end{uwaga}
 \end{sekcja}
 
-\begin{sekcja}{Harmonogram}
-Rysunek~\ref{fig:harmonogram} pokazuje typowy harmonogram. Najdłuższe etapy to budowa i testy eksperymentu. Formalności zaczynają się co najmniej 4 tygodnie przed lotem.
+\begin{sekcja}{Dokument kontroli interfejsu (ICD)}\label{sec:icd}
+Dla każdego ładunku zespół platformy i zespół badawczy wypełniają \textbf{dokument kontroli interfejsu} (ICD, \emph{Interface Control Document}, formularz ICD). ICD zawiera wartości uzgodnione przez oba zespoły: masę, wymiary, zasilanie, częstotliwości, wymagania lotu i procedury. Te wartości to \textbf{kontrakt}:
+\begin{itemize}
+  \item kolumna „zadeklarowane” -- wartości uzgodnione na etapie planowania,
+  \item kolumna „rzeczywiste” -- wartości zmierzone na gotowym ładunku (najpóźniej na przeglądzie gotowości, F6),
+  \item każde odstępstwo opisz jasno: co się różni, o ile, dlaczego i kto je zaakceptował,
+  \item zmiana wartości zadeklarowanej to nowa wersja ICD, podpisana przez oba zespoły.
+\end{itemize}
 
-Ostatnie przygotowania zaczynają się 2 dni przed startem. Start przy dobrej pogodzie bywa wczesnym rankiem, więc wszystko -- sprzęt, gaz, transport, ludzie -- musi być gotowe dzień wcześniej. Dzień przed startem zostaw na weryfikację, logistykę i obserwację pogody.
-
-\begin{center}\resizebox{\linewidth}{!}{\rysHarmonogram}\end{center}
-\captionof{figure}{Typowy harmonogram misji. T0 -- dzień startu.}\label{fig:harmonogram}
+\textbf{Budżet masy najpierw dla platformy.} Zanim zespoły uzgodnią ICD, zespół platformy wydziela budżet masy dla siebie: gondola platformy, olinowanie i spadochron. Dzięki temu cała misja nie przekroczy ram balonu lekkiego (sekcja~\ref{sec:budzet}). Bezpieczny podział to \textbf{pół na pół}: połowa budżetu dla platformy, połowa dla ładunków badawczych. Potem zespoły mogą wymieniać się budżetem -- każdą zmianę zapisz w ICD.
 \end{sekcja}
 
-\begin{sekcja}{Budżet masy}
+\begin{sekcja}{Budżet masy}\label{sec:budzet}
 Projektuj zestaw jako balon \textbf{lekki} (rozdział~\ref{ch:prawo}):
 \begin{itemize}
   \item łączna masa ładunku (wszystko pod powłoką) poniżej \SI{4}{kg},
@@ -53,7 +49,7 @@ Projektuj zestaw jako balon \textbf{lekki} (rozdział~\ref{ch:prawo}):
   \item linka podwieszenia zrywa się przy sile poniżej \SI{230}{N}.
 \end{itemize}
 
-Zważ każdy element. Używaj mas zmierzonych, nie szacowanych. Zostaw zapas co najmniej \SI{10}{\percent}.
+Zważ każdy element. Używaj mas zmierzonych, nie szacowanych. Zostaw zapas co najmniej \SI{10}{\percent}. Budżety ładunków badawczych zapisz w ICD (sekcja~\ref{sec:icd}).
 
 \renewcommand{\arraystretch}{1.6}
 \begin{tabularx}{\linewidth}{@{}|L|P{25mm}|P{25mm}|@{}}\hline
@@ -191,7 +187,7 @@ Czas pracy & Cały system na bateriach lotnych. & $\geq 2\times$ czas lotu + cza
 Upadek & Gondola zrzucona z około \SI{1}{m} na twarde podłoże. & Nic się nie odłącza.\\
 Pływalność i szczelność & Zamknięta gondola z obciążeniem do docelowej masy w wannie z wodą, około 15 minut. & Gondola pływa, wnętrze suche.\\
 Brzęczyk & Symulacja lotu w maszynie stanów (np. dane z poprzedniej misji). Odsłuch z odległości \SI{50}{m}. & Włącza się tylko po lądowaniu; słychać go z \SI{50}{m}.\\
-Wytrzymałość olinowania & Linki spadochronu z mocowaniem do płyty i pas gondoli obciążone statycznie 10-krotnym ciężarem zestawu pod spadochronem (np. worki z piaskiem). & Nic nie pęka, węzły nie puszczają.\\
+Wytrzymałość olinowania & Linki spadochronu z mocowaniem do płyty i uprząż gondoli obciążone statycznie 10-krotnym ciężarem zestawu pod spadochronem (np. worki z piaskiem). & Nic nie pęka, węzły nie puszczają.\\
 Próba generalna & Cały montaż i formularze dnia startu, bez balonu, ze sprzętem rozłożonym na zewnątrz. Apel „go / no-go”. Odczyt danych z kart pamięci. & Zespół zna role i kolejność; dane odczytane.\\
 \bottomrule
 \end{tabularx}
@@ -216,4 +212,13 @@ Ta sama metoda dotyczy platformy, odcinacza i ładunków. Zapisz w formularzu F5
 Kilka dni przed lotem zespół robi przegląd gotowości (\emph{Flight Readiness Review}). Kierownik misji przechodzi z zespołem przez formularz F6. Każdy punkt ma dowód: wynik testu, potwierdzenie z PAŻP, zdjęcie, wpis w karcie misji.
 
 Wynik przeglądu to decyzja „leci / nie leci”. Brak dowodu oznacza „nie leci”, dopóki zespół go nie dostarczy.
+\end{sekcja}
+
+\begin{sekcja}{Harmonogram}
+Rysunek~\ref{fig:harmonogram} pokazuje typowy harmonogram. Najdłuższe etapy to budowa i testy eksperymentu. Formalności zaczynają się co najmniej 4 tygodnie przed lotem.
+
+Ostatnie przygotowania zaczynają się 2 dni przed startem. Start przy dobrej pogodzie bywa wczesnym rankiem, więc wszystko -- sprzęt, gaz, transport, ludzie -- musi być gotowe dzień wcześniej. Dzień przed startem zostaw na weryfikację, logistykę i obserwację pogody.
+
+\begin{center}\resizebox{0.85\linewidth}{!}{\rysHarmonogram}\end{center}
+\captionof{figure}{Typowy harmonogram misji. T0 -- dzień startu.}\label{fig:harmonogram}
 \end{sekcja}

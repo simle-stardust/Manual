@@ -20,6 +20,7 @@ Po misji zeskanuj wszystkie formularze i przechowuj skany w wewnętrznej dokumen
 F0 & Karta misji & cały projekt\\
 F1 & Role w zespole i macierz odpowiedzialności & T$-$16 tyg.\\
 F2 & Planowanie misji & T$-$16 do T$-$4 tyg.\\
+ICD & Kontrola interfejsu platforma--ładunek (dla każdego ładunku) & od T$-$12 tyg. do FRR\\
 F3 & Formalności & T$-$4 do T$-$2 tyg.\\
 F4 & Dziennik predykcji & od T$-$7 dni\\
 F5 & Raport z testów & przed FRR\\
@@ -150,7 +151,7 @@ Raport z misji, wnioski, aktualizacja podręcznika & A & C & C & C & & R & R & C
 \etap{Cel i ładunek}
 \krok{Zapisz cel misji i wymagania ładunku w karcie misji (F0).}{}
 \krok{Wypełnij role w zespole (F1). Przekaż macierz odpowiedzialności całemu zespołowi.}{}
-\krok{Uzgodnij z zespołem badawczym interfejs: pudełko, masa, zasilanie, częstotliwości.}{\pole[2cm]{masa ład. [g]:}}
+\krok{Wydziel budżet masy platformy (bezpiecznie: połowa). Uzgodnij z zespołem badawczym interfejs i podpiszcie ICD.}{\pole[2cm]{masa ład. [g]:}}
 \krok{Ustal terminy przeglądów (CDR, FRR) i wpisz je do kalendarza zespołu.}{\pole[2cm]{FRR:}}
 \etap{Sprzęt}
 \krok{Wyjmij sprzęt z szafki. Sprawdź go według wykazu materiałów (rozdział~\ref{ch:materialy}).}{\pole[2cm]{braki:}}
@@ -163,6 +164,57 @@ Raport z misji, wnioski, aktualizacja podręcznika & A & C & C & C & & R & R & C
 \krok{Wybierz znak wywoławczy: klubowy SimLE, członka zespołu albo udostępniony. Uzyskaj zgodę właściciela (rozdział~\ref{ch:prawo}).}{\pole[2cm]{znak:}}
 \end{procedura}
 \komentarze[3]
+\podpisy
+
+% ===========================================================================
+\formularz[opiekun ładunku i operator platformy]{ICD}{Kontrola interfejsu (1/2)}{od T$-$12 tyg. do FRR}
+Wypełnij osobno dla każdego ładunku. Kolumna „zadeklarowane” to kontrakt między zespołem platformy i zespołem badawczym. Kolumnę „rzeczywiste” wypełnij po pomiarze gotowego ładunku, najpóźniej na przeglądzie gotowości (F6). Zmiana wartości zadeklarowanej to nowa wersja ICD (sekcja~\ref{sec:icd}).\par\smallskip
+\renewcommand{\arraystretch}{1.0}
+\small
+\begin{tabularx}{\linewidth}{@{}|L|L|P{38mm}|@{}}\hline
+\etykieta{Ładunek: nazwa, zespół badawczy} & \etykieta{Opiekun ładunku (OŁ), telefon} & \etykieta{Wersja ICD, data}\\\hline
+\end{tabularx}\par\smallskip
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}|P{44mm}|L|L|L|@{}}\hline
+\rowcolor{sdlight}\textbf{Parametr} & \textbf{Zadeklarowane (kontrakt)} & \textbf{Rzeczywiste (pomiar, data)} & \textbf{Odstępstwo: co, o ile, dlaczego, kto zaakceptował}\\\hline
+\multicolumn{4}{|l|}{\cellcolor{sdlight}\rule{0pt}{4mm}\textbf{Mechanika i masa}}\\\hline
+Budżet masy ładunku przydzielony przez platformę [g] & & & \rosnie\\\hline
+Masa ładunku z pudełkiem [g] & & & \rosnie\\\hline
+Wymiary pudełka: dł. $\times$ szer. $\times$ wys. [mm] (szerokość jak platforma) & & & \rosnie\\\hline
+Środek masy (położenie względem osi zawieszenia) & & & \rosnie\\\hline
+Zawieszenie: wspólna uprząż albo osobny pakiet & & & \rosnie\\\hline
+Otwory w pudełku (czujniki, wloty, przewody) & & & \rosnie\\\hline
+Elementy na zewnątrz gondoli (czujniki, wysięgniki, kamery) & & & \rosnie\\\hline
+Pływalność i szczelność (test F5) & & & \rosnie\\\hline
+Oznakowanie pudełka (telefon, opis) & & & \rosnie\\\hline
+\end{tabularx}
+\normalsize
+\podpisy
+
+\formularz[opiekun ładunku i operator platformy]{ICD}{Kontrola interfejsu (2/2)}{od T$-$12 tyg. do FRR}
+\renewcommand{\arraystretch}{1.3}
+\small
+\begin{tabularx}{\linewidth}{@{}|P{44mm}|L|L|L|@{}}\hline
+\rowcolor{sdlight}\textbf{Parametr} & \textbf{Zadeklarowane (kontrakt)} & \textbf{Rzeczywiste (pomiar, data)} & \textbf{Odstępstwo: co, o ile, dlaczego, kto zaakceptował}\\\hline
+\multicolumn{4}{|l|}{\cellcolor{sdlight}\rule{0pt}{4mm}\textbf{Zasilanie, łączność, środowisko}}\\\hline
+Zasilanie: typ i pojemność baterii (platforma nie zasila ładunku) & & & \rosnie\\\hline
+Czas pracy na bateriach [h] & & & \rosnie\\\hline
+Nadajniki: częstotliwości, moc, czas nadawania & & & \rosnie\\\hline
+Połączenie z platformą (brak / sygnał, złącze) & & & \rosnie\\\hline
+Wymagany pułap i czas w stratosferze & & & \rosnie\\\hline
+Zakres temperatur pracy, grzanie & & & \rosnie\\\hline
+Orientacja, kadr kamery, osłony & & & \rosnie\\\hline
+\multicolumn{4}{|l|}{\cellcolor{sdlight}\rule{0pt}{4mm}\textbf{Bezpieczeństwo i procedury}}\\\hline
+Materiały niebezpieczne (ogniwa litowe, chemikalia, próbki) & & & \rosnie\\\hline
+Włączenie przed startem: kiedy, kto, sygnał gotowości & & & \rosnie\\\hline
+Po lądowaniu: wyłączenie, próbki (czas, temperatura transportu) & & & \rosnie\\\hline
+Dane: format, nośnik, kopia & & & \rosnie\\\hline
+\end{tabularx}\par\smallskip
+\renewcommand{\arraystretch}{1.0}
+\begin{tabularx}{\linewidth}{@{}|L|L|@{}}\hline
+\etykieta[7mm]{Uzgodnił/a -- opiekun ładunku (podpis)} & \etykieta[7mm]{Uzgodnił/a -- operator platformy (podpis)}\\\hline
+\end{tabularx}
+\normalsize
 \podpisy
 
 % ===========================================================================
@@ -243,6 +295,7 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \krok{Zgoda właściciela terenu potwierdzona.}{}
 \etap{Sprzęt}
 \krok{Wszystkie testy z F5 zaliczone (platforma i ładunki).}{}
+\krok{ICD: wartości rzeczywiste wpisane, każde odstępstwo opisane i zaakceptowane.}{}
 \krok{Masa ładunku poniżej 4 kg, każdy pakiet poniżej 2 kg.}{\pole[2cm]{[g]:}}
 \krok{Kod lotny zamrożony. Wersje wpisane do F0.}{}
 \krok{Gaz zamówiony w ilości z zapasem. Termin odbioru potwierdzony.}{\pole[2cm]{[m³]:}}
@@ -361,7 +414,7 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \krok{Pętla z krętlikiem zamocowana na szyjce. Węzły zabezpieczone taśmą.}{}
 \krok{Linka odcinacza, zapas i spadochron rozłożone w linii, bez splątań.}{}
 \krok{Linka odcinacza zaczepiona o zwalniacz. Odcinacz uzbrojony.}{}
-\krok{Gondole zamknięte, owinięte taśmą, pasy napięte, opis markerem widoczny.}{}
+\krok{Gondole zamknięte, owinięte taśmą, pasy uprzęży napięte, opis markerem widoczny.}{}
 \etap{Ostatnia kontrola}
 \krok{Wejdź na \www{aprs.fi} i SondeHub: ostatnia pozycja ma mniej niż 2 minuty.}{\pole[2cm]{godz.:}}
 \krok{SPOT i znaczniki Bluetooth włączone.}{}
