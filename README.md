@@ -1,10 +1,10 @@
-# Stardust NEXT – Manual
+# Stardust NEXT – Podręcznik misji stratosferycznych
 
 Dokumentacja platformy balonów stratosferycznych Stardust NEXT ([Koło Naukowe SimLE](https://www.simle.pl), Politechnika Gdańska).
 
-Manual daje niezbędne minimum, aby nowy zespół wyjął sprzęt z szafki i wykonał misję stratosferyczną. Dokument jest przygotowany do druku dwustronnego i bindowania. Zawiera formularze do wypełnienia długopisem i strony na notatki terenowe.
+Podręcznik daje niezbędne minimum, aby nowy zespół wyjął sprzęt z szafki i wykonał misję stratosferyczną. Dokument jest przygotowany do druku dwustronnego i bindowania. Zawiera formularze do wypełnienia długopisem i strony na notatki terenowe.
 
-Pierwsze wydanie: Marcin Jasiukowicz, 2026 – bardzo opóźnione, bo misje z 2023 roku czekały na swój manual trzy lata. Ku chwale kolejnym pokoleniom baloniarzy!
+Pierwsze wydanie: Marcin Jasiukowicz, 2026 – bardzo opóźnione, bo misje z 2023 roku czekały na swój podręcznik trzy lata. Ku chwale kolejnym pokoleniom baloniarzy!
 
 **Gotowy PDF:** zakładka *Releases* (wydania) albo artefakt ostatniego przebiegu akcji *Build PDF*.
 
@@ -51,7 +51,7 @@ git push origin v1.0
 Lokalnie (TeX Live z `latexmk`; alternatywnie `nix-shell .scripts/shell.nix`):
 
 ```sh
-.scripts/generate_pdf.sh        # wynik: pdf/Stardust-NEXT-Manual.pdf
+.scripts/generate_pdf.sh        # wynik: pdf/Stardust-NEXT-Podrecznik.pdf
 ```
 
 Po zmianie danych lub zdjęć wygeneruj rysunki ponownie (Python: matplotlib, Pillow, opcjonalnie `geopandas<1.0` dla mapy):

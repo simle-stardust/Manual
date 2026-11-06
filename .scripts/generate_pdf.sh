@@ -7,7 +7,7 @@
 # Optional (regenerate figures from data/ and assets/): python3 with matplotlib, Pillow, geopandas<1.0
 #   python3 .scripts/plots.py && python3 .scripts/photos.py
 #
-# Output: pdf/Stardust-NEXT-Manual.pdf
+# Output: pdf/Stardust-NEXT-Podrecznik.pdf
 
 set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
@@ -15,5 +15,5 @@ root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 mkdir -p "$root/pdf"
 cd "$root/tex"
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-cp main.pdf "$root/pdf/Stardust-NEXT-Manual.pdf"
-echo "PDF: $root/pdf/Stardust-NEXT-Manual.pdf"
+cp main.pdf "$root/pdf/Stardust-NEXT-Podrecznik.pdf"
+echo "PDF: $root/pdf/Stardust-NEXT-Podrecznik.pdf"

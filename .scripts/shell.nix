@@ -7,6 +7,6 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
-    echo "Run .scripts/generate_pdf.sh to build pdf/Stardust-NEXT-Manual.pdf"
+    echo "Run .scripts/generate_pdf.sh to build pdf/Stardust-NEXT-Podrecznik.pdf"
   '';
 }
