@@ -6,6 +6,8 @@ Podręcznik daje niezbędne minimum, aby nowy zespół wyjął sprzęt z szafki 
 
 Pierwsze wydanie: Marcin Jasiukowicz, 2026 – bardzo opóźnione, bo misje z 2023 roku czekały na swój podręcznik trzy lata. Ku chwale kolejnym pokoleniom baloniarzy!
 
+Wydane w 10-lecie pierwszych misji Stardust (2016–2026) – na kolejne 10 lat misji stratosferycznych SimLE.
+
 **Gotowy PDF:** zakładka *Releases* (wydania) albo artefakt ostatniego przebiegu akcji *Build PDF*.
 
 ## Spis treści
