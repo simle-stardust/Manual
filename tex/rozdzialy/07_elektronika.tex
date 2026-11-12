@@ -93,6 +93,39 @@ Dlatego platforma ma \textbf{dwa niezależne odbiorniki GPS} -- w HABduino i w O
 \begin{uwaga}Z bliska odbiornik odbierze sygnał nawet bez anteny -- wystarczy promieniowanie z płytki i przewodów. Test obok stołu niczego nie dowodzi. Sprawdź odbiór z odległości \textbf{co najmniej \SI{100}{m}}, z anteną w konfiguracji lotnej (w zamkniętej gondoli).\end{uwaga}
 \end{sekcja}
 
+\begin{podsekcja}{Wykonanie anteny nadajnika}
+Na podstawie poradnika UKHAS~\cite{ukhasantena}. Antena ćwierćfalowa z przeciwwagą (\emph{ground plane}) promieniuje równomiernie we wszystkich kierunkach w płaszczyźnie poziomej.
+
+\textbf{Materiały:} przewód koncentryczny RG174 (\SI{50}{\ohm}), opcjonalnie z wtykiem SMA; drut jednożyłowy \SI{0.6}{mm}; lutownica i cyna; nożyk, linijka, gwóźdź jako trzpień; słomki.
+
+\begin{enumerate}
+  \item Zmierz \SI{170}{mm} od końca przewodu koncentrycznego. Natnij izolację zewnętrzną. Nie przetnij oplotu.
+  \item Zdejmij izolację zewnętrzną do końca przewodu.
+  \item Zostaw \SI{5}{mm} oplotu. Resztę oplotu odetnij.
+  \item Z pozostałego oplotu zrób dwa wyprowadzenia i pobiel je cyną.
+  \item Utnij dwa odcinki drutu po około \SI{350}{mm}. Na środku każdego odcinka zdejmij około \SI{25}{mm} izolacji.
+  \item Skręć odcinki na środku wokół trzpienia i zlutuj. Powstają cztery przeciwwagi w kształcie litery X z otworem w środku.
+  \item Przełóż przewód koncentryczny przez otwór. Przylutuj oplot do przeciwwag.
+  \item Przytnij żyłę środkową (element promieniujący) na długość $L$, mierzoną od końca oplotu. Przytnij przeciwwagi na tę samą długość.
+  \item Załóż słomki na element promieniujący i na przeciwwagi, aby były proste. Przycinając słomki, nie przetnij drutu.
+\end{enumerate}
+
+\begin{center}\small
+\begin{tabular}{lll}
+\toprule
+Pasmo & $L$ & Źródło\\
+\midrule
+\SI{434}{MHz} (RTTY) & \SI{164}{mm} & poradnik UKHAS (\SI{433}{MHz})\\
+\SI{144.8}{MHz} (APRS) & około \SI{490}{mm} & przeliczone proporcjonalnie do częstotliwości\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{uwaga}Długość elementu promieniującego jest krytyczna. Długość dla APRS jest tylko przeliczona: utnij element trochę dłuższy i skróć go po pomiarze SWR w konfiguracji lotnej. Przewód koncentryczny między wtykiem a anteną może mieć dowolną długość, ale niech będzie jak najkrótszy.\end{uwaga}
+
+W poradniku element promieniujący jest skierowany w dół, a przeciwwagi są w dnie gondoli. W platformie NEXT pod gondolą wisi ładunek (rozdział~\ref{ch:lotny}), więc ustal położenie anteny w ICD (sekcja~\ref{sec:icd}).
+\end{podsekcja}
+
 \begin{sekcja}{Lokalizatory po lądowaniu}
 Przy ziemi sygnał z trackera zanika: zasłaniają go drzewa, budynki i ukształtowanie terenu. Lokalizatory pomagają znaleźć gondolę po lądowaniu.
 
