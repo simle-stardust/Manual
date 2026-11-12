@@ -66,6 +66,8 @@ GPS to podstawa bezpieczeństwa misji. Odbiornik GPS daje:
 Dlatego platforma ma \textbf{dwa niezależne odbiorniki GPS} -- w HABduino i w OBC.
 
 \begin{uwaga}Przed wyborem odbiornika \textbf{bezwzględnie} sprawdź w karcie katalogowej, czy działa powyżej \SI{10}{km} i do jakiej wysokości oraz przy jakiej prędkości. Wiele odbiorników z ograniczeniami eksportowymi (COCOM) przestaje działać powyżej \SI{18}{km} albo powyżej określonej prędkości. Moduły u-blox działają do około \SI{50}{km} po włączeniu trybu \emph{airborne}.\end{uwaga}
+
+\begin{uwaga}Niektóre kamery zakłócają sygnał GPS: matryca i jej elektronika emitują zakłócenia dokładnie w paśmie GPS. Odbiornik może wtedy stracić pozycję. Trzymaj kamery z dala od anteny GPS. Testuj GPS w docelowej konfiguracji gondoli, z włączonymi kamerami. Ostrzega przed tym instrukcja HABduino~\cite{habduino}, a zespół zaobserwował to sam.\end{uwaga}
 \end{sekcja}
 
 \begin{sekcja}{Konfiguracja trackera}
