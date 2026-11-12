@@ -85,12 +85,17 @@ Dlatego platforma ma \textbf{dwa niezależne odbiorniki GPS} -- w HABduino i w O
 \begin{uwaga}Skonfiguruj tracker i serwisy śledzenia \textbf{najpóźniej 2 dni przed lotem}. Niektóre ustawienia (np. konfiguracja ładunku w SondeHub) potrzebują czasu, aby zadziałały. Dzień przed lotem zostaw na weryfikację, logistykę i obserwację pogody.\end{uwaga}
 \end{sekcja}
 
-\begin{sekcja}{Anteny i test zasięgu}
+\begin{sekcja}{Anteny i test zasięgu}\label{sec:anteny}
+\textbf{Położenie.} Radia są w gondoli platformy, a pod nią wisi ładunek. Dlatego:
 \begin{itemize}
-  \item Anteny nadajników wyprowadź po bokach gondoli platformy (rozdział~\ref{ch:lotny}). Metal nie może wpływać na anteny APRS i RTTY.
+  \item Anteny nadajników APRS i RTTY wyprowadź \textbf{z boku} gondoli platformy, przez boczne ściany pudełka. Nie wyprowadzaj ich w dół.
+  \item Antena na górze też jest dopuszczalna, ale płyta montażowa nie może być metalowa.
+  \item Element promieniujący ustaw pionowo -- anteny stacji odbiorczych są pionowe.
+  \item Metal nie może wpływać na anteny nadajników. Trzymaj go z dala od nich, także metal pod anteną GPS.
   \item Antenę GPS montuj na górze gondoli, z widokiem na niebo, niczym nie przykrytą (rozdział~\ref{ch:montaz}).
-  \item Po montażu sprawdź złącza i przewody anten.
 \end{itemize}
+
+\textbf{Dopasowanie.} Charakterystyka anteny zależy od otoczenia: przewody, baterie i metal w pobliżu ją zmieniają. Sprawdź dopasowanie anteny (SWR) w konfiguracji lotnej, w zamkniętej gondoli. Rozwiązania alternatywne: antena z luźnego przewodu wypuszczona z gondoli albo antena zawieszona pod spadochronem -- oba wymagają pomiaru dopasowania. Po montażu sprawdź złącza i przewody anten.
 
 \begin{uwaga}Z bliska odbiornik odbierze sygnał nawet bez anteny -- wystarczy promieniowanie z płytki i przewodów. Test obok stołu niczego nie dowodzi. Sprawdź odbiór z odległości \textbf{co najmniej \SI{100}{m}}, z anteną w konfiguracji lotnej (w zamkniętej gondoli).\end{uwaga}
 \end{sekcja}
@@ -129,7 +134,7 @@ Pasmo & $L$ & Źródło\\
 
 \begin{uwaga}Długość elementu promieniującego jest krytyczna. Długość dla APRS jest tylko przeliczona: utnij element trochę dłuższy i skróć go po pomiarze SWR w konfiguracji lotnej. Przewód koncentryczny między wtykiem a anteną może mieć dowolną długość, ale niech będzie jak najkrótszy.\end{uwaga}
 
-W poradniku element promieniujący jest skierowany w dół, a przeciwwagi są w dnie gondoli. W platformie NEXT pod gondolą wisi ładunek (rozdział~\ref{ch:lotny}), więc ustal położenie anteny w ICD (sekcja~\ref{sec:icd}).
+W poradniku element promieniujący jest skierowany w dół, a przeciwwagi są w dnie gondoli. W platformie NEXT wyprowadź antenę z boku gondoli (sekcja~\ref{sec:anteny}).
 \end{podsekcja}
 
 \begin{sekcja}{Lokalizatory po lądowaniu}

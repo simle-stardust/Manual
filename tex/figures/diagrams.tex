@@ -287,3 +287,20 @@
   \draw[|<->|,sdgray] (-0.45,0) -- node[left]{$L$} (-0.45,-2.6);
   \draw[|<->|,sdgray] (0,-0.35) -- node[below]{$L$} (2.6,-0.35);
 \end{tikzpicture}}
+
+% Tor odbiorczy stacji mobilnej (jeden tor na jedno pasmo).
+\newcommand{\rysTorMobilny}{%
+\begin{tikzpicture}[node distance=4mm,font=\sffamily\scriptsize]
+  \node[box,minimum width=18mm] (ant) {Antena\\na magnes\\(dach)};
+  \node[box,right=of ant,minimum width=16mm] (flt) {Filtr\\pasmowy};
+  \node[box,right=of flt,minimum width=16mm] (lna) {LNA};
+  \node[box,right=of lna,minimum width=18mm] (sdr) {RTL-SDR\\(TCXO,\\bias-tee)};
+  \node[box,right=6mm of sdr,minimum width=26mm] (pc) {Laptop / Raspberry Pi\\horus-gui, Direwolf,\\chasemapper};
+  \node[box,right=6mm of pc,minimum width=20mm,fill=sdlight] (net) {LTE $\to$\\SondeHub,\\APRS-IS};
+  \draw[net] (ant) -- (flt);
+  \draw[net] (flt) -- (lna);
+  \draw[net] (lna) -- (sdr);
+  \draw[net] (sdr) -- node[above,lblc]{USB} (pc);
+  \draw[net] (pc) -- (net);
+  \draw[sdorange,->,thick] (sdr.south) -- ++(0,-4mm) -| node[pos=0.25,below,lblc,text=sdorange]{zasilanie LNA przez przewód (bias-tee)} (lna.south);
+\end{tikzpicture}}
