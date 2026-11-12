@@ -213,62 +213,30 @@ Zamknięcie musi być \textbf{szczelne}. Szczelności nie da się łatwo sprawdz
 \begin{uwaga}Nie przyklejaj taśmy do powłoki. Taśma odklejana od powłoki może ją przerwać. Taśma ma dotykać tylko szyjki.\end{uwaga}
 \end{sekcja}
 
-\clearpage
-\begin{sekcja}{Stacje odbiorcze}\label{sec:stacje}
-Używaj co najmniej dwóch stacji odbiorczych: stacjonarnej i mobilnej. Nie polegaj tylko na sieci innych nasłuchowców. Schemat toru radiowego: rozdział~\ref{ch:elektronika}.
-
-\textbf{Stacja stacjonarna dookólna.} Antena dookólna na wysokim maszcie, odbiornik RTL-SDR z LNA, komputer (np. Raspberry Pi) z internetem. Stacja przekazuje pakiety do SondeHub i APRS-IS (iGate). Źródła:
+\begin{sekcja}{Stacje odbiorcze}
+Budowę i konfigurację stacji odbiorczych opisuje rozdział~\ref{ch:elektronika} (sekcje~\ref{sec:stacje} i~\ref{sec:konfiguracja-stacji}).
 \begin{itemize}
-  \item Direwolf~\cite{direwolf} -- dokumentacja zawiera poradnik iGate z Raspberry Pi i RTL-SDR; przykład budowy: RTL-SDR.com~\cite{rtlsdrigate},
-  \item VP-Digi~\cite{vpdigi} -- sprzętowy digipeater APRS na STM32, z dokumentacją po polsku (GPL-3.0). Digipeater nadaje: potrzebuje licencji krótkofalarskiej i uzgodnienia z lokalną siecią APRS. Do odbioru w czasie misji wystarczy iGate.
+  \item Skonfiguruj stacje i sprawdź je z działającym trackerem najpóźniej 2 dni przed startem (formularz F7).
+  \item W dniu startu uruchom stację stacjonarną i stacje mobilne przed tankowaniem. Sprawdź, czy pakiety z trackera pojawiają się w SondeHub i na aprs.fi.
 \end{itemize}
-
-\textbf{Stacja stacjonarna obrotowa.} Antena kierunkowa (Yagi) na rotorze daje większy zasięg, ale trzeba ją kierować na balon. Gotowy projekt: stacja SatNOGS z rotorem~\cite{satnogsbuild} -- wiki opisuje anteny, rotor, SDR, LNA i oprogramowanie (licencja CC BY-SA). Na czas misji zatrzymaj klienta SatNOGS i uruchom na tym samym SDR oprogramowanie z sekcji~\ref{sec:konfiguracja-stacji}.
-
-\textbf{Stacja mobilna}, wariant 1: radiotelefon z dekoderem APRS (np. Yaesu FT5DE) i antena samochodowa VHF/UHF na magnes (np. Nagoya UT-72).
-
-\textbf{Stacja mobilna}, wariant 2: tor z RTL-SDR (rysunek~\ref{fig:tor-mobilny}). Przykład kompletnej stacji z dwoma torami (APRS i \SI{70}{cm}) na Raspberry Pi: B.~Klofas~\cite{klofasmobile} (CC BY 4.0).
-
-\begin{blok}
-\begin{center}\resizebox{\linewidth}{!}{\rysTorMobilny}\end{center}
-\captionof{figure}{Tor odbiorczy stacji mobilnej dla jednego pasma.}\label{fig:tor-mobilny}
-\end{blok}
-
-\begin{itemize}
-  \item \textbf{Antena}: na magnes, na metalowym dachu samochodu (dach działa jak przeciwwaga).
-  \item \textbf{Filtr pasmowy} przed LNA: tłumi silne sygnały spoza pasma (radiofonia FM, telefonia komórkowa, radiotelefony zespołu nadające w samochodzie). Bez filtra LNA i SDR się przesterowują.
-  \item \textbf{LNA} (przedwzmacniacz niskoszumny) blisko anteny, przed długim przewodem. Zasilaj go z RTL-SDR przez przewód (bias-tee) albo osobno.
-  \item \textbf{RTL-SDR} z generatorem TCXO (stabilna częstotliwość) i bias-tee, np. RTL-SDR Blog~V3/V4.
-  \item \textbf{Dwa pasma} (APRS \SI{144.8}{MHz} i RTTY \SI{434}{MHz}): dwa tory z osobnymi SDR i filtrami albo jedna antena dwupasmowa z rozdzielaczem pasm (dupleksérem).
-  \item \textbf{Zasilanie} z gniazda \SI{12}{V} samochodu. Sprawdź, czy przetwornica USB nie zakłóca odbioru.
-\end{itemize}
-
-\begin{wskazowka}[APRS bez dekodera]Tani radiotelefon bez dekodera APRS (np. Baofeng) też wystarczy. Połącz wyjście audio radia z telefonem albo laptopem (kabel audio albo adapter Bluetooth). Dekoduj APRS aplikacją APRSdroid (Android) albo programem Direwolf (laptop).\end{wskazowka}
-
-\foto[0.55\linewidth]{2022_poscig_samochod}{Stacja mobilna w samochodzie pościgowym: laptop z mapą śledzenia, radiotelefon.}
 \end{sekcja}
 
-\begin{sekcja}{Konfiguracja stacji naziemnej}\label{sec:konfiguracja-stacji}
-Skonfiguruj stacje i sprawdź je z działającym trackerem najpóźniej 2 dni przed startem (formularz F7).
+\begin{sekcja}{Śledzenie w trakcie lotu}\label{sec:sledzenie}
+Stacje odbiorcze i ich konfiguracja: sekcje~\ref{sec:stacje} i~\ref{sec:konfiguracja-stacji}. Łączność w zespole: sekcja~\ref{sec:lacznosc-zespol}.
 
-\renewcommand{\arraystretch}{1.3}
-\small
-\begin{tabularx}{\linewidth}{@{}P{26mm}P{36mm}L@{}}
-\toprule
-\textbf{Sygnał} & \textbf{Oprogramowanie} & \textbf{Konfiguracja}\\\midrule
-RTTY \SI{434}{MHz} & horus-gui (Project Horus) albo dl-fldigi & Ustaw SDR na częstotliwość trackera, tryb RTTY (prędkość i bity jak w trackerze). Włącz wysyłanie do SondeHub Amateur ze swoim znakiem i pozycją stacji.\\
-APRS \SI{144.8}{MHz} & Direwolf (laptop), APRSdroid (Android) & Direwolf jako iGate: wpisz znak i hasło APRS-IS, aby przekazywać pakiety do aprs.fi.\\
-Horus Binary (opcjonalnie) & horus-gui & Format Horus Binary trafia bezpośrednio do SondeHub Amateur.\\
-\bottomrule
-\end{tabularx}
-\normalsize
+\begin{itemize}
+  \item Operator śledzenia obserwuje mapę i podaje pozycję kierowcy. Kierowca nie obsługuje śledzenia.
+  \item Po starcie jedź w kierunku przewidywanego miejsca lądowania.
+  \item Aktualizuj predykcję w trakcie lotu na podstawie aktualnej pozycji i prędkości.
+  \item Zapisuj pozycję i wysokość co kilka minut (formularz F12).
+  \item Gdy balon pęknie, przyspiesz -- opadanie trwa krócej niż wznoszenie.
+  \item Przy ziemi sygnał zanika. Zapisz ostatnią pozycję. Użyj lokalizatorów.
+\end{itemize}
 
-\textbf{Stacja SatNOGS:} po misji przywróć klienta SatNOGS.
-
-\textbf{Test:} włącz tracker w odległości co najmniej \SI{100}{m} od stacji. Sprawdź, czy pakiety ze stacji pojawiają się w SondeHub i na aprs.fi pod znakiem stacji.
+\foto[0.7\linewidth]{2022_poscig_samochod}{Operator śledzenia w samochodzie pościgowym.}
 \end{sekcja}
 
-\begin{sekcja}{Łączność w zespole i poszukiwania}
+\begin{sekcja}{Łączność w zespole i poszukiwania}\label{sec:lacznosc-zespol}
 Radiotelefony to podstawa łączności w czasie pościgu (między samochodami) i w terenie, przy szukaniu gondoli. Telefon komórkowy nie zawsze ma zasięg.
 
 \begin{itemize}
