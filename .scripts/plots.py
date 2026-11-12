@@ -137,21 +137,27 @@ def altitude_vs_distance():
     tr22 = read_kml_track(DATA / "2022-02-27_ilawa.kml")
     tr20 = read_kml_track(DATA / "2020-07-20_torun.kml")
     tr23 = read_csv_track(DATA / "2023-05-26_ilawa_aprs.csv")
-    fig, ax = plt.subplots(figsize=(6.3, 2.9))
-    for tr, lab, col, ty in [(tr22, "27.02.2022 Iława (RTTY)", ORANGE, 3),
-                             (tr23, "26.05.2023 Iława (APRS)", GREEN, 24),
-                             (tr20, "20.07.2020 Toruń (rejestrator)", NAVY, 12)]:
+    tr23b = read_csv_track(DATA / "2023-08-09_ilawa_aprs.csv")
+    fig, ax = plt.subplots(figsize=(6.3, 3.0))
+    for tr, lab, col in [(tr20, "20.07.2020 Toruń", NAVY),
+                         (tr22, "27.02.2022 Iława", ORANGE),
+                         (tr23, "26.05.2023 Iława", GREEN),
+                         (tr23b, "09.08.2023 Iława", BLUE)]:
         d = along_track_km(tr)
-        ax.plot(d, tr[:, 2] / 1000, color=col, lw=1.5, label=lab)
         ground = haversine_km(tr[0, 0], tr[0, 1], tr[-1, 0], tr[-1, 1])
-        txt = (f"lądowanie {ground:.0f} km od startu\n(w linii prostej)" if tr[-1, 2] < 2000
-               else "zapis rejestratora kończy się\nna wys. ok. 6 km")
-        ax.annotate(txt, (d[-1], tr[-1, 2] / 1000), xytext=(d[-1] + (25 if col == GREEN else -75), ty),
-                    fontsize=7.5, color=col, arrowprops=dict(arrowstyle="->", color=col))
+        if col == NAVY:
+            end = "zapis kończy się na ok. 6 km"
+        elif col == BLUE:
+            end = f"ostatni pakiet na ok. 1 km, {ground:.0f} km od startu"
+        else:
+            end = f"lądowanie {ground:.0f} km od startu"
+        ax.plot(d, tr[:, 2] / 1000, color=col, lw=1.5, label=f"{lab}: {end}")
+        ax.plot(d[-1], tr[-1, 2] / 1000, "o", color=col, ms=4)
     ax.set_xlabel("droga przebyta nad ziemią [km]")
     ax.set_ylabel("wysokość [km]")
-    ax.set_ylim(0, 38)
-    ax.legend(loc="upper right", fontsize=7.5, frameon=False)
+    ax.set_ylim(0, 36)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2, fontsize=7, frameon=False,
+              handlelength=1.5, columnspacing=1.2)
     fig.savefig(OUT / "profil_dystans.pdf")
     plt.close(fig)
     return tr20, tr22
@@ -173,7 +179,7 @@ def flight_map(tr20, tr22):
     tr23 = read_csv_track(DATA / "2023-05-26_ilawa_aprs.csv")
     ax.plot(tr23[:, 0], tr23[:, 1], color=GREEN, lw=1.8, label="26.05.2023 Iława")
     tr23b = read_csv_track(DATA / "2023-08-09_ilawa_aprs.csv")
-    ax.plot(tr23b[:, 0], tr23b[:, 1], color=BLUE, lw=1.4, ls="--", label="09.08.2023 Iława")
+    ax.plot(tr23b[:, 0], tr23b[:, 1], color=BLUE, lw=1.8, label="09.08.2023 Iława")
     cities = {"Gdańsk": (18.65, 54.35), "Toruń": (18.60, 53.01), "Iława": (19.57, 53.60),
               "Olsztyn": (20.48, 53.78), "Brodnica": (19.40, 53.26),
               "Góra Dylewska": (19.95, 53.56), "Warszawa": (21.01, 52.23)}
@@ -382,6 +388,108 @@ def mission_2023():
           f"{alt[-1]*1000:.0f} m; Tin {np.nanmin(tin):.1f}..{np.nanmax(tin):.1f}, Tex min {np.nanmin(tex):.1f}")
 
 
+def _isa_alt_m(p_hpa):
+    """Altitude [m] in the ISA for pressure p [hPa] (valid 0-47 km)."""
+    p = np.asarray(p_hpa, float) * 100
+    h = np.full(p.shape, np.nan)
+    m = p > 22632.1
+    h[m] = 288.15 / 0.0065 * (1 - (p[m] / 101325) ** (1 / 5.25588))
+    m = (p <= 22632.1) & (p > 5474.89)
+    h[m] = 11000 - 6341.62 * np.log(p[m] / 22632.1)
+    m = (p <= 5474.89) & (p > 868.02)
+    h[m] = 20000 + 216.65 / 0.001 * ((p[m] / 5474.89) ** (-1 / 34.1632) - 1)
+    m = (p <= 868.02) & (p > 110.91)
+    h[m] = 32000 + 228.65 / 0.0028 * ((p[m] / 868.02) ** (-1 / 12.2011) - 1)
+    return h
+
+
+def mission_2020():
+    """Test before BEXUS (20.07.2020): GPS and pressure altitude, temperatures."""
+    import csv
+    from datetime import datetime
+
+    def hours(hms, utc_offset=0):
+        a, b, c = map(int, hms.split(":"))
+        return a + b / 60 + c / 3600 + utc_offset
+    gps = list(csv.DictReader(open(DATA / "2020-07-20_torun_gps.csv")))
+    tg = np.array([hours(r["time_utc"][11:19], 2) for r in gps])
+    ag = np.array([float(r["alt_m"]) for r in gps]) / 1000
+    log = list(csv.DictReader(open(DATA / "2020-07-20_torun_rejestrator.csv")))
+    tl = np.array([hours(r["czas_lokalny"]) for r in log])
+
+    def col(name):
+        return np.array([float(r[name]) if r[name] != "" else np.nan for r in log])
+    ap = _isa_alt_m(col("cisnienie_zewn_hpa")) / 1000
+    fig, ax = plt.subplots(1, 2, figsize=(7.0, 2.7))
+    ax[0].plot(tl, ap, color=GRAY, lw=1, label="z ciśnienia (atm. wzorcowa)")
+    ax[0].plot(tg, ag, color=NAVY, lw=1.4, label="GPS (gondola komunikacyjna)")
+    ax[0].set_xlabel("czas lokalny [h]", fontsize=8)
+    ax[0].set_ylabel("wysokość [km]")
+    ax[0].set_title("Profil lotu", fontsize=9)
+    ax[0].set_xlim(11, 17)
+    ax[0].set_ylim(0, 37)
+    ax[0].legend(fontsize=6.5, frameon=False, loc="upper left")
+    for name, lab, c in (("temp_rtc_c", "wewnątrz (zegar RTC)", ORANGE),
+                         ("temp_wewn_c", "wewnątrz (czujnik wilgotności)", GREEN),
+                         ("temp_zewn_c", "na zewnątrz (czujnik wilgotności)", BLUE),
+                         ("temp_zewn_cisn_c", "na zewnątrz (czujnik ciśnienia)", GRAY)):
+        ax[1].plot(tl, col(name), color=c, lw=0.8, label=lab)
+    ax[1].set_xlabel("czas lokalny [h]", fontsize=8)
+    ax[1].set_ylabel("temperatura [°C]")
+    ax[1].set_title("Temperatury (gondola eksperymentalna)", fontsize=9)
+    ax[1].set_xlim(11, 17)
+    ax[1].legend(fontsize=6, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.27), ncol=2)
+    fig.tight_layout()
+    fig.savefig(OUT / "misja_2020.pdf")
+    plt.close(fig)
+    i = int(np.nanargmax(ag))
+    up = np.where(ag > 0.2)[0][0]
+    print(f"2020: GPS max {ag[i]:.2f} km at {tg[i]:.2f} h; first >200 m {tg[up]:.2f} h; "
+          f"GPS end {tg[-1]:.2f} h {ag[-1]*1000:.0f} m; p-alt max {np.nanmax(ap):.1f} km")
+
+
+def mission_2023_08():
+    """Stormdust (09.08.2023): APRS altitude and vertical speed."""
+    import csv
+    from datetime import datetime
+    rows = list(csv.DictReader(open(DATA / "2023-08-09_ilawa_aprs.csv")))
+    ts = [datetime.strptime(r["time_utc"], "%Y-%m-%dT%H:%M:%SZ") for r in rows]
+    t = np.array([(x - ts[0]).total_seconds() / 60 for x in ts])
+    alt = np.array([float(r["alt_m"]) for r in rows])
+    keep = np.r_[True, np.diff(alt) != 0]   # drop repeated (stale) positions
+    t, alt = t[keep], alt[keep]
+    imax = int(np.argmax(alt))
+    v = np.diff(alt) / np.diff(t * 60)
+    tm = (t[1:] + t[:-1]) / 2
+    fig, ax = plt.subplots(1, 2, figsize=(7.0, 2.6))
+    ax[0].plot(t, alt / 1000, color=BLUE)
+    ax[0].annotate(f"{alt[imax]/1000:.1f} km", (t[imax], alt[imax] / 1000), textcoords="offset points",
+                   xytext=(-42, 0), fontsize=8, color=BLUE)
+    ax[0].set_xlabel("czas od pierwszego pakietu APRS [min]", fontsize=8)
+    ax[0].set_ylabel("wysokość [km]")
+    ax[0].set_title("Profil lotu (APRS)", fontsize=9)
+    ax[1].plot(tm, v, ".-", ms=3, lw=0.8, color=BLUE)
+    ax[1].axhspan(-6, -4, color=GREEN, alpha=0.35, lw=0)
+    ax[1].text(2, -9, "cel przy ziemi ze spadochronem: 4–6 m/s", fontsize=7, color=GREEN, va="top")
+    k = int(np.argmin(v))
+    ax[1].annotate(f"{v[k]:.0f} m/s tuż po\npęknięciu balonu", (tm[k], -60), xytext=(95, -45),
+                   fontsize=7, color=BLUE, arrowprops=dict(arrowstyle="->", color=BLUE))
+    ax[1].set_ylim(-60, 10)
+    ax[1].set_xlabel("czas od pierwszego pakietu APRS [min]", fontsize=8)
+    ax[1].set_ylabel("prędkość pionowa [m/s]")
+    ax[1].set_title("Wznoszenie i opadanie", fontsize=9)
+    fig.tight_layout()
+    fig.savefig(OUT / "misja_2023_08.pdf")
+    plt.close(fig)
+    up = (alt[imax] - alt[0]) / ((t[imax] - t[0]) * 60)
+    dn = (alt[imax] - alt[-1]) / ((t[-1] - t[imax]) * 60)
+    low = alt > 0
+    j = np.where(alt[imax:] < 5300)[0][0] + imax
+    dl = (alt[j] - alt[-1]) / ((t[-1] - t[j]) * 60)
+    print(f"2023-08: max {alt[imax]:.0f} m at {t[imax]:.0f} min; ascent {up:.2f} m/s; "
+          f"descent {dn:.1f} m/s over {t[-1]-t[imax]:.1f} min; below 5.3 km {dl:.1f} m/s; last {alt[-1]:.0f} m")
+
+
 if __name__ == "__main__":
     parachute_table()
     tb, tl = typical_flight()
@@ -390,6 +498,8 @@ if __name__ == "__main__":
     ascent_heuristic()
     mission_2018()
     mission_2023()
+    mission_2020()
+    mission_2023_08()
     full = gas_table()
     print(f"typical flight: burst {tb:.0f} min, landing {tl:.0f} min")
     print(f"50 l cylinder at 200 bar holds {full:.2f} m3 of helium")

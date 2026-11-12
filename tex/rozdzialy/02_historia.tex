@@ -18,10 +18,10 @@ Po każdej misji dopisz wiersz do tabeli~\ref{tab:misje} i nowe wnioski do tabel
 16.04.2016 & Toruń & Gondola ze styroduru, dwa moduły Arduino, odcinacz z drutem oporowym & -- & Pierwszy lot. Lądowanie na drzewie -- gondolę zdjęła straż pożarna podnośnikiem (17.04.2016). & \cite{iac2023,dok2016,fbsimle}\\
 27.09.2017 & Toruń & Układ próbkujący (test sterylności), odcinacz z drutem oporowym (zegar) & ok. 30 km & Balon pękł przed czasem odcięcia. Zawory układu próbkującego się nie otworzyły. Lądowanie na drzewie przy strumieniu (Kotomierz). & \cite{magrian2018,iac2023,fbstardust}\\
 12.05.2018 & Toruń & \textbf{Antares}: układ próbkujący (2 filtry), komórki skóry z grzaniem, licznik Geigera, rzeźba & 24,8 km & Sukces. Lądowanie w Bydgoszczy, gondola odzyskana 5 minut po lądowaniu. & \cite{iac2023,gbsc2018,fbsimle}\\
-20.07.2020 & Toruń & Test układu dla BEXUS, ok. 4 kg, 2 gondole & 33,3 km & Brak odcinacza. Dryf 1,5 h. Lądowanie ok. 90 km od startu (Kawle). & \cite{raport2020,praca2022,fbstardust}\\
+20.07.2020 & Toruń & Test układu dla BEXUS, ok. 4 kg, 2 gondole & 33,3 km & Brak odcinacza. Dryf prawie 2 h. Lądowanie ok. 90 km od startu (Kawle). & \cite{raport2020,praca2022,fbstardust}\\
 27.02.2022 & Iława & Radiosonda z kamerą (lot szkoleniowy) & 33,4 km & Sukces. Lądowanie 51 km od startu, okolice Brodnicy. & \cite{blog2022,pac2024}\\
 26.05.2023 & Iława & \textbf{Test platformy NEXT}: OBC, łączność, odcinacz serwomechaniczny & 33,9 km & Odcinacz nie zadziałał. Lądowanie 23 km od startu. & \cite{blog2023,go2023,infoilawa2023,pac2024}\\
-09.08.2023 & Iława & \textbf{Stormdust}: platforma NEXT + ładunek STORM (przed BEXUS) & -- & Odcinacz nie zadziałał, spadochron się nie otworzył (splątane linki). Ładunek zebrał dane. & \cite{pac2024,storm}\\
+09.08.2023 & Iława & \textbf{Stormdust}: platforma NEXT + ładunek STORM (przed BEXUS) & 33,2 km & Odcinacz nie zadziałał, spadochron się nie otworzył (splątane linki). Ładunek zebrał dane. & \cite{pac2024,storm}\\
 \midrule
 \multicolumn{6}{@{}l}{\footnotesize\itshape Kolejne misje dopisuj poniżej:}\\[3mm]
 \rule{0pt}{6mm} & & & & & \\\hline
@@ -128,7 +128,7 @@ Lot testowy układów eksperymentu Stardust przed lotem na balonie BEXUS~30. Ła
 
 Co się wydarzyło i czego to uczy:
 \begin{itemize}
-  \item \textbf{Brak odcinacza.} Balon nie pękł. Dryfował około 1,5~godziny na wysokości około \SI{33}{km} i wylądował około \SI{90}{km} od miejsca startu, na polu we wsi Kawle~\cite{fbstardust}. Wniosek: każdy lot musi mieć odcinacz.
+  \item \textbf{Brak odcinacza.} Balon nie pękł. Dryfował prawie 2~godziny na wysokości około \SI{33}{km} i wylądował około \SI{90}{km} od miejsca startu, na polu we wsi Kawle~\cite{fbstardust}. Wniosek: każdy lot musi mieć odcinacz.
   \item \textbf{Gaz:} butla z helem miała mniej gazu, niż deklarował dostawca, i balon nie miał siły nośnej. Zespół dotankował \SI{1}{m^3} gazu, a start opóźnił się o około 1,5~godziny~\cite{raport2020}.
   \item \textbf{Łączność:} LoRaWAN (sieć The Things Network) działała przez cały lot. Pakiet z wysokości \SI{32}{km} odebrała stacja w Monachium, \SI{755}{km} od balonu.
   \item \textbf{Śledzenie:} źle zmontowana antena wyłączyła APRS. Ładunek pomógł znaleźć smartfon z funkcją „Znajdź moje urządzenie”.
@@ -137,6 +137,17 @@ Co się wydarzyło i czego to uczy:
 
 \foto[0.8\linewidth]{2020_misja_testowa_kolaz}{Misja testowa z 20.07.2020 w Toruniu. U góry: zamykanie gondoli przed startem i zespół z gondolami i spadochronem po odzyskaniu. Na dole: tankowanie pod folią, start, pościg z laptopem i mapą śledzenia.}
 \end{sekcja}
+
+\begin{podsekcja}{Dane z lotu}
+\begin{center}\includegraphics[width=\linewidth]{misja_2020}\end{center}
+\captionof{figure}{Misja z 20.07.2020: wysokość z GPS gondoli komunikacyjnej i z ciśnienia zewnętrznego (atmosfera wzorcowa) oraz temperatury z rejestratora gondoli eksperymentalnej. Czas lokalny. Dane: \texttt{data/2020-07-20\_torun\_*.csv}.}\label{fig:misja2020}
+\begin{itemize}
+  \item Start około 11:37. Wysokość \SI{32.5}{km} balon osiągnął po około 2 godzinach 40 minutach: wznoszenie średnio \SI{3.3}{m/s}, poniżej minimum \SI{5}{m/s} (rozdział~\ref{ch:planowanie}). Dryf powyżej \SI{32.5}{km} trwał od 14:19 do 16:09, maksymalnie \SI{33.3}{km}. Lądowanie około 16:34.
+  \item Temperatura w gondoli eksperymentalnej: na ziemi, w słońcu, do \SI{51}{\degreeCelsius}; w dryfie 13--\SI{18}{\degreeCelsius}; najniżej około \SI{5}{\degreeCelsius} w czasie opadania.
+  \item Czujniki zewnętrzne doszły w okolicy tropopauzy do granicy zakresu pomiaru (\SI{-40}{\degreeCelsius} i \SI{-50}{\degreeCelsius}). W dryfie pokazywały od \SI{7}{\degreeCelsius} do \SI{56}{\degreeCelsius}, choć powietrze na tej wysokości ma około \SI{-40}{\degreeCelsius}: słońce nagrzewa czujnik. Wniosek: sprawdź zakres czujnika i osłoń czujnik zewnętrzny przed słońcem.
+  \item Ciśnienie w gondoli spadało razem z ciśnieniem na zewnątrz, do \SI{6.5}{hPa}. Gondola styropianowa nie jest szczelna, więc elektronika pracuje prawie w próżni.
+\end{itemize}
+\end{podsekcja}
 
 \clearpage
 \begin{sekcja}{Lot szkoleniowy (27.02.2022)}
@@ -199,20 +210,31 @@ Zespół doszedł do wniosku, że procedury są kluczowe w procesie planowania i
 \dwafoto{2023_stormdust_ladunek_po_ladowaniu}{Ładunek STORM otwarty po lądowaniu (09.08.2023).}{2023_stormdust_odcinacz_po_ladowaniu}{Odcinacz z drutem oporowym na poprzeczce z rury PVC, po lądowaniu (09.08.2023).}
 \end{sekcja}
 
+\begin{podsekcja}{Dane z lotu}
+\begin{center}\includegraphics[width=\linewidth]{misja_2023_08}\end{center}
+\captionof{figure}{Misja z 09.08.2023: wysokość i prędkość pionowa z pakietów APRS trackera SP4EVA-11 (archiwum SondeHub Amateur). Dane: \texttt{data/2023-08-09\_ilawa\_aprs.csv}.}\label{fig:misja2023-08}
+\begin{itemize}
+  \item Pierwszy pakiet o 08:25 czasu lokalnego. Wznoszenie średnio \SI{3.5}{m/s}, poniżej minimum \SI{5}{m/s} (rozdział~\ref{ch:planowanie}). Balon pękł na wysokości \SI{33.2}{km}, około 160 minut po pierwszym pakiecie.
+  \item Tracker APRS z innym modułem GPS podawał pozycję przez cały lot, także powyżej \SI{30}{km}.
+  \item Bez otwartego spadochronu zestaw opadał \SI{32}{km} w 17 minut, średnio około \SI{32}{m/s}. Tuż po pęknięciu balonu prędkość przekroczyła \SI{100}{m/s}, poniżej \SI{5}{km} wynosiła około \SI{16}{m/s} -- trzy razy więcej niż cel 4--\SI{6}{m/s} (sekcja~\ref{sec:spadochron}).
+  \item Ostatni pakiet na wysokości około \SI{1}{km}, \SI{40}{km} od startu (rysunek~\ref{fig:mapa}).
+\end{itemize}
+\end{podsekcja}
+
 \clearpage
 \section{Podsumowanie}
 Od 2015 do 2023 roku zespół podjął osiem prób: jeden start przerwany i siedem lotów. Wszystkie gondole zespół odzyskał. Najczęstszy problem to odcinacz: w 2017 roku nie przeciął linki, w 2020 roku go nie było, a w obu misjach z 2023 roku nie zadziałał. Drugi stały temat to odzyskanie gondoli: drzewo (2016), woda w pobliżu (2017), dryf daleko od startu (2020). Oznakowanie gondoli i niezależne systemy śledzenia skracają poszukiwania (2017, 2018).
 
 \begin{blok}
 \begin{center}\includegraphics[width=\linewidth]{profil_dystans}\end{center}
-\captionof{figure}{Wysokość w funkcji drogi przebytej nad ziemią. Dane z trackera (2022), z pakietów APRS (2023) i z rejestratora pokładowego (2020).}\label{fig:profil-dystans}
+\captionof{figure}{Wysokość w funkcji drogi przebytej nad ziemią. Dane z trackera (2022), z pakietów APRS (2023) i z rejestratora pokładowego (2020). Kropka: ostatni punkt zapisu.}\label{fig:profil-dystans}
 \end{blok}
 
 \begin{blok}
 Rysunek~\ref{fig:mapa} pokazuje trasy lotów z dostępnymi danymi. Przy wietrze z zachodu balon leci na wschód -- w stronę granicy z Rosją (obwód królewiecki) i Białorusią. Predykcja trajektorii jest więc warunkiem każdego startu (rozdział~\ref{ch:planowanie}).
 
 \begin{center}\includegraphics[width=0.92\linewidth]{mapa_lotow}\end{center}
-\captionof{figure}{Trasy lotów z lat 2020--2023 (dla 09.08.2023 tylko pozycje, bez wysokości). Kreskowane obszary: państwa, nad którymi lot i lądowanie są niedopuszczalne.}\label{fig:mapa}
+\captionof{figure}{Trasy lotów z lat 2020--2023. Kreskowane obszary: państwa, nad którymi lot i lądowanie są niedopuszczalne.}\label{fig:mapa}
 \end{blok}
 
 \clearpage
