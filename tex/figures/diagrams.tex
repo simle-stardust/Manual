@@ -18,15 +18,17 @@
 \newcommand{\rysZestaw}{%
 \begin{tikzpicture}[x=1cm,y=1cm,font=\sffamily\scriptsize]
   % powłoka
-  \shade[ball color=white,draw=sdgray] (0,12.3) ellipse (1.2 and 1.35);
-  \draw[sdgray,fill=white] (-0.12,10.98) -- (-0.08,10.75) -- (0.08,10.75) -- (0.12,10.98);
-  \node[lbl,anchor=west] at (2.0,12.3) {\textbf{Powłoka} lateksowa z helem};
-  % krętlik jako „8": górne ucho przez szyjkę, zawias, dolne ucho dla linki odcinacza
-  \draw[thick] (0,10.75) -- (0,10.68);
+  \shade[ball color=white,draw=sdgray] (0,12.9) ellipse (1.2 and 1.35);
+  \draw[sdgray,fill=white] (-0.12,11.58) -- (-0.08,11.35) -- (0.08,11.35) -- (0.12,11.58);
+  \node[lbl,anchor=west] at (2.0,12.9) {\textbf{Powłoka} lateksowa z helem};
+  % słabe ogniwo: od pętli szyjki do górnego ucha krętlika
+  \draw[violet!75!black,line width=1.4pt] (0,11.35) -- (0,10.68);
+  \node[lbl,anchor=west,text=violet!75!black] at (2.0,11.2) {\textbf{Szyjka} zamknięta z pętlą. \textbf{Słabe ogniwo}: odcinek linki,\\który zrywa się poniżej \SI{230}{N} -- jedyna zrywalna linka};
+  % krętlik jako „8": górne ucho na słabym ogniwie, zawias, dolne ucho dla linki odcinacza
   \draw[thick] (0,10.55) circle (0.13);
   \fill[sdnavy] (-0.04,10.36) rectangle (0.04,10.42);
   \draw[thick] (0,10.23) circle (0.13);
-  \node[lbl,anchor=west] at (2.0,10.5) {\textbf{Szyjka} zamknięta z pętlą. \textbf{Krętlik}: górne ucho na pętli\\szyjki, zawias, dolne ucho dla linki odcinacza (bloczek)};
+  \node[lbl,anchor=west] at (2.0,10.4) {\textbf{Krętlik}: górne ucho na słabym ogniwie, zawias,\\dolne ucho dla linki odcinacza (bloczek)};
   % spadochron na środku: zwinięty + obrys otwartego
   \fill[red!75!black] (0,8.4) .. controls (0.2,8.0) and (0.2,7.4) .. (0,7.0) .. controls (-0.2,7.4) and (-0.2,8.0) .. (0,8.4);
   \draw[red!60,densely dashed] (-0.72,7.2) .. controls (-0.68,8.15) and (0.68,8.15) .. (0.72,7.2) -- cycle;
