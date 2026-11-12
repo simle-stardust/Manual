@@ -20,8 +20,24 @@ Gęstość powierzchniowa = masa pakietu [g] / pole najmniejszej ściany pakietu
 \textbf{Zalecenia projektowe:}
 \begin{itemize}
   \item Projektuj zestaw jako balon \textbf{lekki}. Wymagania dla balonu ciężkiego (dwa niezależne systemy zakończenia lotu, transponder, oświetlenie, raportowanie pozycji) są trudne do spełnienia dla zespołu studenckiego.
-  \item Użyj linki, która zrywa się przy sile mniejszej niż \SI{230}{N} -- w praktyce linka o średnicy około \SI{1}{mm}. Sprawdź wytrzymałość w karcie katalogowej albo wykonaj odpowiedni test (np. zerwij próbkę linki, mierząc siłę wagą bagażową). Granica \SI{230}{N} odpowiada w przybliżeniu wstrząsowi paczki \SI{2}{kg} przy przeciążeniu 10\,$g$ (sekcja~\ref{sec:wstrzas}).
+  \item Daj słabe ogniwo między powłoką a spadochronem, które zrywa się przy sile mniejszej niż \SI{230}{N} (sekcja~\ref{sec:slabe-ogniwo}).
   \item Podziel ładunek na pakiety o masie poniżej \SI{2}{kg}.
+\end{itemize}
+\end{sekcja}
+
+\begin{sekcja}{Granica 230 N: słabe ogniwo}\label{sec:slabe-ogniwo}
+Brzmienie wymogu (SERA, Dodatek~2, pkt 1.1 lit.~c pkt~4~\cite{sera}). Balon jest ciężki, jeżeli:
+\begin{quote}\itshape
+„posiada linę lub inne urządzenie do podwieszania ładunku użytecznego, które dla oddzielenia tego ładunku od balonu wymaga siły uderzenia co najmniej 230 N.”
+\end{quote}
+
+Wymóg dotyczy siły, która \textbf{oddziela ładunek od balonu}, a nie każdej linki osobno. Ładunek oddziela się, gdy pęknie najsłabszy element na drodze od powłoki do ładunku. Wniosek:
+\begin{itemize}
+  \item Między powłoką a spadochronem daj \textbf{słabe ogniwo}: jeden odcinek linki, przez który przechodzi całe obciążenie i który zrywa się przy sile mniejszej niż \SI{230}{N}. W czasie wznoszenia słabe ogniwo przenosi tylko ciężar zestawu (dla \SI{4}{kg} około \SI{40}{N}).
+  \item Linki, które pracują obok siebie, sumują się. Dwie linki po \SI{200}{N} obok siebie wymagają około \SI{400}{N} -- to już balon ciężki.
+  \item Linka odcinacza przechodzi przez krętlik jak przez bloczek (sekcja~\ref{sec:odcinacz}). Krętlik wisi wtedy na dwóch odcinkach tej samej linki, a każdy odcinek przenosi połowę siły. Linka odcinacza nie jest więc słabym ogniwem. Daj osobne słabe ogniwo między pętlą szyjki powłoki a krętlikiem.
+  \item Pod spadochronem granica \SI{230}{N} nie obowiązuje: zerwanie słabego ogniwa i tak oddziela spadochron z gondolami od balonu. Olinowanie pod spadochronem musi być \textbf{mocne} (sekcja~\ref{sec:wstrzas}).
+  \item Sprawdź słabe ogniwo testem: zerwij próbkę tej samej linki z tym samym węzłem, mierząc siłę wagą bagażową. Linka musi pęknąć poniżej \SI{230}{N} (około \SI{23}{kg} na wadze).
 \end{itemize}
 \end{sekcja}
 
