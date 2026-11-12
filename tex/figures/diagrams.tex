@@ -262,3 +262,26 @@
   \pasek{9}{16}{17}{Start, odzysk, raport (do T+7 dni)}{red!70}
   \draw[red!70,thick] (16*0.62,0.6) -- (16*0.62,-9.4);
 \end{tikzpicture}}
+
+% Antena ćwierćfalowa z przeciwwagą (ground plane) -- widok z boku.
+\newcommand{\rysAntenaGP}{%
+\begin{tikzpicture}[font=\sffamily\scriptsize,line cap=round,scale=1.2]
+  % przewód koncentryczny od nadajnika
+  \draw[line width=2.2pt,sdgray] (0,2.6) -- (0,0.08);
+  \node[left,align=right] at (-0.15,2.2) {RG174\\do nadajnika (SMA)};
+  % lut oplotu z przeciwwagami
+  \fill[sdorange] (0,0) circle (1.6pt);
+  % przeciwwagi (widać trzy z czterech)
+  \draw[line width=1.6pt,sdnavy] (0,0) -- (-2.6,0);
+  \draw[line width=1.6pt,sdnavy] (0,0) -- (2.6,0);
+  \draw[line width=1.6pt,sdnavy!55] (0,0) -- (1.2,0.45);
+  \node[above,align=center] at (-1.6,0.05) {przeciwwagi: 4 × $L$\\(dwa druty po \SI{350}{mm})};
+  \node[right,align=left] at (0.25,0.75) {oplot zlutowany\\z przeciwwagami};
+  \draw[->,sdgray] (0.25,0.6) -- (0.05,0.08);
+  % element promieniujący
+  \draw[line width=1.6pt,sdorange] (0,0) -- (0,-2.6);
+  \node[right,align=left] at (0.15,-1.4) {żyła środkowa\\(element promieniujący)};
+  % wymiary
+  \draw[|<->|,sdgray] (-0.45,0) -- node[left]{$L$} (-0.45,-2.6);
+  \draw[|<->|,sdgray] (0,-0.35) -- node[below]{$L$} (2.6,-0.35);
+\end{tikzpicture}}
