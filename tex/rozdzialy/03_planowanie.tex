@@ -181,6 +181,7 @@ Wykonaj te testy przed każdą misją, dla platformy i dla każdego ładunku. Za
 \textbf{Test} & \textbf{Jak} & \textbf{Kryterium}\\\midrule
 Funkcjonalny & Wszystkie funkcje na stole, z zasilania bateryjnego. & Wszystko działa.\\
 W zimnie & Według sekcji~\ref{sec:test-zimno}. & Działa, zapisuje dane, odczyty czujników wiarygodne.\\
+W niskim ciśnieniu & Według sekcji~\ref{sec:test-proznia}. & Działa bez restartów, temperatury w granicach kart katalogowych.\\
 Zasięg radia & Tracker z anteną lotną; odbiór z odległości co najmniej \SI{100}{m}, najlepiej kilku km. & Pakiety odebrane, pozycja na mapie.\\
 Odcinacz & Zwolnienie pod pełnym obciążeniem, ze skręconymi linkami, po schłodzeniu. Wyzwalanie tą samą drogą co w locie (komenda albo autotest w programie). Odcinacz z drutem: z docelowym tranzystorem i baterią. & 10 z 10 prób.\\
 Czas pracy & Cały system na bateriach lotnych. & $\geq 2\times$ czas lotu + czas poszukiwań.\\
@@ -207,6 +208,33 @@ Stosuj jedną z dwóch metod:
 Ta sama metoda dotyczy platformy, odcinacza i ładunków. Zapisz w formularzu F5 metodę, temperaturę i czas.
 
 \begin{wskazowka}Zapytaj biologów na Wydziale Chemicznym, czy możesz użyć ich zamrażarki laboratoryjnej do krótkich testów.\end{wskazowka}
+\end{sekcja}
+
+\begin{sekcja}{Test w niskim ciśnieniu}\label{sec:test-proznia}
+Na wysokości \SI{33}{km} ciśnienie wynosi około \SI{7}{hPa}. Gondola styropianowa nie jest szczelna, więc elektronika pracuje prawie w próżni (sekcja~\ref{sec:historia-2020-dane}). Bez powietrza elektronika nie oddaje ciepła przez konwekcję. Wytyczne BEXUS wymagają sprawdzenia, czy układy elektryczne pracują poprawnie bez chłodzenia konwekcyjnego~\cite{bexustech}. Test w zimnie tego nie sprawdza.
+
+Koło ma komorę próżniową. Zespół próbował też zbudować symulator, który odtwarza zmienny profil ciśnienia.
+
+\textbf{Przebieg testu:}
+\begin{enumerate}
+  \item \textbf{Przygotowanie.} System włączony, na bateriach lotnych. Czujniki temperatury na elementach, które się grzeją (procesor, stabilizator napięcia, nadajnik, bateria), i czujnik ciśnienia w komorze. Zapis danych przez cały test.
+  \item \textbf{Wznoszenie.} Obniżaj ciśnienie od ciśnienia otoczenia do 5--\SI{10}{hPa} w czasie wznoszenia (przy \SI{5}{m/s} do \SI{30}{km} około 100 minut). Wzorzec profilu: zapis ciśnienia z poprzedniego lotu, np. \texttt{data/2020-07-20\_torun\_rejestrator.csv}. Gdy komora nie pozwala regulować profilu, odpompuj komorę i obserwuj system w czasie spadku ciśnienia.
+  \item \textbf{Dryf.} Utrzymuj niskie ciśnienie co najmniej przez planowany czas lotu na dużej wysokości (w 2020 roku balon dryfował prawie 2 godziny).
+  \item \textbf{Opadanie.} Napowietrzaj komorę powoli, przez około 30 minut.
+  \item \textbf{Po teście.} Odczytaj dane. Obejrzyj elementy.
+\end{enumerate}
+
+\textbf{Kryterium:} system działa przez cały test bez restartów; temperatury elementów nie przekraczają granic z kart katalogowych; dane są zapisane w całości; po teście nie ma uszkodzeń (np. spuchniętych kondensatorów albo ogniw).
+
+\begin{uwaga}
+\begin{itemize}
+  \item Zacznij od pojedynczych modułów i krótkich prób. Pełny test rób z całym systemem.
+  \item Ogniwa w miękkiej obudowie (LiPo) mogą puchnąć w niskim ciśnieniu. Najpierw sprawdź baterie osobno i obserwuj ogniwa.
+  \item Metalowa komora może tłumić sygnał radiowy. Sprawdzaj pracę systemu w zapisie danych, nie tylko przez odbiór radia.
+  \item Ładunek w szczelnym pojemniku: zapisuj ciśnienie wewnątrz i oblicz przeciek. Przykład takiego testu: zespół CHAOS, BEXUS~\cite{chaosvac}.
+  \item Nie zostawiaj testu bez nadzoru.
+\end{itemize}
+\end{uwaga}
 \end{sekcja}
 
 \begin{sekcja}{Przegląd gotowości do startu}
