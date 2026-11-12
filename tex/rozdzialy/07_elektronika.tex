@@ -181,7 +181,10 @@ Skonfiguruj stacje i sprawdź je z działającym trackerem najpóźniej 2 dni pr
 \textbf{Sygnał} & \textbf{Oprogramowanie} & \textbf{Konfiguracja}\\\midrule
 RTTY \SI{434}{MHz} & horus-gui (Project Horus) albo dl-fldigi & Ustaw SDR na częstotliwość trackera, tryb RTTY (prędkość i bity jak w trackerze). Włącz wysyłanie do SondeHub Amateur ze swoim znakiem i pozycją stacji.\\
 APRS \SI{144.8}{MHz} & Direwolf (laptop), APRSdroid (Android) & Direwolf jako iGate: wpisz znak i hasło APRS-IS, aby przekazywać pakiety do aprs.fi.\\
-Horus Binary (opcjonalnie) & horus-gui & Format Horus Binary trafia bezpośrednio do SondeHub Amateur.\\
+Horus Binary (opcjonalnie) & horus-gui albo webhorus (\www{horus.sondehub.org}) & Format Horus Binary trafia bezpośrednio do SondeHub Amateur.\\
+LoRa APRS (opcjonalnie) & bramka LoRa APRS albo TBTracker-RX & Bramka na module LoRa przekazuje pakiety do APRS-IS~\cite{loraaprs}. Odbiornik przenośny do pościgu: \cite{tbtracker}.\\
+Wenet (opcjonalnie) & webhorus albo dekoder Wenet (Docker) & W webhorus wybierz tryb Wenet i wersję nadajnika. Ustaw częstotliwość i wzmocnienie SDR. Odebrane pakiety trafiają do \www{ssdv.habhub.org}~\cite{wenet}.\\
+SSTV (opcjonalnie) & radio ręczne i Robot36 (Android) & Ustaw radio na częstotliwość nadajnika, telefon przy głośniku.\\
 \bottomrule
 \end{tabularx}
 \normalsize
@@ -199,6 +202,31 @@ Przy ziemi sygnał z trackera zanika: zasłaniają go drzewa, budynki i ukształ
   \item \textbf{Znaczniki Bluetooth: Apple AirTag i znacznik sieci Google (Find Hub)} -- najlepiej dwa niezależne. Smartfony w pobliżu przekazują pozycję znacznika. Gdy ktoś znajdzie gondolę przed zespołem i podejdzie ze smartfonem, zespół zobaczy nową pozycję.
   \item Zapasowo: smartfon z funkcją „Znajdź moje urządzenie” -- w 2020 roku pomógł znaleźć ładunek~\cite{raport2020}.
 \end{itemize}
+\end{sekcja}
+
+\begin{sekcja}{Inne systemy łączności}\label{sec:lacznosc-inne}
+Główny tor radiowy to APRS i RTTY. Te systemy możesz dodać jako drugi, niezależny tor albo jako ładunek do testu. Konfigurację stacji odbiorczych opisuje sekcja~\ref{sec:konfiguracja-stacji}.
+
+\renewcommand{\arraystretch}{1.3}
+\small
+\begin{tabularx}{\linewidth}{@{}P{22mm}P{18mm}L@{}}
+\toprule
+\textbf{System} & \textbf{Pasmo} & \textbf{Zastosowanie i uwagi}\\\midrule
+LoRa APRS & \SI{433}{MHz} & Pozycja i telemetria przez sieć bramek LoRa APRS. Tanie moduły z ESP32, LoRa i GPS (np. LilyGO T-Beam). Przewodnik: \cite{loraaprs}. Wymaga znaku krótkofalarskiego.\\
+Horus Binary & \SI{70}{cm} & Telemetria o dobrej czułości. Pakiety trafiają bezpośrednio do SondeHub Amateur. Przykład trackera na radiosondzie M20: \cite{m20fw}.\\
+Wenet & \SI{70}{cm} & Zdjęcia w wysokiej rozdzielczości w czasie lotu (Raspberry Pi z kamerą). Jedno zdjęcie to kilka minut transmisji. Pakiety ze wszystkich stacji łączą się w obraz w sieci SSDV~\cite{wenet}.\\
+SSTV & \SI{70}{cm} & Zdjęcia o niższej jakości. Odbiór radiem ręcznym i telefonem z aplikacją (np. Robot36) -- dobre na pokazy dla publiczności.\\
+LoRaWAN & \SI{868}{MHz} & Telemetria przez publiczne bramki (np. The Things Network). Pasmo bez licencji. W 2020 roku pakiet z \SI{32}{km} dotarł \SI{755}{km}~\cite{raport2020}.\\
+TinyGS & 433--\SI{915}{MHz} & Otwarta sieć stacji LoRa. Sieć śledzi satelity, ale także balony~\cite{tinygs}.\\
+Meshtastic & \SI{868}{MHz} & Sieć mesh na modułach LoRa. Z balonu daje duży zasięg sieci~\cite{meshtastic}.\\
+OGN & \SI{868}{MHz} & Tracker sieci Open Glider Network. Pozycja jest widoczna w sieci OGN i w aeroklubach. Pasmo bez licencji. Wymaga dobrej anteny~\cite{ogn}.\\
+\bottomrule
+\end{tabularx}
+\normalsize
+
+\begin{uwaga}[Zakłócenia]W północnej Polsce pasmo 437--\SI{439}{MHz} bywa zakłócone przez radar w obwodzie królewieckim. Bywają też zakłócenia GPS. Wybierz częstotliwości poniżej \SI{437}{MHz}. Daj trackerom niezależne moduły GPS~\cite{sp2gryf}.\end{uwaga}
+
+Przykład misji z wieloma torami naraz (Wenet, SSTV, Horus Binary, APRS, LoRa APRS): \cite{sp2gryf}.
 \end{sekcja}
 
 \begin{sekcja}{Zasilanie}

@@ -21,7 +21,7 @@ Po każdej misji dopisz wiersz do tabeli~\ref{tab:misje} i nowe wnioski do tabel
 20.07.2020 & Toruń & Test układu dla BEXUS, ok. 4 kg, 2 gondole & 33,3 km & Brak odcinacza. Dryf prawie 2 h. Lądowanie ok. 90 km od startu (Kawle). & \cite{raport2020,praca2022,fbstardust}\\
 27.02.2022 & Iława & Radiosonda z kamerą (lot szkoleniowy) & 33,4 km & Sukces. Lądowanie 51 km od startu, okolice Brodnicy. & \cite{blog2022,pac2024}\\
 26.05.2023 & Iława & \textbf{Test platformy NEXT}: OBC, łączność, odcinacz serwomechaniczny & 33,9 km & Odcinacz nie zadziałał. Lądowanie 23 km od startu. & \cite{blog2023,go2023,infoilawa2023,pac2024}\\
-09.08.2023 & Iława & \textbf{Stormdust}: platforma NEXT + ładunek STORM (przed BEXUS) & 33,2 km & Odcinacz nie zadziałał, spadochron się nie otworzył (splątane linki). Ładunek zebrał dane. & \cite{pac2024,storm}\\
+09.08.2023 & Iława & \textbf{Stormdust}: platforma NEXT + ładunek STORM (przed BEXUS~34) & 33,2 km & Odcinacz nie zadziałał, spadochron się nie otworzył (splątane linki). Ładunek zebrał dane. & \cite{pac2024,storm}\\
 \midrule
 \multicolumn{6}{@{}l}{\footnotesize\itshape Kolejne misje dopisuj poniżej:}\\[3mm]
 \rule{0pt}{6mm} & & & & & \\\hline
@@ -101,7 +101,7 @@ Trzecia misja zespołu, o nazwie Antares, połączyła cztery organizacje studen
   \item \textbf{licznik Geigera},
   \item \textbf{rzeźba} „Object 01” studentki Akademii Sztuk Pięknych w Gdańsku, na wysięgniku przed kamerą.
 \end{itemize}
-Komputer pokładowy na własnej płytce PCB z STM32L476 zbierał dane z GPS, zegara, czujnika ciśnienia, 9 czujników temperatury DS18B20, czujnika DHT22 i licznika Geigera. Śledzenie: tracker APRS (znak SR0FLY) i smartfon wysyłający pozycję SMS-em. Odcinacz: Arduino Nano z zegarem, tranzystor MOSFET i drut oporowy, w obudowie drukowanej z PLA -- odcięcie po zaprogramowanym czasie.
+Komputer pokładowy na własnej płytce PCB z STM32L476 zbierał dane z GPS, zegara, czujnika ciśnienia, 9 czujników temperatury DS18B20, czujnika DHT22 i licznika Geigera. Śledzenie: tracker APRS (znak \znak{SR0FLY}) i smartfon wysyłający pozycję SMS-em. Odcinacz: Arduino Nano z zegarem, tranzystor MOSFET i drut oporowy, w obudowie drukowanej z PLA -- odcięcie po zaprogramowanym czasie.
 
 Start z Torunia o 10:50, lądowanie w Bydgoszczy o 13:03 (czas lokalny). Zespół odzyskał gondolę około 5 minut po lądowaniu. Przechodzień zadzwonił pod numer telefonu z gondoli i podał dokładny adres -- \textbf{oznakowanie gondoli zadziałało} (rozdział~\ref{ch:prawo}). Zawory otworzyły się na \SI{10.3}{km} w czasie wznoszenia i zamknęły na \SI{18.8}{km} w czasie opadania. Temperatura przy komórkach nie spadła poniżej \SI{20}{\degreeCelsius}. Po locie zespół Antares zgłosił eksperyment medycyny kosmicznej do programu REXUS/BEXUS i przeszedł do kolejnego etapu wyboru: prezentacji przed ekspertami ESA w listopadzie 2018 roku~\cite{fbsimle}.
 
@@ -149,7 +149,7 @@ Co się wydarzyło i czego to uczy:
 
 \clearpage
 \begin{sekcja}{Lot szkoleniowy (27.02.2022)}
-Lot szkoleniowy przenosi doświadczenia z programu BEXUS na nowy zespół. Cel: zbudować zespół na przyszłość projektu, z myślą o kolejnych startach w programach międzynarodowych, i nauczyć go procedur. To pierwszy start zespołu z Iławy. Ładunek: przeprogramowana radiosonda RS41 z kamerą, zamocowaną kawałkiem styroduru i taśmą klejącą. Przykład oprogramowania dla radiosondy RS41: \cite{rs41nfw}. Telemetria RTTY i APRS pod znakiem SR0FLY (SR0FLY-12), użytym za zgodą jego właściciela (rozdział~\ref{ch:prawo}). Film z lotu: \cite{film2022}.
+Lot szkoleniowy przenosi doświadczenia z programu BEXUS na nowy zespół. Cel: zbudować zespół na przyszłość projektu, z myślą o kolejnych startach w programach międzynarodowych, i nauczyć go procedur. To pierwszy start zespołu z Iławy. Ładunek: przeprogramowana radiosonda RS41 z kamerą, zamocowaną kawałkiem styroduru i taśmą klejącą. Przykład oprogramowania dla radiosondy RS41: \cite{rs41nfw}. Telemetria RTTY i APRS pod znakiem \znak{SR0FLY} (\znak[12]{SR0FLY}), użytym za zgodą jego właściciela (rozdział~\ref{ch:prawo}). Film z lotu: \cite{film2022}.
 
 Zespół ćwiczył trzy fazy:
 \begin{enumerate}
@@ -170,7 +170,7 @@ Wynik: pułap \SI{33.4}{km}, lądowanie \SI{51}{km} od startu (rysunki~\ref{fig:
 
 \clearpage
 \begin{sekcja}{Test platformy NEXT (26.05.2023)}
-Pierwsza misja, którą nowy zespół zaprojektował i zbudował samodzielnie. Start z Iławy. Większość zdjęć w tym podręczniku pochodzi z tej misji. Misja miała własny patch -- jest na okładce podręcznika. Testowane systemy: komputer pokładowy (OBC), łączność i namierzanie, olinowanie z odcinaczem mechanicznym, gondola z pudełek styropianowych. Lądowanie w okolicy Góry Dylewskiej~\cite{blog2023}.
+Pierwsza misja, którą nowy zespół zaprojektował i zbudował samodzielnie. Start z Iławy. Większość zdjęć w tym podręczniku pochodzi z tej misji. Misja miała własny patch -- jest na okładce podręcznika. Testowane systemy: komputer pokładowy (OBC), łączność i namierzanie, olinowanie z odcinaczem mechanicznym, gondola z pudełek styropianowych. Lądowanie w okolicy Góry Dylewskiej~\cite{blog2023}. Start około 12:55 czasu lokalnego. Tracker nadawał APRS pod znakiem \znak[11]{SP4EVA} (znak Marcina Jasiukowicza). Pozycję było widać na \www{amateur.sondehub.org}. Na pokładzie leciał też aparat analogowy na kliszę -- zdjęcie z niego jest na okładce podręcznika.
 
 Odcinacz był w gondoli, nie pod balonem. Powód: zespół nie miał doświadczenia z odcinaczem sterowanym zdalnie pod powłoką. Serwo w gondoli miało zwolnić linkę, która trzyma balon.
 
@@ -195,7 +195,7 @@ Odcinacz był w gondoli, nie pod balonem. Powód: zespół nie miał doświadcze
 
 \clearpage
 \begin{sekcja}{Stormdust (09.08.2023)}
-Zespół ponownie zgłosił eksperyment do programu REXUS/BEXUS i dostał się do 34. edycji programu z eksperymentem STORMDUST~\cite{bexus34}. Ta misja to lot przygotowawczy przed drugim lotem zespołu na balonie BEXUS. Lot BEXUS i jego wyniki są opisane osobno~\cite{pac2024}. Start z Iławy. Ładunek STORM zbierał próbki ze stratosfery do badań migracji toksyn~\cite{storm}. To pierwsza misja nowego zespołu bez pomocy starszych członków. Zespół zmniejszył masę komponentów i zastąpił odcinacz serwomechaniczny odcinaczem z drutem oporowym. Trasę lotu pokazuje rysunek~\ref{fig:mapa}.
+Zespół ponownie zgłosił eksperyment do programu REXUS/BEXUS i dostał się do 34. edycji programu z eksperymentem STORMDUST~\cite{bexus34}. Ta misja to lot przygotowawczy przed drugim lotem zespołu na balonie BEXUS. Eksperyment STORMDUST poleciał potem na balonie BEXUS~34: start z Esrange (Szwecja) 04.10.2024, pułap \SI{27.2}{km}~\cite{esabx34}. Wyniki lotu BEXUS są opisane osobno. Start z Iławy. Ładunek STORM zbierał próbki ze stratosfery do badań migracji toksyn~\cite{storm}. To pierwsza misja nowego zespołu bez pomocy starszych członków. Zespół zmniejszył masę komponentów i zastąpił odcinacz serwomechaniczny odcinaczem z drutem oporowym. Trasę lotu pokazuje rysunek~\ref{fig:mapa}.
 
 Po misji zespół spisał, co poszło nie tak:
 \begin{itemize}
@@ -212,7 +212,7 @@ Zespół doszedł do wniosku, że procedury są kluczowe w procesie planowania i
 
 \begin{podsekcja}{Dane z lotu}
 \begin{center}\includegraphics[width=\linewidth]{misja_2023_08}\end{center}
-\captionof{figure}{Misja z 09.08.2023: wysokość, prędkość pionowa i temperatura z czujnika DS18B20 trackera, z pakietów APRS trackera SP4EVA-11 (HABduino z FlexTrack, archiwum SondeHub Amateur). Dane: \texttt{data/2023-08-09\_ilawa\_aprs.csv}.}\label{fig:misja2023-08}
+\captionof{figure}{Misja z 09.08.2023: wysokość, prędkość pionowa i temperatura z czujnika DS18B20 trackera, z pakietów APRS trackera \znak[11]{SP4EVA} (HABduino z FlexTrack, archiwum SondeHub Amateur). Dane: \texttt{data/2023-08-09\_ilawa\_aprs.csv}.}\label{fig:misja2023-08}
 \begin{itemize}
   \item Pierwszy pakiet o 08:25 czasu lokalnego. Wznoszenie średnio \SI{3.5}{m/s}, poniżej minimum \SI{5}{m/s} (rozdział~\ref{ch:planowanie}). Balon pękł na wysokości \SI{33.2}{km}, około 160 minut po pierwszym pakiecie.
   \item Tracker APRS z innym modułem GPS podawał pozycję przez cały lot, także powyżej \SI{30}{km} (6--13 satelitów). W tej misji tracker powyżej \SI{1500}{m} nadawał już bez ścieżki (NOPATH).
