@@ -13,4 +13,4 @@ Kopia instrukcji płytki HABduino (tracker RTTY i APRS dla balonów stratosferyc
 - Licencja: [Creative Commons Uznanie autorstwa – Na tych samych warunkach 3.0](http://creativecommons.org/licenses/by-sa/3.0/) (CC BY-SA 3.0), według README repozytorium HABduino.
 - Plik jest skopiowany bez zmian.
 
-Aktualne oprogramowanie dla HABduino to FlexTrack: <https://github.com/daveake/FlexTrack>.
+Aktualne oprogramowanie dla HABduino to FlexTrack: <https://github.com/daveake/FlexTrack>. Kontynuacją projektu jest Pi In The Sky: <https://www.pi-in-the-sky.com/>.
