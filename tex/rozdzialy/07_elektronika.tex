@@ -22,6 +22,7 @@ HABduino jest \textbf{głównym komputerem bezpieczeństwa}:
   \item steruje odcinaczem głównym (na komendę i automatycznie),
   \item działa niezależnie od OBC i od ładunku.
 \end{itemize}
+
 \end{sekcja}
 
 \begin{sekcja}{Komputer pokładowy (OBC)}
@@ -73,7 +74,10 @@ Dlatego platforma ma \textbf{dwa niezależne odbiorniki GPS} -- w HABduino i w O
   \item Ustaw SSID APRS (zwyczajowo \texttt{-11} dla balonów).
   \item Ustaw identyfikator ładunku RTTY (\emph{payload ID}), taki sam jak w SondeHub.
   \item Ustaw moduł GPS w tryb \emph{airborne} (patrz sekcja „Odbiorniki GPS”).
-  \item Wgraj program. Zapisz wersję (numer commita albo wydania) w karcie misji.
+  \item Ustaw ścieżkę APRS w locie na NOPATH (w FlexTrack: \texttt{APRS\_HIGH\_USE\_WIDE2}~\cite{flextrackpr}). Balon na dużej wysokości jest w zasięgu wielu stacji odbiorczych i nie potrzebuje przekaźników (digipeaterów). Ze ścieżką WIDE2-1 stacje powtarzają każdy pakiet i obciążają sieć APRS, którą krótkofalowcy utrzymują społecznie.
+  \item Ustaw odstęp między pakietami APRS. Nie nadawaj pozycji częściej, niż potrzebujesz.
+  \item Sprawdź ustawienia, które zmieniają się w locie. FlexTrack zmienia ścieżkę dopiero powyżej wysokości \texttt{APRS\_PATH\_ALTITUDE}, więc test na ziemi tego nie sprawdzi. Przeczytaj te ustawienia w kodzie.
+  \item Wgraj program. Zapisz wersję (numer commita albo wydania) i pliki konfiguracyjne w dokumentacji misji, do późniejszej weryfikacji.
 \end{enumerate}
 
 \begin{uwaga}Skonfiguruj tracker i serwisy śledzenia \textbf{najpóźniej 2 dni przed lotem}. Niektóre ustawienia (np. konfiguracja ładunku w SondeHub) potrzebują czasu, aby zadziałały. Dzień przed lotem zostaw na weryfikację, logistykę i obserwację pogody.\end{uwaga}

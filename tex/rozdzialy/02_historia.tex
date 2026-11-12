@@ -180,6 +180,8 @@ Odcinacz był w gondoli, nie pod balonem. Powód: zespół nie miał doświadcze
 
 \textbf{Zabezpieczenie, które zadziałało:} zapas 10--15~m linki odcinacza między krętlikiem a spadochronem. Spadochron miał miejsce na rozwinięcie mimo skręconych linek. Zestaw wylądował bezpiecznie.
 
+\textbf{Łączność APRS:} tracker z oprogramowaniem FlexTrack nadawał z domyślną ścieżką WIDE2-1. Krótkofalowcy zalecają dla balonów ustawienie NOPATH. Kolejne stacje powtarzały każdy pakiet, a tracker często nadawał pozycję. Zespół mocno obciążył sieć APRS, którą krótkofalowcy utrzymują społecznie i bez wynagrodzenia. Na ziemi konfiguracja działała poprawnie: tracker przełącza ścieżkę dopiero powyżej ustawionej wysokości, więc test na ziemi nie wykrył problemu. Domyślne ustawienie w FlexTrack zostało później zmienione~\cite{flextrackpr}. Wniosek: przed lotem sprawdź wszystkie pliki konfiguracyjne, także ustawienia, które zmieniają się w locie (z wysokością albo czasem), i zapisz konfigurację, z którą lecą urządzenia, do późniejszej weryfikacji.
+
 \foto[0.6\linewidth]{2023_zespol_po_odzyskaniu}{Zespół po odzyskaniu zestawu: gondole, spadochron i olinowanie z poprzeczkami (26.05.2023).}
 \end{sekcja}
 
@@ -212,10 +214,11 @@ Zespół doszedł do wniosku, że procedury są kluczowe w procesie planowania i
 
 \begin{podsekcja}{Dane z lotu}
 \begin{center}\includegraphics[width=\linewidth]{misja_2023_08}\end{center}
-\captionof{figure}{Misja z 09.08.2023: wysokość i prędkość pionowa z pakietów APRS trackera SP4EVA-11 (archiwum SondeHub Amateur). Dane: \texttt{data/2023-08-09\_ilawa\_aprs.csv}.}\label{fig:misja2023-08}
+\captionof{figure}{Misja z 09.08.2023: wysokość, prędkość pionowa i temperatura z czujnika DS18B20 trackera, z pakietów APRS trackera SP4EVA-11 (HABduino z FlexTrack, archiwum SondeHub Amateur). Dane: \texttt{data/2023-08-09\_ilawa\_aprs.csv}.}\label{fig:misja2023-08}
 \begin{itemize}
   \item Pierwszy pakiet o 08:25 czasu lokalnego. Wznoszenie średnio \SI{3.5}{m/s}, poniżej minimum \SI{5}{m/s} (rozdział~\ref{ch:planowanie}). Balon pękł na wysokości \SI{33.2}{km}, około 160 minut po pierwszym pakiecie.
-  \item Tracker APRS z innym modułem GPS podawał pozycję przez cały lot, także powyżej \SI{30}{km}.
+  \item Tracker APRS z innym modułem GPS podawał pozycję przez cały lot, także powyżej \SI{30}{km} (6--13 satelitów). W tej misji tracker powyżej \SI{1500}{m} nadawał już bez ścieżki (NOPATH).
+  \item Temperatura trackera w gondoli: \SI{35}{\degreeCelsius} na ziemi, najniżej \SI{16}{\degreeCelsius} w czasie wznoszenia, \SI{22}{\degreeCelsius} przy pęknięciu balonu, \SI{9}{\degreeCelsius} przy ostatnim pakiecie.
   \item Bez otwartego spadochronu zestaw opadał \SI{32}{km} w 17 minut, średnio około \SI{32}{m/s}. Tuż po pęknięciu balonu prędkość przekroczyła \SI{100}{m/s}, poniżej \SI{5}{km} wynosiła około \SI{16}{m/s} -- trzy razy więcej niż cel 4--\SI{6}{m/s} (sekcja~\ref{sec:spadochron}).
   \item Ostatni pakiet na wysokości około \SI{1}{km}, \SI{40}{km} od startu (rysunek~\ref{fig:mapa}).
 \end{itemize}
@@ -280,6 +283,8 @@ Oznakowanie & Oznakuj gondolę przed każdym lotem. Nieoznakowany ładunek może
 Logistyka & Lista rzeczy do zabrania i godzina zapasu na miejscu na testy łączności. Przegapione okno startowe to zwykle skutek pośpiechu. & 2023\\
 Pościg & Nie wjeżdżaj w polne drogi przed lądowaniem. Czekaj w dobrze skomunikowanej miejscowości blisko przewidywanego miejsca lądowania. & 2023\\
 Dokumentacja & Lista ujęć i osoba odpowiedzialna za zdjęcia i film. Kamera w każdym samochodzie. & 2023\\
+Łączność & Ścieżka APRS w locie: NOPATH, nie WIDE2-1. Nie nadawaj pozycji częściej, niż potrzebujesz. Sieć APRS utrzymują społecznie krótkofalowcy. & 2023\\
+Konfiguracja & Przed lotem sprawdź wszystkie pliki konfiguracyjne, także ustawienia zależne od wysokości -- test na ziemi ich nie sprawdzi. Zapisz konfigurację, z którą leci każde urządzenie, do późniejszej weryfikacji. & 2023\\
 % Puste wiersze dopełniają stronę na nowe wnioski.
 \rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline

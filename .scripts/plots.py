@@ -456,12 +456,14 @@ def mission_2023_08():
     ts = [datetime.strptime(r["time_utc"], "%Y-%m-%dT%H:%M:%SZ") for r in rows]
     t = np.array([(x - ts[0]).total_seconds() / 60 for x in ts])
     alt = np.array([float(r["alt_m"]) for r in rows])
+    temp = np.array([float(r["temp_tracker_c"]) for r in rows])
+    t_all = t.copy()
     keep = np.r_[True, np.diff(alt) != 0]   # drop repeated (stale) positions
     t, alt = t[keep], alt[keep]
     imax = int(np.argmax(alt))
     v = np.diff(alt) / np.diff(t * 60)
     tm = (t[1:] + t[:-1]) / 2
-    fig, ax = plt.subplots(1, 2, figsize=(7.0, 2.6))
+    fig, ax = plt.subplots(1, 3, figsize=(7.0, 2.6))
     ax[0].plot(t, alt / 1000, color=BLUE)
     ax[0].annotate(f"{alt[imax]/1000:.1f} km", (t[imax], alt[imax] / 1000), textcoords="offset points",
                    xytext=(-42, 0), fontsize=8, color=BLUE)
@@ -470,14 +472,18 @@ def mission_2023_08():
     ax[0].set_title("Profil lotu (APRS)", fontsize=9)
     ax[1].plot(tm, v, ".-", ms=3, lw=0.8, color=BLUE)
     ax[1].axhspan(-6, -4, color=GREEN, alpha=0.35, lw=0)
-    ax[1].text(2, -9, "cel przy ziemi ze spadochronem: 4–6 m/s", fontsize=7, color=GREEN, va="top")
+    ax[1].text(2, -9, "cel przy ziemi\nze spadochronem:\n4–6 m/s", fontsize=6.5, color=GREEN, va="top")
     k = int(np.argmin(v))
-    ax[1].annotate(f"{v[k]:.0f} m/s tuż po\npęknięciu balonu", (tm[k], -60), xytext=(95, -45),
-                   fontsize=7, color=BLUE, arrowprops=dict(arrowstyle="->", color=BLUE))
+    ax[1].annotate(f"{v[k]:.0f} m/s tuż po\npęknięciu balonu", (tm[k], -60), xytext=(40, -50),
+                   fontsize=6.5, color=BLUE, arrowprops=dict(arrowstyle="->", color=BLUE))
     ax[1].set_ylim(-60, 10)
     ax[1].set_xlabel("czas od pierwszego pakietu APRS [min]", fontsize=8)
     ax[1].set_ylabel("prędkość pionowa [m/s]")
     ax[1].set_title("Wznoszenie i opadanie", fontsize=9)
+    ax[2].plot(t_all, temp, color=ORANGE)
+    ax[2].set_xlabel("czas od pierwszego pakietu APRS [min]", fontsize=8)
+    ax[2].set_ylabel("temperatura [°C]")
+    ax[2].set_title("Temperatura (DS18B20 trackera)", fontsize=9)
     fig.tight_layout()
     fig.savefig(OUT / "misja_2023_08.pdf")
     plt.close(fig)
