@@ -69,6 +69,8 @@ Już wtedy zespół zauważył, że APRS bywa nieodbierany poniżej około \SI{2
 
 \clearpage
 \begin{sekcja}{Pierwsza misja mikrobiologiczna (27.09.2017)}
+Badania mikroorganizmów w stratosferze rozpoczęło Koło Studentów Biotechnologii (KSB) przy Wydziale Chemicznym Politechniki Gdańskiej. SimLE zbudowało dla nich platformę i układ pobierający próbki. Członkowie KSB ustalili wymagania lotu (wysokość \SI{30}{km}, wznoszenie poniżej \SI{10}{m/s}), konsultowali budowę układu i po locie zabezpieczyli filtry~\cite{magrian2018}. Oba koła prowadzą projekt Stardust wspólnie~\cite{pg2021}.
+
 Lot testowy układu pobierającego próbki mikrobiologiczne, opisany w pracy inżynierskiej Szymona Magriana i Karola Pelznera~\cite{magrian2018}. Cel: sprawdzić sterylność układu i wszystkie podzespoły w stratosferze. Gondola ze styroduru z wkładką z plexi, masa \SI{2.6}{kg}, balon Hwoyee \SI{1600}{g}, hel, spadochron okrągły \SI{1}{m}. Start z Torunia o 10:06~UTC, lądowanie o 12:08~UTC.
 
 Co się wydarzyło i czego to uczy:
@@ -81,34 +83,30 @@ Co się wydarzyło i czego to uczy:
   \item \textbf{Spadochron:} średnia prędkość opadania poniżej \SI{2.8}{km} wyniosła \SI{5.45}{m/s} dla \SI{2.6}{kg} i spadochronu \SI{1}{m}.
 \end{itemize}
 
-\foto[0.62\linewidth]{2017_uklad_probkujacy_komora_laminarna}{Montaż pierwszego układu próbkującego w komorze z przepływem laminarnym: filtry strzykawkowe, silikonowe przewody i zawory (2017)~\cite{fbstardust}.}
-
-\dwafoto{2017_tankowanie_torun}{Tankowanie w Toruniu (27.09.2017). Powłoka przykryta folią, butle z helem na plandece, spadochron obok.}{2017_zespol_po_ladowaniu}{Karol Pelzner, Szymon Magrian i Mateusz Grzybowski z gondolą po lądowaniu (27.09.2017).}
+\par\smallskip\noindent
+\begin{minipage}[t]{0.32\linewidth}\centering
+  \includegraphics[width=\linewidth,height=30mm,keepaspectratio]{2017_uklad_probkujacy_komora_laminarna}\captionof{figure}{Montaż układu próbkującego w komorze laminarnej~\cite{fbstardust}.}\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}\centering
+  \includegraphics[width=\linewidth,height=30mm,keepaspectratio]{2017_kamera_pozioma_stratosfera}\captionof{figure}{Kamera pozioma w stratosferze. Część kadru zasłania styrodur~\cite{magrian2018}.}\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}\centering
+  \includegraphics[width=\linewidth,height=30mm,keepaspectratio]{2017_zespol_po_ladowaniu}\captionof{figure}{Karol Pelzner, Szymon Magrian i Mateusz Grzybowski po lądowaniu.}\end{minipage}\par
 \end{sekcja}
 
 \clearpage
 \begin{sekcja}{Antares (12.05.2018)}
 Trzecia misja zespołu, o nazwie Antares, połączyła cztery organizacje studenckie~\cite{gbsc2018}:
 \begin{itemize}
-  \item \textbf{eksperyment mikrobiologiczny} (z kołem naukowym biotechnologii z Gdańska): pompa przetłaczała powietrze przez dwa filtry strzykawkowe \SI{0.22}{\micro m}; dwa zawory na serwomechanizmach otwierały się na określonej wysokości,
+  \item \textbf{eksperyment mikrobiologiczny} (z Kołem Studentów Biotechnologii PG): pompa przetłaczała powietrze przez dwa filtry strzykawkowe \SI{0.22}{\micro m}; dwa zawory na serwomechanizmach otwierały się na określonej wysokości,
   \item \textbf{eksperyment medycyny kosmicznej} (z kołem naukowym medycyny kosmicznej z Zielonej Góry): komórki skóry wystawione na promieniowanie; grzałki oporowe utrzymywały je w 20--\SI{50}{\degreeCelsius},
-  \item \textbf{licznik Geigera} własnej konstrukcji -- temat pracy inżynierskiej Szymona Magriana,
+  \item \textbf{licznik Geigera},
   \item \textbf{rzeźba} „Object 01” studentki Akademii Sztuk Pięknych w Gdańsku, na wysięgniku przed kamerą.
 \end{itemize}
 Komputer pokładowy na własnej płytce PCB z STM32L476 zbierał dane z GPS, zegara, czujnika ciśnienia, 9 czujników temperatury DS18B20, czujnika DHT22 i licznika Geigera. Śledzenie: tracker APRS (znak SR0FLY) i smartfon wysyłający pozycję SMS-em. Odcinacz: Arduino Nano z zegarem, tranzystor MOSFET i drut oporowy, w obudowie drukowanej z PLA -- odcięcie po zaprogramowanym czasie.
 
 Start z Torunia o 10:50, lądowanie w Bydgoszczy o 13:03 (czas lokalny). Zespół odzyskał gondolę około 5 minut po lądowaniu. Przechodzień zadzwonił pod numer telefonu z gondoli i podał dokładny adres -- \textbf{oznakowanie gondoli zadziałało} (rozdział~\ref{ch:prawo}). Zawory otworzyły się na \SI{10.3}{km} w czasie wznoszenia i zamknęły na \SI{18.8}{km} w czasie opadania. Temperatura przy komórkach nie spadła poniżej \SI{20}{\degreeCelsius}. Po locie zespół Antares zgłosił eksperyment medycyny kosmicznej do programu REXUS/BEXUS i przeszedł do kolejnego etapu wyboru: prezentacji przed ekspertami ESA w listopadzie 2018 roku~\cite{fbsimle}.
 
-\dwafoto{2018_start_tankowanie_torun}{Tankowanie przed startem w Toruniu (12.05.2018).}{2018_stanowisko_torun}{Stanowisko startowe w Toruniu (12.05.2018).}
-
-\foto[0.62\linewidth]{2018_przygotowanie_probek_torun}{Przygotowanie próbek do eksperymentu na stanowisku startowym (12.05.2018)~\cite{fbsimle}.}
+\dwafoto{2018_stanowisko_torun}{Stanowisko startowe w Toruniu: tankowanie (12.05.2018).}{2018_rzezba_object01_stratosfera}{„Płetwa” -- rzeźba „Object 01” w stratosferze. Kadr z filmu z misji~\cite{film2018} (12.05.2018).}
 \end{sekcja}
-
-\begin{podsekcja}{Rzeźba w stratosferze}
-Rzeźba „Object 01”, czyli słynna „płetwa”, leciała na wysięgniku przed kamerą. Kamera pokazała ją na tle krzywizny Ziemi (rysunek~\ref{fig:pletwa}). Zmontowany film z misji~\cite{film2018}: \url{https://www.youtube.com/watch?v=Gm_PSd67600}.
-
-\foto[0.78\linewidth]{2018_rzezba_object01_stratosfera}{„Płetwa” -- rzeźba „Object 01” w stratosferze. Kadr z filmu z misji (12.05.2018)~\cite{film2018}.}\label{fig:pletwa}
-\end{podsekcja}
 
 \begin{podsekcja}{Dane z lotu}
 \begin{center}\includegraphics[width=\linewidth]{misja_2018}\end{center}
@@ -124,7 +122,7 @@ Rzeźba „Object 01”, czyli słynna „płetwa”, leciała na wysięgniku pr
 
 \clearpage
 \begin{sekcja}{Test przed BEXUS (20.07.2020)}
-Lot testowy układów eksperymentu Stardust przed lotem na balonie BEXUS~30. Ładunek: około \SI{4}{kg} w dwóch gondolach. Start z Torunia. Raport techniczny z tej misji~\cite{raport2020} jest wzorem raportu po misji (rozdział~\ref{ch:projekt}).
+Z wynikami dotychczasowych badań zespół zgłosił eksperyment Stardust do programu REXUS/BEXUS i dostał się do niego~\cite{blogbexus}. Ta misja to lot testowy układów eksperymentu przed lotem na balonie BEXUS~30. Sam lot BEXUS i jego wyniki opisują dokumentacja eksperymentu (SED)~\cite{sed} i publikacje zespołu~\cite{iac2023,pac2024} -- ten podręcznik ich nie omawia. Ładunek: około \SI{4}{kg} w dwóch gondolach. Start z Torunia. Raport techniczny z tej misji~\cite{raport2020} jest wzorem raportu po misji (rozdział~\ref{ch:projekt}).
 
 Co się wydarzyło i czego to uczy:
 \begin{itemize}
@@ -151,7 +149,7 @@ Co się wydarzyło i czego to uczy:
 
 \clearpage
 \begin{sekcja}{Lot szkoleniowy (27.02.2022)}
-Cel: nauczyć nowy zespół procedur. Ładunek: przeprogramowana radiosonda RS41 z kamerą, zamocowaną kawałkiem styroduru i taśmą klejącą. Przykład oprogramowania dla radiosondy RS41: \cite{rs41nfw}. Telemetria RTTY i APRS pod znakiem SR0FLY (SR0FLY-12), użytym za zgodą jego właściciela (rozdział~\ref{ch:prawo}). Film z lotu: \cite{film2022}.
+Lot szkoleniowy przenosi doświadczenia z programu BEXUS na nowy zespół. Cel: zbudować zespół na przyszłość projektu, z myślą o kolejnych startach w programach międzynarodowych, i nauczyć go procedur. To pierwszy start zespołu z Iławy. Ładunek: przeprogramowana radiosonda RS41 z kamerą, zamocowaną kawałkiem styroduru i taśmą klejącą. Przykład oprogramowania dla radiosondy RS41: \cite{rs41nfw}. Telemetria RTTY i APRS pod znakiem SR0FLY (SR0FLY-12), użytym za zgodą jego właściciela (rozdział~\ref{ch:prawo}). Film z lotu: \cite{film2022}.
 
 Zespół ćwiczył trzy fazy:
 \begin{enumerate}
@@ -160,19 +158,19 @@ Zespół ćwiczył trzy fazy:
   \item śledzenie, pościg samochodem, odzyskanie.
 \end{enumerate}
 
+Wynik: pułap \SI{33.4}{km}, lądowanie \SI{51}{km} od startu (rysunki~\ref{fig:profil-dystans} i~\ref{fig:mapa}).
+
 \begin{wskazowka}Ten format to wzór dla każdej nowej grupy: pierwsza misja ma prosty ładunek i skupia się na procedurach.\end{wskazowka}
 
 \dwafoto{2022_radiosonda_rs41_kamera}{Przeprogramowana radiosonda RS41 z kamerą zamocowaną kawałkiem styroduru i taśmą klejącą (2022).}
 {2022_poscig_samochod}{Pościg: laptop z mapą śledzenia i radiotelefon w samochodzie (27.02.2022).}
-\end{sekcja}
 
-\begin{podsekcja}{Profil lotu}
-\foto[\linewidth]{2022_profil_lotu_2022_google_earth}{Profil misji z 27.02.2022 w Google Earth. Po prawej Zatoka Gdańska.}
-\end{podsekcja}
+\foto[0.85\linewidth]{2022_profil_lotu_2022_google_earth}{Profil misji z 27.02.2022 w Google Earth. Po prawej Zatoka Gdańska.}
+\end{sekcja}
 
 \clearpage
 \begin{sekcja}{Test platformy NEXT (26.05.2023)}
-Pierwsza misja, którą nowy zespół zaprojektował i zbudował samodzielnie. Większość zdjęć w tym podręczniku pochodzi z tej misji. Misja miała własny patch -- jest na okładce podręcznika. Testowane systemy: komputer pokładowy (OBC), łączność i namierzanie, olinowanie z odcinaczem mechanicznym, gondola z pudełek styropianowych. Lądowanie w okolicy Góry Dylewskiej~\cite{blog2023}.
+Pierwsza misja, którą nowy zespół zaprojektował i zbudował samodzielnie. Start z Iławy. Większość zdjęć w tym podręczniku pochodzi z tej misji. Misja miała własny patch -- jest na okładce podręcznika. Testowane systemy: komputer pokładowy (OBC), łączność i namierzanie, olinowanie z odcinaczem mechanicznym, gondola z pudełek styropianowych. Lądowanie w okolicy Góry Dylewskiej~\cite{blog2023}.
 
 Odcinacz był w gondoli, nie pod balonem. Powód: zespół nie miał doświadczenia z odcinaczem sterowanym zdalnie pod powłoką. Serwo w gondoli miało zwolnić linkę, która trzyma balon.
 
@@ -197,7 +195,7 @@ Odcinacz był w gondoli, nie pod balonem. Powód: zespół nie miał doświadcze
 
 \clearpage
 \begin{sekcja}{Stormdust (09.08.2023)}
-Lot przygotowawczy przed drugim lotem zespołu na balonie BEXUS (eksperyment STORMDUST). Start z Iławy. Ładunek STORM zbierał próbki ze stratosfery do badań migracji toksyn~\cite{storm}. To pierwsza misja nowego zespołu bez pomocy starszych członków. Zespół zmniejszył masę komponentów i zastąpił odcinacz serwomechaniczny odcinaczem z drutem oporowym. Trasę lotu pokazuje rysunek~\ref{fig:mapa}.
+Zespół ponownie zgłosił eksperyment do programu REXUS/BEXUS i dostał się do 34. edycji programu z eksperymentem STORMDUST~\cite{bexus34}. Ta misja to lot przygotowawczy przed drugim lotem zespołu na balonie BEXUS. Lot BEXUS i jego wyniki są opisane osobno~\cite{pac2024}. Start z Iławy. Ładunek STORM zbierał próbki ze stratosfery do badań migracji toksyn~\cite{storm}. To pierwsza misja nowego zespołu bez pomocy starszych członków. Zespół zmniejszył masę komponentów i zastąpił odcinacz serwomechaniczny odcinaczem z drutem oporowym. Trasę lotu pokazuje rysunek~\ref{fig:mapa}.
 
 Po misji zespół spisał, co poszło nie tak:
 \begin{itemize}
@@ -229,14 +227,12 @@ Zespół doszedł do wniosku, że procedury są kluczowe w procesie planowania i
 Od 2015 do 2023 roku zespół podjął osiem prób: jeden start przerwany i siedem lotów. Wszystkie gondole zespół odzyskał. Najczęstszy problem to odcinacz: w 2017 roku nie przeciął linki, w 2020 roku go nie było, a w obu misjach z 2023 roku nie zadziałał. Drugi stały temat to odzyskanie gondoli: drzewo (2016), woda w pobliżu (2017), dryf daleko od startu (2020). Oznakowanie gondoli i niezależne systemy śledzenia skracają poszukiwania (2017, 2018).
 
 \begin{blok}
-\begin{center}\includegraphics[width=\linewidth]{profil_dystans}\end{center}
+\begin{center}\includegraphics[width=0.88\linewidth]{profil_dystans}\end{center}
 \captionof{figure}{Wysokość w funkcji drogi przebytej nad ziemią. Dane z trackera (2022), z pakietów APRS (2023) i z rejestratora pokładowego (2020). Kropka: ostatni punkt zapisu.}\label{fig:profil-dystans}
-\end{blok}
 
-\begin{blok}
 Rysunek~\ref{fig:mapa} pokazuje trasy lotów z dostępnymi danymi. Przy wietrze z zachodu balon leci na wschód -- w stronę granicy z Rosją (obwód królewiecki) i Białorusią. Predykcja trajektorii jest więc warunkiem każdego startu (rozdział~\ref{ch:planowanie}).
 
-\begin{center}\includegraphics[width=0.92\linewidth]{mapa_lotow}\end{center}
+\begin{center}\includegraphics[width=0.78\linewidth]{mapa_lotow}\end{center}
 \captionof{figure}{Trasy lotów z lat 2020--2023. Kreskowane obszary: państwa, nad którymi lot i lądowanie są niedopuszczalne.}\label{fig:mapa}
 \end{blok}
 
@@ -286,6 +282,56 @@ Dokumentacja & Lista ujęć i osoba odpowiedzialna za zdjęcia i film. Kamera w 
 Łączność & Ścieżka APRS w locie: NOPATH, nie WIDE2-1. Nie nadawaj pozycji częściej, niż potrzebujesz. Sieć APRS utrzymują społecznie krótkofalowcy. & 2023\\
 Konfiguracja & Przed lotem sprawdź wszystkie pliki konfiguracyjne, także ustawienia zależne od wysokości -- test na ziemi ich nie sprawdzi. Zapisz konfigurację, z którą leci każde urządzenie, do późniejszej weryfikacji. & 2023\\
 % Puste wiersze dopełniają stronę na nowe wnioski.
+% Liczbę pustych wierszy dobierz tak, aby tabela kończyła się na stronie parzystej przed rozdziałem 3.
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
+\rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline
 \rule{0pt}{7mm} & & \\\hline
@@ -312,4 +358,3 @@ Konfiguracja & Przed lotem sprawdź wszystkie pliki konfiguracyjne, także ustaw
 \rule{0pt}{7mm} & & \\\hline
 \caption{Wnioski z poprzednich misji. Puste wiersze na nowe wnioski.}\label{tab:wnioski}
 \end{longtable}
-\notatkinakoniec
