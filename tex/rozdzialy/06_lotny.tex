@@ -110,7 +110,7 @@ Olinowanie to wszystkie linki i taśmy, które łączą powłokę, spadochron i 
 \end{sekcja}
 
 \begin{sekcja}{Odcinacz mechaniczny -- zasada działania}\label{sec:odcinacz}
-Odcinacz kończy lot na komendę albo automatycznie. Odcinacz oddziela gondole ze spadochronem od powłoki.
+Odcinacz kończy lot automatycznie (albo na komendę, jeśli na pokładzie jest odbiornik). Odcinacz oddziela gondole ze spadochronem od powłoki.
 
 Zwalniacz serwomechaniczny jest na płycie montażowej na pokrywie gondoli platformy. \textbf{Zwalniacz trzyma koniec linki, która idzie przez krętlik do balonu} -- nie spadochron. Linki spadochronu są zamocowane na stałe do rogów płyty.
 
@@ -126,7 +126,7 @@ W czasie wznoszenia krętlik pod balonem działa jak bloczek: jeden koniec linki
 \begin{sekcja}{Odcinacz -- wymagania i testy}
 \begin{itemize}
   \item Zwalniacz ładunku sterowany serwem (PWM, zasilanie 5--\SI{7.2}{V}, masa około \SI{76}{g}), np. zwalniacz zrzutu ładunku do dronów.
-  \item Odcinacz działa na komendę z ziemi albo automatycznie: po czasie, po przekroczeniu wysokości, po wyjściu z dozwolonego obszaru, po długim locie poziomym (balon nie pękł).
+  \item Odcinacz działa automatycznie: po czasie, po przekroczeniu wysokości, po wyjściu z dozwolonego obszaru, po długim locie poziomym (balon nie pękł). Komenda z ziemi wymaga odbiornika na pokładzie -- HABduino go nie ma.
   \item Komputer bezpieczeństwa (HABduino) steruje odcinaczem głównym. Komputer pokładowy (OBC) steruje \textbf{drugim, niezależnym odcinaczem innego typu}, np. z drutem oporowym (rozdział~\ref{ch:elektronika}).
   \item \textbf{Odcinacz z drutem oporowym:} sprawdź z docelowym tranzystorem i docelową baterią, czy obwód przepuszcza prąd wystarczający do rozgrzania drutu i przecięcia linki. Powtórz test wiele razy bez awarii, także w teście w zimnie.
   \item \textbf{Test wyzwolenia:} gdy odcinacz nie ma komend radiowych, dedykowany przycisk testowy jest dopuszczalny. Przycisk musi wyzwalać odcinacz tą samą drogą co w locie (autotest w programie), a nie bezpośrednio.
