@@ -38,7 +38,7 @@ Wydane w 10-lecie pierwszych misji Stardust (2016–2026) – na kolejne 10 lat 
 | `tex/figures/generated/` | Wykresy i tabele z danych (`.scripts/plots.py`) |
 | `tex/figures/photos/` | Zmniejszone zdjęcia (`.scripts/photos.py`) |
 | `assets/` | Oryginalne zdjęcia z misji; `assets/logo/` – logotypy SimLE (zasady użycia: księga znaku SimLE) |
-| `data/` | Dane z lotów (KML) |
+| `data/` | Dane z lotów (KML, CSV: pozycje, wysokość, rejestratory pokładowe) |
 | `papers/` | Artykuły konferencyjne, prace dyplomowe i archiwalna dokumentacja projektu (bez danych osobowych) |
 
 ## Budowanie PDF

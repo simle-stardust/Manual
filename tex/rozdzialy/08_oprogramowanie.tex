@@ -28,19 +28,6 @@ Wykonaj najpóźniej \textbf{2 dni przed lotem} (formularz F7):
 \end{enumerate}
 \end{sekcja}
 
-\begin{sekcja}{Śledzenie w trakcie lotu}
-\begin{itemize}
-  \item Operator śledzenia obserwuje mapę i podaje pozycję kierowcy. Kierowca nie obsługuje śledzenia.
-  \item Po starcie jedź w kierunku przewidywanego miejsca lądowania.
-  \item Aktualizuj predykcję w trakcie lotu na podstawie aktualnej pozycji i prędkości.
-  \item Zapisuj pozycję i wysokość co kilka minut (formularz F12).
-  \item Gdy balon pęknie, przyspiesz -- opadanie trwa krócej niż wznoszenie.
-  \item Przy ziemi sygnał zanika. Zapisz ostatnią pozycję. Użyj lokalizatorów.
-\end{itemize}
-
-\foto[0.7\linewidth]{2022_poscig_samochod}{Operator śledzenia w samochodzie pościgowym.}
-\end{sekcja}
-
 \begin{sekcja}{Wersja kodu lotnego}
 Kod lotny (HABduino, OBC, ładunek) i dokumentacja tworzą jedną całość:
 \begin{itemize}
@@ -54,4 +41,24 @@ Gdy po przeglądzie znajdziesz błąd:
   \item \textbf{błąd krytyczny} (zagraża bezpieczeństwu albo celowi misji): popraw kod, powtórz testy i przegląd gotowości albo przełóż lot,
   \item \textbf{błąd niekrytyczny}: nie zmieniaj kodu. Bardziej wartościowe jest zrozumienie, kiedy błąd występuje, i opracowanie procedury obejścia poza kodem -- np. zmiana sekwencji uruchomienia albo kolejności telekomend. Zapisz obejście w formularzach dnia startu i w raporcie.
 \end{itemize}
+\end{sekcja}
+
+\begin{sekcja}{Konfiguracja komputerów bez przeprogramowania}\label{sec:konfiguracja}
+Kod lotny nie zmienia się po przeglądzie gotowości, ale parametry misji tak: wysokość i czas zadziałania odcinacza, granice dozwolonego obszaru, parametry lotu, godzina startu. Zespół musi wpisywać te wartości \textbf{bez przeprogramowania} komputera.
+
+Zespół tworzy własną procedurę obsługi każdego komputera (HABduino, OBC, ładunek). Procedura określa, jak wpisać wartości i kto to robi. Możliwe sposoby:
+\begin{itemize}
+  \item kabel i komendy, które zapisują konfigurację w pamięci trwałej komputera,
+  \item telekomendy -- tylko gdy komputer ma odbiornik,
+  \item karta SD z plikiem konfiguracyjnym, wymieniana przed startem.
+\end{itemize}
+
+\textbf{Zasady:}
+\begin{enumerate}
+  \item Przygotuj konfigurację dla \textbf{każdego scenariusza misji} (np. miejsce startu zasadnicze i zapasowe, opóźniony start). Nadaj każdej konfiguracji nazwę scenariusza i zapisz ją w dokumentacji misji.
+  \item Przetestuj każdą konfigurację przed lotem, tą samą drogą, którą wpiszesz ją w dniu startu.
+  \item Po wpisaniu odczytaj konfigurację z komputera i porównaj z zapisaną. Nie sprawdzaj pliku na laptopie -- sprawdź to, co jest w komputerze.
+  \item Ustawień, które zmieniają się w locie (z wysokością albo czasem), test na ziemi nie sprawdzi. Przeczytaj je w konfiguracji (sekcja~\ref{sec:konfiguracja-trackera}).
+  \item Zapisz w formularzach dnia startu, którą konfigurację wpisano do którego komputera. Zachowaj pliki konfiguracyjne z lotu do późniejszej weryfikacji.
+\end{enumerate}
 \end{sekcja}

@@ -20,8 +20,24 @@ Gęstość powierzchniowa = masa pakietu [g] / pole najmniejszej ściany pakietu
 \textbf{Zalecenia projektowe:}
 \begin{itemize}
   \item Projektuj zestaw jako balon \textbf{lekki}. Wymagania dla balonu ciężkiego (dwa niezależne systemy zakończenia lotu, transponder, oświetlenie, raportowanie pozycji) są trudne do spełnienia dla zespołu studenckiego.
-  \item Użyj linki, która zrywa się przy sile mniejszej niż \SI{230}{N} -- w praktyce linka o średnicy około \SI{1}{mm}. Sprawdź wytrzymałość w karcie katalogowej albo wykonaj odpowiedni test (np. zerwij próbkę linki, mierząc siłę wagą bagażową). Granica \SI{230}{N} odpowiada w przybliżeniu wstrząsowi paczki \SI{2}{kg} przy przeciążeniu 10\,$g$ (sekcja~\ref{sec:wstrzas}).
+  \item Daj słabe ogniwo między powłoką a spadochronem, które zrywa się przy sile mniejszej niż \SI{230}{N} (sekcja~\ref{sec:slabe-ogniwo}).
   \item Podziel ładunek na pakiety o masie poniżej \SI{2}{kg}.
+\end{itemize}
+\end{sekcja}
+
+\begin{sekcja}{Granica 230 N: słabe ogniwo}\label{sec:slabe-ogniwo}
+Brzmienie wymogu (SERA, Dodatek~2, pkt 1.1 lit.~c pkt~4~\cite{sera}). Balon jest ciężki, jeżeli:
+\begin{quote}\itshape
+„posiada linę lub inne urządzenie do podwieszania ładunku użytecznego, które dla oddzielenia tego ładunku od balonu wymaga siły uderzenia co najmniej 230 N.”
+\end{quote}
+
+Wymóg dotyczy siły, która \textbf{oddziela ładunek od balonu}, a nie każdej linki osobno. Ładunek oddziela się od balonu, gdy pęknie najsłabszy element na drodze od powłoki do ładunku. Linki, które pracują obok siebie, sumują się: dwie linki po \SI{200}{N} obok siebie wymagają około \SI{400}{N}.
+
+\textbf{Zalecenie: słabe ogniwo.}
+\begin{itemize}
+  \item Między powłoką a spadochronem daj jeden odcinek linki, przez który przechodzi całe obciążenie i który zrywa się przy sile mniejszej niż \SI{230}{N}.
+  \item Słabe ogniwo nad spadochronem oddziela spadochron z ładunkiem od balonu. Elementy pod spadochronem nie muszą więc być zrywalne -- mają wytrzymać wstrząs otwarcia spadochronu (rozdział~\ref{ch:lotny}).
+  \item Sprawdź słabe ogniwo testem: zerwij próbkę tej samej linki z tym samym węzłem, mierząc siłę wagą bagażową. Linka musi pęknąć poniżej \SI{230}{N} (około \SI{23}{kg} na wadze).
 \end{itemize}
 \end{sekcja}
 
@@ -44,7 +60,7 @@ Lista aktualnych formularzy: \www{www.pansa.pl/asm1/formularze-zgloszeniowe}
 \end{enumerate}
 \end{sekcja}
 
-\begin{sekcja}{Dane w formularzu PAŻP}
+\begin{podsekcja}{Dane w formularzu PAŻP}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabularx}{\linewidth}{@{}P{26mm}L@{}}
 \toprule
@@ -59,6 +75,19 @@ Opis & Krótki opis przedsięwzięcia.\\
 \end{tabularx}
 
 Dane o średnicy, wysokości i prędkości weź z kalkulatora (rozdział~\ref{ch:planowanie}).
+\end{podsekcja}
+
+\begin{sekcja}{Pora startu i loty nocne}\label{sec:pora-startu}
+\textbf{Przepisy.} SERA ogranicza loty nocne tylko dla balonu ciężkiego: poniżej \SI{18000}{m} w nocy balon, jego wyposażenie i ładunek muszą być oświetlone, a urządzenie podwieszenia dłuższe niż \SI{15}{m} -- oznakowane pasami albo proporczykami (Dodatek~2, pkt 3.6 i 3.7)~\cite{sera}. Dla balonu lekkiego SERA nie podaje ograniczeń pory lotu. Start jest dozwolony tylko w oknie czasowym ze zgłoszenia do PAŻP i z NOTAM (czas UTC).
+
+\textbf{Praktyka.} Startuj w dzień. Tankowanie i start są bezpieczniejsze przy świetle dziennym, a gondolę łatwiej znaleźć za dnia.
+\begin{itemize}
+  \item Sprawdź godziny wschodu i zachodu słońca dla miejsca i daty startu.
+  \item \textbf{Najwcześniejszy start}: gdy na stanowisku jest dość światła do tankowania i kontroli.
+  \item \textbf{Najpóźniejszy start}: zachód słońca minus czas lotu (zwykle 2--3 godziny, bez pęknięcia balonu dłużej -- w 2020 roku prawie 5 godzin) minus czas dojazdu i poszukiwań. Zostaw co najmniej 2 godziny dnia na odzyskanie.
+  \item Okno w zgłoszeniu do PAŻP zaplanuj tak, aby obejmowało termin zapasowy (sekcja~\ref{sec:scenariusze}) i nadal kończyło się lądowaniem za dnia.
+  \item Lot nocny to dodatkowe ryzyko: tankowanie przy sztucznym świetle, poszukiwania tylko z radiem i brzęczykiem. Nowym zespołom nie zalecamy lotów nocnych.
+\end{itemize}
 \end{sekcja}
 
 \begin{sekcja}{Licencja radiowa}
@@ -73,7 +102,7 @@ Nadajniki trackera (APRS na \SI{144.8}{MHz}, RTTY na \SI{434}{MHz}) wymagają po
 \begin{wskazowka}Zdobądź licencję w zespole z wyprzedzeniem -- egzamin i wydanie pozwolenia trwają tygodnie.\end{wskazowka}
 \end{sekcja}
 
-\begin{sekcja}{Znak wywoławczy misji}
+\begin{podsekcja}{Znak wywoławczy misji}
 Każda misja nadaje pod znakiem wywoławczym konkretnej osoby albo klubu. Właściciel znaku odpowiada za nadajnik.
 
 Kolejność wyboru znaku:
@@ -84,13 +113,14 @@ Kolejność wyboru znaku:
   \item \textbf{Znak udostępniony przez osobę spoza zespołu} -- tylko za jej wyraźną zgodą.
 \end{enumerate}
 
-\begin{uwaga}[Znak SR0FLY]Znak SR0FLY, używany w misji z 27.02.2022, należy do Macieja Jakimca (Fundacja Copernicus Project, nearspace.pl). Przed każdym użyciem tego znaku \textbf{bezwzględnie} skontaktuj się z nim i poproś o zgodę:\\
+\begin{uwaga}[Znak SR0FLY]Znak \znak{SR0FLY}, używany w misji z 27.02.2022, należy do Macieja Jakimca (Fundacja Copernicus Project, nearspace.pl). Przed każdym użyciem tego znaku \textbf{bezwzględnie} skontaktuj się z nim i poproś o zgodę:\\
 \www{nearspace.pl/pl/cms/o-nas-30.html}\\
 \www{nearspace.pl/pl/contact.html}\end{uwaga}
 
 Zapisz w karcie misji (F0): znak, SSID, właściciela znaku i datę jego zgody.
-\end{sekcja}
+\end{podsekcja}
 
+\clearpage
 \begin{sekcja}{Ubezpieczenie OC}
 Wykup ubezpieczenie odpowiedzialności cywilnej na lot.
 \begin{itemize}
@@ -100,7 +130,7 @@ Wykup ubezpieczenie odpowiedzialności cywilnej na lot.
 \end{itemize}
 \end{sekcja}
 
-\begin{sekcja}{Oznakowanie ładunku}
+\begin{sekcja}{Oznakowanie ładunku}\label{sec:oznakowanie}
 Opisz każdy pakiet. Wystarczy pisać markerem permanentnym bezpośrednio na styropianie.
 \begin{itemize}
   \item \textbf{Numer telefonu -- obowiązkowo.} Osoba, która znajdzie gondolę, musi móc zadzwonić.

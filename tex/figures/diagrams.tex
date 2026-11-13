@@ -18,15 +18,17 @@
 \newcommand{\rysZestaw}{%
 \begin{tikzpicture}[x=1cm,y=1cm,font=\sffamily\scriptsize]
   % powłoka
-  \shade[ball color=white,draw=sdgray] (0,12.3) ellipse (1.2 and 1.35);
-  \draw[sdgray,fill=white] (-0.12,10.98) -- (-0.08,10.75) -- (0.08,10.75) -- (0.12,10.98);
-  \node[lbl,anchor=west] at (2.0,12.3) {\textbf{Powłoka} lateksowa z helem};
-  % krętlik jako „8": górne ucho przez szyjkę, zawias, dolne ucho dla linki odcinacza
-  \draw[thick] (0,10.75) -- (0,10.68);
+  \shade[ball color=white,draw=sdgray] (0,12.9) ellipse (1.2 and 1.35);
+  \draw[sdgray,fill=white] (-0.12,11.58) -- (-0.08,11.35) -- (0.08,11.35) -- (0.12,11.58);
+  \node[lbl,anchor=west] at (2.0,12.9) {\textbf{Powłoka} lateksowa z helem};
+  % słabe ogniwo: od pętli szyjki do górnego ucha krętlika
+  \draw[violet!75!black,line width=1.4pt] (0,11.35) -- (0,10.68);
+  \node[lbl,anchor=west,text=violet!75!black] at (2.0,11.2) {\textbf{Szyjka} zamknięta z pętlą. \textbf{Słabe ogniwo}: odcinek linki,\\który zrywa się poniżej \SI{230}{N} -- jedyna zrywalna linka};
+  % krętlik jako „8": górne ucho na słabym ogniwie, zawias, dolne ucho dla linki odcinacza
   \draw[thick] (0,10.55) circle (0.13);
   \fill[sdnavy] (-0.04,10.36) rectangle (0.04,10.42);
   \draw[thick] (0,10.23) circle (0.13);
-  \node[lbl,anchor=west] at (2.0,10.5) {\textbf{Szyjka} zamknięta z pętlą. \textbf{Krętlik}: górne ucho na pętli\\szyjki, zawias, dolne ucho dla linki odcinacza (bloczek)};
+  \node[lbl,anchor=west] at (2.0,10.4) {\textbf{Krętlik}: górne ucho na słabym ogniwie, zawias,\\dolne ucho dla linki odcinacza (bloczek)};
   % spadochron na środku: zwinięty + obrys otwartego
   \fill[red!75!black] (0,8.4) .. controls (0.2,8.0) and (0.2,7.4) .. (0,7.0) .. controls (-0.2,7.4) and (-0.2,8.0) .. (0,8.4);
   \draw[red!60,densely dashed] (-0.72,7.2) .. controls (-0.68,8.15) and (0.68,8.15) .. (0.72,7.2) -- cycle;
@@ -261,4 +263,44 @@
   \pasek{8}{15.75}{16}{Weryfikacja, logistyka (T$-$1)}{sdorange!60}
   \pasek{9}{16}{17}{Start, odzysk, raport (do T+7 dni)}{red!70}
   \draw[red!70,thick] (16*0.62,0.6) -- (16*0.62,-9.4);
+\end{tikzpicture}}
+
+% Antena ćwierćfalowa z przeciwwagą (ground plane) -- widok z boku.
+\newcommand{\rysAntenaGP}{%
+\begin{tikzpicture}[font=\sffamily\scriptsize,line cap=round,scale=1.2]
+  % przewód koncentryczny od nadajnika
+  \draw[line width=2.2pt,sdgray] (0,2.6) -- (0,0.08);
+  \node[left,align=right] at (-0.15,2.2) {RG174\\do nadajnika (SMA)};
+  % lut oplotu z przeciwwagami
+  \fill[sdorange] (0,0) circle (1.6pt);
+  % przeciwwagi (widać trzy z czterech)
+  \draw[line width=1.6pt,sdnavy] (0,0) -- (-2.6,0);
+  \draw[line width=1.6pt,sdnavy] (0,0) -- (2.6,0);
+  \draw[line width=1.6pt,sdnavy!55] (0,0) -- (1.2,0.45);
+  \node[above,align=center] at (-1.6,0.05) {przeciwwagi: 4 × $L$\\(dwa druty po \SI{350}{mm})};
+  \node[right,align=left] at (0.25,0.75) {oplot zlutowany\\z przeciwwagami};
+  \draw[->,sdgray] (0.25,0.6) -- (0.05,0.08);
+  % element promieniujący
+  \draw[line width=1.6pt,sdorange] (0,0) -- (0,-2.6);
+  \node[right,align=left] at (0.15,-1.4) {żyła środkowa\\(element promieniujący)};
+  % wymiary
+  \draw[|<->|,sdgray] (-0.45,0) -- node[left]{$L$} (-0.45,-2.6);
+  \draw[|<->|,sdgray] (0,-0.35) -- node[below]{$L$} (2.6,-0.35);
+\end{tikzpicture}}
+
+% Tor odbiorczy stacji mobilnej (jeden tor na jedno pasmo).
+\newcommand{\rysTorMobilny}{%
+\begin{tikzpicture}[node distance=4mm,font=\sffamily\scriptsize]
+  \node[box,minimum width=18mm] (ant) {Antena\\na magnes\\(dach)};
+  \node[box,right=of ant,minimum width=16mm] (flt) {Filtr\\pasmowy};
+  \node[box,right=of flt,minimum width=16mm] (lna) {LNA};
+  \node[box,right=of lna,minimum width=18mm] (sdr) {RTL-SDR\\(TCXO,\\bias-tee)};
+  \node[box,right=6mm of sdr,minimum width=26mm] (pc) {Laptop / Raspberry Pi\\horus-gui, Direwolf,\\chasemapper};
+  \node[box,right=6mm of pc,minimum width=20mm,fill=sdlight] (net) {LTE $\to$\\SondeHub,\\APRS-IS};
+  \draw[net] (ant) -- (flt);
+  \draw[net] (flt) -- (lna);
+  \draw[net] (lna) -- (sdr);
+  \draw[net] (sdr) -- node[above,lblc]{USB} (pc);
+  \draw[net] (pc) -- (net);
+  \draw[sdorange,->,thick] (sdr.south) -- ++(0,-4mm) -| node[pos=0.25,below,lblc,text=sdorange]{zasilanie LNA przez przewód (bias-tee)} (lna.south);
 \end{tikzpicture}}

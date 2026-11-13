@@ -9,7 +9,7 @@ Rysunek~\ref{fig:stanowisko} pokazuje warstwy stanowiska. Powłoka leży \textbf
 \captionof{figure}{Przekrój stanowiska startowego (grubość warstw przesadzona).}\label{fig:stanowisko}
 \end{sekcja}
 
-\begin{sekcja}{Warstwy stanowiska}
+\begin{podsekcja}{Warstwy stanowiska}
 \begin{enumerate}
   \item \textbf{Plandeka} -- na sam dół. Chroni przed wilgocią z ziemi. Jest ważna przy starcie rano, gdy trawa jest mokra.
   \item \textbf{Koc} -- chroni powłokę przed przebiciem przez korzenie i odrosty. Gruby koc działa lepiej niż cienki.
@@ -21,16 +21,16 @@ Rysunek~\ref{fig:stanowisko} pokazuje warstwy stanowiska. Powłoka leży \textbf
 \begin{uwaga}Dociśnij rogi plandeki, koca i folii czymś ciężkim, np. skrzynkami transportowymi. Porywy wiatru mogą porwać folię razem z powłoką.\end{uwaga}
 
 \begin{wskazowka}Folię, plandekę i koce kupisz w markecie budowlanym. Kup oba rodzaje folii, aby mieć wybór. Kup wszystko na jeden rachunek razem z zamówieniem gazu -- upraszcza to rozliczenie.\end{wskazowka}
-\end{sekcja}
 
-\begin{sekcja}{Stanowisko na zdjęciach}
 \dwafoto{2023_stanowisko_rozlozone}{Rozłożona plandeka i sprzęt przed tankowaniem.}
 {2023_powloka_miedzy_foliami}{Powłoka na folii dolnej; pomocnicy przykrywają ją folią górną.}
 \dwafoto{2022_stanowisko_zabezpieczone}{Rogi folii dociśnięte skrzynkami transportowymi.}
 {2023_balon_po_tankowaniu}{Zatankowana powłoka trzymana folią górną do chwili startu.}
-\end{sekcja}
+\end{podsekcja}
 
 \begin{sekcja}{Sprzęt do tankowania}
+Procedury i wzory w tym rozdziale dotyczą helu (wybór gazu: sekcja~\ref{sec:hel-wodor}).
+
 \begin{itemize}
   \item butla z helem (zwykle \SI{50}{l}, \SI{200}{bar}) i reduktor z dwoma manometrami,
   \item wąż i rura do tankowania (najlepiej z zaworem zwrotnym),
@@ -54,6 +54,8 @@ Rysunek~\ref{fig:stanowisko} pokazuje warstwy stanowiska. Powłoka leży \textbf
   \item Nie otwieraj zaworu bez zamontowanego reduktora.
   \item Przed misją obejrzyj wąż, reduktor i uszczelki. Nie zginaj węża na ostro -- zagięcie osłabia go niewidocznie.
 \end{itemize}\end{uwaga}
+
+\begin{uwaga}[Transport butli]Przewóz butli z gazem sprężonym podlega przepisom o przewozie towarów niebezpiecznych (ADR) i może wymagać uprawnień. Jeżeli procedury zakupowe na to pozwalają, kup albo wypożycz butlę u dostawcy blisko miejsca startu i odbierz ją na miejscu.\end{uwaga}
 \end{sekcja}
 
 \begin{sekcja}{Przygotowanie reduktora}
@@ -77,7 +79,11 @@ Reduktor ma dwa manometry:
 {2022_regulator_manometry}{Manometry reduktora: górny -- ciśnienie w butli [bar], dolny -- przepływ [l/min], skalowany dla argonu i CO$_2$.}
 \end{sekcja}
 
-\begin{sekcja}{Ilość gazu z ciśnienia w butli}\label{sec:gaz-wzor}
+\begin{sekcja}{Ilość gazu}
+Ilość gazu w powłoce sprawdzasz trzema metodami. \textbf{Podstawowa jest metoda z obciążnikiem} -- o końcu tankowania decyduje siła nośna. Obliczenia z ciśnienia w butli i z przepływu służą do kontroli i do oceny, ile gazu zostało w butli.
+\end{sekcja}
+
+\begin{podsekcja}{Z ciśnienia w butli}\label{sec:gaz-wzor}
 Manometr wysokiego ciśnienia pokazuje ciśnienie w butli. Ze spadku ciśnienia obliczysz, ile gazu poszło do powłoki. Wzór wynika z równania stanu gazu z poprawką na ściśliwość helu~\cite{nist}, \cite[rozdz.~6]{nasahb}:
 \[
   V \;=\; \frac{V_b\,T_0}{p_0}\left(\frac{p_1}{Z(p_1)\,T_1} - \frac{p_2}{Z(p_2)\,T_2}\right),
@@ -94,9 +100,7 @@ gdzie:
 \end{itemize}
 
 Siła nośna helu przy ziemi to około \SI{1.05}{kg} na każdy \si{m^3}. Siła nośna szyjki = $V \cdot 1{,}05$~kg $-$ masa powłoki.
-\end{sekcja}
 
-\begin{sekcja}{Tabela gazu}
 \small
 \begin{tabularx}{\linewidth}{@{}YYYYY@{}}
 \toprule
@@ -107,12 +111,12 @@ Siła nośna helu przy ziemi to około \SI{1.05}{kg} na każdy \si{m^3}. Siła n
 \normalsize
 \captionof{table}{Hel wypuszczony z butli napełnionej do \SI{200}{bar}, w temperaturze \SI{15}{\degreeCelsius}. Pełna butla \SI{50}{l} zawiera około \SI{9}{m^3} helu. Reguła: z butli \SI{50}{l} każde \SI{10}{bar} spadku to około 0,4--0,5~m³ helu.}\label{tab:gaz}
 
-\begin{uwaga}Przy szybkim wypływie butla się ochładza i manometr pokazuje za niskie ciśnienie. Przed odczytem $p_2$ zamknij zawór i odczekaj kilka minut, aż temperatura się wyrówna.\end{uwaga}
+\begin{uwaga}Przy szybkim wypływie butla się ochładza i manometr pokazuje za niskie ciśnienie. Odczytaj $p_2$ dopiero po zamknięciu powłoki: zawór butli jest wtedy zamknięty od kilku minut i temperatura się wyrównuje.\end{uwaga}
 
 Hel balonowy („balloon gas”) bywa mieszaniną helu z powietrzem. Ma mniejszą siłę nośną. Zamów hel techniczny o czystości podanej przez dostawcę i zapisz ją w karcie misji.
-\end{sekcja}
+\end{podsekcja}
 
-\begin{sekcja}{Pomiar temperatury butli}\label{sec:temp-butli}
+\begin{podsekcja}{Pomiar temperatury butli}\label{sec:temp-butli}
 Termometr mierzy temperaturę \textbf{ścianki} butli, nie gazu. Ścianka i gaz mają tę samą temperaturę tylko w równowadze: butla stoi długo w stałej temperaturze, w cieniu, a gaz nie płynie~\cite[rozdz.~6]{nasahb}. W czasie wypływu gaz w butli się ochładza, a słońce nagrzewa ściankę -- pomiar jest wtedy fałszywy.
 
 \textbf{Przygotowanie:} od przyjazdu trzymaj butlę w cieniu (albo przykrytą jasnym materiałem). Naklej na butlę, na wysokości połowy, kawałek \textbf{czarnej matowej taśmy izolacyjnej PVC} (około 5$\times$\SI{5}{cm}). Taśma ma znaną emisyjność $\varepsilon \approx 0{,}95$. Naklej ją kilka minut przed pomiarem, aby przyjęła temperaturę butli.
@@ -129,25 +133,10 @@ Termometr mierzy temperaturę \textbf{ścianki} butli, nie gazu. Ścianka i gaz 
 
 \textbf{Termometr pogodowy} -- temperatura powietrza w cieniu. Gdy butla stała kilka godzin na zewnątrz w cieniu, jej temperatura jest bliska temperaturze powietrza. Duża różnica oznacza błąd pomiaru albo butlę nagrzaną w samochodzie.
 
-\textbf{Kiedy mierzyć:} $T_1$ -- przed otwarciem reduktora, razem z $p_1$. $T_2$ -- po zamknięciu zaworu i odczekaniu kilku minut, razem z $p_2$. Zapisz obie wartości i temperaturę powietrza w formularzu F10.
-\end{sekcja}
+\textbf{Kiedy mierzyć:} $T_1$ -- przed otwarciem reduktora, razem z $p_1$. $T_2$ -- po zamknięciu powłoki, gdy temperatura butli się wyrówna, razem z $p_2$. Zapisz obie wartości i temperaturę powietrza w formularzu F10.
+\end{podsekcja}
 
-\begin{sekcja}{Hel czy wodór}
-Platforma Stardust NEXT używa \textbf{helu}. Hel drożeje i bywa trudno dostępny, dlatego część zespołów balonowych przechodzi na wodór~\cite[rozdz.~2]{nasahb}. Wodór daje około \SI{10}{\percent} więcej siły nośnej, ale jest palny i wymaga dodatkowego szkolenia.
-
-\begin{uwaga}Nowym zespołom nie zalecamy wodoru. Jeśli zespół mimo to wybierze wodór, stosuj zasady z rozdziału~6 podręcznika NASA~\cite{nasahb}:
-\begin{itemize}
-  \item żadnego ognia, iskier ani testów elektroniki przy butli i przy powłoce; silniki samochodów wyłączone,
-  \item uziem butlę i sprzęt, zanim wypuścisz gaz,
-  \item odzież z bawełny, nie z tworzyw sztucznych,
-  \item przed tankowaniem wyznacz strefę zagrożenia: owal wzdłuż wiatru, balon przy jego nawietrznym końcu. Uciekaj pod wiatr, gdy stoisz po nawietrznej; z innych miejsc -- w poprzek wiatru. Nigdy nie przechodź przez oś owalu,
-  \item płomień wodoru jest niewidoczny. Ktoś z zewnątrz strefy obserwuje stanowisko i ostrzega,
-  \item resztki powłoki po locie mogą zawierać kieszenie gazu -- nie zostawiaj ich bez nadzoru.
-\end{itemize}
-Wzór i tabela gazu w tym rozdziale dotyczą tylko helu.\end{uwaga}
-\end{sekcja}
-
-\begin{sekcja}{Ilość gazu z przepływu i czasu}
+\begin{podsekcja}{Z przepływu i czasu}
 Operator butli może szacować ilość gazu na bieżąco: ustaw \textbf{stały przepływ} na wskaźniku przepływu i mierz czas.
 
 Wskaźnik przepływu jest skalowany dla argonu. Hel jest około 10 razy lżejszy, więc rzeczywisty przepływ helu jest około \textbf{3 razy większy} niż wskazanie ($\sqrt{40/4} \approx 3{,}2$).
@@ -171,10 +160,9 @@ Przykład: przy wskazaniu \SI{30}{l/min} tankowanie trwa około \textbf{10 minut
 \normalsize
 
 To zgrubne oszacowanie: wskazanie zależy od reduktora i od ciśnienia za nim. Co kilka minut porównuj je ze spadkiem ciśnienia w butli (tabela~\ref{tab:gaz}). O końcu tankowania decyduje metoda z obciążnikiem.
-\end{sekcja}
+\end{podsekcja}
 
-\begin{sekcja}{Metoda z obciążnikiem}
-Metoda z obciążnikiem to podstawowa metoda tankowania. Wzory służą do kontroli i do oceny, ile gazu zostało w butli.
+\begin{podsekcja}{Metoda z obciążnikiem}
 \begin{enumerate}
   \item Odczytaj z kalkulatora siłę nośną szyjki (\emph{neck lift}).
   \item Przygotuj obciążnik o masie równej \textbf{sile nośnej szyjki z kalkulatora} (worek z piaskiem, plecak, odważniki). Uwzględnij masę rury do tankowania i taśmy, jeśli wiszą razem z obciążnikiem. Zważ obciążnik wagą bagażową.
@@ -186,10 +174,11 @@ Metoda z obciążnikiem to podstawowa metoda tankowania. Wzory służą do kontr
 
 \begin{center}\resizebox{\linewidth}{!}{\rysTankowanie}\end{center}
 \captionof{figure}{Tankowanie metodą z obciążnikiem.}
-\end{sekcja}
+\end{podsekcja}
 
 \begin{sekcja}{Procedura tankowania}
 \begin{enumerate}
+  \item Przygotuj zestaw do tankowania: przykręć reduktor do butli (pokrętło reduktora zamknięte), podłącz rurę do tankowania, przygotuj pirometr. Otwórz zawór butli, odczytaj $p_1$ i zmierz temperaturę butli $T_1$ (sekcje~\ref{sec:gaz-wzor} i~\ref{sec:temp-butli}). Zważ obciążnik. Zapisz wartości w formularzu F10.
   \item Wszyscy przy powłoce zakładają rękawiczki.
   \item Wyjmij powłokę z opakowania na folii dolnej. Rozłóż ją bez naciągania.
   \item Włóż rurę do tankowania w szyjkę powłoki. Owiń szyjkę dookoła rury i przytrzymaj ręką.
@@ -197,9 +186,8 @@ Metoda z obciążnikiem to podstawowa metoda tankowania. Wzory służą do kontr
   \item Przykryj powłokę folią górną. Pomocnicy trzymają brzegi folii.
   \item Otwórz zawór butli i powoli otwieraj reduktor. Ustaw stały przepływ. Zapisz godzinę.
   \item Obserwuj manometr wysokiego ciśnienia. Zapisuj odczyty (formularz F10). Porównuj z tabelą~\ref{tab:gaz} i z czasem tankowania.
-  \item Gdy balon uniesie obciążnik, zamknij zawór butli. Sprawdź siłę nośną jeszcze raz po minucie.
-  \item Po kilku minutach odczytaj $p_2$ i zmierz temperaturę butli $T_2$ (formularz F10).
-  \item Zamknij powłokę (sekcja~\ref{sec:szyjka}).
+  \item Gdy balon uniesie obciążnik, zamknij zawór butli i \textbf{od razu} zamknij powłokę (sekcja~\ref{sec:szyjka}). Nie czekaj: szyjka na rurze nie jest szczelna i każda minuta to utrata gazu.
+  \item Po zamknięciu powłoki odczytaj $p_2$ i zmierz temperaturę butli $T_2$ (formularz F10). Te wartości potwierdzają, ile gazu zużyto.
 \end{enumerate}
 
 \dwafoto{2023_tankowanie_rura}{Tankowanie: szyjka owinięta dookoła rury i przytrzymana ręką. Pętla olinowania z krętlikiem gotowa. Taśma w gotowości na plandece.}
@@ -224,41 +212,33 @@ Zamknięcie musi być \textbf{szczelne}. Szczelności nie da się łatwo sprawdz
 \begin{uwaga}Nie przyklejaj taśmy do powłoki. Taśma odklejana od powłoki może ją przerwać. Taśma ma dotykać tylko szyjki.\end{uwaga}
 \end{sekcja}
 
-\begin{sekcja}{Stacje odbiorcze}
-Używaj co najmniej dwóch stacji odbiorczych: stacjonarnej i mobilnej. Nie polegaj tylko na sieci innych nasłuchowców. Schemat toru radiowego: rozdział~\ref{ch:elektronika}.
-
-\textbf{Stacja stacjonarna:} antena kierunkowa albo dookólna na wysokim maszcie, odbiornik SDR i komputer z internetem. Stacja wysyła odebrane pakiety do SondeHub i APRS-IS.
-
-\textbf{Stacja mobilna}, wariant 1: radiotelefon z dekoderem APRS (np. Yaesu FT5DE) i antena samochodowa VHF/UHF na magnes (np. Nagoya UT-72).
-
-\textbf{Stacja mobilna}, wariant 2: odbiornik RTL-SDR, przedwzmacniacz niskoszumny (LNA), filtry pasmowe, laptop z oprogramowaniem dekodującym.
-
-\begin{wskazowka}[APRS bez dekodera]Tani radiotelefon bez dekodera APRS (np. Baofeng) też wystarczy. Połącz wyjście audio radia z telefonem albo laptopem (kabel audio albo adapter Bluetooth). Dekoduj APRS aplikacją APRSdroid (Android) albo programem Direwolf (laptop).\end{wskazowka}
-
-\foto[0.6\linewidth]{2022_poscig_samochod}{Stacja mobilna w samochodzie pościgowym: laptop z mapą śledzenia, radiotelefon.}
+\begin{sekcja}{Start}
+Po zamknięciu powłoki zestaw jest gotowy do startu. Połączenie powłoki z olinowaniem, kontrole na stanowisku i sam start opisują sekcje~\ref{sec:montaz-stanowisko} i~\ref{sec:start} (rozdział~\ref{ch:montaz}). Kierownik startu prowadzi je według formularza F11.
 \end{sekcja}
 
-\begin{sekcja}{Konfiguracja stacji naziemnej}
-Skonfiguruj stacje i sprawdź je z działającym trackerem najpóźniej 2 dni przed startem (formularz F7).
+\begin{sekcja}{Śledzenie w trakcie lotu}\label{sec:sledzenie}
+Budowę i konfigurację stacji odbiorczych opisuje rozdział~\ref{ch:elektronika} (sekcje~\ref{sec:stacje} i~\ref{sec:konfiguracja-stacji}). Łączność w zespole: sekcja~\ref{sec:lacznosc-zespol}.
 
-\renewcommand{\arraystretch}{1.3}
-\small
-\begin{tabularx}{\linewidth}{@{}P{26mm}P{36mm}L@{}}
-\toprule
-\textbf{Sygnał} & \textbf{Oprogramowanie} & \textbf{Konfiguracja}\\\midrule
-RTTY \SI{434}{MHz} & horus-gui (Project Horus) albo dl-fldigi & Ustaw SDR na częstotliwość trackera, tryb RTTY (prędkość i bity jak w trackerze). Włącz wysyłanie do SondeHub Amateur ze swoim znakiem i pozycją stacji.\\
-APRS \SI{144.8}{MHz} & Direwolf (laptop), APRSdroid (Android) & Direwolf jako iGate: wpisz znak i hasło APRS-IS, aby przekazywać pakiety do aprs.fi.\\
-Horus Binary (opcjonalnie) & horus-gui & Format Horus Binary trafia bezpośrednio do SondeHub Amateur.\\
-\bottomrule
-\end{tabularx}
-\normalsize
+\textbf{Przed startem:}
+\begin{itemize}
+  \item Skonfiguruj stacje i sprawdź je z działającym trackerem najpóźniej 2 dni przed startem (formularz F7).
+  \item W dniu startu uruchom stację stacjonarną i stacje mobilne przed tankowaniem. Sprawdź, czy pakiety z trackera pojawiają się w SondeHub i na aprs.fi.
+\end{itemize}
 
-\textbf{Stacja SatNOGS.} Stacja sieci SatNOGS (antena, SDR, komputer) nadaje się na stację stacjonarną. Na czas misji zatrzymaj klienta SatNOGS i uruchom na tym samym SDR oprogramowanie z tabeli. Po misji przywróć klienta SatNOGS.
+\textbf{W trakcie lotu:}
+\begin{itemize}
+  \item Operator śledzenia obserwuje mapę i podaje pozycję kierowcy. Kierowca nie obsługuje śledzenia.
+  \item Po starcie jedź w kierunku przewidywanego miejsca lądowania.
+  \item Aktualizuj predykcję w trakcie lotu na podstawie aktualnej pozycji i prędkości.
+  \item Zapisuj pozycję i wysokość co kilka minut (formularz F12).
+  \item Gdy balon pęknie, przyspiesz -- opadanie trwa krócej niż wznoszenie.
+  \item Przy ziemi sygnał zanika. Zapisz ostatnią pozycję. Użyj lokalizatorów (sekcja~\ref{sec:lokalizatory}).
+\end{itemize}
 
-\textbf{Test:} włącz tracker w odległości co najmniej \SI{100}{m} od stacji. Sprawdź, czy pakiety ze stacji pojawiają się w SondeHub i na aprs.fi pod znakiem stacji.
+\foto[0.7\linewidth]{2022_poscig_samochod}{Operator śledzenia w samochodzie pościgowym.}
 \end{sekcja}
 
-\begin{sekcja}{Łączność w zespole i poszukiwania}
+\begin{sekcja}{Łączność w zespole i poszukiwania}\label{sec:lacznosc-zespol}
 Radiotelefony to podstawa łączności w czasie pościgu (między samochodami) i w terenie, przy szukaniu gondoli. Telefon komórkowy nie zawsze ma zasięg.
 
 \begin{itemize}

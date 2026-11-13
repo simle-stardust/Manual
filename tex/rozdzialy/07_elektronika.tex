@@ -14,14 +14,15 @@ Elektronika platformy jest w gondoli platformy. Zawiera:
 \end{sekcja}
 
 \begin{sekcja}{Komputer bezpieczeństwa: HABduino}
-HABduino to nakładka na Arduino do trackerów balonowych~\cite{habduino}. Nadaje telemetrię RTTY (moduł Radiometrix NTX2B, \SI{434}{MHz}) i APRS (\SI{144.8}{MHz}). Projekt nie jest już rozwijany. Zalecane oprogramowanie to FlexTrack~\cite{flextrack}: obsługuje HABduino~v4, RTTY i APRS, zawiera obsługę odcinacza. Opis budowy trackera: \cite{akerman}.
+HABduino to nakładka na Arduino do trackerów balonowych~\cite{habduino}. Nadaje telemetrię RTTY (moduł Radiometrix NTX2B, \SI{434}{MHz}) i APRS (\SI{144.8}{MHz}). Podręcznik opisuje HABduino, bo zespół go używał i koło ma go na wyposażeniu. Projekt nie jest już rozwijany. Jego kontynuacją jest Pi In The Sky~\cite{pits}: płytka trackera do Raspberry Pi z telemetrią RTTY i LoRa oraz przesyłaniem zdjęć (SSDV). Zalecane oprogramowanie to FlexTrack~\cite{flextrack}: obsługuje HABduino~v4, RTTY i APRS, zawiera obsługę odcinacza. Opis budowy trackera: \cite{akerman}.
 
 HABduino jest \textbf{głównym komputerem bezpieczeństwa}:
 \begin{itemize}
   \item podaje pozycję (GPS) przez dwa niezależne łącza radiowe,
-  \item steruje odcinaczem głównym (na komendę i automatycznie),
+  \item steruje odcinaczem głównym automatycznie, według progów zapisanych w programie. HABduino tylko nadaje -- nie ma odbiornika, więc nie przyjmuje komend z ziemi,
   \item działa niezależnie od OBC i od ładunku.
 \end{itemize}
+
 \end{sekcja}
 
 \begin{sekcja}{Komputer pokładowy (OBC)}
@@ -45,16 +46,6 @@ Niezależny komputer bezpieczeństwa, drugi komputer z własnym odcinaczem i wat
 Kod i dokumentacja najnowszej wersji OBC są w wewnętrznym repozytorium koła SimLE (GitLab). Publiczna wersja z misji BEXUS~30 jest na \www{github.com/simle-stardust} i jest opisana w pracy inżynierskiej~\cite{praca2022}.
 \end{sekcja}
 
-\begin{sekcja}{Brzęczyk lokalizacyjny}
-Brzęczyk ułatwia znalezienie gondoli w trudnych warunkach: w wysokiej trawie, w krzakach, na drzewie, w nocy. To zawsze dobry dodatek. HABduino nie ma brzęczyka, ale łatwo dodać go do OBC albo do eksperymentu.
-\begin{itemize}
-  \item Użyj głośnego brzęczyka piezo z wbudowanym generatorem.
-  \item Brzęczyk włącza się \textbf{dopiero po lądowaniu}. Lądowanie wykrywa maszyna stanów: \emph{przed startem} $\to$ \emph{wznoszenie} (wysokość rośnie) $\to$ \emph{opadanie} (po osiągnięciu pułapu wysokość maleje) $\to$ \emph{lądowanie} (niska wysokość i prędkość pionowa bliska zeru przez co najmniej minutę). Dzięki temu brzęczyk nie hałasuje na stanowisku startowym.
-  \item Po lądowaniu brzęczyk brzęczy aż do rozładowania baterii. Praca impulsami (np. 1 sekunda dźwięku, 2 sekundy przerwy) wydłuża ten czas.
-  \item Przetestuj maszynę stanów na danych z poprzedniego lotu (rozdział~\ref{ch:planowanie}, testy).
-\end{itemize}
-\end{sekcja}
-
 \begin{sekcja}{Odbiorniki GPS}
 GPS to podstawa bezpieczeństwa misji. Odbiornik GPS daje:
 \begin{itemize}
@@ -65,39 +56,181 @@ GPS to podstawa bezpieczeństwa misji. Odbiornik GPS daje:
 Dlatego platforma ma \textbf{dwa niezależne odbiorniki GPS} -- w HABduino i w OBC.
 
 \begin{uwaga}Przed wyborem odbiornika \textbf{bezwzględnie} sprawdź w karcie katalogowej, czy działa powyżej \SI{10}{km} i do jakiej wysokości oraz przy jakiej prędkości. Wiele odbiorników z ograniczeniami eksportowymi (COCOM) przestaje działać powyżej \SI{18}{km} albo powyżej określonej prędkości. Moduły u-blox działają do około \SI{50}{km} po włączeniu trybu \emph{airborne}.\end{uwaga}
+
+\begin{uwaga}Niektóre kamery zakłócają sygnał GPS: matryca i jej elektronika emitują zakłócenia dokładnie w paśmie GPS. Odbiornik może wtedy stracić pozycję. Trzymaj kamery z dala od anteny GPS. Testuj GPS w docelowej konfiguracji gondoli, z włączonymi kamerami. Ostrzega przed tym instrukcja HABduino~\cite{habduino}, a zespół zaobserwował to sam.\end{uwaga}
 \end{sekcja}
 
-\begin{sekcja}{Konfiguracja trackera}
+\begin{sekcja}{Konfiguracja trackera}\label{sec:konfiguracja-trackera}
 \begin{enumerate}
   \item Ustaw znak wywoławczy krótkofalowca (\emph{callsign}).
   \item Ustaw SSID APRS (zwyczajowo \texttt{-11} dla balonów).
   \item Ustaw identyfikator ładunku RTTY (\emph{payload ID}), taki sam jak w SondeHub.
   \item Ustaw moduł GPS w tryb \emph{airborne} (patrz sekcja „Odbiorniki GPS”).
-  \item Wgraj program. Zapisz wersję (numer commita albo wydania) w karcie misji.
+  \item Ustaw ścieżkę APRS w locie na NOPATH (w FlexTrack: \texttt{APRS\_HIGH\_USE\_WIDE2}~\cite{flextrackpr}). Balon na dużej wysokości jest w zasięgu wielu stacji odbiorczych i nie potrzebuje przekaźników (digipeaterów). Ze ścieżką WIDE2-1 stacje powtarzają każdy pakiet i obciążają sieć APRS, którą krótkofalowcy utrzymują społecznie.
+  \item Ustaw odstęp między pakietami APRS. Nie nadawaj pozycji częściej, niż potrzebujesz.
+  \item Sprawdź ustawienia, które zmieniają się w locie. FlexTrack zmienia ścieżkę dopiero powyżej wysokości \texttt{APRS\_PATH\_ALTITUDE}, więc test na ziemi tego nie sprawdzi. Przeczytaj te ustawienia w kodzie.
+  \item Wgraj program. Zapisz wersję (numer commita albo wydania) i pliki konfiguracyjne w dokumentacji misji, do późniejszej weryfikacji.
 \end{enumerate}
 
 \begin{uwaga}Skonfiguruj tracker i serwisy śledzenia \textbf{najpóźniej 2 dni przed lotem}. Niektóre ustawienia (np. konfiguracja ładunku w SondeHub) potrzebują czasu, aby zadziałały. Dzień przed lotem zostaw na weryfikację, logistykę i obserwację pogody.\end{uwaga}
 \end{sekcja}
 
-\begin{sekcja}{Anteny i test zasięgu}
+\begin{sekcja}{Anteny i test zasięgu}\label{sec:anteny}
+\textbf{Położenie.} Wybierz położenie anten razem z zespołem ładunku i zapisz je w ICD (sekcja~\ref{sec:icd}). Weź pod uwagę:
 \begin{itemize}
-  \item Anteny nadajników wyprowadź po bokach gondoli platformy (rozdział~\ref{ch:lotny}). Metal nie może wpływać na anteny APRS i RTTY.
+  \item Ładunek, linki i uprząż nie mogą zasłaniać anteny ani jej dotykać. W platformie NEXT pod gondolą platformy wisi ładunek, więc anteny wyprowadzono z boku gondoli -- to jedno z możliwych rozwiązań.
+  \item Antena na górze jest dopuszczalna, ale płyta montażowa nie może być metalowa.
+  \item Element promieniujący ustaw pionowo -- anteny stacji odbiorczych są pionowe.
+  \item Metal nie może wpływać na anteny nadajników. Trzymaj go z dala od nich, także metal pod anteną GPS.
   \item Antenę GPS montuj na górze gondoli, z widokiem na niebo, niczym nie przykrytą (rozdział~\ref{ch:montaz}).
-  \item Po montażu sprawdź złącza i przewody anten.
 \end{itemize}
+
+\textbf{Dopasowanie.} Charakterystyka anteny zależy od otoczenia: przewody, baterie i metal w pobliżu ją zmieniają. Sprawdź dopasowanie anteny (SWR) w konfiguracji lotnej, w zamkniętej gondoli. Rozwiązania alternatywne: antena z luźnego przewodu wypuszczona z gondoli albo antena zawieszona pod spadochronem -- oba wymagają pomiaru dopasowania. Po montażu sprawdź złącza i przewody anten.
 
 \begin{uwaga}Z bliska odbiornik odbierze sygnał nawet bez anteny -- wystarczy promieniowanie z płytki i przewodów. Test obok stołu niczego nie dowodzi. Sprawdź odbiór z odległości \textbf{co najmniej \SI{100}{m}}, z anteną w konfiguracji lotnej (w zamkniętej gondoli).\end{uwaga}
 \end{sekcja}
 
-\begin{sekcja}{Lokalizatory po lądowaniu}
+\begin{podsekcja}{Wykonanie anteny nadajnika}
+Na podstawie poradnika UKHAS~\cite{ukhasantena}. Poradnik ma zdjęcia każdego kroku: otwórz go w czasie pracy. Antena ćwierćfalowa z przeciwwagą (\emph{ground plane}) promieniuje równomiernie we wszystkich kierunkach w płaszczyźnie poziomej.
+
+\begin{center}\rysAntenaGP\end{center}
+\captionof{figure}{Antena ćwierćfalowa z przeciwwagą, widok z boku. $L$ -- długość elementu promieniującego i każdej przeciwwagi (tabela niżej). Zdjęcia kroków: poradnik UKHAS~\cite{ukhasantena}.}\label{fig:antena-gp}
+\medskip
+
+\textbf{Materiały:} przewód koncentryczny RG174 (\SI{50}{\ohm}), opcjonalnie z wtykiem SMA; drut jednożyłowy \SI{0.6}{mm}; lutownica i cyna; nożyk, linijka, gwóźdź jako trzpień; słomki.
+
+\begin{enumerate}
+  \item Zmierz \SI{170}{mm} od końca przewodu koncentrycznego. Natnij izolację zewnętrzną. Nie przetnij oplotu.
+  \item Zdejmij izolację zewnętrzną do końca przewodu.
+  \item Zostaw \SI{5}{mm} oplotu. Resztę oplotu odetnij.
+  \item Z pozostałego oplotu zrób dwa wyprowadzenia i pobiel je cyną.
+  \item Utnij dwa odcinki drutu po około \SI{350}{mm}. Na środku każdego odcinka zdejmij około \SI{25}{mm} izolacji.
+  \item Skręć odcinki na środku wokół trzpienia i zlutuj. Powstają cztery przeciwwagi w kształcie litery X z otworem w środku.
+  \item Przełóż przewód koncentryczny przez otwór. Przylutuj oplot do przeciwwag.
+  \item Przytnij żyłę środkową (element promieniujący) na długość $L$, mierzoną od końca oplotu. Przytnij przeciwwagi na tę samą długość.
+  \item Załóż słomki na element promieniujący i na przeciwwagi, aby były proste. Przycinając słomki, nie przetnij drutu.
+\end{enumerate}
+
+\begin{center}\small
+\begin{tabular}{lll}
+\toprule
+Pasmo & $L$ & Źródło\\
+\midrule
+\SI{434}{MHz} (RTTY) & \SI{164}{mm} & poradnik UKHAS (\SI{433}{MHz})\\
+\SI{144.8}{MHz} (APRS) & około \SI{490}{mm} & przeliczone proporcjonalnie do częstotliwości\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{uwaga}Długość elementu promieniującego jest krytyczna. Długość dla APRS jest tylko przeliczona: utnij element trochę dłuższy i skróć go po pomiarze SWR w konfiguracji lotnej. Przewód koncentryczny między wtykiem a anteną może mieć dowolną długość, ale niech będzie jak najkrótszy.\end{uwaga}
+
+W poradniku element promieniujący jest skierowany w dół, a przeciwwagi są w dnie gondoli. W zestawie z kilkoma gondolami dobierz położenie anteny według sekcji~\ref{sec:anteny}.
+\end{podsekcja}
+
+\clearpage
+\begin{sekcja}{Systemy łączności}\label{sec:lacznosc-inne}
+Główny tor radiowy platformy to APRS i RTTY. Pozostałe systemy z tabeli możesz dodać jako drugi, niezależny tor albo jako ładunek do testu. Stacje odbiorcze konfigurujesz tylko dla systemów, które wybierzesz na misję.
+
+\renewcommand{\arraystretch}{1.3}
+\small
+\begin{tabularx}{\linewidth}{@{}P{22mm}P{18mm}L@{}}
+\toprule
+\textbf{System} & \textbf{Pasmo} & \textbf{Zastosowanie i uwagi}\\\midrule
+\textbf{APRS} & \SI{144.8}{MHz} & \textbf{Główny tor.} Pozycja i telemetria przez sieć digipeaterów i bramek iGate, widoczna na \www{aprs.fi}. Wymaga znaku krótkofalarskiego. W locie ustaw ścieżkę NOPATH.\\
+\textbf{RTTY} & \SI{70}{cm} & \textbf{Główny tor.} Telemetria odbierana przez stacje z SDR i przekazywana do SondeHub Amateur.\\\midrule
+LoRa APRS & \SI{433}{MHz} & Pozycja i telemetria przez sieć bramek LoRa APRS. Tanie moduły z ESP32, LoRa i GPS (np. LilyGO T-Beam). Przewodnik: \cite{loraaprs}. Wymaga znaku krótkofalarskiego.\\
+Horus Binary & \SI{70}{cm} & Telemetria o dobrej czułości. Pakiety trafiają bezpośrednio do SondeHub Amateur. Przykład trackera na radiosondzie M20: \cite{m20fw}.\\
+Wenet & \SI{70}{cm} & Zdjęcia w wysokiej rozdzielczości w czasie lotu (Raspberry Pi z kamerą). Jedno zdjęcie to kilka minut transmisji. Pakiety ze wszystkich stacji łączą się w obraz w sieci SSDV~\cite{wenet}.\\
+SSTV & \SI{70}{cm} & Zdjęcia o niższej jakości. Odbiór radiem ręcznym i telefonem z aplikacją (np. Robot36) -- dobre na pokazy dla publiczności.\\
+LoRaWAN & \SI{868}{MHz} & Telemetria przez publiczne bramki (np. The Things Network). Pasmo bez licencji. W 2020 roku pakiet z \SI{32}{km} dotarł \SI{755}{km}~\cite{raport2020}.\\
+TinyGS & 433--\SI{915}{MHz} & Otwarta sieć stacji LoRa. Sieć śledzi satelity, ale także balony~\cite{tinygs}.\\
+Meshtastic & \SI{868}{MHz} & Sieć mesh na modułach LoRa. Z balonu daje duży zasięg sieci~\cite{meshtastic}.\\
+OGN & \SI{868}{MHz} & Tracker sieci Open Glider Network. Pozycja jest widoczna w sieci OGN i w aeroklubach. Pasmo bez licencji. Wymaga dobrej anteny~\cite{ogn}.\\
+\bottomrule
+\end{tabularx}
+\normalsize
+
+\begin{uwaga}[Zakłócenia]W północnej Polsce pasmo 437--\SI{439}{MHz} bywa zakłócone przez radar w obwodzie królewieckim. Bywają też zakłócenia GPS. Wybierz częstotliwości poniżej \SI{437}{MHz}. Daj trackerom niezależne moduły GPS~\cite{sp2gryf}.\end{uwaga}
+
+Przykład misji z wieloma torami naraz (Wenet, SSTV, Horus Binary, APRS, LoRa APRS): \cite{sp2gryf}.
+\end{sekcja}
+
+\begin{sekcja}{Stacje odbiorcze}\label{sec:stacje}
+Używaj co najmniej dwóch stacji odbiorczych: stacjonarnej i mobilnej. Nie polegaj tylko na sieci innych nasłuchowców. Schemat toru radiowego: rysunek~\ref{fig:tor-radiowy}.
+
+\textbf{Stacja stacjonarna dookólna.} Antena dookólna na wysokim maszcie, odbiornik RTL-SDR z LNA, komputer (np. Raspberry Pi) z internetem. Stacja przekazuje pakiety do SondeHub i APRS-IS (iGate). Źródła:
+\begin{itemize}
+  \item Direwolf~\cite{direwolf} -- dokumentacja zawiera poradnik iGate z Raspberry Pi i RTL-SDR; przykład budowy: RTL-SDR.com~\cite{rtlsdrigate},
+  \item VP-Digi~\cite{vpdigi} -- sprzętowy digipeater APRS na STM32, z dokumentacją po polsku (GPL-3.0). Digipeater nadaje: potrzebuje licencji krótkofalarskiej i uzgodnienia z lokalną siecią APRS. Do odbioru w czasie misji wystarczy iGate.
+\end{itemize}
+
+\textbf{Stacja stacjonarna obrotowa.} Antena kierunkowa (Yagi) na rotorze daje większy zasięg, ale trzeba ją kierować na balon. Gotowy projekt: stacja SatNOGS z rotorem~\cite{satnogsbuild} -- wiki opisuje anteny, rotor, SDR, LNA i oprogramowanie (licencja CC BY-SA). Na czas misji zatrzymaj klienta SatNOGS i uruchom na tym samym SDR oprogramowanie z sekcji~\ref{sec:konfiguracja-stacji}.
+
+\textbf{Stacja mobilna}, wariant 1: radiotelefon z dekoderem APRS (np. Yaesu FT5DE) i antena samochodowa VHF/UHF na magnes (np. Nagoya UT-72).
+
+\textbf{Stacja mobilna}, wariant 2: tor z RTL-SDR (rysunek~\ref{fig:tor-mobilny}). Przykład kompletnej stacji z dwoma torami (APRS i \SI{70}{cm}) na Raspberry Pi: B.~Klofas~\cite{klofasmobile} (CC BY 4.0).
+
+\begin{blok}
+\begin{center}\resizebox{\linewidth}{!}{\rysTorMobilny}\end{center}
+\captionof{figure}{Tor odbiorczy stacji mobilnej dla jednego pasma.}\label{fig:tor-mobilny}
+\end{blok}
+
+\begin{itemize}
+  \item \textbf{Antena}: na magnes, na metalowym dachu samochodu (dach działa jak przeciwwaga).
+  \item \textbf{Filtr pasmowy} przed LNA: tłumi silne sygnały spoza pasma (radiofonia FM, telefonia komórkowa, radiotelefony zespołu nadające w samochodzie). Bez filtra LNA i SDR się przesterowują.
+  \item \textbf{LNA} (przedwzmacniacz niskoszumny) blisko anteny, przed długim przewodem. Zasilaj go z RTL-SDR przez przewód (bias-tee) albo osobno.
+  \item \textbf{RTL-SDR} z generatorem TCXO (stabilna częstotliwość) i bias-tee, np. RTL-SDR Blog~V3/V4.
+  \item \textbf{Dwa pasma} (APRS \SI{144.8}{MHz} i RTTY \SI{434}{MHz}): dwa tory z osobnymi SDR i filtrami albo jedna antena dwupasmowa z rozdzielaczem pasm (diplekserem).
+  \item \textbf{Zasilanie} z gniazda \SI{12}{V} samochodu. Sprawdź, czy przetwornica USB nie zakłóca odbioru.
+\end{itemize}
+
+\begin{wskazowka}[APRS bez dekodera]Tani radiotelefon bez dekodera APRS (np. Baofeng) też wystarczy. Połącz wyjście audio radia z telefonem albo laptopem (kabel audio albo adapter Bluetooth). Dekoduj APRS aplikacją APRSdroid (Android) albo programem Direwolf (laptop).\end{wskazowka}
+
+\end{sekcja}
+
+\begin{sekcja}{Konfiguracja stacji naziemnej}\label{sec:konfiguracja-stacji}
+Tabela pokazuje konfigurację stacji dla systemów z sekcji~\ref{sec:lacznosc-inne}. Skonfiguruj stacje i sprawdź je z działającym trackerem najpóźniej 2 dni przed startem (formularz F7).
+
+\renewcommand{\arraystretch}{1.3}
+\small
+\begin{tabularx}{\linewidth}{@{}P{26mm}P{36mm}L@{}}
+\toprule
+\textbf{Sygnał} & \textbf{Oprogramowanie} & \textbf{Konfiguracja}\\\midrule
+RTTY \SI{434}{MHz} & horus-gui (Project Horus) albo dl-fldigi & Ustaw SDR na częstotliwość trackera, tryb RTTY (prędkość i bity jak w trackerze). Włącz wysyłanie do SondeHub Amateur ze swoim znakiem i pozycją stacji.\\
+APRS \SI{144.8}{MHz} & Direwolf (laptop), APRSdroid (Android) & Direwolf jako iGate: wpisz znak i hasło APRS-IS, aby przekazywać pakiety do aprs.fi.\\
+Horus Binary (opcjonalnie) & horus-gui albo webhorus (\www{horus.sondehub.org}) & Format Horus Binary trafia bezpośrednio do SondeHub Amateur.\\
+LoRa APRS (opcjonalnie) & bramka LoRa APRS albo TBTracker-RX & Bramka na module LoRa przekazuje pakiety do APRS-IS~\cite{loraaprs}. Odbiornik przenośny do pościgu: \cite{tbtracker}.\\
+Wenet (opcjonalnie) & webhorus albo dekoder Wenet (Docker) & W webhorus wybierz tryb Wenet i wersję nadajnika. Ustaw częstotliwość i wzmocnienie SDR. Odebrane pakiety trafiają do \www{ssdv.habhub.org}~\cite{wenet}.\\
+SSTV (opcjonalnie) & radio ręczne i Robot36 (Android) & Ustaw radio na częstotliwość nadajnika, telefon przy głośniku.\\
+\bottomrule
+\end{tabularx}
+\normalsize
+
+\textbf{Stacja SatNOGS:} po misji przywróć klienta SatNOGS.
+
+\textbf{Test:} włącz tracker w odległości co najmniej \SI{100}{m} od stacji. Sprawdź, czy pakiety ze stacji pojawiają się w SondeHub i na aprs.fi pod znakiem stacji.
+\end{sekcja}
+
+\begin{sekcja}{Lokalizatory po lądowaniu}\label{sec:lokalizatory}
 Przy ziemi sygnał z trackera zanika: zasłaniają go drzewa, budynki i ukształtowanie terenu. Lokalizatory pomagają znaleźć gondolę po lądowaniu.
 
 \begin{itemize}
   \item \textbf{SPOT Trace} -- lokalizator satelitarny. Działa tylko do około \SI{6500}{m}, więc służy tylko po lądowaniu. Wymaga aktywnej subskrypcji. Ustaw interwał raportów (np. 5 minut). Antena do góry.
   \item \textbf{Znaczniki Bluetooth: Apple AirTag i znacznik sieci Google (Find Hub)} -- najlepiej dwa niezależne. Smartfony w pobliżu przekazują pozycję znacznika. Gdy ktoś znajdzie gondolę przed zespołem i podejdzie ze smartfonem, zespół zobaczy nową pozycję.
+  \item \textbf{Brzęczyk} na gondoli (podsekcja niżej).
   \item Zapasowo: smartfon z funkcją „Znajdź moje urządzenie” -- w 2020 roku pomógł znaleźć ładunek~\cite{raport2020}.
 \end{itemize}
 \end{sekcja}
+
+\begin{podsekcja}{Brzęczyk lokalizacyjny}
+Brzęczyk ułatwia znalezienie gondoli w trudnych warunkach: w wysokiej trawie, w krzakach, na drzewie, w nocy. To zawsze dobry dodatek. HABduino nie ma brzęczyka, ale łatwo dodać go do OBC albo do eksperymentu.
+\begin{itemize}
+  \item Użyj głośnego brzęczyka piezo z wbudowanym generatorem.
+  \item Brzęczyk włącza się \textbf{dopiero po lądowaniu}. Lądowanie wykrywa maszyna stanów: \emph{przed startem} $\to$ \emph{wznoszenie} (wysokość rośnie) $\to$ \emph{opadanie} (po osiągnięciu pułapu wysokość maleje) $\to$ \emph{lądowanie} (niska wysokość i prędkość pionowa bliska zeru przez co najmniej minutę). Dzięki temu brzęczyk nie hałasuje na stanowisku startowym.
+  \item Po lądowaniu brzęczyk brzęczy aż do rozładowania baterii. Praca impulsami (np. 1 sekunda dźwięku, 2 sekundy przerwy) wydłuża ten czas.
+  \item Przetestuj maszynę stanów na danych z poprzedniego lotu (rozdział~\ref{ch:planowanie}, testy).
+\end{itemize}
+\end{podsekcja}
 
 \begin{sekcja}{Zasilanie}
 \begin{itemize}
@@ -109,7 +242,7 @@ Przy ziemi sygnał z trackera zanika: zasłaniają go drzewa, budynki i ukształ
 \end{sekcja}
 
 \begin{sekcja}{Termika: mróz i próżnia}
-W stratosferze powietrze ma do \SI{-60}{\degreeCelsius}, ale jest bardzo rzadkie. Prawie nie ma konwekcji, więc elektronika \textbf{nie oddaje ciepła} do powietrza. Słońce dodatkowo nagrzewa gondolę. W misji z lipca 2020 roku elektronika w izolowanej gondoli przekroczyła \SI{50}{\degreeCelsius}~\cite{praca2022}.
+Warunki w stratosferze opisuje sekcja~\ref{sec:warunki}. Powietrze jest mroźne, ale bardzo rzadkie. Prawie nie ma konwekcji, więc elektronika \textbf{nie oddaje ciepła} do powietrza. Słońce dodatkowo nagrzewa gondolę. W misji z lipca 2020 roku elektronika w izolowanej gondoli przekroczyła \SI{50}{\degreeCelsius}~\cite{praca2022}.
 
 Według NASA większość awarii w lotach balonowych wynika z problemów termicznych: zbyt uproszczonego bilansu cieplnego albo za słabych testów naziemnych~\cite[rozdz.~12]{nasahb}. W czasie wznoszenia, gdy powietrze jest jeszcze gęste, nieosłonięte elementy wychładzają się nawet do \SI{-60}{\degreeCelsius}. Wyżej, bez konwekcji, częściej problemem jest przegrzanie niż zimno.
 
@@ -121,5 +254,5 @@ Według NASA większość awarii w lotach balonowych wynika z problemów termicz
   \item nie dodawaj izolacji ani grzałek bez bilansu cieplnego dla startu (zimno) i dla stratosfery (brak chłodzenia).
 \end{itemize}
 
-Testy w niskiej temperaturze: według sekcji~\ref{sec:test-zimno}.
+Testy w niskiej temperaturze: według sekcji~\ref{sec:test-zimno}. Test w niskim ciśnieniu: według sekcji~\ref{sec:test-proznia}.
 \end{sekcja}

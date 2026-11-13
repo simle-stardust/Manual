@@ -1,13 +1,13 @@
 \chapter{Planowanie misji}\label{ch:planowanie}
 
-\begin{sekcja}{Misja zaczyna się od celu}
+\begin{sekcja}{Misja zaczyna się od celu}\label{sec:cel}
 Planowanie zaczyna się kilka miesięcy przed lotem, gdy zespół ustala cel misji. Potem zespół badawczy projektuje, buduje i testuje eksperyment. Lot jest zwieńczeniem tych przygotowań.
 
 Na początku zapisz w karcie misji (formularz F0):
 \begin{itemize}
   \item nazwę, kryptonim i patch misji (sekcja~\ref{sec:patch}),
   \item cel misji: naukowy, techniczny albo szkoleniowy,
-  \item wymagania ładunku: wysokość, czas w stratosferze, temperatura, orientacja, odzyskanie próbek,
+  \item wymagania ładunku: wysokość, czas w stratosferze, temperatura, pora dnia i pora roku (data), odzyskanie próbek,
   \item zespół i role (formularz F1),
   \item wstępny termin i miejsce startu.
 \end{itemize}
@@ -24,32 +24,22 @@ Platforma używa standardowych pudełek styropianowych w rozmiarze typu eurobox.
   \item zespół badawczy pracuje niezależnie od zespołu platformy.
 \end{itemize}
 
-Zespół badawczy dostarcza przed misją dane do ICD (sekcja~\ref{sec:icd}): masę i wymiary z pudełkiem, zasilanie (ładunek ma własne baterie -- platforma nie zasila ładunków), częstotliwości radiowe (ryzyko zakłóceń z trackerem), wymagania lotu oraz procedury włączenia przed startem i wyłączenia po odzyskaniu.
+Zespół badawczy dostarcza przed misją dane do dokumentu kontroli interfejsu (ICD): masę i wymiary z pudełkiem, zasilanie (ładunek ma własne baterie -- platforma nie zasila ładunków), częstotliwości radiowe (ryzyko zakłóceń z trackerem), wymagania lotu oraz procedury włączenia przed startem i wyłączenia po odzyskaniu.
 
 \begin{uwaga}Ładunek badawczy przechodzi te same testy bezpieczeństwa i zgodności co platforma (sekcja~\ref{sec:testy}). Ładunek bez testów nie leci.\end{uwaga}
 \end{sekcja}
 
-\begin{sekcja}{Dokument kontroli interfejsu (ICD)}\label{sec:icd}
-Dla każdego ładunku zespół platformy i zespół badawczy wypełniają \textbf{dokument kontroli interfejsu} (ICD, \emph{Interface Control Document}, formularz ICD). ICD zawiera wartości uzgodnione przez oba zespoły: masę, wymiary, zasilanie, częstotliwości, wymagania lotu i procedury. Te wartości to \textbf{kontrakt}:
-\begin{itemize}
-  \item kolumna „zadeklarowane” -- wartości uzgodnione na etapie planowania,
-  \item kolumna „rzeczywiste” -- wartości zmierzone na gotowym ładunku (najpóźniej na przeglądzie gotowości, F6),
-  \item każde odstępstwo opisz jasno: co się różni, o ile, dlaczego i kto je zaakceptował,
-  \item zmiana wartości zadeklarowanej to nowa wersja ICD, podpisana przez oba zespoły.
-\end{itemize}
-
-\textbf{Budżet masy najpierw dla platformy.} Zanim zespoły uzgodnią ICD, zespół platformy wydziela budżet masy dla siebie: gondola platformy, olinowanie i spadochron. Dzięki temu cała misja nie przekroczy ram balonu lekkiego (sekcja~\ref{sec:budzet}). Bezpieczny podział to \textbf{pół na pół}: połowa budżetu dla platformy, połowa dla ładunków badawczych. Potem zespoły mogą wymieniać się budżetem -- każdą zmianę zapisz w ICD.
-\end{sekcja}
-
-\begin{sekcja}{Budżet masy}\label{sec:budzet}
+\begin{podsekcja}{Budżet masy}\label{sec:budzet}
 Projektuj zestaw jako balon \textbf{lekki} (rozdział~\ref{ch:prawo}):
 \begin{itemize}
   \item łączna masa ładunku (wszystko pod powłoką) poniżej \SI{4}{kg},
   \item masa każdego pakietu poniżej \SI{2}{kg},
-  \item linka podwieszenia zrywa się przy sile poniżej \SI{230}{N}.
+  \item słabe ogniwo między powłoką a spadochronem zrywa się przy sile poniżej \SI{230}{N} (sekcja~\ref{sec:slabe-ogniwo}).
 \end{itemize}
 
-Zważ każdy element. Używaj mas zmierzonych, nie szacowanych. Zostaw zapas co najmniej \SI{10}{\percent}. Budżety ładunków badawczych zapisz w ICD (sekcja~\ref{sec:icd}).
+\textbf{Budżet masy najpierw dla platformy.} Zanim zespoły uzgodnią ICD, zespół platformy wydziela budżet masy dla siebie: gondola platformy, olinowanie i spadochron. Dzięki temu cała misja nie przekroczy ram balonu lekkiego. Bezpieczny podział to \textbf{pół na pół}: połowa budżetu dla platformy, połowa dla ładunków badawczych. Potem zespoły mogą wymieniać się budżetem -- każdą zmianę zapisz w ICD.
+
+Zważ każdy element. Używaj mas zmierzonych, nie szacowanych. Zostaw zapas co najmniej \SI{10}{\percent}. Budżety ładunków badawczych zapisz w ICD (podsekcja niżej).
 
 \renewcommand{\arraystretch}{1.6}
 \begin{tabularx}{\linewidth}{@{}|L|P{25mm}|P{25mm}|@{}}\hline
@@ -61,33 +51,43 @@ Gondola ładunku & & \\\hline
 \textbf{Razem: masa ładunku do kalkulatora} & & \\\hline
 Powłoka (z karty katalogowej) & & \\\hline
 \end{tabularx}
-\end{sekcja}
+\end{podsekcja}
 
-\begin{sekcja}{Prędkość wznoszenia i ilość gazu}
-Ilość gazu decyduje o prędkości wznoszenia. Prędkość wznoszenia decyduje o wysokości pęknięcia, czasie lotu i odległości lądowania.
-
-\textbf{Heurystyka:}
+\begin{podsekcja}{Dokument kontroli interfejsu (ICD)}\label{sec:icd}
+Dla każdego ładunku zespół platformy i zespół badawczy wypełniają \textbf{dokument kontroli interfejsu} (ICD, \emph{Interface Control Document}, formularz ICD). ICD zawiera wartości uzgodnione przez oba zespoły: masę, wymiary, zasilanie, częstotliwości, wymagania lotu i procedury. Te wartości to \textbf{kontrakt}:
 \begin{itemize}
-  \item \textbf{Szybsze wznoszenie} (więcej gazu): balon szybciej i niżej pęka, bo startuje bardziej napełniony. Lot jest krótszy i ląduje bliżej.
-  \item \textbf{Wolniejsze wznoszenie} (mniej gazu): lot jest wyższy i dłuższy, ale balon dłużej dryfuje z wiatrem i może „uciec” -- wylądować bardzo daleko.
-  \item \textbf{\SI{5}{m/s} to bezpieczne minimum.} Balon szybko wznosi się nawet przy słabym wietrze i szybko mija wysokość budynków, drzew i linii energetycznych.
+  \item kolumna „zadeklarowane” -- wartości uzgodnione na etapie planowania,
+  \item kolumna „rzeczywiste” -- wartości zmierzone na gotowym ładunku (najpóźniej na przeglądzie gotowości, F6),
+  \item każde odstępstwo opisz jasno: co się różni, o ile, dlaczego i kto je zaakceptował,
+  \item zmiana wartości zadeklarowanej to nowa wersja ICD, podpisana przez oba zespoły.
 \end{itemize}
+\end{podsekcja}
 
-\begin{center}\includegraphics[width=\linewidth]{heurystyka_wznoszenia}\end{center}
-\captionof{figure}{Wysokość pęknięcia i czas wznoszenia w funkcji prędkości wznoszenia. Obliczenia metodą kalkulatora SondeHub~\cite{sondehubcalc} dla ładunku \SI{2}{kg}. Obszar czerwony: ryzyko ucieczki.}\label{fig:heurystyka}
-\end{sekcja}
-
-\begin{sekcja}{Obliczenie ilości gazu}
+\clearpage
+\begin{sekcja}{Prędkość wznoszenia, ilość gazu i dobór powłoki}\label{sec:powloka}
+Kolejność decyzji:
 \begin{enumerate}
-  \item Zważ cały zestaw lotny bez powłoki.
-  \item Otwórz kalkulator SondeHub: \www{sondehub.org/calc}.
-  \item Wpisz masę ładunku. Wybierz model powłoki.
-  \item Wpisz docelową prędkość wznoszenia: \SI{5}{m/s}.
-  \item Zapisz w karcie misji (F0): siłę nośną szyjki (\emph{neck lift}), objętość gazu, wysokość pęknięcia, czas do pęknięcia.
-  \item Zamów gaz z zapasem co najmniej \SI{30}{\percent} (straty, powtórka, butla z mniejszą ilością gazu).
+  \item \textbf{Wymagania misji}: wysokość i czas lotu (sekcja~\ref{sec:cel}).
+  \item \textbf{Prędkość wznoszenia}: co najmniej \SI{5}{m/s}. Balon szybko mija wysokość budynków, drzew i linii energetycznych, a lot nie trwa zbyt długo.
+  \item \textbf{Gaz nośny}: hel albo wodór. Zdecyduj na etapie planowania -- wybór wpływa na ilość i zamówienie gazu, szkolenie zespołu i miejsce startu (sekcja~\ref{sec:hel-wodor}).
+  \item \textbf{Powłoka}: dla masy ładunku i tej prędkości wybierz powłokę, która przyjmie potrzebną ilość gazu i pęknie powyżej wymaganej wysokości.
+  \item \textbf{Ilość gazu}: z kalkulatora (niżej).
 \end{enumerate}
 
-\begin{uwaga}[Transport butli]Przewóz butli z gazem sprężonym podlega przepisom o przewozie towarów niebezpiecznych (ADR) i może wymagać uprawnień. Jeżeli procedury zakupowe na to pozwalają, kup albo wypożycz butlę u dostawcy blisko miejsca startu i odbierz ją na miejscu.\end{uwaga}
+\textbf{Heurystyka.} Więcej gazu: szybsze wznoszenie, niższe pęknięcie, krótszy lot i lądowanie bliżej. Mniej gazu: lot wyższy i dłuższy, ale balon dłużej dryfuje i może „uciec” daleko. Większa powłoka pęka wyżej, ale jest cięższa i potrzebuje więcej gazu.
+
+\begin{center}\includegraphics[width=0.66\linewidth]{heurystyka_wznoszenia}\end{center}
+\captionof{figure}{Wysokość pęknięcia i czas wznoszenia w funkcji prędkości wznoszenia, ładunek \SI{2}{kg}, metoda kalkulatora SondeHub~\cite{sondehubcalc}. Obszar czerwony: ryzyko ucieczki.}\label{fig:heurystyka}
+
+\textbf{Powłoki w misjach zespołu:} lateks \SI{1200}{g} (2016, \SI{6}{m^3} helu)~\cite{dok2016}; Hwoyee \SI{1600}{g} (2017, ładunek \SI{2.6}{kg}~\cite{magrian2018}; 2020, około \SI{4}{kg} i \SI{6}{m^3} helu~\cite{praca2022}). Producent podaje masę powłoki i średnicę pęknięcia -- kalkulator ma te dane dla typowych modeli. Zamów powłokę z wyprzedzeniem, np. w \www{nearspace.pl} (sekcja~\ref{sec:powloka-lot}).
+
+\textbf{Obliczenie ilości gazu:}
+\begin{enumerate}
+  \item Zważ cały zestaw lotny bez powłoki.
+  \item W kalkulatorze \www{sondehub.org/calc} wpisz masę ładunku i prędkość wznoszenia \SI{5}{m/s}. Porównaj kilka modeli powłok i wybierz według kroku 3.
+  \item Zapisz w karcie misji (F0): model powłoki, siłę nośną szyjki (\emph{neck lift}), objętość gazu, wysokość pęknięcia, czas do pęknięcia.
+  \item Zamów gaz z zapasem co najmniej \SI{30}{\percent} (straty, powtórka, butla z mniejszą ilością gazu).
+\end{enumerate}
 
 \small
 \begin{tabularx}{\linewidth}{@{}YYYYY@{}}
@@ -98,6 +98,31 @@ Ilość gazu decyduje o prędkości wznoszenia. Prędkość wznoszenia decyduje 
 \end{tabularx}
 \normalsize
 \captionof{table}{Przykład: ładunek \SI{2}{kg}, powłoka \SI{800}{g} (średnica pęknięcia \SI{7}{m}). Tylko do orientacji -- dla swojej misji użyj kalkulatora.}
+\end{sekcja}
+
+\begin{sekcja}{Hel czy wodór}\label{sec:hel-wodor}
+Platforma Stardust NEXT używa \textbf{helu}. Hel drożeje i bywa trudno dostępny, dlatego część zespołów balonowych przechodzi na wodór~\cite[rozdz.~2]{nasahb}. Wodór daje około \SI{10}{\percent} więcej siły nośnej, ale jest palny i wymaga dodatkowego szkolenia.
+
+\begin{uwaga}Nowym zespołom nie zalecamy wodoru. Jeśli zespół mimo to wybierze wodór, stosuj zasady z rozdziału~6 podręcznika NASA~\cite{nasahb}:
+\begin{itemize}
+  \item żadnego ognia, iskier ani testów elektroniki przy butli i przy powłoce; silniki samochodów wyłączone,
+  \item uziem butlę i sprzęt, zanim wypuścisz gaz,
+  \item odzież z bawełny, nie z tworzyw sztucznych,
+  \item przed tankowaniem wyznacz strefę zagrożenia: owal wzdłuż wiatru, balon przy jego nawietrznym końcu. Uciekaj pod wiatr, gdy stoisz po nawietrznej; z innych miejsc -- w poprzek wiatru. Nigdy nie przechodź przez oś owalu,
+  \item płomień wodoru jest niewidoczny. Ktoś z zewnątrz strefy obserwuje stanowisko i ostrzega,
+  \item resztki powłoki po locie mogą zawierać kieszenie gazu -- nie zostawiaj ich bez nadzoru.
+\end{itemize}
+Wzory i procedury tankowania w rozdziale~\ref{ch:naziemny} dotyczą tylko helu.\end{uwaga}
+\end{sekcja}
+
+\begin{sekcja}{Predykcja trajektorii}
+\begin{enumerate}
+  \item Otwórz predyktor SondeHub: \www{predict.sondehub.org}.
+  \item Wpisz miejsce startu, datę i godzinę, prędkość wznoszenia, wysokość pęknięcia i prędkość opadania.
+  \item Sprawdź miejsce lądowania.
+  \item Powtarzaj predykcję codziennie od około 7 dni przed lotem. Wpisuj wyniki do dziennika predykcji (formularz F4). Prognoza wiatru się zmienia.
+  \item Wybierz termin i miejsce, dla których miejsce lądowania jest bezpieczne i dostępne.
+\end{enumerate}
 \end{sekcja}
 
 \begin{sekcja}{Miejsce startu i strefy przestrzeni powietrznej}\label{sec:strefy}
@@ -126,17 +151,7 @@ openAIP & Przeglądowa mapa przestrzeni, także państw sąsiednich. & \www{www.
 \end{enumerate}
 \end{sekcja}
 
-\begin{sekcja}{Predykcja trajektorii}
-\begin{enumerate}
-  \item Otwórz predyktor SondeHub: \www{predict.sondehub.org}.
-  \item Wpisz miejsce startu, datę i godzinę, prędkość wznoszenia, wysokość pęknięcia i prędkość opadania.
-  \item Sprawdź miejsce lądowania.
-  \item Powtarzaj predykcję codziennie od około 7 dni przed lotem. Wpisuj wyniki do dziennika predykcji (formularz F4). Prognoza wiatru się zmienia.
-  \item Wybierz termin i miejsce, dla których miejsce lądowania jest bezpieczne i dostępne.
-\end{enumerate}
-\end{sekcja}
-
-\begin{sekcja}{Scenariusze zapasowe}
+\begin{sekcja}{Scenariusze zapasowe}\label{sec:scenariusze}
 Po wysłaniu zgłoszenia do PAŻP nie możesz zmienić miejsca ani godziny startu. Dlatego:
 \begin{itemize}
   \item wyślij \textbf{dwa zgłoszenia}: dla miejsca zasadniczego i dla miejsca zapasowego,
@@ -153,7 +168,7 @@ C & & & \\\hline
 \end{tabularx}
 \end{sekcja}
 
-\begin{sekcja}{Kryteria braku startu}
+\begin{sekcja}{Kryteria braku startu}\label{sec:kryteria}
 \textbf{Nie startuj}, gdy predykcja pokazuje lądowanie:
 \begin{itemize}
   \item w morzu, jeziorze albo na rozległym terenie podmokłym,
@@ -172,6 +187,8 @@ C & & & \\\hline
 \end{sekcja}
 
 \begin{sekcja}{Wymagane testy}\label{sec:testy}
+Testy wynikają bezpośrednio z wniosków z poprzednich misji (tabela~\ref{tab:wnioski}). Lista testów rozwija się razem z wnioskami: gdy dopisujesz nowy wniosek, dopisz albo zmień test, który go sprawdza, i łącz testy, które sprawdzają to samo.
+
 Wykonaj te testy przed każdą misją, dla platformy i dla każdego ładunku. Zapisz wyniki w formularzu F5.
 
 \renewcommand{\arraystretch}{1.3}
@@ -181,13 +198,15 @@ Wykonaj te testy przed każdą misją, dla platformy i dla każdego ładunku. Za
 \textbf{Test} & \textbf{Jak} & \textbf{Kryterium}\\\midrule
 Funkcjonalny & Wszystkie funkcje na stole, z zasilania bateryjnego. & Wszystko działa.\\
 W zimnie & Według sekcji~\ref{sec:test-zimno}. & Działa, zapisuje dane, odczyty czujników wiarygodne.\\
+W niskim ciśnieniu & Według sekcji~\ref{sec:test-proznia}. & Działa bez restartów, temperatury w granicach kart katalogowych.\\
 Zasięg radia & Tracker z anteną lotną; odbiór z odległości co najmniej \SI{100}{m}, najlepiej kilku km. & Pakiety odebrane, pozycja na mapie.\\
 Odcinacz & Zwolnienie pod pełnym obciążeniem, ze skręconymi linkami, po schłodzeniu. Wyzwalanie tą samą drogą co w locie (komenda albo autotest w programie). Odcinacz z drutem: z docelowym tranzystorem i baterią. & 10 z 10 prób.\\
 Czas pracy & Cały system na bateriach lotnych. & $\geq 2\times$ czas lotu + czas poszukiwań.\\
 Upadek & Gondola zrzucona z około \SI{1}{m} na twarde podłoże. & Nic się nie odłącza.\\
 Pływalność i szczelność & Zamknięta gondola z obciążeniem do docelowej masy w wannie z wodą, około 15 minut. & Gondola pływa, wnętrze suche.\\
 Brzęczyk & Symulacja lotu w maszynie stanów (np. dane z poprzedniej misji). Odsłuch z odległości \SI{50}{m}. & Włącza się tylko po lądowaniu; słychać go z \SI{50}{m}.\\
-Wytrzymałość olinowania & Linki spadochronu z mocowaniem do płyty i uprząż gondoli obciążone statycznie 10-krotnym ciężarem zestawu pod spadochronem (np. worki z piaskiem). & Nic nie pęka, węzły nie puszczają.\\
+Wytrzymałość olinowania & Każda linka pod spadochronem, z węzłami i mocowaniem, oraz uprząż obciążone statycznie 10-krotnym ciężarem wszystkiego, co wisi pod nimi (worki z piaskiem, waga bagażowa). Każdą z dwóch linek gondoli testuj osobno. & Nic nie pęka, węzły nie puszczają, nic nie wydłuża się trwale.\\
+Słabe ogniwo & Zerwanie próbki linki z tym samym węzłem, siła mierzona wagą bagażową. & Pęka poniżej \SI{230}{N}.\\
 Próba generalna & Cały montaż i formularze dnia startu, bez balonu, ze sprzętem rozłożonym na zewnątrz. Apel „go / no-go”. Odczyt danych z kart pamięci. & Zespół zna role i kolejność; dane odczytane.\\
 \bottomrule
 \end{tabularx}
@@ -195,7 +214,7 @@ Próba generalna & Cały montaż i formularze dnia startu, bez balonu, ze sprzę
 
 \end{sekcja}
 
-\begin{sekcja}{Test w niskiej temperaturze}\label{sec:test-zimno}
+\begin{podsekcja}{Test w niskiej temperaturze}\label{sec:test-zimno}
 Test w zimnie sprawdza czujniki i skrajne warunki termiczne. Nie odtwarza stratosfery: w stratosferze jest prawie próżnia i elektronika słabo oddaje ciepło (rozdział~\ref{ch:elektronika}; \cite[rozdz.~12]{nasahb}). W zamrażarce powietrze odbiera ciepło dużo szybciej, więc długi test w bardzo niskiej temperaturze jest zbyt surowy -- zamraża wszystko, w szczególności mechanikę.
 
 Stosuj jedną z dwóch metod:
@@ -206,8 +225,36 @@ Stosuj jedną z dwóch metod:
 Ta sama metoda dotyczy platformy, odcinacza i ładunków. Zapisz w formularzu F5 metodę, temperaturę i czas.
 
 \begin{wskazowka}Zapytaj biologów na Wydziale Chemicznym, czy możesz użyć ich zamrażarki laboratoryjnej do krótkich testów.\end{wskazowka}
-\end{sekcja}
+\end{podsekcja}
 
+\begin{podsekcja}{Test w niskim ciśnieniu}\label{sec:test-proznia}
+Na wysokości \SI{33}{km} ciśnienie wynosi około \SI{7}{hPa}. Gondola styropianowa nie jest szczelna, więc elektronika pracuje prawie w próżni (sekcja~\ref{sec:historia-2020-dane}). Bez powietrza elektronika nie oddaje ciepła przez konwekcję. Wytyczne BEXUS wymagają sprawdzenia, czy układy elektryczne pracują poprawnie bez chłodzenia konwekcyjnego~\cite{bexustech}. Test w zimnie tego nie sprawdza.
+
+Koło ma komorę próżniową. Zespół próbował też zbudować symulator, który odtwarza zmienny profil ciśnienia.
+
+\textbf{Przebieg testu:}
+\begin{enumerate}
+  \item \textbf{Przygotowanie.} System włączony, na bateriach lotnych. Czujniki temperatury na elementach, które się grzeją (procesor, stabilizator napięcia, nadajnik, bateria), i czujnik ciśnienia w komorze. Zapis danych przez cały test.
+  \item \textbf{Wznoszenie.} Obniżaj ciśnienie od ciśnienia otoczenia do 5--\SI{10}{hPa} w czasie wznoszenia (przy \SI{5}{m/s} do \SI{30}{km} około 100 minut). Wzorzec profilu: zapis ciśnienia z poprzedniego lotu, np. \texttt{data/2020-07-20\_torun\_rejestrator.csv}. Gdy komora nie pozwala regulować profilu, odpompuj komorę i obserwuj system w czasie spadku ciśnienia.
+  \item \textbf{Dryf.} Utrzymuj niskie ciśnienie co najmniej przez planowany czas lotu na dużej wysokości (w 2020 roku balon dryfował prawie 2 godziny).
+  \item \textbf{Opadanie.} Napowietrzaj komorę powoli, przez około 30 minut.
+  \item \textbf{Po teście.} Odczytaj dane. Obejrzyj elementy.
+\end{enumerate}
+
+\textbf{Kryterium:} system działa przez cały test bez restartów; temperatury elementów nie przekraczają granic z kart katalogowych; dane są zapisane w całości; po teście nie ma uszkodzeń (np. spuchniętych kondensatorów albo ogniw).
+
+\begin{uwaga}
+\begin{itemize}
+  \item Zacznij od pojedynczych modułów i krótkich prób. Pełny test rób z całym systemem.
+  \item Ogniwa w miękkiej obudowie (LiPo) mogą puchnąć w niskim ciśnieniu. Najpierw sprawdź baterie osobno i obserwuj ogniwa.
+  \item Metalowa komora może tłumić sygnał radiowy. Sprawdzaj pracę systemu w zapisie danych, nie tylko przez odbiór radia.
+  \item Ładunek w szczelnym pojemniku: zapisuj ciśnienie wewnątrz i oblicz przeciek. Przykład takiego testu: zespół CHAOS, BEXUS~\cite{chaosvac}.
+  \item Nie zostawiaj testu bez nadzoru.
+\end{itemize}
+\end{uwaga}
+\end{podsekcja}
+
+\clearpage
 \begin{sekcja}{Przegląd gotowości do startu}
 Kilka dni przed lotem zespół robi przegląd gotowości (\emph{Flight Readiness Review}). Kierownik misji przechodzi z zespołem przez formularz F6. Każdy punkt ma dowód: wynik testu, potwierdzenie z PAŻP, zdjęcie, wpis w karcie misji.
 

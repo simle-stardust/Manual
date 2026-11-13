@@ -45,16 +45,14 @@
    \vspace{6mm}
    {\Large Od celu misji do raportu po locie\par}}
   \vfill
-  % Dół okładki: jeden optyczny prostokąt. Z lewej logo SimLE Stardust na szerokość opisu,
+  % Dół okładki: jeden optyczny prostokąt. Z lewej logo SimLE Stardust,
   % pod nim opis; z prawej patch misji na wysokość całego lewego bloku.
   \sbox{\okladkaopis}{\begin{tabular}[b]{@{}l@{}}
-    {\large\color{sdnavy}Dokumentacja platformy balonowej}\\
-    {\large\color{sdnavy}z odcinaczem mechanicznym}\\[6mm]
     \color{sdgray}Wersja dokumentu: \wersja\\
     \color{sdgray}Data: \datawersji\\[3mm]
     \color{sdgray}Koło Naukowe SimLE: \href{https://www.simle.pl}{\color{sdnavy}www.simle.pl}
   \end{tabular}}%
-  \settowidth{\okladkaszer}{\large Dokumentacja platformy balonowej}% szerokość logo = szerokość opisu
+  \setlength{\okladkaszer}{95mm}% szerokość logo SimLE Stardust
   \sbox{\okladkadol}{\begin{tabular}[b]{@{}l@{}}
     % Odstęp logo–opis = bok jednego trójkąta sygnetu (383/4731 szerokości logo) wg księgi znaku SimLE;
     % 3,13 mm to odstęp linii wiersza od wersaliki opisu.
@@ -106,9 +104,32 @@ Licencja & Dokumentacja koła naukowego SimLE, Politechnika Gdańska \\
 \end{blok}
 \vspace*{\fill}
 
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{blok}
+{\sffamily\bfseries\large\color{sdnavy} Koordynatorzy projektu Stardust\par}\medskip
+Dziękujemy wszystkim, którzy przez lata prowadzili projekt i jego zespoły:\par\medskip
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{@{}P{22mm}P{48mm}L@{}}
+\toprule
+2016--2019 & Karol Pelzner & pomysłodawca projektu\\
+2019--2021 & Mateusz Grzybowski & BEXUS~30\\
+2021--2023 & Marcin Jasiukowicz & \\
+2023--2024 & Magdalena Sadowska & BEXUS~34\\
+2024--2026 & Szymon Kirszenstein & \\
+\midrule
+\rule{0pt}{8mm}\dotfill & \dotfill & \emph{Ty możesz być następny!}\\
+\bottomrule
+\end{tabularx}
+\end{blok}
+\vspace*{\fill}
+
 \cleardoublepage
 \pagenumbering{roman}
 \tableofcontents
+\cleardoublepage
+\input{rozdzialy/00_slowniczek}
 \cleardoublepage
 \pagenumbering{arabic}
 

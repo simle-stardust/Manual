@@ -19,8 +19,8 @@ Po misji zeskanuj wszystkie formularze i przechowuj skany w wewnętrznej dokumen
 \textbf{Kod} & \textbf{Formularz} & \textbf{Kiedy}\\\midrule
 F0 & Karta misji & cały projekt\\
 F1 & Role w zespole i macierz odpowiedzialności & T$-$16 tyg.\\
-F2 & Planowanie misji & T$-$16 do T$-$4 tyg.\\
 ICD & Kontrola interfejsu platforma--ładunek (dla każdego ładunku) & od T$-$12 tyg. do FRR\\
+F2 & Planowanie misji & T$-$16 do T$-$4 tyg.\\
 F3 & Formalności & T$-$4 do T$-$2 tyg.\\
 F4 & Dziennik predykcji & od T$-$7 dni\\
 F5 & Raport z testów & przed FRR\\
@@ -123,7 +123,7 @@ Predykcje, dziennik predykcji & A & & I & & & & & R & I & & & \rosnie\\\hline
 Konfiguracja trackera i serwisów (T$-$2) & A & & & & & R & & C & & & & \rosnie\\\hline
 Przegląd gotowości, decyzja & A/R & C & C & C & & C & C & C & I & I & C & C\\\hline
 Pakowanie i transport sprzętu & A & I & & C & & C & C & & C & & R & \rosnie\\\hline
-\multicolumn{13}{|l|}{\cellcolor{sdlight!50}\itshape Dzień startu}\\\hline
+\multicolumn{13}{|l|}{\cellcolor{sdlight!50}\itshape Start}\\\hline
 Rozłożenie i zabezpieczenie stanowiska & I & A & & C & R & & & & & I & & C\\\hline
 Montaż reduktora, tankowanie & I & A & & R & C & & & & & I & & C\\\hline
 Zamknięcie szyjki, mocowanie olinowania & I & A & & R & C & C & & & & I & & \rosnie\\\hline
@@ -144,27 +144,6 @@ Raport z misji, wnioski, aktualizacja podręcznika & A & C & C & C & & R & R & C
 \end{tabularx}
 \normalsize
 \end{landscape}
-
-% ===========================================================================
-\formularz[kierownik misji]{F2}{Planowanie misji}{T$-$16 do T$-$4 tyg.}
-\begin{procedura}
-\etap{Cel i ładunek}
-\krok{Zapisz cel misji i wymagania ładunku w karcie misji (F0).}{}
-\krok{Wypełnij role w zespole (F1). Przekaż macierz odpowiedzialności całemu zespołowi.}{}
-\krok{Wydziel budżet masy platformy (bezpiecznie: połowa). Uzgodnij z zespołem badawczym interfejs i podpiszcie ICD.}{\pole[2cm]{masa ład. [g]:}}
-\krok{Ustal terminy przeglądów (CDR, FRR) i wpisz je do kalendarza zespołu.}{\pole[2cm]{FRR:}}
-\etap{Sprzęt}
-\krok{Wyjmij sprzęt z szafki. Sprawdź go według wykazu materiałów (rozdział~\ref{ch:materialy}).}{\pole[2cm]{braki:}}
-\krok{Sprawdź datę ważności i stan powłoki (bez pęknięć, bez lepkości).}{}
-\krok{Wypełnij budżet masy (rozdział~\ref{ch:planowanie}). Sprawdź klasę: lekki.}{\pole[2cm]{razem [g]:}}
-\krok{Wejdź na \www{sondehub.org/calc} i oblicz ilość gazu dla \SI{5}{m/s}. Wpisz wyniki do F0.}{\pole[2cm]{gaz [m³]:}}
-\etap{Wstępny plan lotu}
-\krok{Wybierz miejsce zasadnicze (A) i zapasowe (B). Uzyskaj zgodę właścicieli terenu.}{}
-\krok{Wejdź na \www{predict.sondehub.org} i sprawdź typowe trasy dla A i B w tej porze roku.}{}
-\krok{Wybierz znak wywoławczy: klubowy SimLE, członka zespołu albo udostępniony. Uzyskaj zgodę właściciela (rozdział~\ref{ch:prawo}).}{\pole[2cm]{znak:}}
-\end{procedura}
-\komentarze[3]
-\podpisy
 
 % ===========================================================================
 \formularz[opiekun ładunku i operator platformy]{ICD}{Kontrola interfejsu (1/2)}{od T$-$12 tyg. do FRR}
@@ -214,6 +193,27 @@ Dane: format, nośnik, kopia & & & \rosnie\\\hline
 \etykieta[7mm]{Uzgodnił/a -- opiekun ładunku (podpis)} & \etykieta[7mm]{Uzgodnił/a -- operator platformy (podpis)}\\\hline
 \end{tabularx}
 \normalsize
+\podpisy
+
+% ===========================================================================
+\formularz[kierownik misji]{F2}{Planowanie misji}{T$-$16 do T$-$4 tyg.}
+\begin{procedura}
+\etap{Inicjacja}
+\krok{Zapisz cel misji i wymagania ładunku w karcie misji (F0).}{}
+\krok{Wypełnij role w zespole (F1). Przekaż macierz odpowiedzialności całemu zespołowi.}{}
+\krok{Wydziel budżet masy platformy (bezpiecznie: połowa). Uzgodnij z zespołem badawczym interfejs i podpiszcie ICD.}{\pole[2cm]{masa ład. [g]:}}
+\krok{Ustal terminy przeglądów (CDR, FRR) i wpisz je do kalendarza zespołu.}{\pole[2cm]{FRR:}}
+\etap{Sprzęt}
+\krok{Wyjmij sprzęt z szafki. Sprawdź go według wykazu materiałów (rozdział~\ref{ch:materialy}).}{\pole[2cm]{braki:}}
+\krok{Sprawdź datę ważności i stan powłoki (bez pęknięć, bez lepkości).}{}
+\krok{Wypełnij budżet masy (rozdział~\ref{ch:planowanie}). Sprawdź klasę: lekki.}{\pole[2cm]{razem [g]:}}
+\krok{Wejdź na \www{sondehub.org/calc} i oblicz ilość gazu dla \SI{5}{m/s}. Wpisz wyniki do F0.}{\pole[2cm]{gaz [m³]:}}
+\etap{Wstępny plan lotu}
+\krok{Wybierz miejsce zasadnicze (A) i zapasowe (B). Uzyskaj zgodę właścicieli terenu.}{}
+\krok{Wejdź na \www{predict.sondehub.org} i sprawdź typowe trasy dla A i B w tej porze roku.}{}
+\krok{Wybierz znak wywoławczy: klubowy SimLE, członka zespołu albo udostępniony. Uzyskaj zgodę właściciela (rozdział~\ref{ch:prawo}).}{\pole[2cm]{znak:}}
+\end{procedura}
+\komentarze[3]
 \podpisy
 
 % ===========================================================================
@@ -271,6 +271,7 @@ Wykonaj każdy test dla platformy i dla każdego ładunku (rozdział~\ref{ch:pla
 \rowcolor{sdlight}\textbf{Test} & \textbf{Obiekt} & \textbf{Data} & \textbf{Wynik / pomiar} & \textbf{OK?} & \textbf{Podpis}\\\hline
 Funkcjonalny & & & & & \rosnie\\\hline
 W zimnie (metoda, temp., czas) & & & & & \rosnie\\\hline
+W niskim ciśnieniu (ciśnienie, czas) & & & & & \rosnie\\\hline
 Zasięg radia ($\geq$ 100 m) & & & & & \rosnie\\\hline
 Odcinacz główny (obciążenie, skręt, autotest) & & & & & \rosnie\\\hline
 Odcinacz zapasowy (tranzystor, prąd) & & & & & \rosnie\\\hline
@@ -315,6 +316,7 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \krok{Wgraj program lotny na HABduino. Zapisz wersję w F0.}{\pole[2cm]{wersja:}}
 \krok{Sprawdź w programie: znak wywoławczy, SSID, payload ID, częstotliwości, tryb GPS \emph{airborne}.}{}
 \krok{Wgraj program lotny na OBC. Sprawdź progi odcinacza zapasowego.}{\pole[2cm]{wersja:}}
+\krok{Wpisz konfigurację scenariusza do każdego komputera. Odczytaj ją z komputera i porównaj z zapisaną (sekcja~\ref{sec:konfiguracja}).}{\pole[2cm]{scenariusz:}}
 \etap{Serwisy śledzenia}
 \krok{Wejdź na \www{amateur.sondehub.org} i skonfiguruj dokument ładunku RTTY.}{}
 \krok{Włącz tracker na zewnątrz, z anteną. Odejdź co najmniej 100 m.}{}
@@ -380,7 +382,7 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \begin{procedura}
 \etap{Przygotowanie}
 \krok{Wszyscy przy powłoce zakładają rękawiczki.}{}
-\krok{Przykręć reduktor do butli. Pokrętło reduktora zamknięte.}{}
+\krok{Przykręć reduktor do butli (pokrętło zamknięte), podłącz rurę.}{}
 \krok{Otwórz zawór butli. Odczytaj $p_1$ (bez przepływu).}{\pole[2cm]{$p_1$ [bar]:}}
 \krok{Zmierz pirometrem butlę (czarna taśma, $\varepsilon = 0{,}95$) i powietrze.}{\pole[1.2cm]{$T_1$:}\,\pole[1.2cm]{pow.:}}
 \krok{Zważ obciążnik = siła nośna szyjki z F0 (nie masa gondoli).}{\pole[2cm]{[g]:}}
@@ -389,13 +391,14 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \etap{Tankowanie}
 \krok{Otwórz reduktor powoli, ustaw stały przepływ. Zapisz godzinę.}{\pole[2cm]{l/min:}}
 \krok{Co kilka minut zapisuj ciśnienie w butli (tabela niżej).}{}
-\krok{Balon unosi obciążnik: zamknij zawór. Po kilku minutach: $p_2$, $T_2$.}{\pole[1.2cm]{$p_2$:}\,\pole[1.2cm]{$T_2$:}}
-\krok{Oblicz objętość gazu z tabeli~\ref{tab:gaz} albo wzoru.}{\pole[2cm]{V [m³]:}}
+\krok{Balon unosi obciążnik: zamknij zawór i od razu zamknij powłokę.}{}
 \etap{Zamknięcie}
 \krok{Zdejmij taśmę wstępną. Wysuń rurę. Skręć szyjkę.}{}
 \krok{Zwiąż szyjkę na kilka supłów. Przełóż pętlę z krętlikiem.}{}
 \krok{Zegnij szyjkę w górę, zaciśnij opaskami, owiń taśmą.}{}
 \krok{Sprawdź: taśma tylko na szyjce, pętla trzyma, wiązanie szczelne.}{}
+\etap{Kontrola gazu}
+\krok{Po zamknięciu powłoki: odczytaj $p_2$, zmierz $T_2$, oblicz objętość gazu (tabela~\ref{tab:gaz} albo wzór).}{\pole[1.2cm]{$p_2$:}\,\pole[1.2cm]{$T_2$:}\,\pole[1.2cm]{V:}}
 \end{procedura}
 \renewcommand{\arraystretch}{1.4}
 \noindent\begin{tabularx}{\linewidth}{@{}|l|*{8}{X|}@{}}\hline
@@ -410,7 +413,7 @@ Każdy punkt wymaga dowodu (wynik testu, e-mail, zdjęcie). Brak dowodu oznacza 
 \formularz[kierownik startu]{F11}{Start}{T0}
 \begin{procedura}
 \etap{Gotowość zestawu}
-\krok{Pętla z krętlikiem zamocowana na szyjce. Węzły sprawdzone.}{}
+\krok{Pętla, słabe ogniwo i krętlik zamocowane na szyjce. Węzły sprawdzone.}{}
 \krok{Linka odcinacza, zapas i spadochron rozłożone w linii, bez splątań.}{}
 \krok{Linka odcinacza zaczepiona o zwalniacz. Odcinacz uzbrojony.}{}
 \krok{Gondole zamknięte, owinięte taśmą, pasy uprzęży napięte, opis markerem widoczny.}{}
