@@ -9,7 +9,7 @@ Rysunek~\ref{fig:stanowisko} pokazuje warstwy stanowiska. Powłoka leży \textbf
 \captionof{figure}{Przekrój stanowiska startowego (grubość warstw przesadzona).}\label{fig:stanowisko}
 \end{sekcja}
 
-\begin{sekcja}{Warstwy stanowiska}
+\begin{podsekcja}{Warstwy stanowiska}
 \begin{enumerate}
   \item \textbf{Plandeka} -- na sam dół. Chroni przed wilgocią z ziemi. Jest ważna przy starcie rano, gdy trawa jest mokra.
   \item \textbf{Koc} -- chroni powłokę przed przebiciem przez korzenie i odrosty. Gruby koc działa lepiej niż cienki.
@@ -21,14 +21,12 @@ Rysunek~\ref{fig:stanowisko} pokazuje warstwy stanowiska. Powłoka leży \textbf
 \begin{uwaga}Dociśnij rogi plandeki, koca i folii czymś ciężkim, np. skrzynkami transportowymi. Porywy wiatru mogą porwać folię razem z powłoką.\end{uwaga}
 
 \begin{wskazowka}Folię, plandekę i koce kupisz w markecie budowlanym. Kup oba rodzaje folii, aby mieć wybór. Kup wszystko na jeden rachunek razem z zamówieniem gazu -- upraszcza to rozliczenie.\end{wskazowka}
-\end{sekcja}
 
-\begin{sekcja}{Stanowisko na zdjęciach}
 \dwafoto{2023_stanowisko_rozlozone}{Rozłożona plandeka i sprzęt przed tankowaniem.}
 {2023_powloka_miedzy_foliami}{Powłoka na folii dolnej; pomocnicy przykrywają ją folią górną.}
 \dwafoto{2022_stanowisko_zabezpieczone}{Rogi folii dociśnięte skrzynkami transportowymi.}
 {2023_balon_po_tankowaniu}{Zatankowana powłoka trzymana folią górną do chwili startu.}
-\end{sekcja}
+\end{podsekcja}
 
 \begin{sekcja}{Sprzęt do tankowania}
 Procedury i wzory w tym rozdziale dotyczą helu (wybór gazu: sekcja~\ref{sec:hel-wodor}).
@@ -81,7 +79,11 @@ Reduktor ma dwa manometry:
 {2022_regulator_manometry}{Manometry reduktora: górny -- ciśnienie w butli [bar], dolny -- przepływ [l/min], skalowany dla argonu i CO$_2$.}
 \end{sekcja}
 
-\begin{sekcja}{Ilość gazu z ciśnienia w butli}\label{sec:gaz-wzor}
+\begin{sekcja}{Ilość gazu}
+Ilość gazu w powłoce sprawdzasz trzema metodami. \textbf{Podstawowa jest metoda z obciążnikiem} -- o końcu tankowania decyduje siła nośna. Obliczenia z ciśnienia w butli i z przepływu służą do kontroli i do oceny, ile gazu zostało w butli.
+\end{sekcja}
+
+\begin{podsekcja}{Z ciśnienia w butli}\label{sec:gaz-wzor}
 Manometr wysokiego ciśnienia pokazuje ciśnienie w butli. Ze spadku ciśnienia obliczysz, ile gazu poszło do powłoki. Wzór wynika z równania stanu gazu z poprawką na ściśliwość helu~\cite{nist}, \cite[rozdz.~6]{nasahb}:
 \[
   V \;=\; \frac{V_b\,T_0}{p_0}\left(\frac{p_1}{Z(p_1)\,T_1} - \frac{p_2}{Z(p_2)\,T_2}\right),
@@ -98,9 +100,7 @@ gdzie:
 \end{itemize}
 
 Siła nośna helu przy ziemi to około \SI{1.05}{kg} na każdy \si{m^3}. Siła nośna szyjki = $V \cdot 1{,}05$~kg $-$ masa powłoki.
-\end{sekcja}
 
-\begin{sekcja}{Tabela gazu}
 \small
 \begin{tabularx}{\linewidth}{@{}YYYYY@{}}
 \toprule
@@ -114,9 +114,9 @@ Siła nośna helu przy ziemi to około \SI{1.05}{kg} na każdy \si{m^3}. Siła n
 \begin{uwaga}Przy szybkim wypływie butla się ochładza i manometr pokazuje za niskie ciśnienie. Przed odczytem $p_2$ zamknij zawór i odczekaj kilka minut, aż temperatura się wyrówna.\end{uwaga}
 
 Hel balonowy („balloon gas”) bywa mieszaniną helu z powietrzem. Ma mniejszą siłę nośną. Zamów hel techniczny o czystości podanej przez dostawcę i zapisz ją w karcie misji.
-\end{sekcja}
+\end{podsekcja}
 
-\begin{sekcja}{Pomiar temperatury butli}\label{sec:temp-butli}
+\begin{podsekcja}{Pomiar temperatury butli}\label{sec:temp-butli}
 Termometr mierzy temperaturę \textbf{ścianki} butli, nie gazu. Ścianka i gaz mają tę samą temperaturę tylko w równowadze: butla stoi długo w stałej temperaturze, w cieniu, a gaz nie płynie~\cite[rozdz.~6]{nasahb}. W czasie wypływu gaz w butli się ochładza, a słońce nagrzewa ściankę -- pomiar jest wtedy fałszywy.
 
 \textbf{Przygotowanie:} od przyjazdu trzymaj butlę w cieniu (albo przykrytą jasnym materiałem). Naklej na butlę, na wysokości połowy, kawałek \textbf{czarnej matowej taśmy izolacyjnej PVC} (około 5$\times$\SI{5}{cm}). Taśma ma znaną emisyjność $\varepsilon \approx 0{,}95$. Naklej ją kilka minut przed pomiarem, aby przyjęła temperaturę butli.
@@ -134,9 +134,9 @@ Termometr mierzy temperaturę \textbf{ścianki} butli, nie gazu. Ścianka i gaz 
 \textbf{Termometr pogodowy} -- temperatura powietrza w cieniu. Gdy butla stała kilka godzin na zewnątrz w cieniu, jej temperatura jest bliska temperaturze powietrza. Duża różnica oznacza błąd pomiaru albo butlę nagrzaną w samochodzie.
 
 \textbf{Kiedy mierzyć:} $T_1$ -- przed otwarciem reduktora, razem z $p_1$. $T_2$ -- po zamknięciu zaworu i odczekaniu kilku minut, razem z $p_2$. Zapisz obie wartości i temperaturę powietrza w formularzu F10.
-\end{sekcja}
+\end{podsekcja}
 
-\begin{sekcja}{Ilość gazu z przepływu i czasu}
+\begin{podsekcja}{Z przepływu i czasu}
 Operator butli może szacować ilość gazu na bieżąco: ustaw \textbf{stały przepływ} na wskaźniku przepływu i mierz czas.
 
 Wskaźnik przepływu jest skalowany dla argonu. Hel jest około 10 razy lżejszy, więc rzeczywisty przepływ helu jest około \textbf{3 razy większy} niż wskazanie ($\sqrt{40/4} \approx 3{,}2$).
@@ -160,10 +160,9 @@ Przykład: przy wskazaniu \SI{30}{l/min} tankowanie trwa około \textbf{10 minut
 \normalsize
 
 To zgrubne oszacowanie: wskazanie zależy od reduktora i od ciśnienia za nim. Co kilka minut porównuj je ze spadkiem ciśnienia w butli (tabela~\ref{tab:gaz}). O końcu tankowania decyduje metoda z obciążnikiem.
-\end{sekcja}
+\end{podsekcja}
 
-\begin{sekcja}{Metoda z obciążnikiem}
-Metoda z obciążnikiem to podstawowa metoda tankowania. Wzory służą do kontroli i do oceny, ile gazu zostało w butli.
+\begin{podsekcja}{Metoda z obciążnikiem}
 \begin{enumerate}
   \item Odczytaj z kalkulatora siłę nośną szyjki (\emph{neck lift}).
   \item Przygotuj obciążnik o masie równej \textbf{sile nośnej szyjki z kalkulatora} (worek z piaskiem, plecak, odważniki). Uwzględnij masę rury do tankowania i taśmy, jeśli wiszą razem z obciążnikiem. Zważ obciążnik wagą bagażową.
@@ -175,7 +174,7 @@ Metoda z obciążnikiem to podstawowa metoda tankowania. Wzory służą do kontr
 
 \begin{center}\resizebox{\linewidth}{!}{\rysTankowanie}\end{center}
 \captionof{figure}{Tankowanie metodą z obciążnikiem.}
-\end{sekcja}
+\end{podsekcja}
 
 \begin{sekcja}{Procedura tankowania}
 \begin{enumerate}

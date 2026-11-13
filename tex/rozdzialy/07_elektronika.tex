@@ -46,16 +46,6 @@ Niezależny komputer bezpieczeństwa, drugi komputer z własnym odcinaczem i wat
 Kod i dokumentacja najnowszej wersji OBC są w wewnętrznym repozytorium koła SimLE (GitLab). Publiczna wersja z misji BEXUS~30 jest na \www{github.com/simle-stardust} i jest opisana w pracy inżynierskiej~\cite{praca2022}.
 \end{sekcja}
 
-\begin{sekcja}{Brzęczyk lokalizacyjny}
-Brzęczyk ułatwia znalezienie gondoli w trudnych warunkach: w wysokiej trawie, w krzakach, na drzewie, w nocy. To zawsze dobry dodatek. HABduino nie ma brzęczyka, ale łatwo dodać go do OBC albo do eksperymentu.
-\begin{itemize}
-  \item Użyj głośnego brzęczyka piezo z wbudowanym generatorem.
-  \item Brzęczyk włącza się \textbf{dopiero po lądowaniu}. Lądowanie wykrywa maszyna stanów: \emph{przed startem} $\to$ \emph{wznoszenie} (wysokość rośnie) $\to$ \emph{opadanie} (po osiągnięciu pułapu wysokość maleje) $\to$ \emph{lądowanie} (niska wysokość i prędkość pionowa bliska zeru przez co najmniej minutę). Dzięki temu brzęczyk nie hałasuje na stanowisku startowym.
-  \item Po lądowaniu brzęczyk brzęczy aż do rozładowania baterii. Praca impulsami (np. 1 sekunda dźwięku, 2 sekundy przerwy) wydłuża ten czas.
-  \item Przetestuj maszynę stanów na danych z poprzedniego lotu (rozdział~\ref{ch:planowanie}, testy).
-\end{itemize}
-\end{sekcja}
-
 \begin{sekcja}{Odbiorniki GPS}
 GPS to podstawa bezpieczeństwa misji. Odbiornik GPS daje:
 \begin{itemize}
@@ -194,15 +184,26 @@ SSTV (opcjonalnie) & radio ręczne i Robot36 (Android) & Ustaw radio na częstot
 \textbf{Test:} włącz tracker w odległości co najmniej \SI{100}{m} od stacji. Sprawdź, czy pakiety ze stacji pojawiają się w SondeHub i na aprs.fi pod znakiem stacji.
 \end{sekcja}
 
-\begin{sekcja}{Lokalizatory po lądowaniu}
+\begin{sekcja}{Lokalizatory po lądowaniu}\label{sec:lokalizatory}
 Przy ziemi sygnał z trackera zanika: zasłaniają go drzewa, budynki i ukształtowanie terenu. Lokalizatory pomagają znaleźć gondolę po lądowaniu.
 
 \begin{itemize}
   \item \textbf{SPOT Trace} -- lokalizator satelitarny. Działa tylko do około \SI{6500}{m}, więc służy tylko po lądowaniu. Wymaga aktywnej subskrypcji. Ustaw interwał raportów (np. 5 minut). Antena do góry.
   \item \textbf{Znaczniki Bluetooth: Apple AirTag i znacznik sieci Google (Find Hub)} -- najlepiej dwa niezależne. Smartfony w pobliżu przekazują pozycję znacznika. Gdy ktoś znajdzie gondolę przed zespołem i podejdzie ze smartfonem, zespół zobaczy nową pozycję.
+  \item \textbf{Brzęczyk} na gondoli (podsekcja niżej).
   \item Zapasowo: smartfon z funkcją „Znajdź moje urządzenie” -- w 2020 roku pomógł znaleźć ładunek~\cite{raport2020}.
 \end{itemize}
 \end{sekcja}
+
+\begin{podsekcja}{Brzęczyk lokalizacyjny}
+Brzęczyk ułatwia znalezienie gondoli w trudnych warunkach: w wysokiej trawie, w krzakach, na drzewie, w nocy. To zawsze dobry dodatek. HABduino nie ma brzęczyka, ale łatwo dodać go do OBC albo do eksperymentu.
+\begin{itemize}
+  \item Użyj głośnego brzęczyka piezo z wbudowanym generatorem.
+  \item Brzęczyk włącza się \textbf{dopiero po lądowaniu}. Lądowanie wykrywa maszyna stanów: \emph{przed startem} $\to$ \emph{wznoszenie} (wysokość rośnie) $\to$ \emph{opadanie} (po osiągnięciu pułapu wysokość maleje) $\to$ \emph{lądowanie} (niska wysokość i prędkość pionowa bliska zeru przez co najmniej minutę). Dzięki temu brzęczyk nie hałasuje na stanowisku startowym.
+  \item Po lądowaniu brzęczyk brzęczy aż do rozładowania baterii. Praca impulsami (np. 1 sekunda dźwięku, 2 sekundy przerwy) wydłuża ten czas.
+  \item Przetestuj maszynę stanów na danych z poprzedniego lotu (rozdział~\ref{ch:planowanie}, testy).
+\end{itemize}
+\end{podsekcja}
 
 \begin{sekcja}{Inne systemy łączności}\label{sec:lacznosc-inne}
 Główny tor radiowy to APRS i RTTY. Te systemy możesz dodać jako drugi, niezależny tor albo jako ładunek do testu. Konfigurację stacji odbiorczych opisuje sekcja~\ref{sec:konfiguracja-stacji}.
@@ -239,7 +240,7 @@ Przykład misji z wieloma torami naraz (Wenet, SSTV, Horus Binary, APRS, LoRa AP
 \end{sekcja}
 
 \begin{sekcja}{Termika: mróz i próżnia}
-W stratosferze powietrze ma do \SI{-60}{\degreeCelsius}, ale jest bardzo rzadkie. Prawie nie ma konwekcji, więc elektronika \textbf{nie oddaje ciepła} do powietrza. Słońce dodatkowo nagrzewa gondolę. W misji z lipca 2020 roku elektronika w izolowanej gondoli przekroczyła \SI{50}{\degreeCelsius}~\cite{praca2022}.
+Warunki w stratosferze opisuje sekcja~\ref{sec:warunki}. Powietrze jest mroźne, ale bardzo rzadkie. Prawie nie ma konwekcji, więc elektronika \textbf{nie oddaje ciepła} do powietrza. Słońce dodatkowo nagrzewa gondolę. W misji z lipca 2020 roku elektronika w izolowanej gondoli przekroczyła \SI{50}{\degreeCelsius}~\cite{praca2022}.
 
 Według NASA większość awarii w lotach balonowych wynika z problemów termicznych: zbyt uproszczonego bilansu cieplnego albo za słabych testów naziemnych~\cite[rozdz.~12]{nasahb}. W czasie wznoszenia, gdy powietrze jest jeszcze gęste, nieosłonięte elementy wychładzają się nawet do \SI{-60}{\degreeCelsius}. Wyżej, bez konwekcji, częściej problemem jest przegrzanie niż zimno.
 

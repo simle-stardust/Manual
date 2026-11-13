@@ -24,24 +24,12 @@ Platforma używa standardowych pudełek styropianowych w rozmiarze typu eurobox.
   \item zespół badawczy pracuje niezależnie od zespołu platformy.
 \end{itemize}
 
-Zespół badawczy dostarcza przed misją dane do ICD (sekcja~\ref{sec:icd}): masę i wymiary z pudełkiem, zasilanie (ładunek ma własne baterie -- platforma nie zasila ładunków), częstotliwości radiowe (ryzyko zakłóceń z trackerem), wymagania lotu oraz procedury włączenia przed startem i wyłączenia po odzyskaniu.
+Zespół badawczy dostarcza przed misją dane do dokumentu kontroli interfejsu (ICD): masę i wymiary z pudełkiem, zasilanie (ładunek ma własne baterie -- platforma nie zasila ładunków), częstotliwości radiowe (ryzyko zakłóceń z trackerem), wymagania lotu oraz procedury włączenia przed startem i wyłączenia po odzyskaniu.
 
 \begin{uwaga}Ładunek badawczy przechodzi te same testy bezpieczeństwa i zgodności co platforma (sekcja~\ref{sec:testy}). Ładunek bez testów nie leci.\end{uwaga}
 \end{sekcja}
 
-\begin{sekcja}{Dokument kontroli interfejsu (ICD)}\label{sec:icd}
-Dla każdego ładunku zespół platformy i zespół badawczy wypełniają \textbf{dokument kontroli interfejsu} (ICD, \emph{Interface Control Document}, formularz ICD). ICD zawiera wartości uzgodnione przez oba zespoły: masę, wymiary, zasilanie, częstotliwości, wymagania lotu i procedury. Te wartości to \textbf{kontrakt}:
-\begin{itemize}
-  \item kolumna „zadeklarowane” -- wartości uzgodnione na etapie planowania,
-  \item kolumna „rzeczywiste” -- wartości zmierzone na gotowym ładunku (najpóźniej na przeglądzie gotowości, F6),
-  \item każde odstępstwo opisz jasno: co się różni, o ile, dlaczego i kto je zaakceptował,
-  \item zmiana wartości zadeklarowanej to nowa wersja ICD, podpisana przez oba zespoły.
-\end{itemize}
-
-\textbf{Budżet masy najpierw dla platformy.} Zanim zespoły uzgodnią ICD, zespół platformy wydziela budżet masy dla siebie: gondola platformy, olinowanie i spadochron. Dzięki temu cała misja nie przekroczy ram balonu lekkiego (sekcja~\ref{sec:budzet}). Bezpieczny podział to \textbf{pół na pół}: połowa budżetu dla platformy, połowa dla ładunków badawczych. Potem zespoły mogą wymieniać się budżetem -- każdą zmianę zapisz w ICD.
-\end{sekcja}
-
-\begin{sekcja}{Budżet masy}\label{sec:budzet}
+\begin{podsekcja}{Budżet masy}\label{sec:budzet}
 Projektuj zestaw jako balon \textbf{lekki} (rozdział~\ref{ch:prawo}):
 \begin{itemize}
   \item łączna masa ładunku (wszystko pod powłoką) poniżej \SI{4}{kg},
@@ -49,7 +37,9 @@ Projektuj zestaw jako balon \textbf{lekki} (rozdział~\ref{ch:prawo}):
   \item słabe ogniwo między powłoką a spadochronem zrywa się przy sile poniżej \SI{230}{N} (sekcja~\ref{sec:slabe-ogniwo}).
 \end{itemize}
 
-Zważ każdy element. Używaj mas zmierzonych, nie szacowanych. Zostaw zapas co najmniej \SI{10}{\percent}. Budżety ładunków badawczych zapisz w ICD (sekcja~\ref{sec:icd}).
+\textbf{Budżet masy najpierw dla platformy.} Zanim zespoły uzgodnią ICD, zespół platformy wydziela budżet masy dla siebie: gondola platformy, olinowanie i spadochron. Dzięki temu cała misja nie przekroczy ram balonu lekkiego. Bezpieczny podział to \textbf{pół na pół}: połowa budżetu dla platformy, połowa dla ładunków badawczych. Potem zespoły mogą wymieniać się budżetem -- każdą zmianę zapisz w ICD.
+
+Zważ każdy element. Używaj mas zmierzonych, nie szacowanych. Zostaw zapas co najmniej \SI{10}{\percent}. Budżety ładunków badawczych zapisz w ICD (podsekcja niżej).
 
 \renewcommand{\arraystretch}{1.6}
 \begin{tabularx}{\linewidth}{@{}|L|P{25mm}|P{25mm}|@{}}\hline
@@ -61,7 +51,17 @@ Gondola ładunku & & \\\hline
 \textbf{Razem: masa ładunku do kalkulatora} & & \\\hline
 Powłoka (z karty katalogowej) & & \\\hline
 \end{tabularx}
-\end{sekcja}
+\end{podsekcja}
+
+\begin{podsekcja}{Dokument kontroli interfejsu (ICD)}\label{sec:icd}
+Dla każdego ładunku zespół platformy i zespół badawczy wypełniają \textbf{dokument kontroli interfejsu} (ICD, \emph{Interface Control Document}, formularz ICD). ICD zawiera wartości uzgodnione przez oba zespoły: masę, wymiary, zasilanie, częstotliwości, wymagania lotu i procedury. Te wartości to \textbf{kontrakt}:
+\begin{itemize}
+  \item kolumna „zadeklarowane” -- wartości uzgodnione na etapie planowania,
+  \item kolumna „rzeczywiste” -- wartości zmierzone na gotowym ładunku (najpóźniej na przeglądzie gotowości, F6),
+  \item każde odstępstwo opisz jasno: co się różni, o ile, dlaczego i kto je zaakceptował,
+  \item zmiana wartości zadeklarowanej to nowa wersja ICD, podpisana przez oba zespoły.
+\end{itemize}
+\end{podsekcja}
 
 \clearpage
 \begin{sekcja}{Prędkość wznoszenia, ilość gazu i dobór powłoki}\label{sec:powloka}
@@ -168,7 +168,7 @@ C & & & \\\hline
 \end{tabularx}
 \end{sekcja}
 
-\begin{sekcja}{Kryteria braku startu}
+\begin{sekcja}{Kryteria braku startu}\label{sec:kryteria}
 \textbf{Nie startuj}, gdy predykcja pokazuje lądowanie:
 \begin{itemize}
   \item w morzu, jeziorze albo na rozległym terenie podmokłym,
