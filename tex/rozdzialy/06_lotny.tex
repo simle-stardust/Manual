@@ -52,25 +52,16 @@ Tani materiał to rękaw foliowy LDPE na wymiar (np. \www{opakowania-mikfol.pl},
 \foto[0.62\linewidth]{inspiracje_windborne_start}{Start balonu WindBorne Systems. Wysięgnik na statywie trzyma powłokę w czasie tankowania. Zdjęcie: Christie Hemm Klok~\cite{ieee2025}.}
 \end{sekcja}
 
-\begin{sekcja}{Spadochron}
+\begin{sekcja}{Spadochron}\label{sec:spadochron-sekcja}
 \begin{itemize}
   \item Spadochron jest zamocowany linkami do rogów płyty montażowej na gondoli platformy.
   \item W czasie wznoszenia spadochron jest zwinięty wzdłuż linki odcinacza. Nie jest schowany w pojemniku -- nie ma mechanizmu wyrzutu jak w rakiecie. Otwiera się sam, gdy gondola zaczyna opadać (po odcięciu albo po pęknięciu powłoki).
   \item Na rysunkach spadochron bywa narysowany jako otwarty -- tylko dla czytelności.
   \item Kolor i średnicę spadochronu wpisz do zgłoszenia PAŻP.
 \end{itemize}
-
-\textbf{Wykonanie spadochronu.} Spadochron można uszyć samemu. Przykład: poradnik koła PWr in Space~\cite{ripstopdiy} -- czasza półkulista z tkaniny nylonowej ripstop, z taśmą nośną wzdłuż szwów i krawędzi, ze wzmocnionym otworem w szczycie i z linkami równej długości. Wykroje klinów (\emph{gore}) przygotuj narzędziem albo ze wzoru:
-\begin{itemize}
-  \item ChuteMaker~\cite{chutemaker} -- program, który rysuje wykroje klinów spadochronu sferycznego, toroidalnego i eliptycznego do pliku PDF albo SVG (licencja GPL-3.0),
-  \item Democratising CANSAT~II~\cite{cansatgores} -- wzory na kształt klina i arkusz kalkulacyjny ze współrzędnymi (licencja CC BY-SA 4.0),
-  \item generator Scotta Bryce'a~\cite{bryceparachute} -- wykrój spadochronu półkulistego do druku, ze średnicą dobraną do masy i prędkości opadania (licencja nie jest podana),
-  \item spadochron krzyżowy R.~Nakki~\cite{nakkaxchute} -- prostszy w wykonaniu niż półkulisty: dwa prostokątne pasy ripstopu zszyte na krzyż, cztery linki. Wymiary w dokumencie PDF na stronie (licencja nie jest podana).
-\end{itemize}
-Średnicę dobierz tak, aby prędkość przy ziemi wynosiła 4--\SI{6}{m/s} (sekcja~\ref{sec:spadochron}). Sprawdź gotowy spadochron testem zrzutu z obciążeniem przed lotem.
 \end{sekcja}
 
-\begin{sekcja}{Dobór spadochronu}\label{sec:spadochron}
+\begin{podsekcja}{Dobór spadochronu}\label{sec:spadochron}
 Dobór spadochronu to kluczowe obliczenie misji. Prędkość opadania wynika z równowagi ciężaru i oporu powietrza~\cite[rozdz.~14]{nasahb}:
 \[
   v = \sqrt{\frac{2\,m\,g}{\rho\,C_d\,A}}, \qquad A = \frac{\pi D^2}{4}
@@ -95,16 +86,11 @@ gdzie: $m$ -- masa pod spadochronem (gondole, olinowanie, spadochron) [kg]; $g =
 \end{tabularx}
 \normalsize
 \captionof{table}{Prędkość opadania przy ziemi [m/s] dla $C_d = 0{,}8$. Zielone pola: zakres docelowy 4--6~m/s. Dla swojego spadochronu użyj $C_d$ z karty producenta.}\label{tab:spadochron}
-\end{sekcja}
+\end{podsekcja}
 
-\begin{sekcja}{Wstrząs otwarcia i typ spadochronu}\label{sec:wstrzas}
-\textbf{Wstrząs otwarcia.} Po odcięciu gondola najpierw spada swobodnie w rzadkim powietrzu, a spadochron otwiera się dopiero przy dużej prędkości. Siła na linkach w chwili otwarcia rośnie z kwadratem prędkości: $F \approx m g\,(v_1/v_T)^2$, gdzie $v_1$ -- prędkość w chwili otwarcia, $v_T$ -- prędkość ustalona. Spadochron rozciągnięty wzdłuż zestawu (jak w Stardust NEXT) daje według NASA 6--10\,$g$, spadochron spakowany poniżej 2\,$g$~\cite[rozdz.~14]{nasahb}.
-\begin{itemize}
-  \item \textbf{Całe olinowanie pod spadochronem} -- linki spadochronu, węzły, mocowania do płyt, poprzeczki i uprząż -- musi wytrzymać wstrząs 10\,$g$ z zapasem. Przeciążenia rzędu 10\,$g$ notowano w chwili pęknięcia balonu albo odcięcia~\cite{magrian2018}.
-  \item Każda gondola wisi na \textbf{dwóch linkach}. Każda linka musi sama utrzymać wstrząs: wytrzymałość katalogowa linki co najmniej $2 \times 10 \times m g$, gdzie $m$ -- masa wszystkiego, co wisi pod tą linką. Dla \SI{2}{kg} to co najmniej \SI{400}{N}, dla \SI{4}{kg} co najmniej \SI{800}{N}.
-  \item Pod spadochronem nie używaj linki zrywalnej. Granica \SI{230}{N} dotyczy tylko słabego ogniwa nad spadochronem (sekcja~\ref{sec:slabe-ogniwo}).
-  \item Sprawdź wytrzymałość testem statycznym (sekcja~\ref{sec:testy}).
-\end{itemize}
+\begin{podsekcja}{Wstrząs otwarcia i typ spadochronu}\label{sec:wstrzas}
+\textbf{Wstrząs otwarcia.} Po odcięciu gondola najpierw spada swobodnie w rzadkim powietrzu, a spadochron otwiera się dopiero przy dużej prędkości. Siła na linkach w chwili otwarcia rośnie z kwadratem prędkości: $F \approx m g\,(v_1/v_T)^2$, gdzie $v_1$ -- prędkość w chwili otwarcia, $v_T$ -- prędkość ustalona. Spadochron rozciągnięty wzdłuż zestawu (jak w Stardust NEXT) daje według NASA 6--10\,$g$, spadochron spakowany poniżej 2\,$g$~\cite[rozdz.~14]{nasahb}. Olinowanie pod spadochronem musi ten wstrząs wytrzymać (sekcja~\ref{sec:olinowanie}).
+
 
 \textbf{Prędkość lądowania.} NASA uznaje 7--8~m/s za akceptowalne dla większości ładunków~\cite[rozdz.~14]{nasahb}. Większy spadochron wydłuża opadanie i dryf, zwiększa ryzyko lądowania na drzewie albo liniach energetycznych i wleczenia gondoli po ziemi przy wietrze. Cel 4--6~m/s jest dobry dla lekkich gondoli styropianowych -- nie zwiększaj spadochronu ponad potrzebę. Pierwsze przybliżenie masy pod spadochronem: masa gondoli $\times 1{,}05$.
 
@@ -113,12 +99,24 @@ gdzie: $m$ -- masa pod spadochronem (gondole, olinowanie, spadochron) [kg]; $g =
   \item \textbf{płaski okrągły z otworem w czaszy} -- otwiera się pewnie i szybko, łatwo dostępny; buja się do około 45° po otwarciu,
   \item \textbf{krzyżowy} -- buja się około 15° i mniej się kręci; w małych programach balonowych często używany, z dobrymi wynikami. Rozważ go, gdy kamera ma nagrywać stabilny obraz.
 \end{itemize}
-\end{sekcja}
+\end{podsekcja}
 
-\begin{sekcja}{Olinowanie}
+\begin{podsekcja}{Wykonanie spadochronu}
+Spadochron można uszyć samemu. Przykład: poradnik koła PWr in Space~\cite{ripstopdiy} -- czasza półkulista z tkaniny nylonowej ripstop, z taśmą nośną wzdłuż szwów i krawędzi, ze wzmocnionym otworem w szczycie i z linkami równej długości. Wykroje klinów (\emph{gore}) przygotuj narzędziem albo ze wzoru:
+\begin{itemize}
+  \item ChuteMaker~\cite{chutemaker} -- program, który rysuje wykroje klinów spadochronu sferycznego, toroidalnego i eliptycznego do pliku PDF albo SVG (licencja GPL-3.0),
+  \item Democratising CANSAT~II~\cite{cansatgores} -- wzory na kształt klina i arkusz kalkulacyjny ze współrzędnymi (licencja CC BY-SA 4.0),
+  \item generator Scotta Bryce'a~\cite{bryceparachute} -- wykrój spadochronu półkulistego do druku, ze średnicą dobraną do masy i prędkości opadania (licencja nie jest podana),
+  \item spadochron krzyżowy R.~Nakki~\cite{nakkaxchute} -- prostszy w wykonaniu niż półkulisty: dwa prostokątne pasy ripstopu zszyte na krzyż, cztery linki. Wymiary w dokumencie PDF na stronie (licencja nie jest podana).
+\end{itemize}
+Średnicę dobierz tak, aby prędkość przy ziemi wynosiła 4--\SI{6}{m/s} (sekcja~\ref{sec:spadochron}). Sprawdź gotowy spadochron testem zrzutu z obciążeniem przed lotem.
+\end{podsekcja}
+
+\clearpage
+\begin{sekcja}{Olinowanie}\label{sec:olinowanie}
 Olinowanie to wszystkie linki i taśmy, które łączą powłokę, spadochron i gondole. Jego część to \textbf{uprząż} -- pasy z taśmy parcianej, które obejmują gondolę (pudełka styropianowe z zawartością) i łączą ją z płytą montażową i linkami spadochronu.
 
-\textbf{Materiały:} taśma parciana i regulatory do taśmy (plastikowe albo metalowe) na uprząż; mocna linka na olinowanie pod spadochronem (sekcja~\ref{sec:wstrzas}); linka na słabe ogniwo, która zrywa się poniżej \SI{230}{N} (sekcja~\ref{sec:slabe-ogniwo}); linka odcinacza; krętlik; poprzeczki (np. kawałki rurki).
+\textbf{Materiały:} taśma parciana i regulatory do taśmy (plastikowe albo metalowe) na uprząż; mocna linka na olinowanie pod spadochronem (podsekcja~\ref{sec:olinowanie-wytrz}); linka na słabe ogniwo, która zrywa się poniżej \SI{230}{N} (sekcja~\ref{sec:slabe-ogniwo}); linka odcinacza; krętlik; poprzeczki (np. kawałki rurki).
 
 \textbf{Zasady:}
 \begin{enumerate}
@@ -127,16 +125,36 @@ Olinowanie to wszystkie linki i taśmy, które łączą powłokę, spadochron i 
   \item \textbf{Linka odcinacza} jest przywiązana do wierzchołka spadochronu, przechodzi w górę przez krętlik (jak przez bloczek), a potem biegnie bokiem -- równolegle do spadochronu i obok końców poprzeczek -- w dół do zwalniacza na gondoli. Zapas linki między krętlikiem a spadochronem daje spadochronowi miejsce na rozwinięcie.
   \item \textbf{Długość zapasu} to wciąż element eksperymentu. W 2023 roku zapas 10--15~m zadziałał, ale prawdopodobnie jest za długi. Spróbuj krótszego zapasu i zapisz wynik w rozdziale~\ref{ch:historia}.
   \item Linki spadochronu schodzą się pod czaszą w jeden punkt, a potem rozchodzą do końców poprzeczek i dalej do rogów płyty montażowej. Spadochron wisi na osi zestawu.
-  \item Każda gondola wisi na \textbf{dwóch niezależnych linkach}. Linki są odsunięte od siebie, więc pracują jako dwie osobne linki, a nie jedna, i mniej się plączą. Gdy jedna linka pęknie, druga utrzyma gondolę.
+  \item Każda gondola wisi na \textbf{dwóch niezależnych linkach}, odsuniętych od siebie. Pracują jako dwie osobne linki, a nie jedna, i mniej się plączą. Gdy jedna linka pęknie, druga utrzyma gondolę.
   \item \textbf{Poprzeczki i płyty} utrzymują stały odstęp między linkami i usztywniają olinowanie. Olinowanie pracuje wtedy jak szeroka taśma i mniej się skręca. Skuteczność trzeba jeszcze sprawdzić kamerą w locie.
   \item \textbf{Uprząż} przenosi cały ciężar gondoli i wstrząs otwarcia spadochronu. Styropian nie przenosi obciążeń -- pudełko tylko chroni zawartość. Regulatory na pasach uprzęży pozwalają szybko wyrównać długości na stanowisku.
   \item Na stanowisku rozłóż olinowanie w linii, z wiatrem, bez splątań. Pętla do szyjki czeka obok powłoki, gotowa do założenia po tankowaniu (rysunek~\ref{fig:pociag}).
 \end{enumerate}
-
-\foto[0.8\linewidth]{2023_zestaw_przed_startem}{Zestaw rozłożony przed startem: gondola na pierwszym planie, olinowanie rozciągnięte w stronę stanowiska tankowania. Biała rurka to poprzeczka.}\label{fig:pociag}
 \end{sekcja}
 
-\begin{sekcja}{Odcinacz mechaniczny -- zasada działania}\label{sec:odcinacz}
+\begin{podsekcja}{Wytrzymałość i test}\label{sec:olinowanie-wytrz}
+\begin{itemize}
+  \item \textbf{Całe olinowanie pod spadochronem} -- linki spadochronu, węzły, mocowania do płyt, poprzeczki i uprząż -- musi wytrzymać wstrząs 10\,$g$ z zapasem. Przeciążenia rzędu 10\,$g$ notowano w chwili pęknięcia balonu albo odcięcia~\cite{magrian2018}.
+  \item Każda gondola wisi na \textbf{dwóch linkach}. Każda linka musi sama utrzymać wstrząs: wytrzymałość katalogowa linki co najmniej $2 \times 10 \times m g$, gdzie $m$ -- masa wszystkiego, co wisi pod tą linką. Dla \SI{2}{kg} to co najmniej \SI{400}{N}, dla \SI{4}{kg} co najmniej \SI{800}{N}.
+  \item Pod spadochronem nie używaj linki zrywalnej. Granica \SI{230}{N} dotyczy tylko słabego ogniwa nad spadochronem (sekcja~\ref{sec:slabe-ogniwo}).
+\end{itemize}
+
+\textbf{Test statyczny:} obciąż każdą linkę pod spadochronem, z węzłami i mocowaniem, oraz uprząż 10-krotnym ciężarem wszystkiego, co wisi pod nimi (worki z piaskiem, waga bagażowa). Każdą z dwóch linek gondoli testuj osobno. Nic nie może pęknąć, węzły nie mogą puścić, nic nie może wydłużyć się trwale (tabela testów, sekcja~\ref{sec:testy}).
+
+\foto[0.8\linewidth]{2023_zestaw_przed_startem}{Zestaw rozłożony przed startem: gondola na pierwszym planie, olinowanie rozciągnięte w stronę stanowiska tankowania. Biała rurka to poprzeczka.}\label{fig:pociag}
+\end{podsekcja}
+
+\begin{podsekcja}{Pomysł: olinowanie czteropunktowe}
+W misji z 09.08.2023 cały zestaw wisiał na jednej lince, a pozostałe linki poskręcały się i spadochron się nie otworzył (rozdział~\ref{ch:historia}). Zespół zaproponował wtedy zawieszenie czteropunktowe:
+\begin{itemize}
+  \item cztery punkty mocowania na gondoli (rogi płyty montażowej) i cztery linki do spadochronu zamiast dwóch,
+  \item płyta rozpórkowa pod spadochronem utrzymuje odstęp między linkami (rozwiązanie zespołu SuperCluster~\cite{supercluster}),
+  \item całość zrobiona i sprawdzona przed dniem startu -- bez wiązania węzłów na stanowisku.
+\end{itemize}
+Cztery linki o równej długości trzymają gondolę poziomo i ograniczają jej obrót. Rozwiązanie nie jest jeszcze sprawdzone w locie: przed misją sprawdź je testem statycznym i nagraj olinowanie kamerą w locie.
+\end{podsekcja}
+
+\begin{sekcja}{Odcinacz mechaniczny}\label{sec:odcinacz}
 Odcinacz kończy lot automatycznie (albo na komendę, jeśli na pokładzie jest odbiornik). Odcinacz oddziela gondole ze spadochronem od powłoki.
 
 Zwalniacz serwomechaniczny jest na płycie montażowej na pokrywie gondoli platformy. \textbf{Zwalniacz trzyma koniec linki, która idzie przez krętlik do balonu} -- nie spadochron. Linki spadochronu są zamocowane na stałe do rogów płyty.
@@ -150,11 +168,16 @@ W czasie wznoszenia krętlik pod balonem działa jak bloczek: jeden koniec linki
 \foto[0.5\linewidth]{2023_gondola_gora}{Pokrywa gondoli platformy: płyta montażowa (niebieska) ze zwalniaczem serwomechanicznym i zaczepioną linką, pasy uprzęży z regulatorami, anteny GPS.}
 \end{sekcja}
 
-\begin{sekcja}{Odcinacz -- wymagania i testy}
+\begin{podsekcja}{Wymagania}
 \begin{itemize}
   \item Zwalniacz ładunku sterowany serwem (PWM, zasilanie 5--\SI{7.2}{V}, masa około \SI{76}{g}), np. zwalniacz zrzutu ładunku do dronów.
   \item Odcinacz działa automatycznie: po czasie, po przekroczeniu wysokości, po wyjściu z dozwolonego obszaru, po długim locie poziomym (balon nie pękł). Komenda z ziemi wymaga odbiornika na pokładzie -- HABduino go nie ma.
   \item Komputer bezpieczeństwa (HABduino) steruje odcinaczem głównym. Komputer pokładowy (OBC) steruje \textbf{drugim, niezależnym odcinaczem innego typu}, np. z drutem oporowym (rozdział~\ref{ch:elektronika}).
+\end{itemize}
+\end{podsekcja}
+
+\begin{podsekcja}{Testy odcinacza}
+\begin{itemize}
   \item \textbf{Odcinacz z drutem oporowym:} sprawdź z docelowym tranzystorem i docelową baterią, czy obwód przepuszcza prąd wystarczający do rozgrzania drutu i przecięcia linki. Powtórz test wiele razy bez awarii, także w teście w zimnie.
   \item \textbf{Test wyzwolenia:} gdy odcinacz nie ma komend radiowych, dedykowany przycisk testowy jest dopuszczalny. Przycisk musi wyzwalać odcinacz tą samą drogą co w locie (autotest w programie), a nie bezpośrednio.
   \item Testy: pełne obciążenie, skręcone linki, test w zimnie według sekcji~\ref{sec:test-zimno}.
@@ -171,9 +194,10 @@ Drut oporowy nie przeciął linki & Za krótki czas grzania, za mały prąd & Te
 \bottomrule
 \end{tabularx}
 \normalsize
-\end{sekcja}
+\end{podsekcja}
 
-\begin{sekcja}{Gondola}
+\clearpage
+\begin{sekcja}{Gondola}\label{sec:gondola}
 Gondola to pudełko styropianowe w standardowym rozmiarze typu eurobox. Pudełka są tanie, lekkie, izolują ciepło i chronią sprzęt przy lądowaniu. Mają standardowe wymiary i wypustki, więc łatwo je łączyć ze sobą i z ładunkami zespołów badawczych.
 
 \textbf{Platforma i ładunek mają tę samą szerokość pudełka.} Dzięki temu pasy uprzęży obejmują oba pudełka, a gondola wisi stabilnie.
@@ -187,14 +211,12 @@ Gondola to pudełko styropianowe w standardowym rozmiarze typu eurobox. Pudełka
 
 \textbf{Gdzie kupić:} sklepy internetowe z opakowaniami. Warto też zapytać w sklepach rybnych i mięsnych -- używają takich pudełek na co dzień.
 \end{minipage}
-\end{sekcja}
 
-\begin{sekcja}{Przekrój gondoli}
 \begin{center}\resizebox{\linewidth}{!}{\rysGondola}\end{center}
 \captionof{figure}{Przekrój gondoli: platforma (u góry) i ładunek badawczy (u dołu), ta sama szerokość, spięte uprzężą: pas od płyty montażowej dookoła całości.}\label{fig:gondola}
 \end{sekcja}
 
-\begin{sekcja}{Budowa gondoli platformy}
+\begin{podsekcja}{Budowa gondoli platformy}
 \begin{itemize}
   \item \textbf{Wkładka}: na dnie pudełka zamocuj płytę z lekkiego i wytrzymałego materiału (plexi, sklejka, włókno węglowe). Elementy mocuj do wkładki śrubami i opaskami zaciskowymi. Rzepem mocuj tylko lekkie elementy, np. pojedyncze czujniki. Uderzenie przy lądowaniu jest bardzo silne. Luźny element może zniszczyć resztę sprzętu, w tym karty pamięci -- a utrata danych to utrata całej misji.
   \item \textbf{Sznurek bezpieczeństwa}: połącz wkładkę z olinowaniem kawałkiem sznurka. Gdy pudełko pęknie, elektronika zostanie przy zestawie.
@@ -202,21 +224,19 @@ Gondola to pudełko styropianowe w standardowym rozmiarze typu eurobox. Pudełka
   \item \textbf{Płyta montażowa na pokrywie} (niemetalowa): zwalniacz serwomechaniczny, mocowanie linek spadochronu w rogach, mocowanie uprzęży.
   \item \textbf{Uprząż}: pas biegnie od płyty montażowej dookoła obu pudełek.
   \item Otwory w pudełku są dopuszczalne (anteny, przewody, czujniki). Zasada: dwa razy mierz, raz tnij. Uszczelnij je po przełożeniu przewodów.
-  \item \textbf{Wodoszczelność}: gondola może wylądować w wodzie. Gotowe pudełka styropianowe zwiększają szansę na szczelność, ale zawsze ją sprawdź: zamkniętą gondolę z obciążeniem do docelowej masy włóż do wanny z wodą. Klejenie jest dozwolone, ale tylko tak, aby spoina była szczelna na całej długości.
+  \item \textbf{Wodoszczelność}: gondola może wylądować w wodzie. Gotowe pudełka styropianowe zwiększają szansę na szczelność, ale zawsze sprawdź ją testem pływalności (podsekcja~\ref{sec:test-plywalnosci}). Klejenie jest dozwolone, ale tylko tak, aby spoina była szczelna na całej długości.
   \item Opisz pudełko markerem: numer telefonu, „Projekt badawczy”, logo (rozdział~\ref{ch:prawo}).
 \end{itemize}
-\end{sekcja}
 
-\begin{sekcja}{Test pływalności i szczelności}
-\foto[0.6\linewidth]{2017_test_plywalnosci_gondoli}{Test pływalności i szczelności klejonej gondoli w wannie (2017). Kartony mleka zastępują docelową masę wyposażenia.}
-Obciąż gondolę do docelowej masy (np. kartonami z wodą albo mlekiem), zamknij ją i połóż w wannie z wodą. Gondola musi pływać, a wnętrze ma zostać suche. Sprawdź szczególnie spoiny klejone i otwory na przewody.
-\end{sekcja}
-
-\begin{sekcja}{Gondola na zdjęciach}
 \foto[0.75\linewidth]{2023_gondola_otwarta}{Gondola platformy otwarta: wkładka (czarna plexi) z elementami mocowanymi śrubami, opaskami i -- dla lekkich elementów -- rzepem. Pokrywa z płytą montażową (niebieska), zwalniaczem i pasami uprzęży.}
 \dwafoto{2023_gondola_bok_anteny}{Anteny wyprowadzone z boku gondoli (sekcja~\ref{sec:anteny}).}
 {2023_gondola_bok_termometr}{Platforma (u góry) i ładunek (u dołu) tej samej szerokości, spięte uprzężą; czujnik temperatury na zewnątrz.}
-\end{sekcja}
+\end{podsekcja}
+
+\begin{podsekcja}{Test pływalności i szczelności}\label{sec:test-plywalnosci}
+\foto[0.6\linewidth]{2017_test_plywalnosci_gondoli}{Test pływalności i szczelności klejonej gondoli w wannie (2017). Kartony mleka zastępują docelową masę wyposażenia.}
+Obciąż gondolę do docelowej masy (np. kartonami z wodą albo mlekiem), zamknij ją i połóż w wannie z wodą. Gondola musi pływać, a wnętrze ma zostać suche. Sprawdź szczególnie spoiny klejone i otwory na przewody.
+\end{podsekcja}
 
 \begin{sekcja}{Gondola ładunku badawczego}
 \begin{itemize}
