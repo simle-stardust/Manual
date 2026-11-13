@@ -19,8 +19,8 @@ Po misji zeskanuj wszystkie formularze i przechowuj skany w wewnętrznej dokumen
 \textbf{Kod} & \textbf{Formularz} & \textbf{Kiedy}\\\midrule
 F0 & Karta misji & cały projekt\\
 F1 & Role w zespole i macierz odpowiedzialności & T$-$16 tyg.\\
-F2 & Planowanie misji & T$-$16 do T$-$4 tyg.\\
 ICD & Kontrola interfejsu platforma--ładunek (dla każdego ładunku) & od T$-$12 tyg. do FRR\\
+F2 & Planowanie misji & T$-$16 do T$-$4 tyg.\\
 F3 & Formalności & T$-$4 do T$-$2 tyg.\\
 F4 & Dziennik predykcji & od T$-$7 dni\\
 F5 & Raport z testów & przed FRR\\
@@ -146,27 +146,6 @@ Raport z misji, wnioski, aktualizacja podręcznika & A & C & C & C & & R & R & C
 \end{landscape}
 
 % ===========================================================================
-\formularz[kierownik misji]{F2}{Planowanie misji}{T$-$16 do T$-$4 tyg.}
-\begin{procedura}
-\etap{Inicjacja}
-\krok{Zapisz cel misji i wymagania ładunku w karcie misji (F0).}{}
-\krok{Wypełnij role w zespole (F1). Przekaż macierz odpowiedzialności całemu zespołowi.}{}
-\krok{Wydziel budżet masy platformy (bezpiecznie: połowa). Uzgodnij z zespołem badawczym interfejs i podpiszcie ICD.}{\pole[2cm]{masa ład. [g]:}}
-\krok{Ustal terminy przeglądów (CDR, FRR) i wpisz je do kalendarza zespołu.}{\pole[2cm]{FRR:}}
-\etap{Sprzęt}
-\krok{Wyjmij sprzęt z szafki. Sprawdź go według wykazu materiałów (rozdział~\ref{ch:materialy}).}{\pole[2cm]{braki:}}
-\krok{Sprawdź datę ważności i stan powłoki (bez pęknięć, bez lepkości).}{}
-\krok{Wypełnij budżet masy (rozdział~\ref{ch:planowanie}). Sprawdź klasę: lekki.}{\pole[2cm]{razem [g]:}}
-\krok{Wejdź na \www{sondehub.org/calc} i oblicz ilość gazu dla \SI{5}{m/s}. Wpisz wyniki do F0.}{\pole[2cm]{gaz [m³]:}}
-\etap{Wstępny plan lotu}
-\krok{Wybierz miejsce zasadnicze (A) i zapasowe (B). Uzyskaj zgodę właścicieli terenu.}{}
-\krok{Wejdź na \www{predict.sondehub.org} i sprawdź typowe trasy dla A i B w tej porze roku.}{}
-\krok{Wybierz znak wywoławczy: klubowy SimLE, członka zespołu albo udostępniony. Uzyskaj zgodę właściciela (rozdział~\ref{ch:prawo}).}{\pole[2cm]{znak:}}
-\end{procedura}
-\komentarze[3]
-\podpisy
-
-% ===========================================================================
 \formularz[opiekun ładunku i operator platformy]{ICD}{Kontrola interfejsu (1/2)}{od T$-$12 tyg. do FRR}
 Wypełnij osobno dla każdego ładunku. Kolumna „zadeklarowane” to kontrakt między zespołem platformy i zespołem badawczym. Kolumnę „rzeczywiste” wypełnij po pomiarze gotowego ładunku, najpóźniej na przeglądzie gotowości (F6). Zmiana wartości zadeklarowanej to nowa wersja ICD (sekcja~\ref{sec:icd}).\par\smallskip
 \renewcommand{\arraystretch}{1.0}
@@ -214,6 +193,27 @@ Dane: format, nośnik, kopia & & & \rosnie\\\hline
 \etykieta[7mm]{Uzgodnił/a -- opiekun ładunku (podpis)} & \etykieta[7mm]{Uzgodnił/a -- operator platformy (podpis)}\\\hline
 \end{tabularx}
 \normalsize
+\podpisy
+
+% ===========================================================================
+\formularz[kierownik misji]{F2}{Planowanie misji}{T$-$16 do T$-$4 tyg.}
+\begin{procedura}
+\etap{Inicjacja}
+\krok{Zapisz cel misji i wymagania ładunku w karcie misji (F0).}{}
+\krok{Wypełnij role w zespole (F1). Przekaż macierz odpowiedzialności całemu zespołowi.}{}
+\krok{Wydziel budżet masy platformy (bezpiecznie: połowa). Uzgodnij z zespołem badawczym interfejs i podpiszcie ICD.}{\pole[2cm]{masa ład. [g]:}}
+\krok{Ustal terminy przeglądów (CDR, FRR) i wpisz je do kalendarza zespołu.}{\pole[2cm]{FRR:}}
+\etap{Sprzęt}
+\krok{Wyjmij sprzęt z szafki. Sprawdź go według wykazu materiałów (rozdział~\ref{ch:materialy}).}{\pole[2cm]{braki:}}
+\krok{Sprawdź datę ważności i stan powłoki (bez pęknięć, bez lepkości).}{}
+\krok{Wypełnij budżet masy (rozdział~\ref{ch:planowanie}). Sprawdź klasę: lekki.}{\pole[2cm]{razem [g]:}}
+\krok{Wejdź na \www{sondehub.org/calc} i oblicz ilość gazu dla \SI{5}{m/s}. Wpisz wyniki do F0.}{\pole[2cm]{gaz [m³]:}}
+\etap{Wstępny plan lotu}
+\krok{Wybierz miejsce zasadnicze (A) i zapasowe (B). Uzyskaj zgodę właścicieli terenu.}{}
+\krok{Wejdź na \www{predict.sondehub.org} i sprawdź typowe trasy dla A i B w tej porze roku.}{}
+\krok{Wybierz znak wywoławczy: klubowy SimLE, członka zespołu albo udostępniony. Uzyskaj zgodę właściciela (rozdział~\ref{ch:prawo}).}{\pole[2cm]{znak:}}
+\end{procedura}
+\komentarze[3]
 \podpisy
 
 % ===========================================================================

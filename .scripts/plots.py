@@ -496,6 +496,38 @@ def mission_2023_08():
           f"descent {dn:.1f} m/s over {t[-1]-t[imax]:.1f} min; below 5.3 km {dl:.1f} m/s; last {alt[-1]:.0f} m")
 
 
+def mission_2022():
+    """Training flight (27.02.2022): altitude vs ground distance and ground track."""
+    tr = read_kml_track(DATA / "2022-02-27_ilawa.kml")
+    d = along_track_km(tr)
+    alt = tr[:, 2] / 1000
+    imax = int(np.argmax(alt))
+    fig, ax = plt.subplots(1, 2, figsize=(7.0, 2.7), gridspec_kw={"width_ratios": [1.4, 1]})
+    ax[0].plot(d, alt, color=ORANGE, lw=1.5)
+    ax[0].plot(d[-1], alt[-1], "o", color=ORANGE, ms=4)
+    ax[0].annotate(f"{alt[imax]:.1f} km", (d[imax], alt[imax]), textcoords="offset points",
+                   xytext=(6, -2), fontsize=8, color=ORANGE)
+    ax[0].set_xlabel("droga przebyta nad ziemią [km]", fontsize=8)
+    ax[0].set_ylabel("wysokość [km]")
+    ax[0].set_title("Profil lotu (tracker)", fontsize=9)
+    ax[0].set_ylim(0, 36)
+    ax[1].plot(tr[:, 0], tr[:, 1], color=ORANGE, lw=1.5)
+    ax[1].plot(tr[0, 0], tr[0, 1], "^", color=NAVY, ms=6, label="start (Iława)")
+    ax[1].plot(tr[-1, 0], tr[-1, 1], "o", color=ORANGE, ms=5, label="ostatni punkt")
+    ax[1].set_xlabel("długość geograficzna [°]", fontsize=8)
+    ax[1].set_ylabel("szerokość geograficzna [°]", fontsize=8)
+    ax[1].set_title("Trasa nad ziemią", fontsize=9)
+    ax[1].set_aspect(1 / np.cos(np.radians(tr[:, 1].mean())))
+    ax[1].legend(fontsize=6.5, frameon=False, loc="best")
+    ax[1].tick_params(labelsize=7)
+    fig.tight_layout()
+    fig.savefig(OUT / "misja_2022.pdf")
+    plt.close(fig)
+    ground = haversine_km(tr[0, 0], tr[0, 1], tr[-1, 0], tr[-1, 1])
+    print(f"2022: max {alt[imax]:.2f} km; along-track {d[-1]:.0f} km; straight {ground:.0f} km; "
+          f"last alt {tr[-1,2]:.0f} m; n={len(tr)}")
+
+
 if __name__ == "__main__":
     parachute_table()
     tb, tl = typical_flight()
@@ -505,6 +537,7 @@ if __name__ == "__main__":
     mission_2018()
     mission_2023()
     mission_2020()
+    mission_2022()
     mission_2023_08()
     full = gas_table()
     print(f"typical flight: burst {tb:.0f} min, landing {tl:.0f} min")
